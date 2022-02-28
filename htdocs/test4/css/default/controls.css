@@ -1,0 +1,198 @@
+/*элементы формы*/
+input[disabled]
+{
+	opacity: 0.5 !important;
+}
+input:focus
+{
+	outline:none;
+}
+input[type="text"]:focus, input[type="password"]:focus, #saf:not([disabled]):hover
+{
+	box-shadow: inset 0 0 5px rosybrown;
+}
+.bases_div input[type=radio], .bases_div input[type=checkbox]
+{  
+    display: none;  
+}
+.bases_div label
+ {  
+    display: inline-block;  
+    cursor: pointer;  
+    padding: 0 0 0 25px;
+	margin: 0 8px 0 8px;  
+	font-size: 80%;
+	font-weight:bold;
+}
+.bases_div label:before
+{  
+    content: "";  
+    position: absolute;  
+    display: inline-block;  
+    width: 16px;  
+    height: 16px;  
+    left: 0;  
+    bottom: 1px;  
+	margin: 0 10px 0 0px; 
+    background: #aaa;  
+    box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);  
+}
+.bases_div input[type=radio] + label:before
+{  
+    border-radius: 8px;  
+}
+.bases_div input[type=checkbox] + label:before
+{  
+    border-radius: 3px;  
+}
+.bases_div input[type=radio]:checked  + label:before
+{  
+    content: "\2022";  
+    color: #f3f3f3;  
+    text-align: center;  
+	font: bold 18pt/14pt Arial, Verdana, Tahoma, Helvetica, sans-serif;
+}
+.bases_div input[type=checkbox]:checked + label:before
+{  
+    content: "\2714";  
+    color: #f3f3f3;  
+    text-align: center;  
+    font: bold 12pt/12pt Arial, Verdana, Tahoma, Helvetica, sans-serif; 
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);  
+}
+.buttoncont .button
+{
+	display:inline-block;
+	padding:5px;
+	width:150px;
+}
+input[type='button']:not([id='sand']):not([id='sor']):not([id='snot']):not([id='saf'])
+{
+	min-width:90px;
+	min-height:34px;
+}
+.middle input[class$='button'], #authority_search .voc
+{
+	margin:0 0 0 10px;
+	float:right;
+}
+.middle .button2
+{
+	width:90px;
+	margin:0 0 0 10px;
+	float:right;
+}
+#sbuttons
+{
+	margin:0 75px 0 0;
+}
+input[type='button']:not([disabled]):hover, [class^='select4']:hover, span.url:hover
+{
+	cursor:pointer;
+	box-shadow: inset 0 0 5px #fff;
+	border:solid 1px #999;
+}
+.baselimits span.input input, .period span.input input
+{
+	border: none;
+	font-size:100%;
+	line-height:150%;
+	color: #333;
+	background: #fcfcfc;
+	width: 100%;
+	height:100%;
+}
+input[class^='stage'], .period input[id^='icdr']
+{
+	border: solid 1px #c0ccd9;
+	box-shadow: 0 0 3px #606f90;
+	height: 29px;
+}
+.period input.date, #butcontainer input.date
+{
+	border: solid 1px #c0ccd9;
+	box-shadow: 0 0 3px #606f90;
+	font-size:100%;
+	line-height:150%;
+	color: #333;
+	background: #fcfcfc;
+	width: 50px;
+	height: 29px;
+	text-align:center;
+	margin: 0 5px 0 0;
+}
+input[type^='password'].stage5
+{
+	margin-right:5px;
+}
+#filters .button2
+{
+	padding: 0 10px 0 10px;
+	font-size:80%;
+}
+#searchhead [class^='button'], [class^='searchhead'] [class^='button'], .fright [class^='button'], .fleft [class^='button']
+{
+	color:#666;
+	font-weight:bold;
+	width:150px;
+}
+#bsecond
+{
+	width:auto !important;
+}
+#searchhead [class^='button'], [class^='searchhead'] [class^='button']
+{
+	font-size:110%;
+}
+.fright [class^='button'], .fleft [class^='button']
+{
+	margin-left:5px;
+}
+/*.fleft [class^='button']
+{
+	margin-top:5px;
+}*/
+.acenter [class^='button']
+{
+	margin-left:5px;
+	width:auto !important;
+	padding-left:5px;
+	padding-right:5px;
+}
+div[class^='border'] textarea
+{
+	display:inline-block;
+	width:100%;
+	max-width: 450px;
+	height: 150px;
+	border: solid 1px #ccc;
+	border-radius:3px;
+	background:#f6f6f6;
+}
+.border1 input[type="text"], .border1 input[type="password"], .border2 input[type="text"]
+{
+	width:100%;
+	max-width: 450px;
+	display:inline-block;
+	height: 30px;
+	font-size:120%;
+	padding: 1px;
+	margin: 0;
+	border: solid 1px #ddd;
+	border-radius:3px;
+	background:#f6f6f6;
+}
+.border1 input.date
+{
+	width: 65px;
+	text-align:center;
+}
+#editq span
+{
+	text-decoration:underline;
+	cursor:pointer;
+}
+#editq i
+{
+	font-weight:normal;
+}

@@ -1,0 +1,68 @@
+/*шапка*/
+#header
+{
+	display:table;
+	width:80%;
+	height:135px;
+	margin:auto;
+}
+#header > div
+{
+	display:table-cell;
+	vertical-align:middle;
+}
+#header > div:last-child
+{
+	text-align:right;
+}
+.top_logo .inner
+{
+	background: url(../img/logo_1.png) 0 center no-repeat;
+	cursor:pointer;
+	width:260px;
+	height:80px;
+}
+/*верхнее меню*/
+.lk
+{
+	margin-bottom:15px;
+}
+.top_menu
+{
+	white-space:nowrap;
+}
+.top_menu, .top_menu li
+{
+	list-style: none;
+	display:inline-block;
+}
+.top_menu li
+{
+	min-height: 27px;
+	padding: 8px 8px 0 8px;
+	transition: all .5s ease-in-out;
+	text-align:center;
+	cursor: pointer;
+}
+.top_menu span
+{
+	display:inline-block;
+	cursor:pointer;
+	font-size:110%;
+	color:#333;
+}
+.top_menu > li:hover span
+{
+	transition: all .5s ease-in-out; 
+	color:#999;
+}
+.lk .top_menu span
+{
+	border:solid 1px #eee;
+	color:#888;
+	height:32px;
+	min-width:75px;
+	font-size:90%;
+	line-height:200%;
+	border-radius:5px;
+}

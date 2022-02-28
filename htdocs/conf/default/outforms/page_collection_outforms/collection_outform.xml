@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<opacOutFormList>
+  <opacOutForm description="Вывод заголовков коллекций" format="RUSMARC" name="COLLWEB" type="BIBL">
+    <buildingParams condition="000::if(pos(%1,7,3)==&quot;c1 &quot; &amp;&amp; pos(%1,18,1)==&quot;x&quot;) &quot;true&quot; else &quot;false&quot; fi;" type="PARSER">
+      <rule value="85641($q[0-/0],$u[0-])::if(up(token(%1,&quot;/&quot;)[0])==&quot;THUMBNAIL&quot;)&quot;[IMG]&quot;+%2+&quot;[/IMG]\n&quot; fi;"/>
+      <rule value="500($3[1-/0])::&quot;[ID]&quot;+%1+&quot;\n&quot;;"/>
+      <rule value="200($a,$e[0-])[1-],210($d)[0-]::%1+if (!empty(%2)) &quot; : &quot;+iser(%2,&quot;, &quot;) fi+&quot;\n&quot;;"/>
+      <rule value="330($a)::&quot;[ANNOTSHORT]&quot; + if(pos(width(%1,300,&quot;@&quot;),299,1)==&quot;@&quot;) %1 else pos(%1,0,300) +&quot; ...&quot; fi +&quot;\n&quot;;"/>
+      <rule value="330($a)::px(&quot;[ANNOTFULL]&quot;,%1,&quot;\n&quot;);"/>
+      <rule value="001, 461[1-]::&quot;[SEEF]&lt;Включает коллекции>{\&quot;area\&quot;:\&quot;iddb\&quot;, \&quot;query\&quot;:\&quot;COL '&quot; + up(%1) + &quot;'\&quot;}&quot; + &quot;\n&quot;;"/>
+    </buildingParams>
+    <buildingParams condition="000::if(pos(%1,7,3)==&quot;c2 &quot; &amp;&amp; pos(%1,18,1)==&quot;x&quot;) &quot;true&quot; else &quot;false&quot; fi;" type="PARSER">
+      <rule value="85641($q[0-/0],$u[0-])::if(up(token(%1,&quot;/&quot;)[0])==&quot;THUMBNAIL&quot;)&quot;[IMG]&quot;+%2+&quot;[/IMG]\n&quot; fi;"/>
+      <rule value="500($3[1-/0])::&quot;[ID]&quot;+%1+&quot;\n&quot;;"/>
+      <rule value="500($a,$e[0-])[1-],210($d)[0-]::%1+if (!empty(%2)) &quot; : &quot;+iser(%2,&quot;, &quot;) fi+&quot;\n&quot;;"/>
+      <rule value="330($a)::&quot;[ANNOTSHORT]&quot; + if(pos(width(%1,300,&quot;@&quot;),299,1)==&quot;@&quot;) %1 else pos(%1,0,300) +&quot; ...&quot; fi +&quot;\n&quot;;"/>
+      <rule value="330($a)::px(&quot;[ANNOTFULL]&quot;,%1,&quot;\n&quot;);"/>
+    </buildingParams>
+  </opacOutForm>
+</opacOutFormList>

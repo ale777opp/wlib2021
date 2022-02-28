@@ -1,0 +1,589 @@
+/*------вывод мероприятий------*/
+::placeholder
+{
+	color:#666 !important;
+	font-style:italic !important;
+	text-overflow:ellipsis !important;
+	font-size:1rem;
+}
+:placeholder
+{
+	color:#666 !important;
+	font-style:italic !important;
+	text-overflow:ellipsis !important;
+	font-size:1rem;
+}
+:-ms-input-placeholder
+{
+	color:#666 !important;
+	font-style:italic !important;
+	text-overflow:ellipsis !important;
+	font-size:1rem;
+}
+::-ms-input-placeholder
+{
+	color:#666 !important;
+	font-style:italic !important;
+	text-overflow:ellipsis !important;
+	font-size:1rem;
+}
+.activities_page
+{
+	width:90%;
+	margin:2rem auto;
+}
+.activities_page h1
+{
+	font-size:2rem;
+	text-transform:uppercase;
+	margin-bottom:2rem;
+}
+.activities_page > .table.w100 > .row > .td
+{
+	vertical-align:top;
+}
+.activities_page > .table.w100 > .row > .td:first-child
+{
+	width:22vw;
+}
+.activities_page .facets
+{
+	margin:0 3vw 0 0;
+	border:solid 1px #ddd;
+	border-radius:0;
+	padding:0;
+	background:#fff;
+}
+.activities_page .facets .title
+{
+	padding: 0.5rem;
+	font-size: 1rem; 
+	background: #ddd;
+	border-radius: 0;
+	cursor: default;
+}
+.activities_page .facets div.table > div span, .activities_page .facets div.table > div i
+{
+	font-size: 0.8rem;
+	line-height: 1.25;
+	text-transform: uppercase;
+	padding: 0.5rem;
+}
+.activities_page .facets div.table > div i
+{
+	display:none;
+}
+.activities_page .facets span.checked
+{
+	color:#c00;	
+}
+.activities_page .facets span.checked:before
+{
+	content: '\2714';
+	display: inline-block;
+	width: 1rem;
+	padding:0;
+}
+#search_events_div
+{
+	background:#fff;
+	border:solid 1px #ddd;
+	position:absolute;
+	top:0;
+	left:0;
+	margin-top: 3.7rem;
+	border-top: none;
+	z-index:3;
+}
+#search_events_div .period_event, #search_events_div .place_event
+{
+	display:table-cell;
+	padding:2rem;
+	width:50%;
+}
+#search_events_div .format_event, #search_events_div .title_event
+{
+	display:table-cell;
+	padding:2rem;
+	width:50%;
+}
+#search_events_div .place_event span, #search_events_div .format_event span, #search_events_div .title_event span
+{
+	display:inline-block;
+	font-size:0.9rem;
+	width:11rem;
+	color:#000;
+	font-variant: small-caps;
+}
+#search_events_div .place_event select, #search_events_div .format_event select, #search_events_div .title_event input[type='text']
+{
+	display: block;
+	width: 100%;
+	height: 3rem;
+	border: solid 1px #ddd;
+	margin-top: 1rem;
+	font-size:0.75rem;
+}
+#search_events_div .period_event span
+{
+	display:inline-block;
+}
+#search_events_div .period_event span.from, #search_events_div .period_event span.to
+{
+	font-size:0.9rem;
+	width:100px;
+	color:#000;
+	font-variant: small-caps;
+}
+#search_events_div .period_event .date
+{
+	margin:0;
+	padding:0;
+	background:#fff;
+	border:none;
+	display:inline-block;
+}
+#search_events_div .period_event .date.d, #search_events_div .period_event .date.m
+{
+	width:1.2rem;
+}
+#search_events_div .period_event .date.y
+{
+	width:2.4rem;
+	margin-right:1.8rem;
+}
+#search_events_div .period_event .calc:before
+{
+	color:#333;
+	font-size:1.2rem;
+}
+.period_event .beg
+{
+	padding-bottom:1rem;
+	border-bottom:solid 1px #ddd;
+	margin-bottom:1rem;
+}
+.period_event .end
+{
+	padding-top:0.5rem;
+}
+#search_events_cont1
+{
+	border-top:solid 1px #ddd;
+}
+.activities_page .bookmarks > div
+{
+	display: inline-block;
+	margin-bottom: -1px;
+	font-size: 1.2rem;
+	background:#fff;
+	cursor:pointer;
+	border: solid 1px #ddd;
+	min-width:100px;
+	text-align:center;
+}
+.activities_page .bookmarks > div[data-title]:hover:before
+{
+	content: '';
+	position: absolute;
+	border-top: 0;
+	border-left: 1rem solid transparent;
+	border-right: 1rem solid transparent;
+	border-bottom: 1rem solid #333;
+	top: 100%;
+	left: 50%;
+	margin-left: -1rem;
+	z-index: 2;
+}
+.activities_page .bookmarks > div[data-title]:hover:after
+{
+	content: attr(data-title);
+	position: absolute;
+	display: inline-block;
+	background: #333;
+	color: #fff;
+	font-size: 0.75rem;
+	font-weight: bold;
+	white-space:nowrap;
+	border-radius: 5px;
+	height: auto;
+	top: 100%;
+	left: 0;
+	line-height: 1.3;
+	margin-top: 1rem;
+	text-align: center;
+	padding: 1rem;
+	z-index: 2;
+}
+.activities_page .bookmarks > div:not(:first-child)
+{
+	margin-left: -2px;
+}
+.activities_page .bookmarks > div[data-aktive='true']
+{
+	color: #c00;
+	background: #fff;
+	border-bottom: solid 1px #fff;
+	z-index: 2;
+	box-shadow: inset 0 10px 0 -5px #c00;
+}
+.activities_page .bookmarks > div > span
+{
+	display:inline-block;
+	height:25px;
+	line-height: 1.3;
+	margin: 1rem;
+}
+.activities_page .bookmarks > div > .search:before
+{
+	content:'\e800';
+	font-family:'fontello';
+}
+.activities_page .bookmarks > div > .dict:before
+{
+	content:'\e80c';
+	font-family:'fontello';
+}
+.activities_page .bookmarks > div > .calc:before, .activities_page .bookmarks > div > .search:before, .activities_page .bookmarks > div > .dict:before
+{
+	font-size:1.2rem;
+	line-height: 1.3;
+}
+.activities_page .bookmarks > div[data-aktive='false'] > .calc:before, .activities_page .bookmarks > div[data-aktive='false'] > .search:before, .activities_page .bookmarks > div[data-aktive='false'] > .dict:before
+{
+	color:#333;
+}
+.activities_page .bookmarks > div[data-aktive='true'] > .calc:before, .activities_page .bookmarks > div[data-aktive='true'] > .search:before, .activities_page .bookmarks > div[data-aktive='true'] > .dict:before
+{
+	color:#c00;
+}
+.activities_page #events_list
+{
+	width:100%;
+	border-top:solid 1px #ddd;
+}
+#events_list > .activity_slid
+{
+	width:20vw;
+	height:20vw;
+	margin-top:1.5vw;
+	margin-bottom:1.5vw;
+	box-shadow:0 0 1px 1px #ddd;
+	display:inline-block;
+	vertical-align:top;
+	background:#fff;
+	cursor:pointer;
+	border-top:solid 1px #ddd;
+}
+#events_list > .activity_slid:nth-child(3n+2)
+{
+	margin-left:3vw;
+	margin-right:3vw;
+}
+#events_list > .activity_slid > .banner
+{
+	display:inline-block;
+	width:100%;
+	height:40%;
+	background-size: cover;
+	background-repeat:no-repeat;
+	background-position:center center;
+}
+#events_list > .activity_slid > .banner > .format
+{
+	display: inline-block;
+	padding: 0.7rem 1rem;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: #c00;
+	color: #fff;
+	width: calc(100% - 2rem);
+	text-align: right;
+	font-size:0.9rem;
+}
+#events_list > .activity_slid > .title
+{
+	font-weight: bold;
+	margin: 0.5rem 1rem 0.5rem 1rem;
+}
+.activity_slid .age
+{
+	display: inline-block;
+	width: 1rem;
+	height: 1rem;
+	border: solid 2px #fff;
+	border-radius: 50%;
+	margin: 0 1rem;
+	position: absolute;
+	top: 1px;
+	left: 0;
+	color: #fff;
+	padding: 0.4rem;
+	font-size: 0.75rem;
+	font-weight: bold;
+}
+#events_list > .activity_slid > .date
+{
+	font-size: 0.8rem;
+	margin: 0 1rem 0.2rem 1rem;
+	color: #666;
+}
+#events_list > .activity_slid > .time
+{
+	font-size: 0.8rem;
+	margin: 0 1rem 0.5rem 1rem;
+	color: #666;
+	font-style: italic;
+}
+#events_list > .activity_slid > .library
+{
+	font-size: 0.7rem;
+	padding: 0 1rem 0.2rem 1rem;
+	margin-left: 1rem;
+	position: absolute;
+	bottom: 0;
+	font-weight: bold;
+}
+#events_list > .activity_slid > .library:before
+{
+	content: '\e834';
+	font-family: 'fontello';
+	position: absolute;
+	top: 1px;
+	left: 0;
+	color: #c00;
+}
+#events_list > .activity_slid > .cost
+{
+	font-size: 0.75rem;
+	padding: 0.5rem 1rem 0.5rem 2rem;
+	margin-left: 1rem;
+}
+#events_list > .activity_slid > .cost:before
+{
+	content: '\f158';
+	font-family: 'fontello';
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: #c00;
+	display: inline-block;
+	width: 0.5rem;
+	height: 0.5rem;
+	padding: 0.5rem;
+	border: solid 1px #c00;
+	border-radius: 50%;
+	text-align: center;
+}
+.controls_div
+{
+	margin: 2rem;
+	border-top:solid 1px #ddd;
+}
+.controls_div [type='button']
+{
+	width: 100px;
+	height: 40px;
+	margin-top:2rem;
+}
+.call_event
+{
+	background:#c00;
+	border:solid 1px #c00;
+	color:#fff;
+	margin-right:1rem;
+}
+.close_layer
+{
+	background:#eee;
+	border:solid 1px #ddd;
+}
+span.gallery
+{
+	display: inline-block;
+	width: 80px;
+	height: 120px;
+	text-align: center;
+	vertical-align: middle;
+	transition: transform 1.2s ease;
+	-webkit-transition: transform 1.2s ease;
+	z-index: 1;
+	background-position: center center;
+	background-size: auto 100%;
+	margin-bottom: 1rem;
+	margin-right:1rem;
+	border: solid 1px #ccc;
+}
+span.gallery:not(:hover)
+{
+	transform: scale(1);
+	-webkit-transform: scale(1);
+}
+span.gallery:hover
+{
+	position: relative;
+	transform: scale(3);
+	-webkit-transform: scale(3);
+	cursor: pointer;
+	z-index: 2;
+	transform-origin:bottom;
+}
+.activity_cont
+{
+	width:96vw;
+	margin:2rem auto;
+	display:table;
+}
+.activity_cont > div
+{
+	display:table-cell;
+	vertical-align:top;
+}
+.desc_cont
+{
+	width:70%;
+	padding:1rem;
+}
+.anons, .post
+{
+	text-indent:2rem;
+	line-height:1.5;
+	text-align:justify;
+}
+.info_cont
+{
+	width:30%;
+	background:#eee;
+	padding:2rem;
+}
+#video_cont, #gallery_cont
+{
+	width:100%;
+	margin-top:2rem;
+}
+.activity_cont .video, .activity_cont .showpost
+{
+	width:30vw;
+	height:20vw;
+	background:#000;
+	display:inline-block;
+	margin:0 2rem 3rem 0;
+	vertical-align:top;
+}
+.activity_cont .showpost figure
+{
+	width:30vw;
+	height:20vw;
+}
+.activity_cont iframe, .activity_cont video, .activity_cont .showpost figure img, .activity_cont .anons figure img
+{
+	width:100%;
+	height:100%;
+	display:inline-block;
+	cursor:default;
+}
+.desc_cont figcaption, .desc_cont a
+{
+	margin:1rem 0 1rem 0;
+	display:block;
+	text-align:left;
+	text-indent:0;
+}
+.info_cont .library
+{
+	line-height: 1.2;
+	margin-bottom: 1rem;
+}
+#coll_title, #cost_title, #loc_title
+{
+	margin: 3rem 0 2rem 0;
+	text-transform: uppercase;
+	color:#c00;
+}
+.info_cont .location
+{
+	margin-bottom: 1rem;
+	padding-left: 2rem;
+}
+.info_cont .location a
+{
+	text-decoration:underline;
+	color:#333;
+	font-size: 0.9rem;
+	line-height: 1.5;
+	display:inline-block;
+}
+.info_cont .location:before
+{
+	content: '\e834';
+	display: inline-block;
+	font-size: 1.5rem;
+	font-family: 'fontello';
+	width: 2rem;
+	height: 2rem;
+	position: absolute;
+	top: 0.5rem;
+	left: 0;
+	color:#c00;
+}
+.info_cont .collection, .info_cont .cost
+{
+	line-height: 1.5;
+	margin-bottom: 1rem;
+	font-size: 0.9rem;
+}
+#infowinform .banner
+{
+	background-repeat: no-repeat;
+	height: 50vh;
+	background-size: 60%;
+	background-position: left center;
+}
+.b_cont
+{
+	position: absolute;
+	width: calc(40% - 4rem);
+	height: calc(100% - 4rem);
+	background: #c00;
+	right: 0;
+	padding: 2rem;
+	color: #fff;
+}
+#infowinform .activity_slid .age
+{
+	margin:0 0 2rem 0;
+	position:relative;
+}
+#infowinform .activity_slid .date
+{
+	font-size: 0.9rem;
+	margin: 0;
+}
+#infowinform .activity_slid .time
+{
+	font-size: 0.8rem;
+	margin: 0.5rem 0 0 0;
+	font-style: italic;
+}
+#infowinform .activity_slid .title
+{
+	margin: 2rem 0 0 0;
+	font-size:2rem;
+}
+#infowinform .activity_slid .format
+{
+	position:absolute;
+	bottom:0;
+	line-height:4;
+}
+#a_error
+{
+	text-align: center;
+	padding: 1.5rem 0 1.5rem 0;
+	background: #c00;
+	color: #fff;
+	font-variant: small-caps;
+}
+
+/*---конец вывод мероприятий---*/

@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<opacOutFormList>
+  <opacOutForm description="Архивное описание" format="RUSMARC" name="ARCHIV" type="BIBL">
+    <buildingParams condition="000,251($c)::if(pos(%1,9,1)==&quot;a&quot; &amp;&amp; up(#2)==&quot;ФОНД&quot;) &quot;true&quot; else &quot;false&quot; fi;" type="PARSER">
+      <rule value="::&quot;[name]Фонд[/name]\n&quot;;"/>
+      <rule value="251($c)::ipx(&quot;&quot;,%1,&quot;: &quot;);"/>
+      <rule value="852($a[0-],$g[0-],$j[0-])[0-], 2001?($a,$j[0-])::&quot;&quot;+up(iser(if(!empty(%2|%3)) ipx(%1,&quot; &quot;,%2|%3) else %1 fi|iser(#2%1|#2%2, &quot;. &quot;),&quot;. &quot;))+&quot;\n&quot;;"/>
+      <rule value="430$12001?($a,$j[0-])::iser(%1+ipx(&quot; (&quot;,%2,&quot;)&quot;),&quot; &quot;)+&quot;\n&quot;;"/>
+      <rule value="251($a)[0-],215($a)[0-],100($a)::ipx(%1,&quot;, &quot;)+ipx(#2%1,&quot;, &quot;)+pos(#3%1,9,4)+&quot;-&quot;+pos(#3%1,13,4)+&quot;\n&quot;;"/>
+      <rule value="{330,345}($a)::ipx(%1,&quot;\n&quot;);"/>
+      <rule value="000, 001, 461[0], 462[0] :: if(pos(%1,7,3)==&quot;c1a&quot;) &quot;[SEEF]&lt;Опись>{\&quot;area\&quot;:\&quot;iddb\&quot;, \&quot;query\&quot;:\&quot;ARCB '&quot; + up(rpl(#2, &quot;\\&quot;, &quot;\\\\\\\\&quot;)) + &quot;'\&quot;}&quot; + &quot;\n&quot; fi;"/>
+      <rule value="000, 461[1], 462$1001[1] :: if(pos(%1,7,3)==&quot;c2a&quot;) &quot;[SEEF]&lt;Опись>{\&quot;area\&quot;:\&quot;iddb\&quot;, \&quot;query\&quot;:\&quot;ID '&quot; + up(rpl(#3, &quot;\\&quot;, &quot;\\\\\\\\&quot;)) + &quot;'\&quot;}&quot; + &quot;\n&quot; fi;"/>
+    </buildingParams>
+    <buildingParams condition="000,251($c)::if(pos(%1,9,1)==&quot;a&quot; &amp;&amp; up(#2)==&quot;ОПИСЬ&quot;) &quot;true&quot; else &quot;false&quot; fi;" type="PARSER">
+      <rule value="::&quot;[name]Опись[/name]\n&quot;;"/>
+      <rule value="::&quot;Фонд: &quot;;"/>
+      <rule value="461(852($a[0-],$g[0-],$j[0-])[0-], 200($a,$j[0-]),001[0-])::up(iser(if(!empty(%2|%3)) ipx(%1,&quot; &quot;,%2|%3) else %1 fi|iser(#2%1|#2%2, &quot;. &quot;),&quot;. &quot;))+&quot;&quot;+if (!empty(#3)) &quot;[ind]&quot;+#3+&quot;[/ind]&quot; fi;"/>
+      <rule value="::&quot;\n&quot;;"/>
+      <rule value="251($c)::ipx(&quot;&quot;,%1,&quot;: &quot;);"/>
+      <rule value="852($a[0-],$j[0-])[0-],461$1852($g[0-],$j[0-])[0-]::ipx(%1,&quot; &quot;)+ipx(#2%1+#2%2,&quot; &quot;)+ipx(&quot;Оп.&quot;,%2)+&quot;\n&quot;;"/>
+      <rule value="461(852($a[0-],$g[0-],$j[0-])[0-], 200($v[0-])[0-])[0-], 852($g[0-],$j[0-])[0-]::if(!empty(%2|%3)) ipx(%1,&quot; &quot;,%2|%3) else %1 fi + if(!empty(#3%1|#3%2)) ipx(&quot; Оп. &quot;,#3%1|#3%2) else ipx(&quot; &quot;,#2) fi;"/>
+      <rule value=":: &quot;\n&quot;;"/>
+      <rule value="461$1200($v[0-])[0-], 200($a,$j[0-]):: iser(uniq(%1|#2%1|#2%2,&quot;true&quot;), &quot;. &quot;);"/>
+      <rule value=":: &quot;\n&quot;;"/>
+      <rule value="215($a)[0-],100($a)::ipx(%1,&quot;, &quot;)+pos(#2%1,9,4)+&quot;-&quot;+pos(#2%1,13,4) +&quot;\n&quot;;"/>
+      <rule value="327($a)::ipx(%1,&quot;\n&quot;);"/>
+      <rule value="000, 001, 461[0], 462[0] :: if(pos(%1,7,3)==&quot;c1a&quot;) &quot;[SEEF]&lt;Дело>{\&quot;area\&quot;:\&quot;iddb\&quot;, \&quot;query\&quot;:\&quot;ARCM '&quot; + rpl(#2, &quot;\\&quot;, &quot;\\\\\\\\&quot;) + &quot;'\&quot;}&quot; + &quot;\n&quot; fi;"/>
+      <rule value="000, 001, 461[1], 462[0] :: if(pos(%1,7,3)==&quot;c2a&quot;) &quot;[SEEF]&lt;Дело>{\&quot;area\&quot;:\&quot;iddb\&quot;, \&quot;query\&quot;:\&quot;ARCM '&quot; + rpl(#2, &quot;\\&quot;, &quot;\\\\\\\\&quot;) + &quot;'\&quot;}&quot; + &quot;\n&quot; fi;"/>
+    </buildingParams>
+    <buildingParams condition="000,251($c)::if(pos(%1,9,1)==&quot;a&quot; &amp;&amp; up(#2)==&quot;ДЕЛО&quot;) &quot;true&quot; else &quot;false&quot; fi;" type="PARSER">
+      <rule value="::&quot;[name]Дело[/name]\n&quot;;"/>
+      <rule value="::&quot;Фонд: &quot;;"/>
+      <rule value="461(852($a[0-],$g[0-],$j[0-])[0-], 200($a,$j[0-]),001[0-])::up(iser(if(!empty(%2|%3)) ipx(%1,&quot; &quot;,%2|%3) else %1 fi|iser(#2%1|#2%2, &quot;. &quot;),&quot;. &quot;))+&quot;&quot;+if (!empty(#3)) &quot;[ind]&quot;+#3+&quot;[/ind]&quot; fi;"/>
+      <rule value="::&quot;\n Опись: &quot;;"/>
+      <rule value="462(852($a)[0-])[/0],461(852($a[0-],$g[0-],$j[0-]))[0-]::up(if(!empty(#2%2|#2%3)) ipx(%1,&quot; &quot;,#2%2|#2%3) else %1 fi);"/>
+      <rule value="462(852($j[0-])[0-], 200($a[0-],$j[0-]))[/0]::ipx(&quot; Оп.&quot;,%1,&quot;. &quot;)+iser(#2%1|#2%2, &quot;. &quot;);"/>
+      <rule value="462(001[0-])[/0]::if (!empty(%1)) &quot;[ind]&quot;+%1+&quot;[/ind]&quot; fi;"/>
+      <rule value="::&quot;\n&quot;;"/>
+      <rule value="251($c)::ipx(&quot;&quot;,%1,&quot;: &quot;);"/>
+      <rule value="461$1852($a[0-],$g[0-],$j[0-])[0-], 462(852($g[0-],$j[0-])[0-], 200($v[0-])[0-])[0-], 852($g[0-],$j[0-])[0-]::if(!empty(%2|%3)) ipx(%1,&quot; &quot;,%2|%3) else %1 fi+ipx(&quot; Оп. &quot;,#2%1|#2%2)+if(!empty(#4%1|#4%2)) ipx(&quot; Д. &quot;,#4%1|#4%2) else ipx(&quot; &quot;,#3) fi;"/>
+      <rule value=":: &quot;\n&quot;;"/>
+      <rule value="2001?($a,$j[0-])::iser(%1|%2, &quot;. &quot;);"/>
+      <rule value=":: &quot;\n&quot;;"/>
+      <rule value="215($a)[0-],200($j)[0-]::ipx(%1,&quot;, &quot;,#2%1)+&quot;\n&quot;;"/>
+      <rule value="327($a)::ipx(%1,&quot;\n&quot;);"/>
+      <rule value="000, 001, 461[0], 462[0] :: if(pos(%1,7,3)==&quot;c1a&quot;) &quot;[SEEF]&lt;Документ>{\&quot;area\&quot;:\&quot;iddb\&quot;, \&quot;query\&quot;:\&quot;ARCE '&quot; + rpl(#2, &quot;\\&quot;, &quot;\\\\\\\\&quot;) + &quot;'\&quot;}&quot; + &quot;\n&quot; fi;"/>
+      <rule value="000, 001, 461[1], 462[0-] :: if(pos(%1,7,3)==&quot;c2a&quot;) &quot;[SEEF]&lt;Документ>{\&quot;area\&quot;:\&quot;iddb\&quot;, \&quot;query\&quot;:\&quot;ARCE '&quot; + rpl(#2, &quot;\\&quot;, &quot;\\\\\\\\&quot;) + &quot;'\&quot;}&quot; + &quot;\n&quot; fi;"/>
+    </buildingParams>
+    <buildingParams condition="000,251($c)::if(pos(%1,9,1)==&quot;a&quot; &amp;&amp; up(#2)==&quot;ДОКУМЕНТ&quot;) &quot;true&quot; else &quot;false&quot; fi;" type="METAPARSER">
+      <rule value="vivod::&quot;[name]Документ[/name]\n&quot;;"/>
+      <rule value="vivod(|)::&quot;Фонд: &quot;;"/>
+      <rule value="vivod(|):461(852($a[0-],$g[0-],$j[0-])[0-], 200($a,$j[0-]),001[0-]):up(iser(if(!empty(%2|%3)) ipx(%1,&quot; &quot;,%2|%3) else %1 fi|iser(#2%1|#2%2, &quot;. &quot;),&quot;. &quot;))+&quot;&quot;+if (!empty(#3)) &quot;[ind]&quot;+#3+&quot;[/ind]&quot; fi;"/>
+      <rule value="vivod(|)::&quot;\n Опись: &quot;;"/>
+      <rule value="vivod(|):462(852($a[0-])[0-])[/0],461(852($a[0-],$g[0-],$j[0-]))[0-]:up(if(!empty(#2%2|#2%3)) ipx(%1,&quot; &quot;,#2%2|#2%3) else %1 fi);"/>
+      <rule value="vivod(|):462(852($j[0-])[0-], 200($a[0-],$j[0-]))[/0]:ipx(&quot; Оп.&quot;,%1,&quot;. &quot;)+iser(#2%1|#2%2, &quot;. &quot;);"/>
+      <rule value="vivod(|):462(001[0-])[/0]:if (!empty(%1)) &quot;[ind]&quot;+%1+&quot;[/ind]&quot; fi;"/>
+      <rule value="vivod(|)::&quot;\n Дело: &quot;;"/>
+      <rule value="vivod(|):462(852($a[0-]))[/1],461(852($a[0-],$g[0-],$j[0-]))[0-]:up(if(!empty(#2%2|#2%3)) ipx(%1,&quot; &quot;,#2%2|#2%3) else %1 fi);"/>
+      <rule value="dnum:462(852($j[0-]))[/1],462(852($j[0-]))[/0]:ipx(&quot; Оп.&quot;,#2%1,&quot;.&quot;)+ipx(&quot; Д.&quot;,%1,&quot;.&quot;);"/>
+      <rule value="dname:462(200($a[0-],$j[0-]))[/1]:iser(%1|%2, &quot;. &quot;);"/>
+      <rule value="vivod(|):: if (!empty(#dnum)) #dnum else #dname fi;"/>
+      <rule value="vivod(|):462(001[0-])[/1]:if (!empty(%1)) &quot;[ind]&quot;+%1+&quot;[/ind]&quot; fi;"/>
+      <rule value="vivod(|)::&quot;\n&quot;;"/>
+      <rule value="vivod(|):251($c):ipx(&quot;&quot;,%1,&quot;: &quot;);"/>
+      <rule value="fond:461$1852($a[0-],$g[0-],$j[0-])[0-]:if(!empty(%2|%3)) ipx(%1,&quot; &quot;,%2|%3) else %1 fi;"/>
+      <rule value="opis:462(852($j[0-]))[0-/0]:ipx(&quot; Оп. &quot;,%1);"/>
+      <rule value="delo:462(852($j[0-]))[0-/1]:ipx(&quot; Д. &quot;,%1);"/>
+      <rule value="doc:852($j[0-])[0-/0], 462$1200($v)[0-]:if(!empty(%1)) ipx(&quot; Док. &quot;,%1) else ipx(&quot; Док. &quot;,#2) fi;"/>
+      <rule value="vivod(|)::#fond+#opis+#delo+#doc+&quot;\n&quot;;"/>
+      <rule value="vivod(|):2001?($a,$j[0-]): iser(%1|%2,&quot;. &quot;)+&quot;\n&quot;;"/>
+      <rule value="vivod(|):462$1200($v)[0-],200($j)[0-]:ipx(%1,&quot;, &quot;,#2%1)+&quot;\n&quot;;"/>
+      <rule value="vivod(|):{316,330}($a):ipx(%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|):85640($u[1-],$2[0-]):&quot;[URL]&quot;+ if (!empty(%2))&quot;&lt;&quot;+%2+&quot;>&quot; else &quot;&lt;Документ>&quot; fi+%1+&quot;\n&quot;;"/>
+      <rule value="::#vivod;"/>
+    </buildingParams>
+  </opacOutForm>
+  <opacOutForm description="Коллекции и подборки" format="RUSMARC" name="COLLECTION" type="BIBL">
+    <buildingParams condition="000::if(pos(%1,7,3)==&quot;c1 &quot; &amp;&amp; pos(%1,18,1)==&quot;x&quot;) &quot;true&quot; else &quot;false&quot; fi;" type="METAPARSER">
+      <rule value="name::&quot;[name]Коллекция[/name]\n&quot;;"/>
+      <rule value="title(|):500($a,$l[0-])[1-]:%1+if (!empty(%2)) &quot; (&quot;+iser(%2,&quot;, &quot;)+&quot; )&quot; fi+&quot;\n&quot;;"/>
+      <rule value="title(|):200($a,$l[0-])[1-]:if (empty(#title)) %1+if (!empty(%2)) &quot; (&quot;+iser(%2,&quot;, &quot;)+&quot; )&quot; fi+&quot;\n&quot; fi;"/>
+      <rule value="over(|):710($a,$b[0-]), 210($d)[0-]:%1+if (!empty(%2)) &quot; (&quot;+%2+&quot;) &quot; fi + px(&quot;, &quot;,#2) + &quot;\n&quot;;"/>
+      <rule value="over(|):327#1($b) : px(&quot;[quote]&quot;, %1,&quot;[/quote]\n&quot;);"/>
+      <rule value="over(|):330($a):%1+&quot;\n&quot;;"/>
+      <rule value="include(|):001:&quot;[SEEF]&lt;Включает: >{\&quot;area\&quot;:\&quot;iddb\&quot;, \&quot;query\&quot;:\&quot;COL '&quot; + up(rpl(%1, &quot;\\&quot;, &quot;\\\\\\\\&quot;)) + &quot;'\&quot;}&quot; + &quot;\n&quot;;"/>
+      <rule value="see(|):856($u):&quot;[URL]&lt;См. >&quot;+%1+&quot;\n&quot;;"/>
+      <rule value="::#name+#title+#over+#include+#see;"/>
+    </buildingParams>
+    <buildingParams condition="000::if(pos(%1,7,3)==&quot;c2 &quot; &amp;&amp; pos(%1,18,1)==&quot;x&quot;) &quot;true&quot; else &quot;false&quot; fi;" type="METAPARSER">
+      <rule value="name::&quot;[name]Подколлекция[/name]\n&quot;;"/>
+      <rule value="title(|):500($a,$l[0-])[1-]:%1+if (!empty(%2)) &quot; (&quot;+iser(%2,&quot;, &quot;)+&quot; )&quot; fi+&quot;\n&quot;;"/>
+      <rule value="title(|):200($a,$l[0-])[1-]:if (empty(#title)) %1+if (!empty(%2)) &quot; (&quot;+iser(%2,&quot;, &quot;)+&quot; )&quot; fi+&quot;\n&quot; fi;"/>
+      <rule value="over(|):710($a,$b[0-])[0-], 210($d)[0-] : %1+if (!empty(%2)) &quot; (&quot;+%2+&quot;) &quot; fi + px(&quot;, &quot;,#2) + &quot;\n&quot;;"/>
+      <rule value="over(|):327#1($b) : px(&quot;[quote]&quot;, %1,&quot;[/quote]\n&quot;);"/>
+      <rule value="over(|):330($a):%1+&quot;\n&quot;;"/>
+      <rule value="entersin(|):{461,462}(200($a),001[0-]):up(iser(%1,&quot;, &quot;))+ &quot;[ind]&quot;+#2+&quot;[/ind]&quot;+&quot;\n&quot; ;"/>
+      <rule value="include(|):001:&quot;[SEEF]&lt;Включает: >{\&quot;area\&quot;:\&quot;iddb\&quot;, \&quot;query\&quot;:\&quot;COL '&quot; + up(rpl(%1, &quot;\\&quot;, &quot;\\\\\\\\&quot;)) + &quot;'\&quot;}&quot; + &quot;\n&quot;;"/>
+      <rule value="see(|):856($u):&quot;[URL]&lt;См. >&quot;+%1+&quot;\n&quot;;"/>
+      <rule value="::#name+#title+if (!empty(#entersin)) #entersin fi+#over+#include+#see;"/>
+    </buildingParams>
+  </opacOutForm>
+  <opacOutForm description="Полный формат для архивных материалов" format="RUSMARC" name="FULLFRMARC" type="BIBL">
+    <buildingParams condition="000,251($c)::if(pos(%1,9,1)==&quot;a&quot; &amp;&amp; up(#2)==&quot;ФОНД&quot;) &quot;true&quot; else &quot;false&quot; fi;" type="METAPARSER">
+      <rule value="vivod:251($c):ipx(&quot;[b]&quot;,%1,&quot; [/b]\n&quot;);"/>
+      <rule value="vivod(|):001:ipx(&quot;&lt;Идентификатор> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|):101($a):ipx(&quot;&lt;Язык текста> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|):200($a):ipx(&quot;&lt;Название> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|):200($j):ipx(&quot;&lt;Даты> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|):215($a):px(&quot;&lt;Объем> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|):251($a):ipx(&quot;&lt;Организация> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|):251($c):ipx(&quot;&lt;Уровень> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="summary:330($a):ipx(%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|):: if (!empty(#summary)) &quot;&lt;Аннотация> &quot;+#summary fi;"/>
+      <rule value="entrance:345($a):ipx(%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|):: if (!empty(#entrance)) &quot;&lt;Источник поступления> &quot;+#entrance fi;"/>
+      <rule value="renaming:430$1200($a,$j[0-]):ipx(iser(%1|%2, &quot;. &quot;),&quot;\n&quot;);"/>
+      <rule value="vivod(|)::if (!empty(#renaming)) &quot;&lt;Переименования> &quot;+#renaming fi;"/>
+      <rule value="vivod(|):000, 001, 461[0], 462[0]:if(pos(%1,7,3)==&quot;c1a&quot;) &quot;[SEEF] &lt;Опись>{\&quot;area\&quot;:\&quot;iddb\&quot;, \&quot;query\&quot;:\&quot;ARCB '&quot; + rpl(#2, &quot;\\&quot;, &quot;\\\\\\\\&quot;) + &quot;'\&quot;}&quot; + &quot;\n&quot; fi;"/>
+      <rule value="vivod(|):000, 461[1], 462$1001[1]:if(pos(%1,7,3)==&quot;c2a&quot;) &quot;[SEEF] &lt;Опись>{\&quot;area\&quot;:\&quot;iddb\&quot;, \&quot;query\&quot;:\&quot;ID '&quot; + rpl(#3, &quot;\\&quot;, &quot;\\\\\\\\&quot;) + &quot;'\&quot;}&quot; + &quot;\n&quot; fi;"/>
+      <rule value="rubricator:615($a,$x[0-]):%1+if (!empty(%2)) ipx(&quot; -- &quot;,%2) fi+&quot;\n&quot;;"/>
+      <rule value="vivod(|)::if (!empty(#rubricator)) &quot;&lt;Рубрикатор> &quot;+#rubricator fi;"/>
+      <rule value="vivod(|):710($a,$b[0-]):ipx(&quot;&lt;Фондообразователь> &quot;,%1)+ipx(&quot;. &quot;,%2)+&quot;\n&quot;;"/>
+      <rule value="vivod(|):801?0($b):ipx(&quot;&lt;Организация-создатель записи> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|):852($a,$g[0-],$j[0-]):&quot;&lt;Шифр хранения> &quot;+if(!empty(%2|%3)) ipx(%1,&quot;. &quot;,%2|%3) else %1 fi+&quot;\n&quot;;"/>
+      <rule value="::#vivod;"/>
+    </buildingParams>
+    <buildingParams condition="000,251($c)::if(pos(%1,9,1)==&quot;a&quot; &amp;&amp; up(#2)==&quot;ОПИСЬ&quot;) &quot;true&quot; else &quot;false&quot; fi;" type="METAPARSER">
+      <rule value="vivod:251($c):ipx(&quot;[b]&quot;,%1,&quot; [/b]\n&quot;);"/>
+      <rule value="vivod(|):001:ipx(&quot;&lt;Идентификатор> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|):101($a):ipx(&quot;&lt;Язык текста> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|):200($a),461$1200($v)[0-]:&quot;&lt;Название> &quot;+ipx(#2%1,&quot;. &quot;)+%1+&quot;\n&quot;;"/>
+      <rule value="vivod(|):200($j):ipx(&quot;&lt;Даты> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|):215($a):px(&quot;&lt;Объем> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|):251($a):ipx(&quot;&lt;Организация> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|):251($c):ipx(&quot;&lt;Уровень> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="content:327($a):ipx(%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|)::if (!empty(#content)) &quot;&lt;Содержание> &quot;+#content fi;"/>
+      <rule value="tcont:327($b):ipx(%1,&quot;\n&quot;);"/>
+      <rule value="tcont(|):327($c):ipx(iser(%1,&quot;. &quot;),&quot;\n&quot;);"/>
+      <rule value="vivod(|)::if (!empty(#tcont)) &quot;&lt;Оглавление описи> &quot;+#tcont fi;"/>
+      <rule value="vivod(|):461$1200($a,$j[0-]):ipx(&quot;&lt;Фонд> &quot;,iser(%1|%2, &quot;. &quot;),&quot;\n&quot;);"/>
+      <rule value="vivod(|):710($a,$b[0-]):ipx(&quot;&lt;Фондообразователь> &quot;,%1)+ipx(&quot;. &quot;,%2)+&quot;\n&quot;;"/>
+      <rule value="vivod(|):801?0($b):ipx(&quot;&lt;Организация-создатель записи> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|):852($a,$j[0-]),461$1852($g[0-],$j[0-]):&quot;&lt;Шифр хранения> &quot;+if(!empty(#2%1|#2%2)) ipx(%1,&quot;. &quot;,#2%1|#2%2) else %1 fi+ipx(&quot; / &quot;,%2)+&quot;\n&quot;;"/>
+      <rule value="::#vivod;"/>
+    </buildingParams>
+    <buildingParams condition="000,251($c)::if(pos(%1,9,1)==&quot;a&quot; &amp;&amp; up(#2)==&quot;ДЕЛО&quot;) &quot;true&quot; else &quot;false&quot; fi;" type="METAPARSER">
+      <rule value="vivod:251($c):ipx(&quot;[b]&quot;,%1,&quot; [/b]\n&quot;);"/>
+      <rule value="vivod(|):001:ipx(&quot;&lt;Идентификатор> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|):101($a):ipx(&quot;&lt;Язык текста> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|):200($a),462$1200($v)[0-]:&quot;&lt;Название> &quot;+ipx(#2%1,&quot;. &quot;)+%1+&quot;\n&quot;;"/>
+      <rule value="vivod(|):200($j):ipx(&quot;&lt;Даты> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|):215($a):px(&quot;&lt;Объем> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|):251($c):ipx(&quot;&lt;Уровень> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="content:327($a):ipx(%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|)::if (!empty(#content)) &quot;&lt;Содержание> &quot;+#content fi;"/>
+      <rule value="vivod(|):461$1200($a,$j[0-]):ipx(&quot;&lt;Фонд> &quot;,iser(%1|%2, &quot;. &quot;),&quot;\n&quot;);"/>
+      <rule value="vivod(|):462$1200($a,$j[0-]):ipx(&quot;&lt;Опись> &quot;,iser(%1|%2, &quot;. &quot;),&quot;\n&quot;);"/>
+      <rule value="section:545($a,$i[0-]):ipx(iser(%1|%2, &quot; - &quot;),&quot;\n&quot;);"/>
+      <rule value="vivod(|)::if (!empty(#section)) &quot;&lt;Раздел описи> &quot;+#section fi;"/>
+      <rule value="vivod(|):710($a,$b[0-]):ipx(&quot;&lt;Фондообразователь> &quot;,%1)+ipx(&quot;. &quot;,%2)+&quot;\n&quot;;"/>
+      <rule value="vivod(|):801?0($b):ipx(&quot;&lt;Организация-создатель записи> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|):852($a,$j[0-]),461$1852($g[0-],$j[0-]),462$1852($j)[/0]:&quot;&lt;Шифр хранения> &quot;+if(!empty(#2%1|#2%2)) ipx(%1,&quot;. &quot;,#2%1|#2%2) else %1 fi+ipx(&quot; / &quot;,#3%1)+ipx(&quot; / &quot;,%2)+&quot;\n&quot;;"/>
+      <rule value="::#vivod;"/>
+    </buildingParams>
+    <buildingParams condition="000,251($c)::if(pos(%1,9,1)==&quot;a&quot; &amp;&amp; up(#2)==&quot;ДОКУМЕНТ&quot;) &quot;true&quot; else &quot;false&quot; fi;" type="METAPARSER">
+      <rule value="vivod:251($c):ipx(&quot;[b]&quot;,%1,&quot; [/b]\n&quot;);"/>
+      <rule value="vivod(|):001:ipx(&quot;&lt;Идентификатор> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|):101($a):ipx(&quot;&lt;Язык текста> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|):200($a),462$1200($v)[0-/1]:&quot;&lt;Название> &quot;+ipx(#2%1,&quot;. &quot;)+%1+&quot;\n&quot;;"/>
+      <rule value="vivod(|):200($j):ipx(&quot;&lt;Даты> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|):251($c):ipx(&quot;&lt;Уровень> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="feature:316($a):ipx(%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|)::if (!empty(#feature)) &quot;&lt;Особенности экземпляра> &quot;+#feature fi;"/>
+      <rule value="summary:330($a):ipx(%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|)::if (!empty(#summary)) &quot;&lt;Аннотация> &quot;+#summary fi;"/>
+      <rule value="vivod(|):461$1200($a,$j[0-]):ipx(&quot;&lt;Фонд> &quot;,iser(%1|%2, &quot;. &quot;),&quot;\n&quot;);"/>
+      <rule value="vivod(|):462$1200($a,$j[0-])[/0]:ipx(&quot;&lt;Опись> &quot;,iser(%1|%2, &quot;. &quot;),&quot;\n&quot;);"/>
+      <rule value="vivod(|):462$1200($a,$j[0-])[/1]:ipx(&quot;&lt;Дело> &quot;,iser(%1|%2, &quot;. &quot;),&quot;\n&quot;);"/>
+      <rule value="place:620($h[0-],$f[0-]):ipx(iser(%1|%2,&quot;. &quot;),&quot;\n&quot;);"/>
+      <rule value="vivod(|)::if (!empty(#place)) &quot;&lt;Место и дата> &quot;+#place fi;"/>
+      <rule value="vivod(|):710($a,$b[0-]):ipx(&quot;&lt;Фондообразователь> &quot;,%1)+ipx(&quot;. &quot;,%2)+&quot;\n&quot;;"/>
+      <rule value="vivod(|):801?0($b):ipx(&quot;&lt;Организация-создатель записи> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|):852($a,$j[0-]),461$1852($g[0-],$j[0-]),462$1852($j)[/0],462$1852($j)[/1]:&quot;&lt;Шифр хранения> &quot;+if(!empty(#2%1|#2%2)) ipx(%1,&quot;. &quot;,#2%1|#2%2) else %1 fi+ipx(&quot; / &quot;,#3%1)+ipx(&quot; / &quot;,#4%1)+ipx(&quot; / &quot;,%2)+&quot;\n&quot;;"/>
+      <rule value="::#vivod;"/>
+    </buildingParams>
+    <buildingParams condition="000::if((pos(%1,7,3)==&quot;c1 &quot; || pos(%1,7,3)==&quot;c2 &quot;) &amp;&amp; pos(%1,18,1)==&quot;x&quot;) &quot;true&quot; else &quot;false&quot; fi;" type="METAPARSER">
+      <rule value="vivod(|):001:ipx(&quot;&lt;Идентификатор> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|):000:ipx(&quot;&lt;Тип ресурсов> &quot;,pos(%1,6,1),&quot;\n&quot;);"/>
+      <rule value="vivod(|):101($a):ipx(&quot;&lt;Язык текста> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|):200($a):&quot;&lt;Название> &quot;+%1+&quot;\n&quot;;"/>
+      <rule value="vivod(|):210($d):ipx(&quot;&lt;Даты создания> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|):215($a):ipx(&quot;&lt;Объем> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="vivod(|):330($a):ipx(&quot;&lt;Аннотация> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="contents(|):327?1($b,$c[0-]):%1+iser(&quot;--&quot;,%2)+&quot;\n&quot;;"/>
+      <rule value="othernames(|):{501,503,506,507,509,51?,520,53?,54?,560}[1-/0]:&quot;&lt;Другие названия> &quot;;"/>
+      <rule value="othernames(|):{501,503,506,507,509,51?,520,53?,54?,560}($a):%1+&quot;\n&quot;;"/>
+      <rule value="rights(|):{371,333}[1-/0]:&quot;&lt;Права> &quot;;"/>
+      <rule value="rights(|):{371,333}($a)[1-]:%1+&quot;\n&quot;;"/>
+      <rule value="author:710($a):ipx(&quot;&lt;Автор> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="subject(|):60?($a)[1-]:%1+&quot;\n&quot;;"/>
+      <rule value="place(|):{620,621}($a,$e[0-],$k[0-],$o[0-]):%1+ipx(&quot;-&quot;,%2)+ipx(&quot;, &quot;,%3)+ipx(&quot;-&quot;,%4)+&quot;\n&quot;;"/>
+      <rule value="period(|):122($a):%1+&quot;\n&quot;;"/>
+      <rule value="period(|):{620,621}($f,$i[0-]):%1+ipx(&quot;, &quot;,%2)+&quot;\n&quot;;"/>
+      <rule value="class(|):686[1-/0]:&quot;&lt;Классификационные индексы> &quot;;"/>
+      <rule value="class(|):686($a):%1+&quot;\n&quot;;"/>
+      <rule value="sigla(|):801?0($b):ipx(&quot;&lt;Организация-создатель записи> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="::#vivod+if (!empty(#contents)) &quot;&lt;Оглавление> &quot;+#contents fi+#othernames+#rights+#author+if (!empty(#subject)) &quot;&lt;Тематика> &quot;+#subject fi+if (!empty(#place)) &quot;&lt;Место (содержание)> &quot;+#place fi+if (!empty(#period)) &quot;&lt;Место (содержание)> &quot;+#period fi+#class+#sigla;"/>
+    </buildingParams>
+    <buildingParams condition="000::pos(#1,7,1)==&quot;m&quot; || pos(#1,7,1)==&quot;9&quot; || pos(#1,7,1)==&quot;c&quot;;" type="PARSER">
+      <rule value="899($l)::px(&quot;&lt;Полочный шифp:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="899($i)::px(&quot;&lt;Авторский знак:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="215($d)::px(&quot;&lt;Формат:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="899($x)::px(&quot;&lt;Инвентарный номер:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="899($p)::px(&quot;&lt;Код:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="700($a,$b[0-])::px(px(&quot;&lt;Автор:> &quot;,%1[0])+px(&quot; &quot;,%2),&quot;\n&quot;);"/>
+      <rule value="701($a,$b[0-])::px(px(&quot;&lt;Др. Авторы:> &quot;,%1[0])+px(&quot; &quot;,%2),&quot;\n&quot;);"/>
+      <rule value="710($a)::px(&quot;&lt;Организация/юрисдик. (Коллективный автор):> &quot;,%1[0],&quot;\n&quot;);"/>
+      <rule value="200($a)::px(&quot;&lt;Основное заглавие:> &quot;,%1[0],&quot;\n&quot;);"/>
+      <rule value="200($e)::px(&quot;&lt;Сведения, относящ. к заглавию:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="200($f)::px(&quot;&lt;Ответственность:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="200($g)::px(&quot;&lt;Последующие сведения об ответственности:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="200($h)::px(&quot;&lt;Номер части:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="200($d)::px(&quot;&lt;Параллельное заглавие:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="200($i)::px(&quot;&lt;Наименование части:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="205($a)::px(&quot;&lt;Осн. свед.об издании:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="205($b)::px(&quot;&lt;Доп. свед.об издании:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="210($a)::px(&quot;&lt;Место издания:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="210($c)::px(&quot;&lt;Издательство:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="210($d)::px(&quot;&lt;Дата издания:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="215($a)::px(&quot;&lt;Объем:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="225($a)::px(&quot;&lt;Основное заглавие серии:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="225($h)::px(&quot;&lt;Номер части:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="225($i)::px(&quot;&lt;Наименование части:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="225($v)::px(&quot;&lt;N тома:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="300($a)::px(&quot;&lt;Пpимечание:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="320($a)::px(&quot;&lt;Библиография:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="330($a)::px(&quot;&lt;Аннотация:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="541($a)::px(&quot;&lt;Перевод заглавия, сделанный каталогизатором:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="600($a)::px(&quot;&lt;Имя лица как предмет (Персоналия):> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="606($a,$x,$y,$z)::px(px(&quot;&lt;Наименование темы как предмет:> &quot;,%1)+px(&quot;&lt;   тематический подзаголовок: >&quot;,%2)+px(&quot;&lt;   географический подзаголовок: >&quot;,%3)+px(&quot;&lt;   хронолог. подзаголовок: >&quot;,%4),&quot;\n&quot;);"/>
+      <rule value="607($a)::px(&quot;&lt;Географич. наименование (Гео. подрубрика):> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="610($a)::px(&quot;&lt;Ключевые слова:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="686($2,$a)::if (up(%1[0])!=&quot;IBIS&quot; &amp;&amp; up(%1[0])!=&quot;MESH&quot;) px(&quot;&quot;,%2+px(&quot; - &quot;,%1),&quot;\n&quot;) fi;"/>
+      <rule value="010($a)::px(&quot;&lt;ISBN:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="101($a)::px(&quot;&lt;Язык текста:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="101($c)::px(&quot;&lt;Язык оригинала:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="801($b)::px(&quot;&lt;Организация службы первич.каталогизации:> &quot;,%1,&quot;\n&quot;);"/>
+    </buildingParams>
+    <buildingParams condition="000::pos(#1,7,1)==&quot;s&quot;;" type="PARSER">
+      <rule value="011($a)::px(&quot;&lt;ISSN:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="200($a)::px(&quot;&lt;Название журнала:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="200($h)::px(&quot;&lt;Номера, части, выпуски:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="210($a)::px(&quot;&lt;Место издания:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="210($c)::px(&quot;&lt;Издательство:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="210($d)::px(&quot;&lt;Год издания:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="300($a)::px(&quot;&lt;Пpимечание:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="517($a)::px(&quot;&lt;Другой вариант заглавия:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="606($a)::px(&quot;&lt;Наименование темы как предмет:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="610($a)::px(&quot;&lt;Ключевые слова:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="686($2,$a)::if (up(%1[0])!=&quot;IBIS&quot; &amp;&amp; up(%1[0])!=&quot;MESH&quot;) px(&quot;&quot;,%2+px(&quot; - &quot;,%1),&quot;\n&quot;) fi;"/>
+    </buildingParams>
+    <buildingParams condition="000::pos(#1,7,1)==&quot;a&quot;;" type="PARSER">
+      <rule value="909($a)::%1;"/>
+      <rule value="463$1899($j)::px(&quot;&lt;Шифр хранения:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="700($a,$b[0-])::px(px(&quot;&lt;Автор:> &quot;,%1[0])+px(&quot; &quot;,%2),&quot;\n&quot;);"/>
+      <rule value="701($a,$b[0-])::px(px(&quot;&lt;Др. Авторы:> &quot;,%1[0])+px(&quot; &quot;,%2),&quot;\n&quot;);"/>
+      <rule value="200($a)::px(&quot;&lt;Основное заглавие:> &quot;,%1[0],&quot;\n&quot;);"/>
+      <rule value="200($d)::px(&quot;&lt;Параллельное заглавие:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="200($e)::px(&quot;&lt;Сведения, относящ. к заглавию:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="200($f)::px(&quot;&lt;Ответственность:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="{461$12001?,463$12001?}($a)::px(&quot;&lt;Наименование источника:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="463$1200($v)::px(&quot;&lt;Номер, выпуск, дата:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="463$1210($d)::px(&quot;&lt;Дата издания:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="463$1210($a)::px(&quot;&lt;Место издания:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="463$1210($c)::px(&quot;&lt;Издательство:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="215($a)::px(&quot;&lt;Страницы:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="011($a)::px(&quot;&lt;ISSN:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="101($a)::px(&quot;&lt;Язык текста:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="320($a)::px(&quot;&quot;,%1,&quot;\n&quot;);"/>
+      <rule value="327($a)::px(&quot;&lt;Форматированное содержание:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="330($a)::px(&quot;&lt;Аннотация:> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="600($a)::px(&quot;&lt;Имя лица как предмет (Персоналия):> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="606($a,$x,$y,$z)::px(&quot;&lt;Наименование темы как предмет:> &quot;,%1)+px(&quot;&lt;   тематический подзаголовок: >&quot;,%2)+px(&quot;&lt;   географический подзаголовок: >&quot;,%3)+px(&quot;&lt;   хронолог. подзаголовок: >&quot;,%4);"/>
+      <rule value="607($a)::px(&quot;&lt;Географич. наименование (Гео. подрубрика):> &quot;,%1,&quot;\n&quot;);"/>
+      <rule value="686($2,$a)::if (up(%1[0])!=&quot;IBIS&quot; &amp;&amp; up(%1[0])!=&quot;MESH&quot;) px(&quot;&quot;,%2+px(&quot; - &quot;,%1),&quot;\n&quot;) fi;"/>
+    </buildingParams>
+  </opacOutForm>
+  <opacOutForm description="Короткий для архивных материалов" format="RUSMARC" name="SHOTARCHIV" type="BIBL">
+    <buildingParams condition="000,251($c)::if(pos(%1,9,1)==&quot;a&quot; &amp;&amp; up(#2)==&quot;ФОНД&quot;) &quot;true&quot; else &quot;false&quot; fi;" type="PARSER">
+      <rule value="251($c)::ipx(&quot;[b]&quot;,%1,&quot;: [/b]&quot;);"/>
+      <rule value="852($a,$g[0-],$j[0-])[0-], 2001?($a,$j[0-])::iser(if(!empty(%2|%3)) ipx(%1,&quot; &quot;,%2|%3) else %1 fi|iser(#2%1|#2%2, &quot;. &quot;),&quot;. &quot;)+&quot;\n&quot;;"/>
+    </buildingParams>
+    <buildingParams condition="000,251($c)::if(pos(%1,9,1)==&quot;a&quot; &amp;&amp; up(#2)==&quot;ОПИСЬ&quot;) &quot;true&quot; else &quot;false&quot; fi;" type="METAPARSER">
+      <rule value="vivod:251($c):ipx(&quot;[b]&quot;,%1,&quot;: [/b]&quot;);"/>
+      <rule value="onum:852($a,$j[0-])[0-],461$1852($g[0-],$j[0-])[0-]:ipx(%1,&quot; &quot;)+ipx(#2%1+#2%2,&quot; &quot;)+ipx(&quot;Оп.&quot;,%2)+&quot;\n&quot;;"/>
+      <rule value="oname:461$1200($v[0-])[0-], 200($a,$j[0-]):iser(uniq(%1|#2%1|#2%2,&quot;true&quot;), &quot;. &quot;)+&quot;\n&quot;;"/>
+      <rule value="vivod(|)::if (!empty(#onum)) #onum else #oname fi;"/>
+      <rule value="::#vivod;"/>
+    </buildingParams>
+    <buildingParams condition="000,251($c)::if(pos(%1,9,1)==&quot;a&quot; &amp;&amp; up(#2)==&quot;ДЕЛО&quot;) &quot;true&quot; else &quot;false&quot; fi;" type="METAPARSER">
+      <rule value="vivod:251($c):ipx(&quot;[b]&quot;,%1,&quot;: [/b]&quot;);"/>
+      <rule value="dnum:461$1852($a,$g[0-],$j[0-])[0-], 462(852($g[0-],$j[0-])[0-], 2001?($v[0-])[0-])[0-], 852($g[0-],$j[0-])[0-]:if(!empty(%2|%3)) ipx(%1,&quot; &quot;,%2|%3) else %1 fi+ipx(&quot; Оп. &quot;,#2%1|#2%2)+if(!empty(#4%1|#4%2)) ipx(&quot; Д. &quot;,#4%1|#4%2) else ipx(&quot; &quot;,#3) fi;"/>
+      <rule value="dnum(|):: &quot;\n&quot;;"/>
+      <rule value="dname:2001?($a,$j[0-]):iser(%1|%2, &quot;. &quot;)+&quot;\n&quot;;"/>
+      <rule value="vivod(|):: if (!empty(#dnum)) #dnum else #dname fi;"/>
+      <rule value="::#vivod;"/>
+    </buildingParams>
+    <buildingParams condition="000,251($c)::if(pos(%1,9,1)==&quot;a&quot; &amp;&amp; up(#2)==&quot;ДОКУМЕНТ&quot;) &quot;true&quot; else &quot;false&quot; fi;" type="METAPARSER">
+      <rule value="vivod:251($c):ipx(&quot;[b]&quot;,%1,&quot;: [/b]&quot;);"/>
+      <rule value="fond:461$1852($a,$g[0-],$j[0-])[0-]:if(!empty(%2|%3)) ipx(%1,&quot; &quot;,%2|%3) else %1 fi;"/>
+      <rule value="opis:462(852($j[0-]))[0-/0]:ipx(&quot; Оп. &quot;,%1);"/>
+      <rule value="delo:462(852($j[0-]))[0-/1]:ipx(&quot; Д. &quot;,%1);"/>
+      <rule value="doc:852($j[0-])[0-/0], 462$12001?($v)[0-]:if(!empty(%1)) ipx(&quot; Док. &quot;,%1) else ipx(&quot; Док. &quot;,#2) fi;"/>
+      <rule value="docnum::#fond+#opis+#delo+#doc+&quot;\n&quot;;"/>
+      <rule value="docname:2001?($a,$j[0-]): iser(%1|%2,&quot;. &quot;)+&quot;\n&quot;;"/>
+      <rule value="vivod(|)::if (!empty(#docnum)) #docnum else #docname fi;"/>
+      <rule value="::#vivod;"/>
+    </buildingParams>
+    <buildingParams condition="::&quot;true&quot;;" type="PARSER">
+      <rule value="909($a)::ipx(%1,&quot;. &quot;);"/>
+      <rule value="::&quot;\n&quot;;"/>
+      <rule value="700($a,$b[0-])::%1+ipx(&quot; &quot;,%2)+&quot;, &quot;;"/>
+      <rule value="700[0],701($a,$b[0-])[/0]::#2%1+ipx(&quot; &quot;,#2%2)+&quot;, &quot;;"/>
+      <rule value="{700,701}[0],710($a)[/0]::#2%1+&quot;, &quot;;"/>
+      <rule value="{700,701,710}[0],461$1700($a,$b[0-])::#2%1+ipx(&quot; &quot;,#2%2)+&quot;, &quot;;"/>
+      <rule value="{700,701,710,461$1700}[0],461$1701($a,$b[0-])[/0]::#2%1+ipx(&quot; &quot;,#2%2)+&quot;, &quot;;"/>
+      <rule value="{700,701,710,461$1700,461$1701}[0],461$1710($a)[/0]::#2%1+&quot;, &quot;;"/>
+      <rule value="2001?($a,${ehi}[0-])::iser(%1,&quot;. &quot;)+ipx(for (i=%2: &quot;. &quot;+i));"/>
+      <rule value="461$12001?($a),2001?[1-]::ipx(&quot;. &quot;,%1) ;"/>
+      <rule value="461$12001?($a),2001?[0]::ipx(&quot; &quot;,%1) ;"/>
+      <rule value="461$12001?($v)::ipx(&quot; &quot;,%1);"/>
+      <rule value="210($d)::ipx(&quot; - &quot;,%1);"/>
+      <rule value="225($a,${efhi}[0-],$v[0-])::&quot; (&quot;+iser(%1,&quot;. &quot;)+ipx(for (i=%2: &quot;. &quot;+i))+ipx(&quot;. &quot;,%3)+&quot;)&quot;;"/>
+      <rule value="000,{463$12001?,463$1210}($a[0-],$v[0-],$d[0-])[0-]::if(pos(#1,7,1)==&quot;a&quot; &amp;&amp; (!empty(#2))) &quot; (&quot;+if (!empty(#2)) ipx(#2,&quot;. &quot;) fi+ipx(#2%3,&quot; &quot;)+#2%2+&quot;)&quot; fi;"/>
+      <rule value="::&quot;\n&quot;;"/>
+      <rule value="801?1($b[/0])[/0]::&quot;Создатель записи: &quot;;"/>
+      <rule value="801?1($b[/0])::px(%1,&quot; &quot;);"/>
+      <rule value="801?1($b[/0])[/0]::&quot;\n&quot;;"/>
+      <rule value="801?2($b[/0])[/0]::&quot;Редактор записи: &quot;;"/>
+      <rule value="801?2($b[/0])::px(%1,&quot; &quot;);"/>
+      <rule value="801?2($b[/0])[/0]::&quot;\n&quot;;"/>
+      <rule value="000::if(pos(%1,7,2)==&quot;s1&quot; || pos(%1,7,2)==&quot;s2&quot; || pos(%1,7,2)==&quot;m1&quot; || pos(%1,7,2)==&quot;91&quot;) &quot;[SEE2]&lt;Включает>\n&quot; endif;"/>
+      <rule value="000,{461$1001,462$1001}::if(pos(%1,7,2)==&quot;s2&quot; || pos(%1,7,2)==&quot;m1&quot; || pos(%1,7,2)==&quot;91&quot; || pos(%1,7,2)==&quot;m2&quot; || pos(%1,7,2)==&quot;m0&quot;) &quot;[SEE1]&lt;Входит в...>\n&quot; endif;"/>
+      <rule value="000,{461$1001,463$1001}::if(pos(%1,7,2)==&quot;a0&quot;) &quot;[SEE1]&lt;Источник>\n&quot; endif;"/>
+      <rule value="000,464$1001::if(pos(%1,7,2)==&quot;m2&quot; || pos(%1,7,2)==&quot;m0&quot;) &quot;[SEE5]&lt;Оглавление>\n&quot; endif;"/>
+      <rule value="430(001[/0],029($c[0-],$b[0-])[0-/0])::&quot;[SEE8]&lt;Продолженное&quot;+if(!empty(#2%1|#2%2)) px(&quot; &quot;,#2%1[0]|#2%2[0])fi+&quot;> &quot;+%1+&quot;\n&quot;;"/>
+      <rule value="431(001[/0],029($c[0-],$b[0-])[0-/0])::&quot;[SEE8]&lt;Продолженное частично&quot;+if(!empty(#2%1|#2%2)) px(&quot; &quot;,#2%1[0]|#2%2[0])fi+&quot;> &quot;+%1+&quot;\n&quot;;"/>
+      <rule value="432(001[/0],029($c[0-],$b[0-])[0-/0])::&quot;[SEE8]&lt;Замененное&quot;+if(!empty(#2%1|#2%2)) px(&quot; &quot;,#2%1[0]|#2%2[0])fi+&quot;> &quot;+%1+&quot;\n&quot;;"/>
+      <rule value="433(001[/0],029($c[0-],$b[0-])[0-/0])::&quot;[SEE8]&lt;Замененное частично&quot;+if(!empty(#2%1|#2%2)) px(&quot; &quot;,#2%1[0]|#2%2[0])fi+&quot;> &quot;+%1+&quot;\n&quot;;"/>
+      <rule value="434(001[/0],029($c[0-],$b[0-])[0-/0])::&quot;[SEE8]&lt;Поглощенное&quot;+if(!empty(#2%1|#2%2)) px(&quot; &quot;,#2%1[0]|#2%2[0])fi+&quot;> &quot;+%1+&quot;\n&quot;;"/>
+      <rule value="436$1001::&quot;[SEE8]&lt;Издания, участвовавшие в слиянии> &quot;+%1+&quot;\n&quot;;"/>
+      <rule value="440(001[/0],029($c[0-],$b[0-])[0-/0])::&quot;[SEE8]&lt;Продолжается под&quot;+if(!empty(#2%1|#2%2)) px(&quot; &quot;,#2%1[0]|#2%2[0]) else &quot;...&quot; fi+&quot;> &quot;+#1+&quot;\n&quot;;"/>
+      <rule value="441(001[/0],029($c[0-],$b[0-])[0-/0])::&quot;[SEE8]&lt;Продолжается частично под&quot;+if(!empty(#2%1|#2%2)) px(&quot; &quot;,#2%1[0]|#2%2[0]) else &quot;...&quot; fi+&quot;> &quot;+#1+&quot;\n&quot;;"/>
+      <rule value="442(001[/0],029($c[0-],$b[0-])[0-/0])::&quot;[SEE8]&lt;Заменено на&quot;+if(!empty(#2%1|#2%2)) px(&quot; &quot;,#2%1[0]|#2%2[0]) else &quot;...&quot; fi+&quot;> &quot;+#1+&quot;\n&quot;;"/>
+      <rule value="443(001[/0],029($c[0-],$b[0-])[0-/0])::&quot;[SEE8]&lt;Заменено частично на&quot;+if(!empty(#2%1|#2%2)) px(&quot; &quot;,#2%1[0]|#2%2[0]) else &quot;...&quot; fi+&quot;> &quot;+#1+&quot;\n&quot;;"/>
+      <rule value="444(001[/0],029($c[0-],$b[0-])[0-/0])::&quot;[SEE8]&lt;Поглотившее&quot;+if(!empty(#2%1|#2%2)) px(&quot; &quot;,#2%1[0]|#2%2[0]) fi+&quot;> &quot;+#1+&quot;\n&quot;;"/>
+      <rule value="446(001[/0],029($c[0-],$b[0-])[0-/0])::&quot;[SEE8]&lt;Разделилось на&quot;+if(!empty(#2%1|#2%2)) px(&quot; &quot;,#2%1[0]|#2%2[0]) else &quot;...&quot; fi+&quot;> &quot;+#1+&quot;\n&quot;;"/>
+      <rule value="448(001[/0],029($c[0-],$b[0-])[0-/0])::&quot;[SEE8]&lt;Возобновилось под прежним заглавием&quot;+if(!empty(#2%1|#2%2)) px(&quot; &quot;,#2%1[0]|#2%2[0]) fi+&quot;> &quot;+#1+&quot;\n&quot;;"/>
+      <rule value="330::&quot;[SEE4]&lt;Аннотация>\n&quot;;"/>
+      <rule value="8564?($a$d[0-]$f[0-])::&quot;[URL]&quot;+%1+ipx(&quot;/&quot;,%2)+px(&quot;/&quot;,%3)+&quot;\n&quot;;"/>
+      <rule value="856($a[0],$u[1])::&quot;[URL]&lt;Документ>&quot;+%2+&quot;\n&quot;;"/>
+      <rule value="8564?($q[0-/0],$u[0-])::if(up(token(%1,&quot;/&quot;)[0])==&quot;IMAGE&quot;)&quot;[IMG]&quot;+%2+&quot;\n&quot; fi;"/>
+      <rule value="899::&quot;[SEE7]&lt;Местонахождение>\n&quot;;"/>
+      <rule value="899::&quot;[SEE6]&lt;Движение экземпляров>\n&quot;;"/>
+    </buildingParams>
+  </opacOutForm>
+</opacOutFormList>

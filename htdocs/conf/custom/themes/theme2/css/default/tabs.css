@@ -1,0 +1,94 @@
+/*вкладки*/
+.border
+{
+	/*margin: 0 5px 0 0;*/
+	padding: 5px 10px 5px 0;
+	box-shadow: 0 -2px 3px 0 rgba(96, 111, 144, 0.2);
+	border-radius: 2px 2px 0 0;
+}
+.tabs
+{
+	margin:10px 0 0 0;
+}
+.tabs span
+{
+	font-size:80%;
+	display:inline-block;
+	padding: 10px 20px 10px 10px;
+	background: #fff;
+	background: linear-gradient(to bottom, #eee 0%, #fff 100%);
+	cursor: pointer;
+	margin:0 10px 0 0;
+}
+.tabs span.add2
+{
+	background: linear-gradient(to bottom, #ddd 0%, #fff 100%);
+	border-top: solid 2px #ccc;
+}
+.seediv, .issuediv, .recdiv, .artdiv, .adddiv
+{
+	padding:10px;
+	background: #fff;
+	border-radius: 0 2px 2px 2px;
+	box-shadow: 1px 1px 3px rgba(96, 111, 144, 0.6);
+}
+.recdiv .td.vtop.p10x code
+{
+    font-size: 80%;
+	/*margin-left:5px;*/
+	display:block;
+	line-height:140%;
+}
+.adddiv[id^='rev']
+{
+	height:60px;
+}
+.adddiv p:not([class^='fstr'])
+{
+	font-size:80%;
+	line-height:140%;
+	margin-bottom:10px;
+}
+.adddiv p[class^='fstr']
+{
+	font-size:90%;
+}
+.adddiv ul:not([class*='paper'])
+{
+	list-style-type:square;
+	margin-left:25px;
+}
+.adddiv ul li
+{
+	line-height:140%;
+	margin-bottom:10px;
+}
+.adddiv li ul
+{
+	list-style-type:sircle;
+}
+.adddiv span[class^="SEE"], .adddiv a[class^="SEE"]
+{
+    cursor:pointer;
+	display: block;
+    margin-bottom: 5px;
+	font-style:italic;
+	text-decoration:underline;
+	max-width: 300px;
+}
+[id^='SEE4']
+{
+	/*font-size:100% !important;*/
+	font-style:italic;
+	color:#333;
+	/*margin-left:0 !important;*/
+	line-height:130%;
+}
+.cb [class^='add']
+{
+	cursor:pointer;	
+}
+.adddiv a[class^="SEE"]
+{
+	margin-left:10px;
+}

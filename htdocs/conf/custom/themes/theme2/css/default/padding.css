@@ -1,0 +1,217 @@
+/*внутренние поля*/
+.p5
+{
+	padding:5%;
+}
+.pl5
+{
+	padding-left:5%;
+}
+.pt5
+{
+	padding-top:5%;
+}
+.pr5
+{
+	padding-right:5%;
+}
+.pb5
+{
+	padding-bottom:5%;
+}
+.p10
+{
+	padding:10%;
+}
+.pl10
+{
+	padding-left:10%;
+}
+.pt10
+{
+	padding-top:10%;
+}
+.pr10
+{
+	padding-right:10%;
+}
+.pb10
+{
+	padding-bottom:10%;
+}
+.pl15
+{
+	padding-left:15%;
+}
+.pt15
+{
+	padding-top:15%;
+}
+.pr15
+{
+	padding-right:15%;
+}
+.pb15
+{
+	padding-bottom:15%;
+}
+.p20
+{
+	padding:20%;
+}
+.pl20
+{
+	padding-left:20%;
+}
+.pt20
+{
+	padding-top:20%;
+}
+.pr20
+{
+	padding-right:20%;
+}
+.pb20
+{
+	padding-bottom:20%;
+}
+.p5x
+{
+	padding:5px;
+}
+.pl5x
+{
+	padding-left:5px;
+}
+.pt5x
+{
+	padding-top:5px;
+}
+.pr5x
+{
+	padding-right:5px;
+}
+.pb5x
+{
+	padding-bottom:5px;
+}
+.p10x, .orders .td, .row.checked .td
+{
+	padding:10px;
+}
+.pl10x, .period_container .button2
+{
+	padding-left:10px;
+}
+.pt10x
+{
+	padding-top:10px;
+}
+.pr10x, .period_container .button2
+{
+	padding-right:10px;
+}
+.pb10x
+{
+	padding-bottom:10px;
+}
+.p15x
+{
+	padding:15px;
+}
+.pl15x
+{
+	padding-left:15px;
+}
+.pt15x
+{
+	padding-top:15px;
+}
+.pr15x
+{
+	padding-right:15px;
+}
+.pb15x
+{
+	padding-bottom:15px;
+}
+.p20x
+{
+	padding:20px;
+}
+.pl20x
+{
+	padding-left:20px;
+}
+.pt20x
+{
+	padding-top:20px;
+}
+.pr20x
+{
+	padding-right:20px;
+}
+.pb20x
+{
+	padding-bottom:20px;
+}
+.p25x
+{
+	padding:25px;
+}
+.pl25x
+{
+	padding-left:25px;
+}
+.pt25x
+{
+	padding-top:25px;
+}
+.pr25x
+{
+	padding-right:25px;
+}
+.pb25x
+{
+	padding-bottom:25px;
+}
+.p30x
+{
+	padding:30px;
+}
+.pl30x
+{
+	padding-left:30px;
+}
+.pt30x
+{
+	padding-top:30px;
+}
+.pr30x
+{
+	padding-right:30px;
+}
+.pb30x
+{
+	padding-bottom:30px;
+}
+.pl50x
+{
+	padding-left:50px;
+}
+.pt50x
+{
+	padding-top:50px;
+}
+.pr50x
+{
+	padding-right:50px;
+}
+.pb50x
+{
+	padding-bottom:50px;
+}
+.pr200x
+{
+	padding-right:200px;
+}

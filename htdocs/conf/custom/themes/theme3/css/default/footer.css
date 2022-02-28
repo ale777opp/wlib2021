@@ -1,0 +1,69 @@
+/*подвал*/
+#footer
+{
+	width:100%;
+}
+#bottom_info > div, #bottom_copy > div
+{
+	display:table;
+	width:80%;
+	height:100%;
+	margin:0 auto;
+}
+#bottom_info > div > div, #bottom_copy > div > div
+{
+	display:table-row;
+}
+#bottom_info > div > div > div, #bottom_copy > div > div > div
+{
+	display:table-cell;
+}
+#bottom_info
+{
+	background: #400f0f;
+	height:100px;
+	color:#999;
+}
+#go-to-top
+{
+	/*z-index: 99;*/
+    position: fixed;
+    top: auto;
+    right: 3%;
+    bottom: 60px;
+    width: 60px;
+    height: 60px;
+	background: #300;
+	cursor:pointer;
+	transition: all .5s ease-in-out; 
+}
+.vis
+{
+	visibility:visible;
+    opacity:0.5;
+}
+.invis
+{
+    opacity:0;
+	visibility:hidden;
+}
+#bottom_copy
+{
+	background:#300;
+	height:40px;
+}
+#bottom_copy span, #bottom_copy a
+{
+	font-size:70%;
+	color:#666;
+}
+#bottom_copy a:hover
+{
+	color:#099;
+}
+.bcounter
+{
+	display:inline-block;
+	width:88px;
+	height:31px;
+}

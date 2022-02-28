@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<opacOutFormList>
+  <opacOutForm description="Полная для новостей" format="RUSMARC" name="FULLNEWS" type="BIBL">
+    <buildingParams condition="::&quot;true&quot;;" type="PARSER">
+      <rule value="2001?($a)::ser(%1,&quot;. &quot;)+&quot;\n&quot;;"/>
+      <rule value="85641($q[0-/0],$u[0-])::if(up(token(%1,&quot;/&quot;)[0])==&quot;THUMBNAIL&quot;)&quot;[IMG]&quot;+%2+&quot;[/IMG]\n&quot; fi;"/>
+      <rule value="300($a)::ser(%1,&quot;. &quot;)+&quot;\n&quot;;"/>
+      <rule value="{605,615,617}(${ac})::&quot;[b]Рубрики: [/b]&quot;;"/>
+      <rule value="605($a)::px(&quot;[i class=SH]&quot;,%1,&quot;[/i]&quot;);"/>
+      <rule value="615($a)::px(&quot;[i class=GC]&quot;,%1,&quot;[/i]&quot;);"/>
+      <rule value="617($c)::px(&quot;[i class=SH]&quot;,%1,&quot;[/i]&quot;);"/>
+      <rule value="617($d)::px(&quot;[i class=SH]&quot;,%1,&quot;[/i]&quot;);"/>
+      <rule value="{605,615,617}(${ac})::&quot;\n&quot;;"/>
+      <rule value="610[1-]::&quot;[b]Ключевые слова: [/b]&quot;;"/>
+      <rule value="610($a)::px(&quot;[i class=KW]&quot;,%1,&quot;[/i]&quot;);"/>
+      <rule value="610[1-]::&quot;\n&quot;;"/>
+      <rule value="85640($u[1-]):: &quot;[URL]&quot;+%1+&quot;\n&quot;;"/>
+    </buildingParams>
+  </opacOutForm>
+  <opacOutForm description="Полная для фото" format="RUSMARC" name="FULLPHOTO" type="BIBL">
+    <buildingParams condition="::&quot;true&quot;;" type="PARSER">
+      <rule value="200($a)::%1+&quot;\n&quot;;"/>
+      <rule value="85641($q[0-/0],$u[0-])::if(up(token(%1,&quot;/&quot;)[0])==&quot;THUMBNAIL&quot;)&quot;[img]&quot;+%2+&quot;[/img]\n&quot; fi;"/>
+      <rule value="330($a)::ser(%1,&quot;. &quot;);"/>
+    </buildingParams>
+  </opacOutForm>
+  <opacOutForm description="Полная для публикаций" format="RUSMARC" name="FULLPUB" type="BIBL">
+    <buildingParams condition="::&quot;true&quot;;" type="PARSER">
+      <rule value="606($a)[/0]::%1+&quot;\n&quot;;"/>
+      <rule value="2001?($a)::ser(%1,&quot;. &quot;)+&quot;\n&quot;;"/>
+      <rule value="700($a,$b[0-],$c[0-])::%1+ipx(&quot; &quot;,%2)+ipx(&quot; , &quot;,%3)+&quot;\n&quot;;"/>
+      <rule value="210($c)::%1+&quot;\n&quot;;"/>
+      <rule value="{461$12001?,463$12001?}($a), 463$1200($v[0-])::&quot;[i]&quot;+%1+#2%1;"/>
+      <rule value="463(2000#($a[0-],$e[0-],$v[0-]),210($a[0-],$d[0-])[0-])[/0],461$1210($a[0-])[0-]::if(!empty(#2)) ipx(#2, &quot;. &quot;) else ipx(#3, &quot;. &quot;) fi + ipx(#2%2, &quot;. &quot;) + if(!empty(#1)) ipx(#1,&quot;. &quot;) fi + #1%3+&quot;[/i]\n&quot;;"/>
+      <rule value="85641($u[0-])::&quot;[IMG]&quot;+%1+&quot;[/IMG]\n&quot;;"/>
+      <rule value="330($a)::ser(%1,&quot;. &quot;)+&quot;\n&quot;;"/>
+      <rule value="300($a)::ser(%1,&quot;. &quot;)+&quot;\n&quot;;"/>
+      <rule value="{605,615,617}(${ac})::&quot;[b]Рубрики: [/b]&quot;;"/>
+      <rule value="605($a)::px(&quot;[i class=SH]&quot;,%1,&quot;[/i]&quot;);"/>
+      <rule value="615($a)::px(&quot;[i class=GC]&quot;,%1,&quot;[/i]&quot;);"/>
+      <rule value="617($c)::px(&quot;[i class=SH]&quot;,%1,&quot;[/i]&quot;);"/>
+      <rule value="617($d)::px(&quot;[i class=SH]&quot;,%1,&quot;[/i]&quot;);"/>
+      <rule value="{605,615,617}(${ac})::&quot;\n&quot;;"/>
+      <rule value="610[1-]::&quot;[b]Ключевые слова: [/b]&quot;;"/>
+      <rule value="610($a)::px(&quot;[i class=KW]&quot;,%1,&quot;[/i]&quot;);"/>
+      <rule value="610[1-]::&quot;\n&quot;;"/>
+      <rule value="85640($u[1-]):: &quot;[URL]&quot;+%1+&quot;\n&quot;;"/>
+    </buildingParams>
+  </opacOutForm>
+  <opacOutForm description="Короткая для новостей" format="RUSMARC" name="SHORTNEWS" type="BIBL">
+    <buildingParams condition="::&quot;true&quot;;" type="PARSER">
+      <rule value="2001?($a)::ser(%1,&quot;. &quot;)+&quot;\n&quot;;"/>
+      <rule value="330($a)::ser(%1,&quot;. &quot;)+&quot;\n&quot;;"/>
+      <rule value="300($a)::if(pos(width(%1,300,&quot;@&quot;),299,1)==&quot;@&quot;) %1 else pos(%1,0,300) +&quot; ...&quot; fi +&quot;\n&quot;;"/>
+      <rule value="210($d)::ser(%1,&quot;. &quot;)+&quot;&quot;;"/>
+    </buildingParams>
+  </opacOutForm>
+  <opacOutForm description="Короткая для фото" format="RUSMARC" name="SHORTPHOTO" type="BIBL">
+    <buildingParams condition="::&quot;true&quot;;" type="PARSER">
+      <rule value="2001?($a)::ser(%1,&quot;. &quot;)+&quot;\n&quot;;"/>
+      <rule value="85641($u[0-])::&quot;[IMG]&quot;+%1+&quot;\n&quot;;"/>
+      <rule value="330($a)::ser(%1,&quot;. &quot;)+&quot;\n&quot;;"/>
+      <rule value="300($a)::ser(%1,&quot;. &quot;)+&quot;\n&quot;;"/>
+      <rule value="000,001,200($e[0-])::if(up(pos(%1,7,1))==&quot;S&quot; || pos(%1,8,1)==&quot;0&quot;) &quot;[SEEF]&quot;+ if(!empty(#3)) &quot;&lt;Подразделы>&quot; else &quot;&lt;Фото>&quot; fi +&quot;{\&quot;area\&quot;:\&quot;container=*/BIBL\&quot;,\&quot;query\&quot;:\&quot;RELATION '&quot;+px(&quot;461       &quot;,rpl(#2,&quot;\\&quot;,&quot;\\\\\\\\&quot;))+&quot;'\&quot;}\n&quot; fi;"/>
+      <rule value="000,001::if(up(pos(%1,7,2))==&quot;M2&quot;) &quot;[SEEF]&lt;Фото>{\&quot;area\&quot;:\&quot;container=*/BIBL\&quot;,\&quot;query\&quot;:\&quot;RELATION '&quot;+px(&quot;463       &quot;,rpl(#2,&quot;\\&quot;,&quot;\\\\\\\\&quot;))+&quot;'\&quot;}\n&quot; fi;"/>
+    </buildingParams>
+  </opacOutForm>
+  <opacOutForm description="Короткая для публикаций" format="RUSMARC" name="SHORTPUB" type="BIBL">
+    <buildingParams condition="::&quot;true&quot;;" type="PARSER">
+      <rule value="700($a,$b[0-],$c[0-])::%1+ipx(&quot; &quot;,%2)+ipx(&quot; , &quot;,%3)+&quot;\n&quot;;"/>
+      <rule value="2001?($a)::ser(%1,&quot;. &quot;)+&quot;\n&quot;;"/>
+      <rule value="{461$12001?,463$12001?}($a), 463$1200($v[0-])::&quot;[i]&quot;+%1+#2%1;"/>
+      <rule value="463(2000#($a[0-],$e[0-],$v[0-]),210($a[0-],$d[0-])[0-])[/0],461$1210($a[0-])[0-]::if(!empty(#2)) ipx(#2, &quot;. &quot;) else ipx(#3, &quot;. &quot;) fi + ipx(#2%2, &quot;. &quot;) + if(!empty(#1)) ipx(#1,&quot;. &quot;) fi + #1%3+&quot;[/i]\n&quot;;"/>
+      <rule value="300($a)::if(pos(width(%1,300,&quot;@&quot;),299,1)==&quot;@&quot;) %1 else pos(%1,0,300) +&quot; ...&quot; fi +&quot;\n&quot;;"/>
+      <rule value="210(${da})::&quot;[i]&quot;+%1+&quot;[/i]&quot;;"/>
+      <rule value="210($c)::%1+&quot;&quot;;"/>
+    </buildingParams>
+  </opacOutForm>
+</opacOutFormList>

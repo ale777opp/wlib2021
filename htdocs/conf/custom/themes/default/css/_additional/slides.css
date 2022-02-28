@@ -1,0 +1,111 @@
+* {
+	width:100%;
+	height:100%;
+	margin: 0;
+	padding: 0;
+	overflow:hidden;
+}
+.wrapper
+{
+	position: relative;
+	height: 100%;
+	margin: 0 auto;
+}
+#loader
+{
+	position:absolute;
+	top: 0;
+	left: 0;
+	z-index:1000;
+	width:100%;
+	height:100%;
+	background:#fff url(../img/load2.gif) center center no-repeat;
+	opacity:0.9;
+}
+.lpanel
+{
+	position:absolute;
+	top:0;
+	left:0;
+	width:10%;
+	height:100%;
+	background: linear-gradient(to right, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+	z-index:998;
+}
+.rpanel
+{
+	position:absolute;
+	top:0;
+	left:90%;
+	width:10%;
+	height:100%;
+	background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+	z-index:998;
+}
+.panel
+{
+	position:absolute;
+	display:inline-block;
+	vertical-align:middle;
+	text-align:center;
+	top:95%;
+	left:0;
+	width:100%;
+	height:5%;
+	background:gray;
+	opacity:0.8;
+	z-index:999;
+}
+.wrapper > img
+{
+	position: absolute;
+	top:0;
+	left:0;
+	display:inline-block;
+	text-align:center;
+	width: auto;
+	height: 97%;
+	opacity: 0.3;
+	z-index: 1;
+	transform: scale(0.5);
+	transition: transform ease-in-out 1s, opacity ease-in-out 2s;
+	box-shadow: 0 0 10px gray;
+	margin: 1% 25% 1% 25%;
+}
+.wrapper > input
+{
+	position:absolute;
+	top:-300px;
+	left:0;
+	visibility:hidden;
+}
+.wrapper > label
+{
+	position: absolute;
+	top:0;
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+	cursor: pointer;
+	z-index:1;
+}
+.wrapper > label img
+{
+	width: 100%;
+	height: 100%;
+}
+.panel label
+{
+	border-radius: 50%;
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	margin: 0.5rem 12px 0 12px;
+	background: #bbb;
+	border: solid 3px #fff;
+}
+.panel label:hover
+{
+	background: #ccc;
+	border-color: #777;
+}

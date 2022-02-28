@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<ruleBuildList>
+  <ruleBuild name="RUSMARC_BIBL_ARCL" title="Архивный уровень (фонд, опись, дело, документ)">
+    <invertingRules>
+      <rule>000::if(pos(%1,9,1)=="a") "Архивные материалы" fi;</rule>
+      <rule>251($c)::%1;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="RUSMARC_BIBL_COLDWN" title="Подколлекции">
+    <invertingRules>
+      <rule>000, {461$1001,462$1001} :: if(pos(%1,7,3)=="c2 " &amp;&amp; pos(%1,18,1)=="x") #2 fi;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="RUSMARC_BIBL_DELO" title="Дела архивов">
+    <invertingRules>
+      <rule>000, 461[1], 462$1001[1], 251($c) :: if(pos(%1,7,3)=="c2a" &amp;&amp; up(#4)=="ДЕЛО") #3 fi;</rule>
+      <rule>000, 461$1001[1], 462$1001[0-], 251($c) :: if(pos(%1,7,3)=="c2a" &amp;&amp; up(#4)=="ДЕЛО") #2 fi;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="RUSMARC_BIBL_DOC" title="Документы архивов">
+    <invertingRules>
+      <rule>000, 461[1], 462$1001[1-], 251($c) :: if(pos(%1,7,3)=="m2a" &amp;&amp; up(#4)=="ДОКУМЕНТ") #3 fi;</rule>
+      <rule>000, 461$1001[1], 462$1001[0-], 251($c) :: if(pos(%1,7,3)=="m2a" &amp;&amp; up(#4)=="ДОКУМЕНТ") #2 fi;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="RUSMARC_BIBL_OPIS" title="Описи архивов">
+    <invertingRules>
+      <rule>000, 461$1001[1], 462[0], 251($c) :: if(pos(%1,7,3)=="c2a" &amp;&amp; up(#4)=="ОПИСЬ") #2 fi;</rule>
+    </invertingRules>
+  </ruleBuild>
+</ruleBuildList>

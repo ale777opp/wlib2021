@@ -1,0 +1,678 @@
+/*результаты поиска*/
+#searchhead 
+{
+	margin:0 auto 20px auto;
+	width:77%;
+	border-bottom: solid 1px #ccc;
+}
+#searchhead , .searchhead , .searchhead1
+{
+	padding: 10px 0 10px 0;
+	font-size: 70%;
+}
+.searchhead1
+{
+	margin: 0 10% 20px 10%;
+	width: 80%;
+	clear: both;
+	min-height: 30px;
+	padding: 10px 5px 10px 0;
+}
+.searchhead:not([id='searchhead']):nth-child(even)
+{
+	border-top: solid 1px #ccc;
+	border-bottom: solid 1px #ccc;
+}
+#searchhead  > div:not([class='fleft']):nth-child(2)
+{
+	width:80%;
+}
+.searchhead:not([id='searchhead'])  > div:nth-child(2)
+{
+	width:80%;
+}
+.searchhead span
+{
+	line-height:160%;
+}
+#editq
+{
+	display:block;
+}
+#editq span
+{
+	cursor:pointer;
+	text-decoration:underline;
+}
+.fright.pr15x
+{
+	line-height:140%;
+}
+
+.h3
+{
+	font-size:80%;
+	font-weight:bold;
+	width:77%;
+	margin:0 auto;
+	padding: 20px 0 20px 0;
+	border-bottom:solid 1px #ccc;
+	text-indent:5px;
+}
+.memo
+{
+	width:77%;
+	margin: 10px auto 10px auto;
+	padding: 10px 0 10px 0;
+}
+.memo #portionlist
+{
+	width:90px;
+}
+.memo span
+{
+	font-size:80%;
+	line-height:160%;
+}
+.memo span:not(.fleft)
+{
+	padding: 0 0 0 5px
+}
+.pages
+{
+	font-size:80%;
+	text-align: right;
+	font-weight:bold;
+	padding: 0 0 10px 0;
+}
+.pages span, .pages a
+{
+	padding: 5px 8px 5px 8px;
+	margin: 0 2px 0 2px;
+}
+.new1, .new2
+{
+	text-decoration:none;
+}
+.gb
+{
+	display:block;
+	font-size: 80%;
+	margin: 5px auto;
+	cursor:pointer;
+}
+.cb
+{
+	font-size: 90%;
+	margin: 5px 0 5px 5px;
+	display:inline-block;
+	line-height:160%;
+}
+blockquote
+{
+	margin:10px 0 10px 35px;
+}
+blockquote div
+{
+	font-size:80%;
+}
+.searchrez p span.fright, p span.fleft
+{
+	font-size:80%;
+}
+#searchrezult
+{
+	display:inline-block;
+	width:74%;
+}
+#srezults p
+{
+	font-size:80%;
+	line-height:160%;
+}
+[class^='searchrez']
+{
+	padding: 0 0 0 5px;
+}
+#issueswinform [class^='searchrez'] > div:not([class^='fleft'])
+{
+	margin:5px 5%;
+	font-size:80%;
+}
+#issueswinform [class^='searchrez'] > div.fleft
+{
+	margin:5px 0 5px 5%;
+}
+[class^='searchrez']
+{
+	position:relative;
+	margin: 0 0 20px 0;
+	padding: 5px;
+}
+.output > div:not([class^='tabs']), #common_output p:not([class^='fstr']), .output > span.indent
+{
+	margin:0 0 5px 0;
+	font-size:80%;
+	line-height:160%;
+	text-align:justify;
+	padding: 0 0 0 5px;
+}
+.output > span.indent
+{
+	display:inline-block;
+	text-indent:30px;
+}
+p.b.u.red
+{
+    cursor: pointer;
+}
+[class*='ur'] .fstr
+{
+	cursor:pointer;
+	text-decoration: underline;
+}
+span[class^='fstr']
+{
+	font-size:150%;
+}
+/*bbcode*/
+.indent
+{
+	margin-left: 30px;
+}
+.lev3
+{
+	margin-left:5px;
+	padding: 5px 0 5px 5px;
+	display:inline-block;
+}
+.lev3:hover span
+{
+	text-decoration:none;
+}
+.AF
+{
+	/*font-style: normal !important;
+	text-decoration: none !important;*/
+	display:none !important;
+}
+.size20
+{
+	font-size:120% !important;
+}
+.size18
+{
+	font-weight:bold;
+	font-size:140% !important;
+}
+.adddiv p span[onclick^='showLable']
+{
+	text-decoration:underline;
+	cursor:pointer;
+	margin:0 5px 0 0;
+	font-style:italic;
+	display:inline-block;
+}
+.titleslides
+{
+	display:inline-block;
+	background: url(../img/sprite2.gif) center -70px no-repeat;
+	margin: 15px 0 0 0;
+	height:30px;
+	width:80px;
+	cursor:pointer;
+}
+/*иерархический вывод томов*/
+.see, .issue
+{
+	cursor: pointer;
+	line-height:130%;
+	display: inline-block;
+	padding: 5px 10px 5px 10px;
+}
+.see b, .issue b
+{
+	text-decoration:underline;
+}
+.level, .level_
+{
+	display:table;
+	width:97%;
+}
+[id^='lib'] > [class^='level']:not(:last-child)
+{
+	border-bottom:solid 1px #ddd;
+}
+.loc, .loc ~ .td
+{
+	padding:5px 0 5px 15px;
+}
+.address, .loc p
+{
+	margin:0px !important;
+	padding:0px !important;
+}
+.td.w30.p5x
+{
+	width:150px;
+	white-space:nowrap;
+}
+.aflink, .aflinkinfo, a.aflinkinfo
+{
+	display:block;
+	font-size: 80%;
+	line-height:110%;
+	text-decoration:underline;
+	cursor:pointer;
+}
+.aflinkinfo:not(:last-child)
+{
+	margin-bottom:5px
+}
+.aflinkinfo.addfilter
+{
+	display:none;
+}
+.aflinkinfo .progress.small
+{
+	top:10px;
+	left:20px;
+}
+#menu1
+{
+	width: 58px;
+	margin-left:80px;
+}
+#menu1:before
+{
+    content: 'Добавить к поиску:';
+    position: absolute;
+    margin-left: -75px;
+    width: 70px;
+    font-size: 120%;
+    line-height: 100%;
+    font-weight: bold;
+}
+#menu1 code
+{
+	display:none;
+}
+span.code
+{
+	cursor:pointer;
+}
+#srezults ol li
+{
+	font-size:80%;
+}
+.period_container
+{
+	text-align: center;
+	font-size: 80%;
+}
+.period_container .button2
+{
+	font-weight: bold;
+}
+.list_readers.button2
+{
+	font-weight: bold !important;
+	padding:8px;
+	font-size:120% !important;
+}
+#buttons_title
+{
+	float:none !important;
+	display:table-cell;
+	text-align:right;
+	white-space: nowrap;
+	/*width:50%;*/
+	/*position:absolute;
+	right:0;*/
+}
+#user_info_title
+{
+	float:none !important;
+	display:table-cell;
+	text-align:left;
+	/*width:50%;*/
+	/*left:30px;*/
+}
+#user_info
+{
+	display:block;
+	padding: 0 0 0 25px;
+	margin:10px 0 20px 0;
+}
+span.url, a.url
+{
+	display:inline-block;
+	height:35px;
+	margin: 10px 0 20px 5px;
+	padding: 0 10px 0 10px;
+	line-height:250%;
+	font-weight:bold;
+	font-size:80%;
+	text-decoration:none;
+	text-align:center;
+	white-space: nowrap;
+}
+[class^='_0'] span.url, a.url
+{
+	width:auto;
+	min-width:170px;
+}
+.table.orders .url
+{
+	font-size:100%;
+	line-height:250%;
+}
+.recdiv [class^='url']
+{
+	font-size: 100% !important;
+}
+.recdiv .fstr, .recdiv code
+{
+	line-height:160%;
+	font-size:80%;
+}
+.recdiv code div
+{
+	line-height:160%;
+}
+#siglatable .row .td
+{
+	padding:10px;
+	text-align:left;
+}
+#siglatable .row:nth-child(odd) .td:nth-child(1)
+{
+	border-right:none !important;
+}
+#siglatable .row:nth-child(odd) .td:nth-child(2)
+{
+	border-left:none !important;
+	border-right:none !important;
+}
+#siglatable .row:nth-child(odd) .td:nth-child(3)
+{
+	border-left:none !important;
+}
+#search_constructor .wrapped
+{
+	margin: 0 0 10px 20px;
+}
+#search_constructor .button2
+{
+	font-size:80%;
+	padding:0 10px;
+}
+[id^='sconstruct'], #shist
+{
+	min-height:100px;
+	margin:0 0 20px 20px;
+	font-size:70%;
+	padding:5px;
+}
+.sterm
+{
+	margin-right:10px;
+	line-height:120%;
+}
+.sblock
+{
+	padding:5px 0 5px 5px;
+	margin:0 0 5px 0;
+	display:block;
+}
+.sblock code
+{
+    float: right;
+    width: 25px;
+    height: 23px;
+    top: -5px;
+    font-size: 14pt;
+    cursor: pointer;
+    transform: scale(1,0.8);
+    font-weight: bold;
+    text-align: center;
+}
+#bconstruct
+{
+    min-height: 100px;
+    margin: 10px 0 20px 20px;
+    padding: 0 1px;
+    border: none;
+	font-size:90%;
+}
+textarea#searchbox
+{
+	overflow: hidden;
+    min-height: 100px;
+    width: 98%;
+    padding: 1%;
+    margin: 0 0 20px 0;
+	font: normal 10pt/12pt monospace;
+}
+div.elastic
+{
+	margin-top:-100px;
+	z-index: -1;
+	height: 100px;
+	width: 98%;
+    padding: 1%;
+	visibility: hidden;
+	word-wrap: break-word;
+	font: normal 10pt/12pt monospace;
+	overflow: hidden;
+}
+#termtextbox
+{
+	display:none;
+}
+#helpconstructor
+{
+    padding: 20px;
+    cursor: pointer;
+}
+#helpconstructor:before
+{
+    content: "\003F";
+    position: absolute;
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    left: -20px;
+    border-radius: 50%;
+    font-family: "Verdana";
+    font-size: 16pt;
+    font-weight: bold;
+}
+span.constr
+{
+    cursor: pointer;
+    display: inline-block;
+    width: 20px;
+    height: 14px;
+}
+span.constr:before
+{
+    content: '\002B';
+    position: absolute;
+    display: inline-block;
+    text-align: center;
+    font-size: 12pt;
+    font-weight: bold;
+    line-height: 10pt;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+#termtextbox
+{
+	display:none;
+}
+#shist span:not(:last-child)
+{
+	border-bottom:solid 1px #ccc;
+}
+.lighttitle label
+{
+	border-bottom:solid 1px #606f90;
+	cursor:pointer;
+    font-size: 90%;
+    margin: 0 0 5px 5px;
+	display:inline-block;
+}
+.lighttitle label:after
+{
+    content: '\e815';
+    position: absolute;
+    display: inline-block;
+    font-family: 'fontello';
+    left: 100%;
+    margin-left: 5px;
+    top: 2px;
+    font-weight: bold;
+}
+/*подсветка*/
+.backlight
+{
+    padding: 10px;
+    margin: 0 0 10px 0;
+	display:none;
+}
+.backlight em, .output em
+{
+    border-bottom: dashed 1px #990000;
+	font-weight:normal;
+}
+em > em
+{
+	border-bottom:none !important;
+}
+.backlight > div
+{
+    margin: 0 0 5px 0;
+    font-size: 80%;
+    line-height: 120%;
+    text-align: justify;
+	text-indent:25px;
+}
+input:checked.hlight ~ .backlight
+{
+    display: block;
+}
+/*.wrapped.ml20x
+{
+	line-height:150%;
+}
+.wrapped.ml20x:before
+{
+	top:9px;
+}*/
+.andor2
+{
+	margin-right:5px;
+}
+.sheet_search_history_php #srezults .searchhead .fleft
+{
+	width:70% !important;
+}
+/*фильтры*/
+.clear_filters
+{
+	display:none;
+}
+#filters
+{
+	display:inline-block;
+	vertical-align:top;
+	width:25%;
+	margin: 0 1% 0 0;
+	text-align:left;
+}
+.filters
+{
+	margin: 0 0 10px 0;
+	border-radius:5px;
+	padding-bottom:5px;
+}
+.filters div
+{
+	padding: 5px 0 5px 0;
+}
+.filters > div
+{
+	font-size: 70%;
+	line-height: 200%;
+}
+.filters div.else
+{
+	text-align: right;
+	font-style: italic;
+	text-decoration:underline;
+	padding: 0 30px 0 0;
+	cursor:pointer;
+}
+.filters div.title
+{
+	padding: 5px 0 5px 30px;
+	font-weight:bold;
+	text-transform:uppercase;
+	line-height: 150% !important;
+}
+.filters i
+{
+	padding: 0 0 0 5px;
+}
+.filters span.unchecked
+{
+	background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==');
+	padding: 0 0 0 30px;
+	text-decoration:underline;
+	cursor:pointer;
+}
+.filters span.checked
+{
+	text-decoration:none;
+	cursor:pointer;
+}
+.row.checked .td
+{
+	border-bottom:solid 1px #ddd;
+	padding:10px 0;
+}
+#searchrezult.table.w100
+{
+	width:100% !important;
+}
+.orders.table .td
+{
+	padding:10px;
+}
+.td.w15[id] span.aflinkinfo:nth-child(1)
+{
+	display:none;
+}
+.calendar_container
+{
+	width:22%;
+	float:right;
+}
+#order_list_data
+{
+	margin-top:10px;
+}
+#regbutton
+{
+	width: 230px;
+	margin-bottom: 10px;
+}
+/*бибкарточка*/
+.bibcard {margin: 1mm; padding: 5mm; width: 125mm; height: 75mm; border: silver 1px solid; background:#fff;}
+.bibcard_bar1 {width: 115mm; overflow: hidden}
+.bibcard_field1 {width: 115mm}
+.bibcard_next {width: 115mm; text-align: right; clear: both; color: #999}
+.bibcard_number {width: 115mm; text-align: center; color: #999}
+.bibcard_bottom {width: 115mm; clear: both}

@@ -1,0 +1,102 @@
+var identif=_identif;
+var params = _docurl.split("?");
+var src=params[0];
+var val=params[1].split("&");
+var WW=val[0].split("=")[1];
+var iddb=val[1].split("=")[1];
+var id=val[2].split("=")[1];
+
+function printOk()
+{
+	typework="";
+	var curDate = new Date();
+	var year=curDate.getFullYear();
+	var day=(curDate.getDate()<10)?'0'+(curDate.getDate()):curDate.getDate();
+	var month=(curDate.getMonth()+1<10)?'0'+(curDate.getMonth()+1):curDate.getMonth()+1;
+	var gArr=new Array();
+	var querylist=new Array();
+	gArr.push(["_action","execute"]);
+	gArr.push(["_html","stat"]);
+	gArr.push(["_errorhtml","error"]);
+	querylist.push(["userid",identif]);
+	querylist.push(["session",_numsean]);
+	querylist.push(["_service","STORAGE:opacstatd:PersonalVisit"]);
+	querylist.push(["_version","1.1.0"]);
+	querylist.push(["time[0]",year+'01010000']);
+	querylist.push(["time[1]",year+''+month+''+day+'0000']);
+	querylist.push(["field","AY"]);
+	querylist.push(["value",identif]);
+	querylist.push(["registr[0]",""]);
+	gArr.push(["querylist",prepareQueryString(querylist)]);
+	ajaxToRCP(gArr,readerView);
+}
+
+function readerView(x)
+{
+	/*var w=window.open();
+	w.document.open();
+	w.document.write(x.responseText);
+	w.document.close();*/
+	eval(x.responseText);
+	if(typeof error!="undefined")
+	{
+		WriteError(error);
+	}
+	else
+	{
+		var login="";
+		var password="";
+		var AX="";
+		var fio="";
+		for(key in response[0])
+		{
+			var value=response[0][key];
+			if(key.indexOf("_reader_")!=-1)
+			{
+				var arr=value;
+				for(var i=0; i<arr.length; i++)
+				{
+					if(arr[i].indexOf('AI:')!=-1)
+					{
+						var tmp=arr[i].substring(3);
+						if(tmp!='N/A')
+							login=tmp;
+					}
+					else if(arr[i].indexOf('AY:')!=-1)
+					{
+						var tmp=arr[i].substring(3);
+						if(tmp!='N/A')
+							password='N'+tmp;
+					}
+					else if(arr[i].indexOf('AX:')!=-1)
+					{
+						var tmp=arr[i].substring(3);
+						if(tmp!='N/A')
+							AX=tmp;
+					}
+					else if(arr[i].indexOf('AO:')!=-1)
+					{
+						var tmp=arr[i].substring(3);
+						if(tmp!='N/A')
+							fio=tmp;
+					}
+				}
+			}
+		}
+		var gArr=new Array();
+		gArr.push(["WW",WW]);
+		gArr.push(["login",login]);
+		gArr.push(["password",password]);
+		gArr.push(["fio",fio]);
+		if(AX!="")
+			gArr.push(["AX",AX]);
+		gArr.push(["iddb",iddb]);
+		gArr.push(["ID",id]);
+		callToRCP(gArr,self,src);
+	}
+}
+
+/*ютф*/</script>
+</head>
+<body onload="printOk()"><div class="loader"><div class="progress"><div></div></div></div></body>
+</html>

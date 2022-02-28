@@ -1,0 +1,129 @@
+#menu_button_facets
+{
+	display:none;
+}
+#facets
+{
+	display:inline-block;
+	vertical-align:top;
+	width:25%;
+	margin: 0 1% 0 0;
+	text-align:left;
+}
+.facets
+{
+	margin: 0 0 10px 0;
+	border:solid 1px #eee;
+	padding: 0 0 5px 0;
+	border-radius:5px;
+	background:#eee;
+}
+.facets div.table > div
+{
+	display:table-row;
+}
+.facets div.table > div span, .facets div.table > div i
+{
+	display:table-cell;
+	font-size: 75%;
+	line-height:110%;
+	text-transform: lowercase;
+}
+.facets div span.else, .facets div span.even
+{
+	font-style: italic;
+	padding: 5px;
+	cursor:pointer;
+	color: #099;
+}
+.facets div span.else
+{
+	text-align: right;
+}
+.facets span.unchecked
+{
+	background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==');
+	padding: 5px 5px 5px 10px;
+	text-decoration:underline;
+	cursor:pointer;
+}
+.facets span.checked
+{
+	text-decoration:none;
+	cursor:pointer;
+	color: #099;
+}
+.facets div.title
+{
+	padding: 5px 0 5px 10px;
+	font-weight:bold;
+	text-transform:uppercase;
+	font-size: 80%;
+	line-height: 150%;
+	background:#eee;
+	border-radius:5px;
+	cursor:pointer;
+}
+.facets span
+{
+    word-wrap: break-word;
+    white-space: pre-wrap;	
+}
+.facets i
+{
+	text-align:right;
+	color:#777;
+	padding:5px;
+	width:20%;
+}
+.f_container, .f_title
+{
+	margin-top:5px; 
+}
+.f_container div, .f_title
+{
+	display:inline-block;
+	margin-right:5px;
+}
+.f_container .ffacets
+{
+	padding: 5px 15px 5px 5px;
+	background: #fff;
+	border: solid 1px #eee;
+}
+.f_container .ffacets div:not([class^='title'])
+{
+	color:#099;
+	text-transform:lowercase;
+	font-variant:small-caps;
+	font-family:Tahoma;
+}
+.facets.unwrap  div.title:after, .facets.wrap  div.title:after
+{
+	position:absolute;
+	display:inline-block;
+	font-family: 'fontello';
+	font-weight:bold;
+	font-size:13pt;
+	width:15px;
+	height:27px;
+	top: 0;
+	left:100%;
+	margin-left:-17px;
+}
+.facets.unwrap  div.title:after
+{
+	content: '\e80a';
+}
+.facets.wrap  div.title:after
+{
+	content: '\e80b';
+}
+.facets.unwrap div.table.w100
+{
+	display:table;
+}
+.facets.wrap div.table.w100
+{
+	display:none;
+}

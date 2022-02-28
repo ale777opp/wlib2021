@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<opacOutFormList>
+  <opacOutForm description="Адрес библиотеки (сводный каталог)" format="RUSMARC" name="ADDRESS" type="AF">
+    <buildingParams condition="::&quot;true&quot;;" type="PARSER">
+      <rule value="210($c)::&quot;[BEGIN]&lt;Addresse>&quot;;"/>
+      <rule value="210($c)::%1;"/>
+    </buildingParams>
+  </opacOutForm>
+  <opacOutForm description="Выходная форма для 300х полей (сводный каталог)" format="RUSMARC" name="BLK300" type="AF">
+    <buildingParams condition="::&quot;true&quot;;" type="PARSER">
+      <rule value="300[1-/0]::&quot;[BEGIN]&lt;Annotation>&quot;;"/>
+      <rule value="300($a)::%1+&quot;\n&quot;;"/>
+    </buildingParams>
+  </opacOutForm>
+  <opacOutForm description="Выходная форма для 305х полей (сводный каталог)" format="RUSMARC" name="BLK305" type="AF">
+    <buildingParams condition="::&quot;true&quot;;" type="PARSER">
+      <rule value="305[1-/0]::&quot;[BEGIN]&lt;Old title>&quot;;"/>
+      <rule value="305($a,$b[0-])::%1+px(&quot; &quot;,iser(%2,&quot;, &quot;));"/>
+    </buildingParams>
+  </opacOutForm>
+  <opacOutForm description="Доступ к электронным ресурсам (сводный каталог)" format="RUSMARC" name="BLK856" type="AF">
+    <buildingParams condition="::&quot;true&quot;;" type="PARSER">
+      <rule value="856[1-/0]::&quot;[BEGIN]&lt;Internet>&quot;;"/>
+      <rule value="856($g,$u[0-],$x[0-],$2[0-])::if (%1!=&quot;СКБР&quot;) %1+px(&quot;[END]&quot;,%2) + if(!empty(%4)) px(&quot;[END]&quot;,%4) fi +&quot;\n&quot;+ if (!empty(%3)) &quot;ABIS[END]&quot;+%3+&quot;\n&quot; fi else &quot;SKBR[END]&quot;+%2+&quot;\n&quot;+&quot;SIGLA[END]&quot;+%3+&quot;\n&quot; fi;"/>
+    </buildingParams>
+  </opacOutForm>
+  <opacOutForm description="Наименование библиотеки (сводный каталог)" format="RUSMARC" name="TITLE" type="AF">
+    <buildingParams condition="::&quot;true&quot;;" type="PARSER">
+      <rule value="210(${ab})::&quot;[BEGIN]&lt;Title>&quot;;"/>
+      <rule value="210(${ab})::iser(%1,&quot;. &quot;);"/>
+    </buildingParams>
+  </opacOutForm>
+</opacOutFormList>

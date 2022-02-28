@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<opacOutFormList>
+  <opacOutForm description="Короткий АФ для репозитория" format="RUSMARC" name="AFREPO1" type="AF">
+    <buildingParams condition="::&quot;true&quot;;" type="PARSER">
+      <rule value="200($a,$g[0-],$b[0-])::&quot;[BEGIN]&lt;FIO>&quot;;"/>
+      <rule value="200($a,$g[0-],$b[0-],$c[0-])::&quot;[FIO][div][b]&quot;+%1+if(!empty(%2)) px(&quot;, &quot;,%2) else px(&quot;, &quot;,%3) fi+if(!empty(%4)) px(&quot; (&quot;,%4,&quot;)&quot;)fi+&quot;[/b][/div]\n&quot;;"/>
+      <rule value="400[1-/0]::&quot;[b]Альтернативные названия:[/b] &quot;;"/>
+      <rule value="400($a,$g[0-],$b[0-])::%1+if(!empty(%2)) px(&quot; &quot;,%2) else px(&quot; &quot;,%3) fi + &quot;[space] [/space]&quot;;"/>
+      <rule value="510[1-/0]::&quot;\nОрганизация: &quot;;"/>
+      <rule value="5100?($a,$g[0-],$h[0-],${bc}[0-],${dfe}[0-],$p[0-],${xyzj}[0-])::iser(iser(%1|%2|%3,&quot;, &quot;)+px(for(i=%4:if(name(i)==&quot;b&quot;) &quot;. &quot;+i else if(name(i)==&quot;c&quot;) &quot; (&quot; + i +&quot;)&quot; fi fi))+if(!empty(%5))&quot; (&quot;+iser(%5,&quot;; &quot;)+&quot;)&quot;fi+px(&quot; &quot;,%6)+px(&quot; - &quot;,%7), &quot;.\n&quot;);"/>
+      <rule value="5101?($a,$g[0-],$h[0-],${bc}[0-],${dfe}[0-],$p[0-],${xyzj}[0-])::iser(iser(%1|iser(%2|iser(%3,&quot;, &quot;),&quot;. &quot;),if(empty(%2))&quot;. &quot; else &quot;, &quot; fi)+if(!empty(%5))&quot; (&quot;+iser(%5,&quot;; &quot;)+&quot;)&quot;fi+px(for(i=%4:if(name(i)==&quot;b&quot;) &quot;. &quot;+i else if(name(i)==&quot;c&quot;) &quot; (&quot; + i +&quot;)&quot; fi fi))+px(&quot; &quot;,%6)+px(&quot; - &quot;,%7),&quot;.\n&quot;);"/>
+    </buildingParams>
+  </opacOutForm>
+  <opacOutForm description="Коды авторов для репозитория" format="RUSMARC" name="AFREPO2" type="AF">
+    <buildingParams condition="::&quot;true&quot;;" type="PARSER">
+      <rule value="017($2,$a):: if (up(%1)==&quot;ORCID&quot;) px(&quot;[p][b]&quot;+%1+&quot;:[/b][uri]//orcid.org/&quot;,%2,&quot;[uriT]&quot;+%2+&quot;[/a][/p]\n&quot;) fi;"/>
+      <rule value="017($2,$a):: if (up(%1)==&quot;WOS&quot;) px(&quot;[p][b]&quot;+%1+&quot;:[/b][uri]//repo.rucml.ru/reports/plugins/wos/app/author/record/&quot;,%2,&quot;[uriT]&quot;+%2+&quot;[/a][/p]\n&quot;) fi;"/>
+      <rule value="017($2,$a):: if (up(%1)==&quot;RESEARCHERID&quot;) px(&quot;[p][b]&quot;+%1+&quot;:[/b][uri]//www.researcherid.com/rid/&quot;,%2,&quot;[uriT]&quot;+%2+&quot;[/a][/p]\n&quot;) fi;"/>
+      <rule value="017($2,$a):: if (up(%1)==&quot;SCOPUS&quot;) px(&quot;[p][b]&quot;+%1+&quot;:[/b][uri]//www.scopus.com/authid/detail.uri?authorId=&quot;,%2,&quot;[uriT]&quot;+%2+&quot;[/a][/p]\n&quot;) fi;"/>
+      <rule value="017($2,$a):: if (up(%1)==&quot;РИНЦ&quot;) px(&quot;[p][b]&quot;+%1+&quot;:[/b][uri]//elibrary.ru/author_profile.asp?authorid=&quot;,%2,&quot;[uriT]&quot;+%2+&quot;[/a][/p]\n&quot;) fi;"/>
+      <rule value="017($2,$a):: if (up(%1)==&quot;GSCHOLAR&quot;) px(&quot;[p][b]&quot;+%1+&quot;:[/b][uri]//scholar.google.ru/citations?hl=ru&amp;user=&quot;,%2,&quot;[uriT]&quot;+%2+&quot;[/a][/p]\n&quot;) fi;"/>
+    </buildingParams>
+  </opacOutForm>
+  <opacOutForm description="Примечания для репозитория" format="RUSMARC" name="AFREPO3" type="AF">
+    <buildingParams condition="::&quot;true&quot;;" type="PARSER">
+      <rule value="300($a)::&quot;[div]&quot;+%1+&quot;[/div]\n&quot;;"/>
+      <rule value="340($a,$2[0])::&quot;[div]&quot;+%1+&quot;[/div]\n&quot;;"/>
+      <rule value="340($a,$2[1-])::if (up(%2)==&quot;BIOGRAPHY&quot;) &quot;[div]&quot;+%1+&quot;[/div]\n&quot; fi;"/>
+      <rule value="340($b,$c,$2[1-])::if (up(%3)==&quot;CONTACT&quot;) &quot;[div]&quot;+%1+&quot;: &quot;+%2+&quot;[/div]\n&quot; fi;"/>
+      <rule value="550[1-/0]::&quot;\nПрофессиональные интересы: &quot;;"/>
+      <rule value="550($a)[0-]::ser(%1,&quot; &quot;)+&quot;\n&quot;;"/>
+    </buildingParams>
+  </opacOutForm>
+  <opacOutForm description="Фото для репозитория" format="RUSMARC" name="AFREPO4" type="AF">
+    <buildingParams condition="::&quot;true&quot;;" type="PARSER">
+      <rule value="856($a[0],$q[0-/0],$u[1])[1-/0]::&quot;[BEGIN]&lt;IMG>&quot;;"/>
+      <rule value="856($q[1-/0],$u)[1-]::if (up(%1)==&quot;IMAGE&quot;) &quot;[IMG]//repo.rucml.ru&quot;+%2+&quot;\n&quot; fi;"/>
+    </buildingParams>
+  </opacOutForm>
+  <opacOutForm description="Мета теги для SEO записей репозитория" format="RUSMARC" name="AFREPO5" type="AF">
+    <buildingParams condition="::&quot;true&quot;;" type="METAPARSER">
+      <rule value="lang:100($a):pos(%1,9,3);"/>
+      <rule value="header:200($a[1], $b[0-], $g[0-], $c[0-]): %1 + px(&quot; &quot;, %2)+ px(&quot;, &quot;, %3) + if (!empty(%4)) px(&quot; (&quot;, ser(%4, &quot;; &quot;),&quot;)&quot;) fi;"/>
+      <rule value="header(|):2100?($a[1], ${bc}[0-]): %1 + px(for(i=%2:if(name(i)==&quot;b&quot;) &quot;. &quot; + i else if(name(i)==&quot;c&quot;) &quot; (&quot; + i + &quot;)&quot; fi fi));"/>
+      <rule value="typeOG:: &quot;[OGTYPE]profile&quot;;"/>
+      <rule value="degree:340($2,$b):if(up(%1)==&quot;DEGREE&quot;) %2 fi;"/>
+      <rule value="workStart:340($2,$f):if(up(%1)==&quot;WORKSTART&quot;) %2 fi;"/>
+      <rule value="workStatPlace: 510($5,$a,$b[0-],$0[0-])[/0]: if(up(pos(%1,3,1))==&quot;L&quot;) px( if(!empty(%4)) fup(%4) else &quot;Сотрудник&quot; fi,&quot; - &quot;, ser(%2|%3, &quot;. &quot;)) fi;"/>
+      <rule value="workStatus:340($2,$b):if(empty(#workStatus)) if(up(%1)==&quot;WORKSTATUS&quot;) %2 fi fi;"/>
+      <rule value="workPlace:340($2,$b): if(empty(#workPlace)) if(up(%1)==&quot;WORKPLACE&quot;) %2 fi fi;"/>
+      <rule value="anno:300($a)[/0]:%1;"/>
+      <rule value="keyWords:550($a,$x)[0-]: ser(%1|%2,&quot;—&quot;);"/>
+      <rule value="des:{200,210}: #header + if(#lang==&quot;rus&quot;) px(&quot; – &quot;, ser( if(name(#1)==&quot;200&quot;) &quot;автор научных публикаций&quot; else &quot;подразделение Университета&quot; fi | #degree,&quot;, &quot;), &quot;. Посмотреть список работ и получить доступ к индексам цитирования Scopus, WoS - Web of Science, РИНЦ, RSCI&quot;) else px(&quot; – &quot;, ser(&quot;author of scientific publications&quot;|#degree,&quot;, &quot;), &quot;. View the list of works and get access to citation indexes of Scopus, WoS - Web of Science, RSCI&quot;) fi;"/>
+      <rule value="desc::&quot;[DESCRIPTION]&quot; + if(length(#des>160)) ipx(trim(pos(#des,0,155),&quot; &quot;),&quot;...&quot;) else #des fi + &quot;\n&quot;;"/>
+      <rule value="descOG::&quot;[OGDESCRIPTION]&quot; + if(length(#des>220)) ipx(trim(pos(#des,0,215),&quot; &quot;),&quot;...&quot;) else #des fi + &quot;\n&quot;;"/>
+      <rule value="keyWords:: &quot;[OGKEYWORDS]&quot; + ser(#keyWords, &quot;, &quot;) + &quot;\n&quot;;"/>
+      <rule value="img:8564?($u,$q,$2):if(up(%2)==&quot;IMAGE&quot;) &quot;[OGIMAGE]&quot;+%1+&quot;\n&quot; fi;"/>
+      <rule value="header::px(&quot;[OGTITLE]&quot;,px(#header, if(#lang==&quot;rus&quot;) &quot; - Сеченовский репозиторий&quot; else &quot; - Sechenov repository&quot; fi), &quot;\n&quot;);"/>
+      <rule value="lang::&quot;[LANG]&quot; + pos(#lang,0,2) + &quot;\n&quot;;"/>
+      <rule value="::#lang | #header | #desc | #descOG | #typeOG | #keyWords | #img ;"/>
+    </buildingParams>
+  </opacOutForm>
+</opacOutFormList>

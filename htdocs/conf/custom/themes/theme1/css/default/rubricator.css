@@ -1,0 +1,134 @@
+/*рубрикатор outside*/
+.sheet_rubrics_rubrics #rubricator
+{
+	width:100%;
+}
+.sheet_rubrics_rubrics #rubricator > ul
+{
+	width:100%;
+	display:inline-block;
+}
+.sheet_rubrics_rubrics #rubricator li
+{
+	list-style-type:none;
+}
+.sheet_rubrics_rubrics #rubricator > ul > li
+{
+	display:inline-block;
+	width:49%;
+	margin-top:2%;
+	vertical-align:top;
+	font-size:80%;
+}
+.sheet_rubrics_rubrics #rubricator > ul > li:nth-child(odd)
+{
+	margin-right:2%;
+}
+.sheet_rubrics_rubrics #rubricator li[class^='folder']:not([data-level='1']) ul
+{
+	margin-left:12px;
+}
+.sheet_rubrics_rubrics #rubricator > ul > li[class^='folder'] > a
+{
+	color:#990000;
+	font-size:180%;
+	line-height:100%;
+	margin-left: -12px;
+	display:inline-block;
+	margin-bottom:15px;
+}
+.sheet_rubrics_rubrics #rubricator li a
+{
+	text-decoration:none;
+	line-height:160%;
+}
+.sheet_rubrics_rubrics #rubricator li a:hover
+{
+	text-decoration:underline;
+	color:#990000;
+}
+.sheet_rubrics_rubrics #rubricator li span:before
+{
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	font-size: 12pt;
+	width: 12px;
+	height: 20px;
+}
+.sheet_rubrics_rubrics #rubricator .folder > span:before
+{
+	content:'\002B';
+}
+.sheet_rubrics_rubrics #rubricator .folder_ > span:before
+{
+	content:'\002D';
+}
+.sheet_rubrics_rubrics #rubricator .list > span:before
+{
+	content:'\00B7';
+}
+.sheet_rubrics_rubrics #rubricator > ul > li[class^='folder'] > span:before
+{
+	content:'';
+	display:none;
+}
+/*рубрикатор inside*/
+
+.sheet_search_search_php #rubricator
+{
+	width:22%;
+	font-size: 70%;
+	float:right;
+}
+.sheet_search_search_php #rubricator div
+{
+	display:table;
+}
+.sheet_search_search_php #rubricator span, .sheet_search_search_php #rubricator a
+{
+	display:table-cell;
+}
+.sheet_search_search_php #rubricator .title
+{
+	font-size:120%;
+	font-weight:bold;
+	line-height:200%;
+}
+.sheet_search_search_php #rubricator a
+{
+	display:inline-block;
+	/*height:20px;*/
+	padding:5px;
+}
+#rubricator .colorized
+{
+	background:#e6d6d6;
+}
+.rubnewrecs
+{
+    position: absolute;
+    top: 210px;
+    right: 0px;
+}
+.sheet_search_search_php #rubricator span:before
+{
+	position:absolute;
+	display:inline-block;
+	font-family: 'fontello';
+	font-size:11pt;
+	top:1px;
+}
+.sheet_search_search_php #rubricator [class^='list'] span:before
+{
+	content: '\e805';
+}
+.sheet_search_search_php #rubricator .folder span:before
+{
+	content: '\e806';
+}
+.sheet_search_search_php #rubricator .folder_ span:before
+{
+	content: '\e807';
+}

@@ -1,0 +1,179 @@
+.bottom_slider_cont
+{
+	overflow:hidden;
+	width:100%;
+	white-space:nowrap;
+}
+.carousel-selector
+{
+	position:absolute;
+	top:0;
+	left:-1000px;
+	visibility: hidden;
+}
+.carousel-items, .carousel-labels
+{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: inline-block;
+}
+.carousel-items
+{
+	width: 128%;
+	height:350px;
+	z-index: 1;
+	transition: left 0.5s ease-in-out;
+	margin-left: 10%;
+}
+.carousel-item
+{
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	width: 20%;
+	vertical-align: top;
+	text-align:center;
+}
+.carousel-item > div
+{
+	border: solid 1px #ddd;
+	max-width: 180px;
+	display: inline-block;
+	text-align:center;
+}
+.carousel-item .c-img
+{
+	height:150px;
+	width:110px;
+	display:inline-block;
+	background-color: white;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: auto 100%;
+	margin:10% auto;
+}
+.carousel-item .c-title
+{
+	white-space:normal;
+}
+.carousel-item .c-title span, .carousel-item .c-title b
+{
+	display:inline-block;
+	font-size:70%;
+	line-height:140%;
+	margin: 0 10% 10% 10%;
+}
+.carousel-item .c-title b
+{
+	color:#4379c5;
+	margin-bottom:5px;
+}
+.carousel-item:nth-child(1) .c-img
+{
+	background-image: url(../img/book1.jpg);
+}
+.carousel-item:nth-child(2) .c-img
+{
+	background-image: url(../img/book2.jpg);
+}
+.carousel-item:nth-child(3) .c-img
+{
+	background-image: url(../img/book3.jpg);
+}
+.carousel-item:nth-child(4) .c-img
+{
+	background-image: url(../img/book4.jpg);
+}
+.carousel-item:nth-child(5) .c-img
+{
+	background-image: url(../img/book5.jpg);
+}
+.carousel-item:nth-child(6) .c-img
+{
+	background-image: url(../img/book6.jpg);
+}
+.carousel-labels
+{
+	position: absolute;
+	z-index: 2;
+	left: 0;
+	bottom:0;
+	height: 20px;
+	width: 100%;
+	padding: 10px;
+	text-align: center;
+}
+.carousel-label
+{
+	display: inline-block;
+	padding: 3px;
+}
+.carousel-label label
+{
+	width: 12px;
+	height: 12px;
+	border-radius: 6px;
+	background: #eee;
+	display: block;
+	cursor: pointer;
+	transition: background 0.5s ease-in-out;
+}
+.carousel-label label:hover
+{
+	background: #4379c5;
+}
+#sl1:checked ~ .carousel-items
+{
+	left: 0;
+}
+#sl1:checked ~ .carousel-labels .carousel-label:nth-child(1) label
+{
+	background: #4379c5;
+}
+#sl1:checked ~ .carousel-items .carousel-item:nth-child(1), #sl1:checked ~ .carousel-items .carousel-item:nth-child(2), #sl1:checked ~ .carousel-items .carousel-item:nth-child(3)
+{
+	opacity:1;
+	transition: 1s ease-in-out;
+}
+#sl1:checked ~ .carousel-items .carousel-item:nth-child(4), #sl1:checked ~ .carousel-items .carousel-item:nth-child(5), #sl1:checked ~ .carousel-items .carousel-item:nth-child(6)
+{
+	opacity:0;
+	transition: 1s ease-in-out;
+}
+#sl2:checked ~ .carousel-items {
+	left: -51%;
+}
+#sl2:checked ~ .carousel-labels .carousel-label:nth-child(2) label {
+	background: #4379c5;
+}
+#sl2:checked ~ .carousel-items .carousel-item:nth-child(3), #sl2:checked ~ .carousel-items .carousel-item:nth-child(4), #sl2:checked ~ .carousel-items .carousel-item:nth-child(5)
+{
+	opacity:1;
+	transition: 1s ease-in-out;
+}
+#sl2:checked ~ .carousel-items .carousel-item:nth-child(2), #sl2:checked ~ .carousel-items .carousel-item:nth-child(6), #sl2:checked ~ .carousel-items .carousel-item:nth-child(1)
+{
+	opacity:0;
+	transition: 1s ease-in-out;
+}
+#sl3:checked ~ .carousel-items {
+	left: -77%;
+}
+#sl3:checked ~ .carousel-labels .carousel-label:nth-child(3) label {
+	background: #4379c5;
+}
+.carousel-label:nth-child(4), .carousel-label:nth-child(5), .carousel-label:nth-child(6)
+{
+	display:none;
+}
+#sl3:checked ~ .carousel-items .carousel-item:nth-child(6), #sl3:checked ~ .carousel-items .carousel-item:nth-child(4), #sl3:checked ~ .carousel-items .carousel-item:nth-child(5)
+{
+	opacity:1;
+	transition: 1s ease-in-out;
+}
+#sl3:checked ~ .carousel-items .carousel-item:nth-child(1), #sl3:checked ~ .carousel-items .carousel-item:nth-child(2), #sl3:checked ~ .carousel-items .carousel-item:nth-child(3)
+{
+	opacity:0;
+	transition: 1s ease-in-out;
+}

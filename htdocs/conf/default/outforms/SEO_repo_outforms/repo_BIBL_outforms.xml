@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<opacOutFormList>
+  <opacOutForm description="Репозиторий.Полный вывод.Аффилированность" format="RUSMARC" name="FULLREPOAFF2" type="BIBL">
+    <buildingParams command="fullrepoaff1.js" condition="::&quot;true&quot;;" handler="" type="HOOK"/>
+  </opacOutForm>
+  <opacOutForm description="Репозиторий.Полный вывод.Аннотация" format="RUSMARC" name="FULLREPOANT" type="BIBL">
+    <buildingParams condition="::&quot;true&quot;;" type="PARSER">
+      <rule value="330($a):: &quot;[b]Аннотация:[/b]\n&quot;;"/>
+      <rule value="330($a):: px(%1,&quot;\n&quot;);"/>
+    </buildingParams>
+  </opacOutForm>
+  <opacOutForm description="Репозиторий.Полный вывод.Авторство" format="RUSMARC" name="FULLREPOAUTH2" type="BIBL">
+    <buildingParams command="fullrepoauth3.js" condition="::&quot;true&quot;;" handler="" type="HOOK"/>
+  </opacOutForm>
+  <opacOutForm description="Репозиторий.Полный.Информация о документе" format="RUSMARC" name="FULLREPOINFO" type="BIBL">
+    <buildingParams command="fullrepoinfo.js" condition="::&quot;true&quot;;" handler="" type="HOOK"/>
+  </opacOutForm>
+  <opacOutForm description="Репозиторий.Полный.Рубрики+Ключевые слова" format="RUSMARC" name="FULLREPOKW" type="BIBL">
+    <buildingParams condition="::&quot;true&quot;;" type="METAPARSER">
+      <rule value="kw:610($a)[/0]: if(!empty(%1)) &quot;&lt;b>Ключевые слова:&lt;/b>\n&quot; fi;"/>
+      <rule value="kw(|):610($a): ser(%1,&quot;; &quot;) + &quot;\n&quot;;"/>
+      <rule value="mesh:615($2)[/0]:if(up(pos(%1,0,8))==&quot;RUS_MESH&quot;) &quot;&lt;b>Рубрики Mesh:&lt;/b>\n&quot; fi;"/>
+      <rule value="table:615($2,$a,$x[0-],$3): if(up(pos(%1,0,8))==&quot;RUS_MESH&quot;)  px( if(up(pos(%4,0,1))==&quot;R&quot;) &quot;rus@&quot; else &quot;eng@&quot; fi, if(!empty(%3)) ser(%2|%3,&quot; - &quot;) else %2 fi ) fi;"/>
+      <rule value="mesh(|):100($a): ser(for(i=pos(#1,22,3): for(j=#table: if(i==token(j,&quot;@&quot;)[0]) token(j,&quot;@&quot;)[1] fi)),&quot;\n&quot;);"/>
+      <rule value=":: #kw | #mesh | &quot;\n&quot;;"/>
+    </buildingParams>
+  </opacOutForm>
+  <opacOutForm description="Репозиторий.Полный вывод.Другие ресурсы" format="RUSMARC" name="FULLREPOLINK" type="BIBL">
+    <buildingParams condition="::&quot;true&quot;;" type="PARSER">
+      <rule value="017($2)[/0]:: &quot;[b]Внешние источники:[/b]\n&quot;;"/>
+      <rule value="017($2,$a):: if (up(%1)==&quot;WOS&quot;) px(&quot;[p][b]&quot;+%1+&quot;:[/b][uri]//gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&amp;SrcApp=Publons&amp;SrcAuth=Publons_CEL&amp;KeyUT=WOS:&quot;,%2,&quot;&amp;DestLinkType=FullRecord&amp;DestApp=WOS_CPL[uriT]&quot;+%2+&quot;[/a][/p]&quot;) fi;"/>
+      <rule value="017($2,$a):: if (up(%1)==&quot;SCOPUS&quot;) px(&quot;[p][b]&quot;+%1+&quot;:[/b][uri]//www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&amp;scp=&quot;,%2,&quot;&amp;origin=inward[uriT]&quot;+%2+&quot;[/a][/p]&quot;) fi;"/>
+      <rule value="017($2,$a):: if (up(%1)==&quot;РИНЦ&quot;) px(&quot;[p][b]&quot;+%1+&quot;:[/b][uri]//elibrary.ru/item.asp?id=&quot;,%2,&quot;[uriT]&quot;+%2+&quot;[/a][/p]&quot;) fi;"/>
+      <rule value="017($2,$a):: if (up(%1)==&quot;PUBMED&quot;) px(&quot;[p][b]&quot;+%1+&quot;:[/b][uri]//pubmed.ncbi.nlm.nih.gov/&quot;,%2,&quot;[uriT]&quot;+%2+&quot;[/a][/p]&quot;) fi;"/>
+      <rule value="017($2,$a):: if (up(%1)==&quot;RUSMED&quot;) px(&quot;[p][b]&quot;+%1+&quot;:[/b][uri]//rusmed.rucml.ru/record/&quot;,%2,&quot;[uriT]&quot;+%2+&quot;[/a][/p]&quot;) fi;"/>
+      <rule value="017($2,$a):: if (up(%1)==&quot;SECHENOV&quot;) px(&quot;[p][b]&quot;+%1+&quot;[/b][uri]//www.sechenov.ru/science_and_innovation/repo/&quot;,%2,&quot;[uriT]&quot;+%2+&quot;[/a][/p]&quot;) fi;"/>
+    </buildingParams>
+  </opacOutForm>
+  <opacOutForm description="Репозитоий. Обложка в подробном выводе" format="RUSMARC" name="FULLREPOPHOTO" type="BIBL">
+    <buildingParams condition="::&quot;true&quot;;" type="PARSER">
+      <rule value="85641($q,$g,$u):: if (up(%1)==&quot;IMAGE&quot; &amp;&amp; up(%2)==&quot;COVER&quot;) iser(&quot;&quot;+%3,&quot;\n&quot;) fi;"/>
+    </buildingParams>
+  </opacOutForm>
+  <opacOutForm description="Репозиторий.Полный вывод.Источник" format="RUSMARC" name="FULLREPOSRC" type="BIBL">
+    <buildingParams condition="::&quot;true&quot;;" type="PARSER">
+      <rule value="461$1200($a):: px(&quot;[b]&quot;,%1,&quot;[/b]\n&quot;);"/>
+      <rule value="463$1200($a),463$1200($v):: ser(#1|#2, &quot;, &quot;) + &quot;\n&quot;;"/>
+    </buildingParams>
+  </opacOutForm>
+  <opacOutForm description="Репозиторий.Полный вывод.Заголовок" format="RUSMARC" name="FULLREPOTITL" type="BIBL">
+    <buildingParams condition="::&quot;true&quot;;" type="PARSER">
+      <rule value="200($a,${hi}[0-],$e[0-]):: ser(%1,&quot;. &quot;) + px(&quot; &quot;,ser(%2,&quot;. &quot;))+ px(&quot;: &quot;, ser(%3,&quot;: &quot;));"/>
+    </buildingParams>
+  </opacOutForm>
+  <opacOutForm description="Репозиторий.Полный вывод.Выходные данные" format="RUSMARC" name="FULLREPOVYX" type="BIBL">
+    <buildingParams condition="::&quot;true&quot;;" type="METAPARSER">
+      <rule value="doi: 017($2,$a):if (up(%1)==&quot;DOI&quot;) px(&quot;[p][b]&quot;+%1+&quot;:[/b][uri]//doi.org/&quot;,%2,&quot;[uriT]&quot;+%2+&quot;[/a][/p]&quot;) fi;"/>
+      <rule value="doc: 85640($2,$u,$q): if (up(%3)==&quot;PUBL&quot;) px(&quot;[p][b]&quot;+%1+&quot;:[/b][uri]&quot;,%2,&quot;[uriT]&quot;+%2+&quot;[/a][/p]&quot;) fi;"/>
+      <rule value="docType: 608($2,$a)[/0]: if(up(%1)==&quot;TODSU&quot;) &quot;&lt;b>Тип ресурса: &lt;/b>&quot; fi;"/>
+      <rule value="type: 608($2,$a): if(up(%1)==&quot;TODSU&quot;) %2 fi;"/>
+      <rule value="docType(|):: if(size(#type)>0) px(ser(#type, &quot;; &quot;),&quot;\n&quot;) fi;"/>
+      <rule value="month: 000: px(&quot;01&quot;,&quot;@&quot;,&quot;ЯНВ&quot;)+px(&quot;02&quot;,&quot;@&quot;,&quot;ФЕВ&quot;)+px(&quot;03&quot;,&quot;@&quot;,&quot;МАР&quot;)+px(&quot;04&quot;,&quot;@&quot;,&quot;АПР&quot;)+px(&quot;05&quot;,&quot;@&quot;,&quot;МАЯ&quot;)+px(&quot;06&quot;,&quot;@&quot;,&quot;ИЮН&quot;)+px(&quot;07&quot;,&quot;@&quot;,&quot;ИЮЛ&quot;)+px(&quot;08&quot;,&quot;@&quot;,&quot;АВГ&quot;)+px(&quot;09&quot;,&quot;@&quot;,&quot;СЕН&quot;)+px(&quot;10&quot;,&quot;@&quot;,&quot;ОКТ&quot;)+px(&quot;11&quot;,&quot;@&quot;,&quot;НОЯ&quot;)+px(&quot;12&quot;,&quot;@&quot;,&quot;ДЕК&quot;);"/>
+      <rule value="publDate: 100($a),{210,463$1210}($d)[0-/0]: if(length(digit(pos(%1,9,4)))==4) if(up(pos(%1,8,1))==&quot;H&quot; || up(pos(%1,8,1))==&quot;F&quot;) ser(pos(%1,9,4)|pos(%1,13,4),&quot; - &quot;) else if(up(pos(%1,8,1))==&quot;J&quot;) pos(%1,15,2)+ &quot; &quot; + for(i=pos(%1,13,2) : for(j=#month : if(i==token(j,&quot;@&quot;)[0]) token(j,&quot;@&quot;)[1] fi)) + &quot; &quot; + pos(%1,9,4) else pos(%1,9,4) fi fi else #2 fi; "/>
+      <rule value="dateline: {461$1210,463$1210,210}($c,$a)[0-],215($a)[0-]: if(!empty(#1|#2)) px(&quot;&lt;b>Страниц: &lt;/b>&quot;, #2,&quot;\n&quot;) + if(!empty(#1)) px(&quot;&lt;b>Издатель: &lt;/b>&quot;, px(ser(%1|%2,&quot;, &quot;),&quot;\n&quot;)) fi fi;"/>
+      <rule value=":: if(length(#publDate)>3) px(&quot;&lt;b>Опубликовано: &lt;/b>&quot;,#publDate,&quot;\n&quot;) fi | if(length(#docType)>3) #docType fi | if(length(#doi)>3) #doi fi | if(!empty(#doc)) #doc fi | if(size(#dateline)>0) #dateline fi;"/>
+    </buildingParams>
+  </opacOutForm>
+  <opacOutForm description="Мета теги для SEO записей репозитория" format="RUSMARC" name="SEO_META_REPO" type="BIBL">
+    <buildingParams condition="::&quot;true&quot;;" type="METAPARSER">
+      <rule value="lang:100($a):pos(%1,22,3);"/>
+      <rule value="authors:701($a,$b[0-],$g[0-]): px(%1,&quot; &quot;) + if(!empty(%2)) cut(%2,&quot; &quot;) else ser(for(i=token(%3,&quot; &quot;): if(up(pos(i,0,4))==&quot;SHCH&quot;) px(pos(i,0,4),&quot;.&quot;) else if(up(pos(i,0,3))==&quot;SHH&quot;) px(pos(i,0,3),&quot;.&quot;) else if(up(pos(i,0,2))==&quot;YA&quot; || up(pos(i,0,2))==&quot;YU&quot; || up(pos(i,0,2))==&quot;CH&quot; || up(pos(i,0,2))==&quot;TS&quot; || up(pos(i,0,2))==&quot;KH&quot; || up(pos(i,0,2))==&quot;ZH&quot; || up(pos(i,0,2))==&quot;SH&quot;) px(pos(i,0,2),&quot;.&quot;) else px(pos(i,0,1),&quot;.&quot;) fi fi fi)) fi;"/>
+      <rule value="ttl:200($a),225($a)[0-]:ser(%1|ipx(&quot;(&quot;,#2,&quot;)&quot;),&quot; &quot;);"/>
+      <rule value="title::px(&quot;[OGTITLE]&lt;OGTITLE>&quot;, #ttl, &quot; | Сеченовский репозиторий\n&quot;);"/>
+      <rule value="typeDoc:608($a,$2):if(up(%2)==&quot;TODSU&quot;) %1 fi;"/>
+      <rule value="typeOG:: for(i=#typeDoc: if(up(i)==&quot;СТАТЬЯ&quot; || up(i)==&quot;ARTICLE&quot;) &quot;article&quot; else &quot;book&quot; fi );"/>
+      <rule value="typeOG::&quot;[OGTYPE]&lt;OGTYPE>&quot;+if(!empty(#typeOG)) #typeOG[0] else &quot;article&quot; fi+&quot;\n&quot;;"/>
+      <rule value="typeDoc::if(size(#typeDoc)>1) ser(#typeDoc,&quot;-&quot;) else #typeDoc fi;"/>
+      <rule value="typeDoc:100($a): if(empty(#typeDoc)) if(#lang==&quot;rus&quot;) &quot;статья&quot; else &quot;article&quot; fi else #typeDoc + if(#lang==&quot;rus&quot;) &quot; Сеченовского репозитория &quot; else &quot; of the Sechenov repository &quot; fi fi;"/>
+      <rule value="istoch:461$1200($a,${hi}[0-])[0-],463$1200($a,${hi}[0-],$v[0-]),463$1210($d)[0-]: if(!empty(#1)) ipx(iser(up(%1)|%2,&quot;. &quot;),&quot;.— &quot;) else ipx(iser(up(#2%1)|#2%2,&quot;. &quot;),&quot;.— &quot;) fi + if(!empty(#3)) ipx(#3,&quot;г&quot;) fi + if(!empty(#1)) px(&quot;.— &quot;, ser(#2%1|#2%2,&quot;. &quot;)) fi + if(!empty(#2%3)) px(&quot;.— &quot;, #2%3) fi;"/>
+      <rule value="istoch:210($a[0-],$c[0-],$d)[0-],215($a)[0-],100($a): if(empty(#istoch)) ser(ser(%1|%2|ipx(%3,&quot;г.&quot;),&quot;, &quot;)|if(!empty(#2))&quot;– &quot;+digit(#2)+if(pos(#3,22,3)==&quot;rus&quot;)&quot; с.&quot;else&quot; p.&quot;fi fi,&quot; &quot;) else #istoch fi;"/>
+      <rule value="keyWords:610($a):ser(%1,&quot;, &quot;);"/>
+      <rule value="subject::if(!empty(#keyWords)) ser(token(#keyWords[0],&quot;,&quot;),&quot;, &quot;) fi;"/>
+      <rule value="subject:: px(if(#lang==&quot;rus&quot;)&quot;на тем&quot; else &quot;subject&quot; fi, if(!empty(#subject)) px(if(size(#subject)>1) if(#lang==&quot;rus&quot;) &quot;ы: &quot; else &quot;s: &quot;fi else if(#lang==&quot;rus&quot;) &quot;у: &quot; else &quot;: &quot; fi fi, #subject) else px(if(#lang==&quot;rus&quot;) &quot;у: &quot; else &quot;: &quot;fi, #ttl) fi);"/>
+      <rule value="de:: if(#lang==&quot;rus&quot;) ipx(&quot;Научная &quot;,#typeDoc) else ipx(&quot;Scientific &quot;,#typeDoc) fi;"/>
+      <rule value="auth:: if(#lang==&quot;rus&quot;) &quot;Автор&quot; else &quot;Author&quot; fi + if(size(#authors)==1) &quot;: &quot; else if(#lang==&quot;rus&quot;) &quot;ы: &quot; else &quot;s: &quot; fi fi + ser(#authors, &quot;, &quot;);"/>
+      <rule value="publ:: if(#lang==&quot;rus&quot;) &quot;Опубликована: &quot; else &quot;Published: &quot; fi + #istoch;"/>
+      <rule value="desc::&quot;[DESCRIPTION]&lt;DESCRIPTION>&quot; + iser(ipx(#de,&quot; &quot;,#subject) | ipx(#publ,&quot;. &quot;,#auth), &quot;. &quot;) + &quot;\n&quot;;"/>
+      <rule value="descOG::iser(ipx(#de,&quot; &quot;,#subject) | ipx(#publ,&quot;. &quot;,#auth), &quot;. &quot;);"/>
+      <rule value="descOG::&quot;[OGDESCRIPTION]&lt;OGDESCRIPTION>&quot; +if(length(#descOG>220)) ipx(trim(pos(#descOG,0,196),&quot; &quot;),&quot;...&quot;) else #descOG fi + &quot;\n&quot;;"/>
+      <rule value="keyWords::&quot;[OGKEYWORDS]&lt;OGKEYWORDS>&quot;+ser(#keyWords,&quot;; &quot;)+&quot;\n&quot;;"/>
+      <rule value="lang::&quot;[LANG]&lt;LANG>&quot;+pos(#lang,0,2)+&quot;\n&quot;;"/>
+      <rule value="img:{85641,85642}($u,$q,$2[0-]): if(up(%2)==&quot;IMAGE&quot;) &quot;[OGIMAGE]&lt;OGIMAGE>&quot;+%1+&quot;\n&quot; fi;"/>
+      <rule value="(|)::#lang | #title | #desc | #descOG | #typeOG | #keyWords | #img ;"/>
+    </buildingParams>
+  </opacOutForm>
+  <opacOutForm description="Короткий для репозитория" format="RUSMARC" name="SHOTREPO" type="BIBL">
+    <buildingParams condition="::&quot;true&quot;;" type="METAPARSER">
+      <rule value="out(+):2001?($a,${ehi}[0-]):&quot;[div][b]&quot;+iser(%1,&quot;. &quot;)+ipx(for (i=%2: &quot;. &quot;+i))+&quot;[/b][/div]\n&quot;;"/>
+      <rule value="author:70?($a,$b[0-])[0-]:iser(&quot;[i class=AU]&quot;+%1+ipx(&quot; &quot;,%2)+&quot;[/i][space] [/space]&quot;,&quot; &quot;);"/>
+      <rule value="out(+)::if (!empty(#author)) &quot;[div]Автор: &quot; + ipx(#author[0-2],&quot; &quot;) + if (size(#author)>3) &quot;с соавторами&quot; fi + &quot;[/div]\n&quot; fi;"/>
+      <rule value="out(+):{710,711,712}($a,$b[0-])[0-/0]:&quot;[div]&quot;+%1+ipx(&quot; &quot;,%2)+&quot;[/div]\n&quot;;"/>
+      <rule value="out(+)::&quot;[div]&quot;;"/>
+      <rule value="out(+):{461$12001?,463$12001?}($a,${hi}[0-]):iser(&quot;[b]&quot;+up(%1)+&quot;[/b]&quot;,&quot;. &quot;)+ipx(for (i=%2: &quot;. &quot;+i));"/>
+      <rule value="out(+):463$12000?($a):&quot; &quot;+ipx(%1,&quot; &quot;);"/>
+      <rule value="out(+):463$1200($v):ipx(%1,&quot; &quot;);"/>
+      <rule value="day:100($a):if (pos(%1,8,1)==&quot;j&quot; &amp;&amp; pos(%1,15,2)!=&quot;##&quot;) pos(%1,15,2) fi;"/>
+      <rule value="month:100($a):if (pos(%1,8,1)==&quot;j&quot; &amp;&amp; pos(%1,13,2)!=&quot;##&quot;) pos(%1,13,2) fi;"/>
+      <rule value="year:100($a):pos(%1,9,4);"/>
+      <rule value="out(+)::if (#year!=&quot;####&quot;) &quot; Опубликовано: &quot;+if (!empty(#day)) px(#day,&quot; &quot;) fi+if (#month==&quot;01&quot;) &quot;янв. &quot; fi+if (#month==&quot;02&quot;) &quot;февр. &quot; fi+if (#month==&quot;03&quot;) &quot;март &quot; fi+if (#month==&quot;04&quot;) &quot;апр. &quot; fi+if (#month==&quot;05&quot;) &quot;май &quot; fi+if (#month==&quot;06&quot;) &quot;июнь &quot; fi+if (#month==&quot;07&quot;) &quot;июль &quot; fi+if (#month==&quot;08&quot;) &quot;август &quot; fi+if (#month==&quot;09&quot;) &quot;сент. &quot; fi+if (#month==&quot;10&quot;) &quot;окт. &quot; fi+if (#month==&quot;11&quot;) &quot;нояб. &quot; fi+if (#month==&quot;01&quot;) &quot;дек. &quot; fi+#year fi+&quot;[/div]\n&quot;;"/>
+      <rule value="note:330($a):iser(&quot;[div]&quot;+%1+&quot;[/div]&quot;,&quot;\n&quot;);"/>
+      <rule value="doi:017($2,$a):if (up(%1)==&quot;DOI&quot;) px(&quot;[p][b]&quot;+%1+&quot;:[/b][uri]//doi.org/&quot;,%2,&quot;[uriT]&quot;+%2+&quot;[/a][/p]&quot;) fi;"/>
+      <rule value="cd(+):017($2,$a):if (up(%1)==&quot;SCOPUS&quot;) px(&quot;[p][b]&quot;+%1+&quot;:[/b][uri]//www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&amp;scp=&quot;,%2,&quot;&amp;origin=inward[uriT]&quot;+%2+&quot;[/a][/p]&quot;) fi;"/>
+      <rule value="cd(+):017($2,$a):if (up(%1)==&quot;WOS&quot;) px(&quot;[p][b]&quot;+%1+&quot;:[/b][uri]//gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&amp;SrcApp=Publons&amp;SrcAuth=Publons_CEL&amp;KeyUT=WOS:&quot;,%2,&quot;&amp;DestLinkType=FullRecord&amp;DestApp=WOS_CPL[uriT]&quot;+%2+&quot;[/a][/p]&quot;) fi;"/>
+      <rule value="cd(+):017($2,$a):if (up(%1)==&quot;РИНЦ&quot;) px(&quot;[p][b]&quot;+%1+&quot;:[/b][uri]//elibrary.ru/item.asp?id=&quot;,%2,&quot;[uriT]&quot;+%2+&quot;[/a][/p]&quot;) fi;"/>
+      <rule value="cd(+):017($2,$a): if (up(%1)==&quot;PUBMED&quot;) px(&quot;[p][b]&quot;+%1+&quot;:[/b][uri]//pubmed.ncbi.nlm.nih.gov/&quot;,%2,&quot;[uriT]&quot;+%2+&quot;[/a][/p]&quot;) fi;"/>
+      <rule value="cd(+):017($2,$a): if (up(%1)==&quot;RUSMED&quot;) px(&quot;[p][b]&quot;+%1+&quot;:[/b][uri]//rusmed.rucml.ru/record/&quot;,%2,&quot;[uriT]&quot;+%2+&quot;[/a][/p]&quot;) fi;"/>
+      <rule value="cd(+):017($2,$a): if (up(%1)==&quot;SECHENOV&quot;) px(&quot;[p][b]&quot;+%1+&quot;:[/b][uri]//www.sechenov.ru/science_and_innovation/repo/&quot;,%2,&quot;/[uriT]&quot;+%2+&quot;[/a][/p]&quot;) fi;"/>
+      <rule value="url:85641($q,$u):if (up(%1)==&quot;IMAGE&quot;) iser(&quot;[IMG]&quot;+%2,&quot;\n&quot;) fi;"/>
+      <rule value="::#out+if (!empty(#doi)) &quot;&quot;+ipx(#doi,&quot; &quot;)+&quot;\n&quot; fi+if (!empty(#note)) &quot;[INSERT]&lt;Посмотреть аннотацию>[div]&quot;+ipx(#note,&quot; &quot;)+&quot;[/div]\n&quot; fi+if (!empty(#cd)) &quot;[codes]&quot;+ipx(#cd,&quot; &quot;)+&quot;[/codes]\n&quot; fi+#url;"/>
+    </buildingParams>
+  </opacOutForm>
+</opacOutFormList>

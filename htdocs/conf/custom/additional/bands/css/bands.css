@@ -1,0 +1,308 @@
+/*ленты*/
+[class^='bandcontent']
+{
+	width: 100%;
+}
+[class^='bandcontent'] > div
+{
+	width: 80vw;
+	margin: 0 auto;
+}
+[class^='bandcontent'] .header
+{
+	font-size:130%;
+	color:#4c7052;
+	cursor:pointer;
+	display:inline-block;
+	margin:0px 0 1vh 0;
+}
+.bandcontent-1 .header
+{
+	margin:3vh 0 1vh 0;
+	border:none;
+}
+[class^='bandcontent'] .header:after
+{
+	content: '\e815';
+	font-family: 'fontello';
+	width: 12px;
+	text-align: right;
+	font-size: 16pt;
+	font-weight: bold;
+	display: inline-block;
+	position: absolute;
+	top:0;
+	left:100%;
+	margin-left: 8px;
+	margin-top: 1px;
+}
+.bandcontent-3
+{
+	margin: 0 auto 70px auto;
+}
+.band_container
+{
+	overflow:hidden;
+	white-space:nowrap;
+	font-size:0;
+	line-height:0;
+}
+.band_container:before, .band_container:after
+{
+	font-family: 'fontello';
+	color:#eee;
+	position: absolute;
+	display:inline-block;
+	top:15vh;
+	font-size:36pt;
+	z-index:1;
+}
+.band_container:after
+{
+	content:'\e815';
+	left: 78.8vw;
+}
+.band_container:before
+{
+	content:'\e814';
+	left: 0;
+}
+.band_container > div
+{
+	height: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	word-wrap: normal;
+	font-size:0;
+	line-height:0;
+}
+.band_container .slids
+{
+	display:inline-block;
+	right: 0vw;
+	width: 20vw;
+	height: 100%;
+	transition: .5s;
+	vertical-align:top;
+	background:#fff;
+	cursor:pointer;
+}
+.band_container .slids:hover
+{
+	box-shadow:0px 0px 5px #ccc inset;
+	border-radius:10px;
+}
+.band_container .slids .img
+{
+	width:15vw;
+	height:15vw;
+	margin:2vh auto;
+	border:solid 1px #ccc;
+}
+.band_container .slids .img figure
+{
+	width:100%;
+	height:100%;
+	background-repeat:no-repeat;
+	background-position: center center;
+	background-size:cover;
+	display:inline-block;
+}
+.band_container .slids .cont
+{
+	margin:1vh 1vw 2vh 2.5vw;
+	white-space: normal;
+	font-size:0.9vw;
+	line-height:1.3vw;
+	color:#3a3123;
+}
+.band_container input[type='radio']
+{
+	position:absolute;
+	left:-1000px;
+	visibility: hidden;
+}
+.band_container label
+{
+	display:block;
+}
+.band_container label:after
+{
+	font-family: 'fontello';
+	position: absolute;
+	display:inline-block;
+	font-size: 36pt;
+	z-index:2;
+	top:15vh;
+	color:#333;
+	cursor: pointer;
+}
+.band_container > input:nth-of-type(1):checked ~ label:nth-of-type(2):after,
+.band_container > input:nth-of-type(2):checked ~ label:nth-of-type(3):after,
+.band_container > input:nth-of-type(3):checked ~ label:nth-of-type(4):after,
+.band_container > input:nth-of-type(4):checked ~ label:nth-of-type(5):after,
+.band_container > input:nth-of-type(5):checked ~ label:nth-of-type(6):after,
+.band_container > input:nth-of-type(6):checked ~ label:nth-of-type(7):after,
+.band_container > input:nth-of-type(7):checked ~ label:nth-of-type(8):after,
+.band_container > input:nth-of-type(8):checked ~ label:nth-of-type(9):after,
+.band_container > input:nth-of-type(9):checked ~ label:nth-of-type(10):after,
+.band_container > input:nth-of-type(10):checked ~ label:nth-of-type(11):after,
+.band_container > input:nth-of-type(11):checked ~ label:nth-of-type(12):after,
+.band_container > input:nth-of-type(12):checked ~ label:nth-of-type(13):after,
+.band_container > input:nth-of-type(13):checked ~ label:nth-of-type(14):after,
+.band_container > input:nth-of-type(14):checked ~ label:nth-of-type(15):after
+{
+	content: '\e815';
+	left: 78.8vw;
+}
+.band_container > input:nth-of-type(2):checked ~ label:nth-of-type(1):after,
+.band_container > input:nth-of-type(3):checked ~ label:nth-of-type(2):after,
+.band_container > input:nth-of-type(4):checked ~ label:nth-of-type(3):after,
+.band_container > input:nth-of-type(5):checked ~ label:nth-of-type(4):after,
+.band_container > input:nth-of-type(6):checked ~ label:nth-of-type(5):after,
+.band_container > input:nth-of-type(7):checked ~ label:nth-of-type(6):after,
+.band_container > input:nth-of-type(8):checked ~ label:nth-of-type(7):after,
+.band_container > input:nth-of-type(9):checked ~ label:nth-of-type(8):after,
+.band_container > input:nth-of-type(10):checked ~ label:nth-of-type(9):after,
+.band_container > input:nth-of-type(11):checked ~ label:nth-of-type(10):after,
+.band_container > input:nth-of-type(12):checked ~ label:nth-of-type(11):after,
+.band_container > input:nth-of-type(13):checked ~ label:nth-of-type(12):after,
+.band_container > input:nth-of-type(14):checked ~ label:nth-of-type(13):after,
+.band_container > input:nth-of-type(15):checked ~ label:nth-of-type(14):after 
+{
+	content: '\e814';
+	left: 0;
+}
+
+.band_container input:nth-of-type(2):checked ~ div .slids {right: 20vw;}
+.band_container input:nth-of-type(3):checked ~ div .slids {right: 40vw;}
+.band_container input:nth-of-type(4):checked ~ div .slids {right: 60vw;}
+.band_container input:nth-of-type(5):checked ~ div .slids {right: 80vw;}
+.band_container input:nth-of-type(6):checked ~ div .slids {right: 100vw;}
+.band_container input:nth-of-type(7):checked ~ div .slids {right: 120vw;}
+.band_container input:nth-of-type(8):checked ~ div .slids {right: 140vw;}
+.band_container input:nth-of-type(9):checked ~ div .slids {right: 160vw;}
+.band_container input:nth-of-type(10):checked ~ div .slids {right: 180vw;}
+.band_container input:nth-of-type(11):checked ~ div .slids {right: 200vw;}
+.band_container input:nth-of-type(12):checked ~ div .slids {right: 220vw;}
+.band_container input:nth-of-type(13):checked ~ div .slids {right: 240vw;}
+.band_container input:nth-of-type(14):checked ~ div .slids {right: 260vw;}
+/*медиа-запросы*/
+/*1024px*/
+@media screen and (max-width: 1024px)
+{
+	[class^='bandcontent'] > div
+	{
+		width: 90vw;
+	}
+	.band_container:before, .band_container:after, .band_container label:after
+	{
+		top:11vw;
+	}
+	.band_container:after, .band_container > input:nth-of-type(1):checked ~ label:nth-of-type(2):after, .band_container > input:nth-of-type(2):checked ~ label:nth-of-type(3):after, .band_container > input:nth-of-type(3):checked ~ label:nth-of-type(4):after, .band_container > input:nth-of-type(4):checked ~ label:nth-of-type(5):after, .band_container > input:nth-of-type(5):checked ~ label:nth-of-type(6):after, .band_container > input:nth-of-type(6):checked ~ label:nth-of-type(7):after, .band_container > input:nth-of-type(7):checked ~ label:nth-of-type(8):after, .band_container > input:nth-of-type(8):checked ~ label:nth-of-type(9):after, .band_container > input:nth-of-type(9):checked ~ label:nth-of-type(10):after, .band_container > input:nth-of-type(10):checked ~ label:nth-of-type(11):after, .band_container > input:nth-of-type(11):checked ~ label:nth-of-type(12):after, .band_container > input:nth-of-type(12):checked ~ label:nth-of-type(13):after, .band_container > input:nth-of-type(13):checked ~ label:nth-of-type(14):after, .band_container > input:nth-of-type(14):checked ~ label:nth-of-type(15):after
+	{
+		left: 88.4vw;
+	}
+	.band_container .slids
+	{
+		width:22.5vw;
+	}
+	.band_container .slids .img
+	{
+		width: 17.5vw;
+		height: 17.5vw;
+		margin: 2vh auto 1.5vh auto;
+	}
+	.band_container input:nth-of-type(2):checked ~ div .slids {right: 22.5vw;}
+	.band_container input:nth-of-type(3):checked ~ div .slids {right: 45vw;}
+	.band_container input:nth-of-type(4):checked ~ div .slids {right: 67.5vw;}
+	.band_container input:nth-of-type(5):checked ~ div .slids {right: 90vw;}
+	.band_container input:nth-of-type(6):checked ~ div .slids {right: 112.5vw;}
+	.band_container input:nth-of-type(7):checked ~ div .slids {right: 135vw;}
+	.band_container input:nth-of-type(8):checked ~ div .slids {right: 157.5vw;}
+	.band_container input:nth-of-type(9):checked ~ div .slids {right: 180vw;}
+	.band_container input:nth-of-type(10):checked ~ div .slids {right: 202.5vw;}
+	.band_container input:nth-of-type(11):checked ~ div .slids {right: 225vw;}
+	.band_container input:nth-of-type(12):checked ~ div .slids {right: 247.5vw;}
+	.band_container input:nth-of-type(13):checked ~ div .slids {right: 242.5vw;}
+	.band_container input:nth-of-type(14):checked ~ div .slids {right: 262.5vw;}
+	.band_container .slids .cont
+	{
+		margin: 0vh 0vw 2.5vh 2.5vw;
+		font-size: 1.1vw;
+	}
+}
+/*864px*/
+@media screen and (max-width: 864px)
+{
+	[class^='bandcontent'] > div
+	{
+		width: 96vw;
+	}
+	.band_container:after, .band_container > input:nth-of-type(1):checked ~ label:nth-of-type(2):after, .band_container > input:nth-of-type(2):checked ~ label:nth-of-type(3):after, .band_container > input:nth-of-type(3):checked ~ label:nth-of-type(4):after, .band_container > input:nth-of-type(4):checked ~ label:nth-of-type(5):after, .band_container > input:nth-of-type(5):checked ~ label:nth-of-type(6):after, .band_container > input:nth-of-type(6):checked ~ label:nth-of-type(7):after, .band_container > input:nth-of-type(7):checked ~ label:nth-of-type(8):after, .band_container > input:nth-of-type(8):checked ~ label:nth-of-type(9):after, .band_container > input:nth-of-type(9):checked ~ label:nth-of-type(10):after, .band_container > input:nth-of-type(10):checked ~ label:nth-of-type(11):after, .band_container > input:nth-of-type(11):checked ~ label:nth-of-type(12):after, .band_container > input:nth-of-type(12):checked ~ label:nth-of-type(13):after, .band_container > input:nth-of-type(13):checked ~ label:nth-of-type(14):after, .band_container > input:nth-of-type(14):checked ~ label:nth-of-type(15):after
+	{
+		left: 94vw;
+	}
+	.band_container .slids
+	{
+		width: 24vw;
+	}
+	.band_container .slids .img
+	{
+		width: 19vw;
+		height: 19vw;
+	}
+	.band_container input:nth-of-type(2):checked ~ div .slids {right: 24vw;}
+	.band_container input:nth-of-type(3):checked ~ div .slids {right: 48vw;}
+	.band_container input:nth-of-type(4):checked ~ div .slids {right: 72vw;}
+	.band_container input:nth-of-type(5):checked ~ div .slids {right: 96vw;}
+	.band_container input:nth-of-type(6):checked ~ div .slids {right: 120vw;}
+	.band_container input:nth-of-type(7):checked ~ div .slids {right: 144vw;}
+	.band_container input:nth-of-type(8):checked ~ div .slids {right: 168vw;}
+	.band_container input:nth-of-type(9):checked ~ div .slids {right: 192vw;}
+	.band_container input:nth-of-type(10):checked ~ div .slids {right: 216vw;}
+	.band_container input:nth-of-type(11):checked ~ div .slids {right: 240vw;}
+	.band_container input:nth-of-type(12):checked ~ div .slids {right: 264vw;}
+	.band_container input:nth-of-type(13):checked ~ div .slids {right: 288vw;}
+	.band_container input:nth-of-type(14):checked ~ div .slids {right: 312vw;}	
+}
+/*768px*/
+@media screen and (max-width: 768px)
+{
+	.band_container .slids
+	{
+		width: 48vw;
+	}
+	.band_container:after, .band_container > input:nth-of-type(1):checked ~ label:nth-of-type(2):after, .band_container > input:nth-of-type(2):checked ~ label:nth-of-type(3):after, .band_container > input:nth-of-type(3):checked ~ label:nth-of-type(4):after, .band_container > input:nth-of-type(4):checked ~ label:nth-of-type(5):after, .band_container > input:nth-of-type(5):checked ~ label:nth-of-type(6):after, .band_container > input:nth-of-type(6):checked ~ label:nth-of-type(7):after, .band_container > input:nth-of-type(7):checked ~ label:nth-of-type(8):after, .band_container > input:nth-of-type(8):checked ~ label:nth-of-type(9):after, .band_container > input:nth-of-type(9):checked ~ label:nth-of-type(10):after, .band_container > input:nth-of-type(10):checked ~ label:nth-of-type(11):after, .band_container > input:nth-of-type(11):checked ~ label:nth-of-type(12):after, .band_container > input:nth-of-type(12):checked ~ label:nth-of-type(13):after, .band_container > input:nth-of-type(13):checked ~ label:nth-of-type(14):after, .band_container > input:nth-of-type(14):checked ~ label:nth-of-type(15):after
+	{
+		left: 93vw;
+	}
+	.band_container .slids .img
+	{
+		width: 40vw;
+		height: 40vw;
+	}
+	.band_container:before, .band_container:after, .band_container label:after
+	{
+		top: 22vw;
+	}
+	.band_container .slids .cont
+	{
+		margin: 0vh 0vw 2.5vh 3.5vw;
+		font-size: 2.2vw;
+		line-height: 2.2vw;
+	}
+	.band_container input:nth-of-type(2):checked ~ div .slids { right: 48vw; }
+	.band_container input:nth-of-type(3):checked ~ div .slids {right: 96vw;}
+	.band_container input:nth-of-type(4):checked ~ div .slids {right: 144vw;}
+	.band_container input:nth-of-type(5):checked ~ div .slids {right: 192vw;}
+	.band_container input:nth-of-type(6):checked ~ div .slids {right: 240vw;}
+	.band_container input:nth-of-type(7):checked ~ div .slids {right: 288vw;}
+	.band_container input:nth-of-type(8):checked ~ div .slids {right: 336vw;}
+	.band_container input:nth-of-type(9):checked ~ div .slids {right: 384vw;}
+	.band_container input:nth-of-type(10):checked ~ div .slids {right: 432vw;}
+	.band_container input:nth-of-type(11):checked ~ div .slids {right: 480vw;}
+	.band_container input:nth-of-type(12):checked ~ div .slids {right: 528vw;}
+	.band_container input:nth-of-type(13):checked ~ div .slids {right: 576vw;}
+	.band_container input:nth-of-type(14):checked ~ div .slids {right: 624vw;}
+}

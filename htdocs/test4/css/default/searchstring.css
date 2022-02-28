@@ -1,0 +1,600 @@
+/*поисковая строка*/
+
+.searchdiv {
+    width: 100%;
+    color: #666;
+    z-index: 3;
+    background: #fff;
+    box-shadow: 0 20px 20px -20px #eee;
+}
+
+
+/*выбор бд*/
+
+.bases_div {
+    display: inline-block;
+    left: 5%;
+}
+
+#bases_div_inner {
+    display: inline-block;
+    text-align: left;
+    padding: 5px 35px 0 0;
+}
+
+
+/*элементы поиска*/
+
+.searchdiv_outer {
+    width: 100%;
+    height: 100%;
+}
+
+.searchdiv_inner {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+
+.searchdiv .top,
+.searchdiv .bottom {
+    text-align: right;
+    padding: 5px 5% 5px 5%;
+}
+
+.searchdiv .top span,
+.searchdiv .bottom span {
+    margin: 0px 0px 0px 25px;
+    font-size: 70%;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.sel {
+    text-decoration: underline;
+    visibility: visible;
+}
+
+.sel_ {
+    text-decoration: none;
+    visibility: visible;
+}
+
+.sel__ {
+    visibility: hidden;
+}
+
+.searchdiv .middle {
+    width: 100%;
+    text-align: left;
+}
+
+.searchdiv .middle [id$='_search']:not([id^='lib']) {
+    padding: 0 5% 0 5%;
+}
+
+
+/*словарь*/
+
+.middle b {
+    display: inline-block;
+    width: 31px;
+    height: 30px;
+    float: right;
+    background: transparent url(../img/sprite2.gif) center 0 no-repeat;
+    cursor: pointer;
+}
+
+.middle b:after,
+#afalfabet span:after,
+.titleslides:after,
+.see:after,
+.issue:after {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: inline-block;
+    visibility: hidden;
+    width: 100px;
+    height: 30px;
+    margin: 7px 0 0 -1600px;
+    padding: 5px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    text-decoration: none !important;
+    text-align: center;
+    font: normal normal 14pt/24pt Arial, Verdana, Tahoma, Helvetica, sans-serif;
+    color: #fff;
+    background: #000;
+    background: linear-gradient(to bottom, #000 0%, #222 50%, #333 51%, #444 100%);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+    opacity: 0.8;
+    text-align: center;
+    z-index: 9999;
+}
+
+.middle b:hover:after,
+#afalfabet span:hover:after,
+.titleslides:hover:after,
+.see:hover:after,
+.issue:hover:after {
+    visibility: visible;
+    margin: 7px 0 0 -45px;
+    transition: 0s .4s;
+}
+
+.see:hover:after,
+.issue:hover:after {
+    font-size: 80%;
+    content: attr(data);
+    min-width: 200px;
+    width: auto;
+    height: auto;
+    top: 100%;
+    left: 40%;
+    line-height: 100%;
+    margin: 0;
+}
+
+#simple_search b:hover:after,
+#fundholders_search b:hover:after {
+    content: " Искать ";
+    top: 34px;
+}
+
+#expand_search b:hover:after,
+#professional_search b:hover:after {
+    content: " Словарь ";
+}
+
+#afalfabet span:hover:after {
+    content: " Список ";
+}
+
+.titleslides:hover:after {
+    font-size: 80%;
+    content: " Содержание ";
+    min-width: 100px;
+    width: auto;
+    height: auto;
+    top: 100%;
+    left: 0;
+    margin: -8px 0 0 -10px;
+}
+
+.middle b:hover:before,
+#afalfabet span:hover:before,
+.titleslides:hover:before,
+.see:hover:before,
+.issue:hover:before {
+    content: "";
+    position: absolute;
+    border-top: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #000;
+}
+
+.titleslides:hover:before,
+.see:hover:before,
+.issue:hover:before {
+    top: 100%;
+    left: 60% !important;
+    margin: -8px 0 0 0;
+}
+
+.middle b:hover:before {
+    top: 33px;
+    left: 50%;
+    margin-left: -8px;
+}
+
+#afalfabet span:hover:before,
+.titleslides:hover:before {
+    top: 23px;
+    left: 0;
+}
+
+
+/*поисковые поля*/
+
+.labcontainer,
+.logcontainer,
+.basescontainer {
+    height: 29px;
+    background: #fcfcfc;
+    border: solid 5px #eee;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.basescontainer {
+    display: inline-block;
+    position: absolute;
+    top: -10px;
+}
+
+.logcontainer {
+    width: 48px;
+    float: right;
+    margin: 0 0 0 5px;
+    cursor: pointer;
+}
+
+[class^='opt'] {
+    cursor: pointer;
+}
+
+.opt {
+    width: 155px;
+    float: left;
+}
+
+.opt1 {
+    width: 125px;
+    float: left;
+}
+
+.opt2,
+.options2,
+.select2,
+.select2_ {
+    width: 295px;
+}
+
+.inp {
+    height: 29px;
+    overflow: hidden;
+}
+
+.iLAB {
+    width: 100%;
+    height: 27px;
+    border: none;
+    font-size: 100%;
+    font-weight: bold;
+    line-height: 110%;
+    padding: 1px;
+    margin: 0;
+}
+
+
+/*имитация select*/
+
+[class^='select'] {
+    overflow: hidden;
+    z-index: 2;
+}
+
+.select,
+.select_ {
+    width: 155px;
+}
+
+.select1,
+.select1_ {
+    width: 48px;
+    height: 29px;
+}
+
+.select4,
+.select4_ {
+    width: 48px;
+    height: 32px;
+}
+
+.select1,
+.select1_ {
+    float: right;
+}
+
+[class^='select'] span {
+    font-size: 80%;
+    line-height: 220%;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    float: left;
+}
+
+.select span,
+.select_ span {
+    width: 125px;
+    margin: 0 0 0 2px;
+}
+
+.select1 span,
+.select1_ span {
+    width: 30px;
+    height: 29px;
+    line-height: 220%;
+    padding: 2px 0 0 3px;
+    text-align: center;
+}
+
+.select2 span,
+.select2_ span {
+    width: 240px;
+    margin: 4px 2px 0px 5px;
+    line-height: 160%;
+}
+
+.select2 span#currdb,
+.select2_ span#currdb {
+    float: none;
+    display: inline-block;
+}
+
+.select4 span,
+.select4_ span {
+    width: 30px;
+    padding: 6px 0 0 3px;
+    text-align: center;
+}
+
+[class^='select'] img {
+    width: 15px;
+    height: 30px;
+    float: right;
+    z-index: 1;
+}
+
+
+/*имитация options*/
+
+[class^='options'] {
+    position: absolute;
+    white-space: nowrap;
+    z-index: 99991;
+    text-align: left;
+    overflow: hidden;
+}
+
+[class^='options'] div:hover {
+    cursor: pointer;
+    color: highlighttext;
+    background: highlight;
+}
+
+.options {
+    width: 265px;
+}
+
+.options1 {
+    width: 45px;
+}
+
+.options3 {
+    width: 125px;
+}
+
+.options4 {
+    width: 45px;
+}
+
+.options div,
+.options2 div,
+.options3 div,
+.options1 div {
+    font-size: 80%;
+    font-weight: bold;
+    line-height: 120%;
+    margin: 1px;
+    padding: 4px 2px 4px 5px;
+    white-space: nowrap;
+    text-align: left;
+    overflow: hidden;
+}
+
+.options1 div,
+.options4 div {
+    text-align: center;
+}
+
+
+/*профессиональный*/
+
+#sand,
+#sor,
+#snot,
+#saf {
+    width: 50px;
+    height: 30px;
+    margin: 5px 10px 0 0;
+    padding: 0 0 2px 0;
+    font-size: 120%;
+    line-height: 150%;
+}
+
+#saf {
+    width: 80px;
+    margin: 5px 10px 0 25px !important;
+}
+
+#combo {
+    margin: 15px 42px 15px 0;
+    padding: 5px 0 5px 10px;
+    font-size: 70%;
+    line-height: 150%;
+}
+
+#combo span {
+    margin: 0 10px 0 0;
+}
+
+.me {
+    margin: 0 5px 0 0;
+}
+
+.me u {
+    font-weight: bold;
+}
+
+
+/*фондодержатели*/
+
+#lib_search,
+.lib_search {
+    font-size: 70%;
+    line-height: 150%;
+    margin: 0 0 0 5px;
+    width: 90%;
+}
+
+
+/*АФ*/
+
+#afalfabet,
+.alfavit {
+    text-align: center;
+}
+
+#afalfabet span,
+.alfavit span {
+    display: inline-block;
+    font-variant: small-caps;
+    font-weight: bold;
+    font-size: 100%;
+    line-height: 150%;
+    text-decoration: underline;
+    margin: 0 2px 0 2px;
+    cursor: pointer;
+}
+
+
+/*ограничения*/
+
+#limits_search {
+    height: 27px;
+    font-weight: bold;
+    font-size: 80%;
+    line-height: 200%;
+    text-align: left;
+    background: #f0f0f0;
+    border: solid 5px #eee;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    margin-left: 5%;
+    padding: 0 0 0 35px;
+}
+
+.baselimits {
+    text-align: left;
+    min-height: 50px;
+    margin: 0 5% 0 5%;
+}
+
+.baselimits span.title {
+    width: 25%;
+    float: left;
+    font-weight: bold;
+    font-size: 80%;
+    line-height: 200%;
+    padding: 5px 0 0 10px;
+    white-space: nowrap;
+}
+
+.limits_left {
+    width: 49%;
+    overflow: hidden;
+    margin: 10px 0 0 0;
+}
+
+.limits_left:nth-child(2n) span.title {
+    padding: 5px 10px 0 0;
+}
+
+.limits_left:nth-child(odd) {
+    float: left;
+}
+
+.limits_left:nth-child(even) {
+    float: right;
+    padding: 0 10px 0 0;
+}
+
+.baselimits span.input {
+    width: 61px;
+    height: 29px;
+    background: #fcfcfc;
+    border: solid 5px #eee;
+    border-radius: 5px;
+    float: left;
+}
+
+.baselimits span.from,
+.baselimits span.to {
+    width: 35px;
+    float: left;
+    font-weight: bold;
+    font-size: 80%;
+    line-height: 200%;
+}
+
+.baselimits span.from {
+    padding: 5px 5px 5px 0;
+    margin: 0 0 0 -40px;
+    text-align: right;
+}
+
+.baselimits span.to {
+    padding: 5px;
+    text-align: center;
+}
+
+.baselimits [class^='select'] {
+    width: 70%;
+    height: 27px;
+    background: #fcfcfc;
+    border: solid 5px #eee;
+    border-radius: 5px;
+    float: left;
+    cursor: pointer;
+}
+
+.baselimits [class^='select'] span {
+    width: 85%;
+}
+
+.baselimits [class^='select'] img {
+    margin: 2px;
+}
+
+.baselimits .options {
+    width: 160px;
+}
+
+.period {
+    text-align: center;
+    font-size: 80%;
+    width: 250px;
+    margin: 10px auto;
+}
+
+.period span:not([class='from']):not([class='to']):not([class='calc']),
+.period b {
+    display: block;
+    padding: 7px 0 8px 0;
+}
+
+.period .from,
+.period .to,
+.period .calc {
+    display: inline-block;
+    width: 30px;
+}
+
+.period .from,
+.period .to {
+    top: -10px;
+    left: 0;
+}
+
+.single_base {
+    display: none;
+}
+
+.history_link {
+    text-decoration: underline;
+}

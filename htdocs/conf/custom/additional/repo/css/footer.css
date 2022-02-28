@@ -1,0 +1,152 @@
+/*подвал*/
+#footer
+{
+	width:100%;
+	background: rgba(175, 172, 164, 0.2);
+}
+#footer span, #footer a
+{
+	color:#333;
+	text-decoration:none;
+}
+#bottom_copy a:hover
+{
+	text-decoration:underline;
+}
+#footer .social
+{
+	text-align:left;
+	margin: 5px 0 1vw 0 !important;
+	padding-top:10px;
+	padding-right:25px;
+}
+#footer .social:before
+{
+	content: '';
+	position: absolute;
+	display: block;
+	width: 180px;
+	height: 1px;
+	background: rgba(175, 172, 164, 0.2);
+	top: 0px;
+	left: 35px;
+}
+#footer .social > span.facebook
+{
+	width:20px;
+}
+#footer .social a, #footer .social a:hover
+{
+	width: 35px;
+	height: 35px;
+	display: inline-block;
+	z-index: 1;
+}
+#bottom_info
+{
+	padding:3vw 0;
+	border-top:solid 1px rgba(175, 172, 164, 0.2);
+}
+#bottom_info > div, #bottom_copy > div
+{
+	display:table;
+	width:74vw;
+	height:100%;
+	margin:0 auto;
+}
+#bottom_info > div > div
+{
+	display:table-cell;
+	vertical-align:top;
+}
+#bottom_info > div > div:first-child
+{
+	width:30%;
+}
+#bottom_info > div > div:last-child
+{
+	text-align:right;
+	width:35%;
+}
+#bottom_info > div > div:nth-child(1) > span
+{
+	line-height:160%;
+	top:-7px;
+}
+#bottom_info > div > div:nth-child(2) > span
+{
+	margin: 0 0 1vw 2vw;
+    font-size: 90%;
+    display: inline-block;
+    vertical-align: top;
+	padding-left:20px;
+}
+#bottom_info > div > div:nth-child(2) > span:not([class^='social']) span
+{
+	display:block;
+	margin-left:3vw;
+	line-height:140%;
+	text-align:left;
+}
+#bottom_info  [class^='icon']:before
+{
+	font-family: 'fontello';
+    font-size: 12pt;
+    position: absolute;
+    left: 0;
+	color:#0e4a99;
+}
+#bottom_info  .icon-addr:before
+{
+	content:'\e834';
+}
+#bottom_info  .icon-tel:before
+{
+	content:'\e830';
+}
+#bottom_info  .icon-mail:before
+{
+	content:'\e81a';
+}
+#bottom_copy
+{
+	background: rgba(175, 172, 164, 0.3);
+	padding:1vh 0;
+	border-top:solid 1px rgba(175, 172, 164, 0.4);
+}
+#bottom_copy > div > div
+{
+	display:table-cell;
+	vertical-align:middle;
+	text-align:right;
+}
+#bottom_copy > div > div > span:not([id='go-to-top'])
+{
+	font-size:70%;
+}
+#go-to-top
+{
+	z-index: 3;
+    position: fixed;
+    top: auto;
+    right: 3%;
+    bottom: 40px;
+    width: 60px;
+    height: 60px;
+	border-radius:50%;
+	background: rgba(175, 172, 164, 0.2);
+	cursor:pointer;
+	transition: all .5s ease-in-out; 
+}
+#map_lib
+{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../img/map.jpg);
+	border:solid 1px rgba(175, 172, 164, 0.4);
+}
