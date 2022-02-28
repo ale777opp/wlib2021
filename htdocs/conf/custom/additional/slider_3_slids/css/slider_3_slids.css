@@ -1,0 +1,207 @@
+/*ютф*/
+.label
+{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	text-align:center;
+	opacity:0;
+	visibility:hidden;
+	cursor:pointer;
+}
+.slids
+{
+	position:absolute;
+	display:inline-block;
+	vertical-align:middle;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	opacity:0;
+	visibility:hidden;
+	transition: 0s;
+	-webkit-transition: all 0s linear;
+}
+.lib
+{
+	width:81%;
+	height:100%;
+}
+.lib_outer
+{
+	height:50%;
+	min-height:350px;
+	text-align:center;
+}
+.lib_inner
+{
+	background:#eee;
+	width:100%;
+	height:100%;
+	display:inline-block;
+	vertical-align:middle;
+	padding:20px 0 0 0;
+}
+.lib_inner > div
+{
+	min-height:320px;
+	display:inline-block;
+	vertical-align:middle;
+}
+input[name="slid"]
+{
+	position:absolute;
+	top:-250px;
+	left:0px;
+	visibility: hidden;
+}
+.arrow_container
+{
+	width:8%;
+	height:250px;
+}
+#acont1
+{
+	background: url(../img/sprite1.gif) center -350px no-repeat;
+	float:left;
+}
+#acont1 .label
+{
+	background: url(../img/sprite1.gif) center -30px no-repeat;	
+}
+#acont2 
+{
+	background: url(../img/sprite1.gif) center -990px no-repeat;
+}
+#acont2 .label
+{
+	background: url(../img/sprite1.gif) center -670px no-repeat;	
+}
+#lab3, #slider1
+{
+	opacity:1;
+	visibility:visible;
+}
+.slids div
+{
+	display:inline-block;
+	vertical-align:middle;
+	width:46%;
+	height:90%;
+}
+.slids div.img
+{
+	width:50%;
+	border:solid 10px #fff;
+	outline: solid 1px #ddd;
+}
+.slids div.img img
+{
+	height:100%;
+}
+.slids h3
+{
+	font-size: 18pt;
+	line-height: 22pt;
+	margin: 20px 20px 20px 0;
+	text-align:left;
+}
+.slids p
+{
+	font-size: 10pt;
+	line-height: 14pt;
+	margin: 10px 20px 10px 0;
+	text-align:justify;
+}
+#slider1 div.img
+{
+	background: url(../img/slid1.jpg) center center no-repeat;
+	background-size: cover;
+}
+#slider2 div.img
+{
+	background: url(../img/slid2.jpg) center center no-repeat;
+	background-size: cover;
+}
+#slider3 div.img
+{
+	background: url(../img/slid3.jpg) center center no-repeat;
+	background-size: cover;
+}
+@keyframes slider
+{
+	0%{opacity:0; visibility:hidden;}
+    10%{opacity:1; visibility:visible;}
+    33% {opacity:1; visibility:visible;}
+    43% {opacity:0; visibility:hidden;}
+    100%{opacity:0; visibility:hidden;}
+}
+@-o-keyframes slider
+{
+	0%{opacity:0; visibility:hidden;}
+    10%{opacity:1; visibility:visible;}
+    33% {opacity:1; visibility:visible;}
+    43% {opacity:0; visibility:hidden;}
+    100%{opacity:0; visibility:hidden;}
+}
+@-webkit-keyframes slider
+{
+	0%{opacity:0; visibility:hidden;}
+    10%{opacity:1; visibility:visible;}
+    33% {opacity:1; visibility:visible;}
+    43% {opacity:0; visibility:hidden;}
+    100%{opacity:0; visibility:hidden;}
+}
+html:root* @-webkit-keyframes slider
+{
+	0%{opacity:0; visibility:hidden; z-index: -1;}
+	10%{opacity:1; visibility:visible; z-index: 0;}
+	33% {opacity:1; visibility:visible; z-index: 0;}
+	43% {opacity:0; visibility:hidden; z-index: 0;}
+	100%{opacity:0; visibility:hidden; z-index: -1;}
+}
+.slids, .label
+{
+	animation: slider 15s infinite;
+	-o-animation: slider 15s infinite;
+	-webkit-animation: slider 15s infinite;
+}
+#slider1, #lab3
+{
+	animation-delay:0s;
+	-o-animation-delay:0s;
+	-webkit-animation-delay:0s;
+}
+#slider2, #lab1, #lab4
+{
+	animation-delay:5s;
+	-o-animation-delay:5s;
+	-webkit-animation-delay:5s;
+}
+#slider3, #lab2
+{
+	animation-delay:10s;
+	-o-animation-delay:10s;
+	-webkit-animation-delay:10s;
+}
+.radio:checked ~ .lib div, .radio:checked ~ .arrow_container .label
+{
+	-webkit-animation: none;
+	-o-animation: none;
+	animation: none;
+}
+#slid1:checked ~ .lib [id="slider1"], #slid1:checked ~ .arrow_container [id="lab3"], #slid2:checked ~ .lib [id="slider2"], #slid2:checked ~ .arrow_container [id="lab4"], #slid2:checked ~ .arrow_container [id="lab1"], #slid3:checked ~ .lib [id="slider3"], #slid3:checked ~ .arrow_container [id="lab2"]
+{
+	opacity: 1;
+	visibility: visible;
+	transition: 2s;
+}
+#slid1:checked ~ .lib [id="slider2"], #slid1:checked ~ .lib [id="slider3"], #slid1:checked ~ .arrow_container [id="lab1"], #slid1:checked ~ .arrow_container [id="lab4"], #slid1:checked ~ .arrow_container [id="lab2"], #slid2:checked ~ .lib [id="slider1"], #slid2:checked ~ .lib [id="slider3"], #slid2:checked ~ .arrow_container [id="lab2"], #slid2:checked ~ .arrow_container [id="lab3"], #slid3:checked ~ .lib [id="slider2"], #slid3:checked ~ .lib [id="slider1"], #slid3:checked ~ .arrow_container [id="lab1"], #slid3:checked ~ .arrow_container [id="lab3"], #slid3:checked ~ .arrow_container [id="lab4"]
+{
+	opacity: 0;
+	visibility: hidden;
+	transition: 2s;
+}

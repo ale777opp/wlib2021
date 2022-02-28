@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<opacOutFormList>
+  <opacOutForm description="Вывод заголовков" format="RUSMARC" name="TITLEWEB" type="BIBL">
+    <buildingParams condition="000::if(pos(%1,7,3)==&quot;c1 &quot; &amp;&amp; pos(%1,18,1)==&quot;x&quot;) &quot;true&quot; else &quot;false&quot; fi;" type="METAPARSER">
+      <rule value="title:200($a,$e[0-])[1-],210($d)[0-]:%1+if (!empty(%2)) &quot; : &quot;+iser(%2,&quot;, &quot;) fi;"/>
+      <rule value="::if(pos(width(#title,66,&quot;@&quot;),0,1)==&quot;@&quot;) #title else pos(#title,0,63) +&quot;...&quot; fi +&quot;\n&quot;;"/>
+      <rule value="(|):856($u[1-/0]):&quot;[IMG]&quot;+%1+&quot;\n&quot;;"/>
+      <rule value="(|):500($3[1-/0]):&quot;[ID]&quot;+%1+&quot;\n&quot;;"/>
+    </buildingParams>
+    <buildingParams condition="000::if(pos(%1,7,3)==&quot;c2 &quot; &amp;&amp; pos(%1,18,1)==&quot;x&quot;) &quot;true&quot; else &quot;false&quot; fi;" type="METAPARSER">
+      <rule value="title:200($a,$e[0-])[1-],210($d)[0-]:%1+if (!empty(%2)) &quot; : &quot;+iser(%2,&quot;, &quot;) fi;"/>
+      <rule value="::if(pos(width(#title,66,&quot;@&quot;),0,1)==&quot;@&quot;) #title else pos(#title,0,63) +&quot;...&quot; fi +&quot;\n&quot;;"/>
+      <rule value="(|):85641($q[0-/0],$u[0-]):if(up(token(%1,&quot;/&quot;)[0])==&quot;THUMBNAIL&quot;)&quot;[IMG]&quot;+%2+&quot;\n&quot; fi;"/>
+      <rule value="(|):500($3[1-/0]):&quot;[ID]&quot;+%1+&quot;\n&quot;;"/>
+    </buildingParams>
+    <buildingParams condition="::&quot;true&quot;;" type="METAPARSER">
+      <rule value="author:{461$1700,700}($a,$b[0-]):px(%1,&quot; &quot;,%2);"/>
+      <rule value="author(|):{461$1710,710}($a)[/0]:%1;"/>
+      <rule value="author(|):{461$1700,700}[0],{461$1701,701}($a,$b[0-])[/0]:#2%1+px(&quot; &quot;,#2%2);"/>
+      <rule value="author(|):{461$1710,710}[0],{461$1711,711}($a)[/0]:#2%1;"/>
+      <rule value="author(|):{461$1700,700,461$1701,701,461$1710,710,461$1711,711}[0],{461$1702,702}($a,$b[0-])[/0]:#2%1+px(&quot; &quot;,#2%2);"/>
+      <rule value="author(|):{461$1700,700,461$1701,701,461$1710,710,461$1711,711}[0],{461$1712,712}($a)[/0]:#2%1;"/>
+      <rule value="title:2001?($a${efhi}[0-]):ser(%1,&quot;. &quot;)+px(for (i=%2: if(name(i)==&quot;e&quot;) &quot;: &quot; else if(name(i)==&quot;f&quot;) &quot;/ &quot; else &quot;. &quot; fi fi +i));"/>
+      <rule value="baseTitle:461$1200($a):%1;"/>
+      <rule value="baseAuthor:461$1200($f):%1;"/>
+      <rule value="tomTitle:461$1200($v):%1;"/>
+      <rule value="year:210($d):ipx(&quot; — &quot;,%1, &quot;г.&quot;);"/>
+      <rule value="tomYear:463$1210($d):ipx(&quot; — &quot;,%1, &quot;г.&quot;);"/>
+      <rule value="seria:225($a,${efhi}[0-],$v[0-]):&quot; (&quot;+ser(%1,&quot;. &quot;)+px(for (i=%2: &quot;. &quot;+i))+px(&quot;. &quot;,%3)+&quot;)&quot;;"/>
+      <rule value="source:000,463$1200($a[0-],$v[0-])[0-],461$1200($a[0-])[0-]:if(pos(#1,7,1)==&quot;a&quot; &amp;&amp; (!empty(#2) || !empty(#2%2) || !empty(#3))) &quot;(&quot; + ipx(ser(#3|#2,&quot;. &quot;),&quot;. &quot;) +#2%2 + #tomYear +&quot;)&quot; fi;"/>
+      <rule value="cover:500($3[1-/0]):&quot;[ID]&quot;+%1+&quot;\n&quot;;"/>
+      <rule value="cover(|):85641($q[0-/0],$u[0-]):if(up(token(%1,&quot;/&quot;)[0])==&quot;THUMBNAIL&quot;)&quot;[IMG]&quot;+%2+&quot;\n&quot; fi;"/>
+      <rule value="vivod :: if(!empty(#source)) #title + px(&quot; / &quot;, #source) else if(empty(#author) &amp;&amp; empty(#title)) ser(#baseTitle|#baseAuthor,&quot;/ &quot;) else #baseTitle fi + if(!empty(#tomTitle)) px(&quot;. &quot;,#tomTitle) + px(&quot;: &quot;, #title) else #title fi + #year + #seria fi;"/>
+      <rule value="vivod :: if(!empty(#author)) if(pos(width(#vivod,33,&quot;@&quot;),0,1)==&quot;@&quot;) #vivod else pos(#vivod,0,30) +&quot;...&quot; fi else if(pos(width(#vivod,66,&quot;@&quot;),0,1)==&quot;@&quot;) #vivod else pos(#vivod,0,63) +&quot;...&quot; fi fi;"/>
+      <rule value=":: if(!empty(#author)) if(pos(width(#author,33,&quot;@&quot;),0,1)==&quot;@&quot;) #author else pos(#author,0,30) +&quot;...&quot; fi +&quot;[br]&quot; fi + #vivod + &quot;\n&quot; + #cover;"/>
+    </buildingParams>
+  </opacOutForm>
+</opacOutFormList>

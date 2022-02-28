@@ -1,0 +1,193 @@
+/*карта*/
+#map_container
+{
+	position:absolute;
+	top:100px;
+	left:0;
+	width:100%;
+	transition: all 1s ease-in-out;
+	text-align:center;
+	padding: 10px 0 20px 0;
+	overflow:hidden;
+}
+.map_container
+{
+    border-bottom: solid 1px #ccc;
+    max-width: 320px;
+    padding: 35px 0 5px 0;
+}
+#searchmap
+{
+	width:790px;
+	margin:0 auto;
+	transition: all 1s ease-in-out;
+	text-align:left;
+	display:inline-block;
+	padding:5px 0 45px 0px;
+	cursor:pointer;
+}
+#searchmap1
+{
+	width:350px;
+	height:210px;
+	cursor:pointer;
+}
+.o02
+{
+	opacity:0.3;
+	transition: all 1s ease-in-out;
+}
+.o1
+{
+	opacity:1;
+	transition: all 1s ease-in-out;
+}
+#small_map
+{
+	position:fixed;
+	top:180px;
+	left:0px;
+	width:100%;
+	height:100%;
+	z-index:2;
+}
+#small_map svg
+{
+	position:absolute;
+	left:50px;
+}
+.dn
+{
+	display:none;
+}
+.db
+{
+	display:block;
+}
+.map_hide
+{
+	opacity:0;
+	height:100px;
+	background:rgba(255,255,255,0.8);
+	visibility:hidden;
+}
+.map_show
+{
+	opacity:1;
+	height:460px;
+	background:#fff;
+	visibility:visible;
+	z-index:99999;
+}
+[class^='zoom']
+{
+	transform-origin: 0 0;
+	transition: all 1s ease-in-out;
+	width:100%;
+	height:100%;
+}
+.zoom0
+{
+	transform: scale(0.2);
+	opacity:0.1;
+}
+.zoom1
+{
+	transform: scale(0.2);
+	opacity:0.1;
+}
+.zoom2
+{
+	transform: scale(1);
+	opacity:1;
+}
+#maphint
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 25px;
+	padding: 10px 10px 0 10px;
+	font-size: 10pt;
+	background:rgba(255,255,255,0.9);
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2), 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+	color: #000;
+	display: block;
+	z-index:999999;
+}
+#regions_container
+{
+	background:rgba(255,255,255,0.9);
+	position:absolute;
+	top:0;
+	z-index:2;
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2), 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+}
+#regions_container ol
+{
+	padding:10px 10px 10px 35px;	
+	text-align:left;
+}
+#regions_container li 
+{
+	font-size:80%;
+	line-height:120%;
+	margin: 4px 5px 4px 0;
+}
+#regions_container li span
+{
+	border-bottom:dotted 1px #333;
+}
+#regions_container li span:hover
+{
+	border-bottom:solid 1px #333;
+	cursor:pointer;
+	background:#e3e6e9;
+}
+[class^='map01']
+{
+	left:410px;
+}
+[class^='map02']
+{
+	left:440px;
+}
+[class^='map03']
+{
+	left:390px;
+}
+[class^='map04']
+{
+	left:200px;
+}
+[class^='map05']
+{
+	left:410px;
+}
+[class^='map06']
+{
+	left:260px;
+}
+[class^='map07']
+{
+	left:270px;
+}
+[class^='map08']
+{
+	left:230px;
+}
+#small_map [class$='del']
+{
+	background:#c3c6c9;
+	padding: 5px 8px 8px 8px;
+	font-size: 10pt;
+	text-align:right;
+	border-bottom:solid 1px #ccc;
+	color:#fff;
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, .2);
+}
+#small_map [class$='del']:hover
+{
+	cursor:pointer;
+	background:#3399cc;
+}

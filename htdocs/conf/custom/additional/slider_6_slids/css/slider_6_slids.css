@@ -1,0 +1,304 @@
+/*слайдер*/
+input[name='sslid']
+{
+	position:absolute;
+	top:-250px;
+	left:0px;
+	visibility: hidden;
+}
+.sslider-container
+{
+	width:100%;
+	height:460px;
+	overflow:hidden;
+}
+.slabel
+{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	display:inline-block;
+	color:transparent;
+	opacity:0;
+	visibility:hidden;
+	cursor:pointer;
+	transition: 0s;
+	-webkit-transition: all 0s linear;
+}
+.slabel:before
+{
+	content:'';
+	position:absolute;
+	display:inline-block;
+	top:13px;
+	width:40px;
+	height:40px;
+	border: solid 2px rgba(255,227,192,0.9);
+	background: rgba(255,227,192,0.9);
+	border-radius: 50%;
+	font-family: 'fontello';
+	font-weight:bold;
+	font-size:30px;
+	line-height:36px;
+	/*color:rgba(102,0,0,0.9);*/
+	color:#663339;
+	text-align:center;
+}
+.sslids
+{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:460px;
+	text-align:right;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	opacity:0;
+	visibility:hidden;
+	transition: 0s;
+	-webkit-transition: all 0s linear;
+}
+.sslids > a, .sslids > span
+{
+	width:100%;
+	height:100%;
+	display:inline-block;
+	text-decoration:none;
+	color: rgba(255,227,192,1);
+	cursor:pointer;
+}
+.sslids h3
+{
+    font-size: 140%;
+    width: 46%;
+    margin: 8% 8% 0 0;
+    color: #ffe3c0;
+	color: rgba(255,227,192,1);
+    display: inline-block;
+    text-align: left;
+    line-height: 120%;
+    font-weight: bold;
+	text-shadow: -1px -1px 3px rgba(0,0,0,.3), -1px 1px 3px rgba(0,0,0,.3), 1px 1px 3px rgba(0,0,0,.3), 1px -1px 3px rgba(0,0,0,.3);
+}
+.sarrow_container
+{
+	position: absolute;
+	width:8%;
+	height:50px;
+	top: 200px;
+}
+.sarrow_container:before
+{
+	content:'';
+	position:absolute;
+	display:inline-block;
+	top:13px;
+	width:40px;
+	height:40px;
+	border: solid 2px rgba(255,227,192,0.3);
+	background: rgba(255,227,192,0.3);
+	border-radius: 50%;
+	font-family: 'fontello';
+	font-weight:bold;
+	font-size:30px;
+	line-height:36px;
+	color:rgba(255,227,192,0.3);
+	text-align:center;
+}
+#sacont1
+{
+	left: 0;
+}
+#sacont1:before
+{
+	content: '\e814';
+	left:20px;
+}
+#sacont1 .slabel:before
+{
+	content: '\e814';
+	left:20px;	
+}
+#sacont2
+{
+	right: 0;
+}
+#sacont2:before
+{
+	content: '\e815';
+	right:20px;
+}
+#sacont2 .slabel:before
+{
+	content: '\e815';
+	right:20px;
+}
+#sslab7, #sslider1
+{
+	opacity:1;
+	visibility:visible;
+}
+@keyframes sslider
+{
+	0%{opacity:0; visibility:hidden;}
+    8%{opacity:1; visibility:visible;}
+    17% {opacity:1; visibility:visible;}
+    25% {opacity:0; visibility:hidden;}
+    100%{opacity:0; visibility:hidden;}
+}
+@-o-keyframes sslider
+{
+	0%{opacity:0; visibility:hidden;}
+    8%{opacity:1; visibility:visible;}
+    17% {opacity:1; visibility:visible;}
+    25% {opacity:0; visibility:hidden;}
+    100%{opacity:0; visibility:hidden;}
+}
+@-webkit-keyframes sslider
+{
+	0%{opacity:0; visibility:hidden;}
+    8%{opacity:1; visibility:visible;}
+    17% {opacity:1; visibility:visible;}
+    25% {opacity:0; visibility:hidden;}
+    100%{opacity:0; visibility:hidden;}
+}
+html:root* @-webkit-keyframes sslider
+{
+	0%{opacity:0; visibility:hidden; z-index: -1;}
+	8%{opacity:1; visibility:visible; z-index: 0;}
+	17% {opacity:1; visibility:visible; z-index: 0;}
+	25% {opacity:0; visibility:hidden; z-index: 0;}
+	100%{opacity:0; visibility:hidden; z-index: -1;}
+}
+#sslider1
+{
+  background-image: url(../img/sslid1.jpg);
+}
+#sslider2
+{
+  background-image: url(../img/sslid2.jpg);
+}
+#sslider3
+{
+  background-image: url(../img/sslid3.jpg);
+}
+#sslider4
+{
+  background-image: url(../img/sslid4.jpg);
+}
+#sslider5
+{
+  background-image: url(../img/sslid5.jpg);
+}
+#sslider6
+{
+  background-image: url(../img/sslid6.jpg);
+}
+.sslids, .slabel
+{
+	animation: sslider 36s infinite 0s;
+	-o-animation: sslider 36s infinite 0s;
+	-webkit-animation: sslider 36s infinite 0s;
+}
+#sslider2, [id='sslab1'], [id='sslab8']
+{
+	animation-delay:6s;
+	-o-animation-delay:6s;
+	-webkit-animation-delay:6s;
+}
+#sslider3, [id='sslab2'], [id='sslab9']
+{
+	animation-delay:12s;
+	-o-animation-delay:12s;
+	-webkit-animation-delay:12s;
+}
+#sslider4, [id='sslab3'], [id='sslab0']
+{
+	animation-delay:18s;
+	-o-animation-delay:18s;
+	-webkit-animation-delay:18s;
+}
+#sslider5, [id='sslab4'], [id='sslab6']
+{
+	animation-delay:24s;
+	-o-animation-delay:24s;
+	-webkit-animation-delay:24s;
+}
+#sslider6, [id='sslab5']
+{
+	animation-delay:30s;
+	-o-animation-delay:30s;
+	-webkit-animation-delay:30s;
+}
+.radio1:checked ~ .sslids, .radio1:checked ~ .sarrow_container .slabel
+{
+	-webkit-animation: none;
+	-o-animation: none;
+	animation: none;
+}
+#sslid1:checked ~ #sslider1, 
+#sslid1:checked ~ .sarrow_container [id='sslab7'], 
+#sslid2:checked ~ #sslider2, 
+#sslid2:checked ~ .sarrow_container [id='sslab1'], 
+#sslid2:checked ~ .sarrow_container [id='sslab8'], 
+#sslid3:checked ~ #sslider3, 
+#sslid3:checked ~ .sarrow_container [id='sslab2'], 
+#sslid3:checked ~ .sarrow_container [id='sslab9'], 
+#sslid4:checked ~ #sslider4, 
+#sslid4:checked ~ .sarrow_container [id='sslab3'], 
+#sslid4:checked ~ .sarrow_container [id='sslab0'], 
+#sslid5:checked ~ #sslider5, 
+#sslid5:checked ~ .sarrow_container [id='sslab4'], 
+#sslid5:checked ~ .sarrow_container [id='sslab6'], 
+#sslid6:checked ~ #sslider6, 
+#sslid6:checked ~ .sarrow_container [id='sslab5'] 
+{
+	opacity: 1;
+	visibility: visible;
+	transition: 2s;
+}
+#sslid1:checked ~ #sslider2, 
+#sslid1:checked ~ #sslider3, 
+#sslid1:checked ~ #sslider4, 
+#sslid1:checked ~ #sslider5, 
+#sslid1:checked ~ #sslider6, 
+#sslid1:checked ~ .sarrow_container [id='sslab1'], #sslid1:checked ~ .sarrow_container [id='sslab2'], #sslid1:checked ~ .sarrow_container [id='sslab3'], #sslid1:checked ~ .sarrow_container [id='sslab4'], #sslid1:checked ~ .sarrow_container [id='sslab5'], #sslid1:checked ~ .sarrow_container [id='sslab6'], #sslid1:checked ~ .sarrow_container [id='sslab8'], #sslid1:checked ~ .sarrow_container [id='sslab9'], #sslid1:checked ~ .sarrow_container [id='sslab0'], 
+#sslid2:checked ~ #sslider1, 
+#sslid2:checked ~ #sslider3, 
+#sslid2:checked ~ #sslider4, 
+#sslid2:checked ~ #sslider5, 
+#sslid2:checked ~ #sslider6, 
+#sslid2:checked ~ .sarrow_container [id='sslab2'], #sslid2:checked ~ .sarrow_container [id='sslab3'], #sslid2:checked ~ .sarrow_container [id='sslab4'], #sslid2:checked ~ .sarrow_container [id='sslab5'], #sslid2:checked ~ .sarrow_container [id='sslab6'], #sslid2:checked ~ .sarrow_container [id='sslab7'], #sslid2:checked ~ .sarrow_container [id='sslab9'], #sslid2:checked ~ .sarrow_container [id='sslab0'], 
+#sslid3:checked ~ #sslider1, 
+#sslid3:checked ~ #sslider2, 
+#sslid3:checked ~ #sslider4, 
+#sslid3:checked ~ #sslider5, 
+#sslid3:checked ~ #sslider6, 
+#sslid3:checked ~ .sarrow_container [id='sslab1'], #sslid3:checked ~ .sarrow_container [id='sslab3'], #sslid3:checked ~ .sarrow_container [id='sslab4'], #sslid3:checked ~ .sarrow_container [id='sslab5'], #sslid3:checked ~ .sarrow_container [id='sslab6'], #sslid3:checked ~ .sarrow_container [id='sslab7'], #sslid3:checked ~ .sarrow_container [id='sslab8'], #sslid3:checked ~ .sarrow_container [id='sslab0'], 
+#sslid4:checked ~ #sslider1, 
+#sslid4:checked ~ #sslider2, 
+#sslid4:checked ~ #sslider3, 
+#sslid4:checked ~ #sslider5, 
+#sslid4:checked ~ #sslider6, 
+#sslid4:checked ~ .sarrow_container [id='sslab1'], #sslid4:checked ~ .sarrow_container [id='sslab2'], #sslid4:checked ~ .sarrow_container [id='sslab4'], #sslid4:checked ~ .sarrow_container [id='sslab5'], #sslid4:checked ~ .sarrow_container [id='sslab6'], #sslid4:checked ~ .sarrow_container [id='sslab7'], #sslid4:checked ~ .sarrow_container [id='sslab8'], #sslid4:checked ~ .sarrow_container [id='sslab9'], 
+#sslid5:checked ~ #sslider1, 
+#sslid5:checked ~ #sslider2, 
+#sslid5:checked ~ #sslider3, 
+#sslid5:checked ~ #sslider4, 
+#sslid5:checked ~ #sslider6, 
+#sslid5:checked ~ .sarrow_container [id='sslab1'], #sslid5:checked ~ .sarrow_container [id='sslab2'], #sslid5:checked ~ .sarrow_container [id='sslab3'], #sslid5:checked ~ .sarrow_container [id='sslab5'], #sslid5:checked ~ .sarrow_container [id='sslab7'], #sslid5:checked ~ .sarrow_container [id='sslab8'], #sslid5:checked ~ .sarrow_container [id='sslab9'], #sslid5:checked ~ .sarrow_container [id='sslab0'], 
+#sslid6:checked ~ #sslider1, 
+#sslid6:checked ~ #sslider2, 
+#sslid6:checked ~ #sslider3, 
+#sslid6:checked ~ #sslider4, 
+#sslid6:checked ~ #sslider5, 
+#sslid6:checked ~ .sarrow_container [id='sslab1'], #sslid6:checked ~ .sarrow_container [id='sslab2'], #sslid6:checked ~ .sarrow_container [id='sslab3'], #sslid6:checked ~ .sarrow_container [id='sslab4'], #sslid6:checked ~ .sarrow_container [id='sslab6'], #sslid6:checked ~ .sarrow_container [id='sslab7'], #sslid6:checked ~ .sarrow_container [id='sslab8'], #sslid6:checked ~ .sarrow_container [id='sslab9'], #sslid6:checked ~ .sarrow_container [id='sslab0']
+{
+	opacity: 0;
+	visibility: hidden;
+	transition: 2s;
+}

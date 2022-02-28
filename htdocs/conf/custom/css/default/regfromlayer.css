@@ -1,0 +1,168 @@
+/*регистрационная форма в слое*/
+#settingslayerform
+{
+	position:absolute;
+	top:100px;
+	left:0;
+	width:100%;
+	z-index:200;
+	background:#fff;
+	border-top:solid 1px #ccc;
+	border-bottom:solid 1px #ccc;
+}
+#settingslayerform > .table
+{
+	width:80%;
+	margin:30px auto;
+}
+#settingslayerform > .table > .td
+{
+	padding:20px;
+}
+#settingslayerform #emailfieldtitle, #settingslayerform #passfieldtitle
+{
+	font-size:140%;
+	text-transform:uppercase;
+	margin-bottom:20px;
+	color:#999;
+}
+#settingslayerform > .table > .td > div
+{
+	width:100%;
+}
+#settingslayerform > .table > .td > .table
+{
+	margin:0 0 20px 0;
+}
+#settingslayerform > .table > .td > .table .td
+{
+	padding:10px 0;
+}
+#settingslayerform > .table > .td [type='button']
+{
+	padding: 0 10px;
+}
+#settingslayerform > .table > .td > .table > .row > .td:first-child
+{
+	width:120px;
+}
+#settingslayerform > .table > .td > .table > .row > .td [type='text'], #settingslayerform > .table > .td > .table > .row > .td [type='password']
+{
+	height: 30px;
+	border: solid 1px #ccc;
+	background: #f6f6f6;
+	width:100%;
+}
+#reglayerform
+{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background:rgba(0,0,0,0.3);
+	z-index:200;
+}
+#reglayerform .del
+{
+    display: inline-block;
+    position: absolute;
+    cursor: pointer;
+    /*top: 18%;
+    left: 73%;
+    transform: translate(49%, 49%);*/
+	top:0;
+	right:0;
+}
+#reglayerform .del:before
+{
+	content:'\00D7';
+	font-size: 300%;
+	padding: 8px 3px;
+	display:inline-block;
+	border:solid 1px transparent;
+}
+#reglayerform .del:hover:before
+{
+	background:rgba(255,255,255,0.5);
+	border:solid 1px #ccc;
+}
+#reglayercont
+{
+    display: inline-block;
+    position: absolute;
+    top: 49%;
+    left: 49%;
+    transform: translate(-49%, -49%);
+    /*width: 49%;*/
+    width: 500px;
+}
+#reglayercontinner
+{
+    background: #fff;
+    border: solid 1px #ccc;
+	margin:40px 30px 0 0;
+	padding:30px;
+	/*text-align: center;*/
+}
+#reglayerform .required
+{
+	font-weight:bold;
+	color:#c00;
+}
+#reglayercontinner > div
+{
+	width:100%;
+	display:inline-block;
+}
+#reglayercontinner #regformtitle
+{
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #666;
+}
+#reglayercontinner > div span
+{
+	display:inline-block;
+	padding:5px;
+}
+#reglayercontinner > div input[type='text'], #reglayercontinner > div input[type='password']
+{
+	height: 30px;
+	border: solid 1px #ccc;
+	background: #f6f6f6;
+}
+#reglayercontinner > div input[type='password']
+{
+	width: 100%;
+}
+#reglayercontinner > div select
+{
+	width: 100%;
+	height: 32px;
+	background: #f6f6f6;
+	border: solid 1px #ccc;
+}
+#reglayercontinner > div input[type='text']:not([class='date'])
+{
+	width: 100%;
+}
+#reglayercontinner > div input[class='date']
+{
+	width:50px;
+	margin-right:5px;
+	text-align:center;
+}
+#reglayercontinner > div input[type='checkbox']
+{
+	margin-right:5px;
+}
+#reglayercontinner > div input[type='button']
+{
+	margin:10px 0 20px 0;
+}
+#reglayercontinner .regnote
+{
+	font-style:italic;
+}

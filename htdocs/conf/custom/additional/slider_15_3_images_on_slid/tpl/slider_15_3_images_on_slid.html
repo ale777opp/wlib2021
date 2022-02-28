@@ -1,0 +1,51 @@
+<!--	Поместите код ниже в файл THEPAGESPATH.'/index/index.php
+		Создайте в директории THEPAGESPATH.'/index/ папку _news и поместите в нее текстовый файл newbooks.html	-->
+<div class="index_page">
+	<div>
+		<div class="scontainer">
+
+			<div class="header_cont">
+				<div class="header">
+					Новинки
+				</div>
+			</div>
+			
+			<input type="radio" id="s1" class="radio1" name="radio1" />
+			<input type="radio" id="s2" class="radio1" name="radio1" />
+			<input type="radio" id="s3" class="radio1" name="radio1" />
+			<input type="radio" id="s4" class="radio1" name="radio1" />
+			<input type="radio" id="s5" class="radio1" name="radio1" />
+
+			<div id="slider_cont">
+				
+				<?php
+					include (THEPAGESPATH.'/index/_news/newbooks.html');
+					include (THEPAGESPATH.'/index/_news/newbooks.html');
+					/*Внимание! include делается дважды!*/
+				?>
+				
+			</div>
+
+			<div class="newselse">
+				<span title="Смотреть все новинки" data-calendar="yes" data-title="Новинки" data-iddb="55" data-quant="15" data-renew="yes" data-path="/index/_news/newbooks.html" onmousedown="searchCollection(this)">Все новинки
+				<input class="req" type="hidden" value=" AND (COVER 'cover')"/>
+				<!--	метка для вывода только тех записей, которые содержат обложки. следует заменить на актуальную для вашей библиотеки, либо value оставить пустым	-->
+				</span>
+			</div>
+			
+			<div id="acont1" class="arrow_cont">
+				<label for="s1"></label>
+				<label for="s2"></label>
+				<label for="s3"></label>
+				<label for="s4"></label>
+			</div>
+			<div id="acont2" class="arrow_cont">
+				<label for="s2"></label>
+				<label for="s3"></label>
+				<label for="s4"></label>
+				<label for="s5"></label>
+			</div>
+
+		</div>
+	</div>
+</div>

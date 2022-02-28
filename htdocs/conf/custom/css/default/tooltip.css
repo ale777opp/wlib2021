@@ -1,0 +1,94 @@
+/*АФ ссылки Искать в...*/
+/*пример
+<span class="afsearchimg"></span>
+<div class="tooltip">
+	<span title="Искать в Едином каталоге" onmousedown="searchTerm(this)">Искать в Едином каталоге</span>
+	<a target="_blank" href="//...">Искать в PubMed</a>
+	...
+</div>
+*/
+[class^='tooltip'] .del
+{
+	position:absolute;
+    top: 1px;
+	right:1px;
+	color:#666;
+}
+[class^='tooltip'] .del:before
+{
+	content:'\00D7';
+	font-size: 16pt;
+	line-height:8px;
+	display:inline-block;
+	padding:3px 3px 0 3px;
+}
+[class^='tooltip'] .del:hover
+{
+	cursor:pointer;
+	background:rgba(0,0,0,0.2);
+	color:#fff;
+}
+[class^='tooltip'] span.titl
+{
+	color:#333;
+	cursor:default;
+	text-decoration:none;
+}
+[class^='tooltip'] span, [class^='tooltip'] a
+{
+	white-space:nowrap;
+	display:block;
+}
+[class^='tooltip']
+{
+	position:absolute;
+    display:inline-block;
+	padding:20px;
+	margin-left:30px;
+    border:1px solid #ccc;
+	background:#fff;
+    min-width:100px;
+}
+.tooltip
+{
+	visibility:hidden;
+	opacity:0;
+	z-index:-1;	
+	transition: opacity 0.5s ease-in-out;
+}
+.tooltip1
+{
+	z-index:1;
+	margin-top:-30px;
+}
+[class^='tooltip']:before
+{
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    margin-left: -40px;
+    margin-top: -20px;
+    border-width: 20px;
+    border-style: solid;
+    border-color: transparent #ccc transparent transparent;
+}
+[class^='tooltip']:after
+{
+    content: '';
+    position: absolute;
+    top: 40px;
+    right: 100%;
+    margin-top: -19px;
+    border-width: 19px;
+    border-style: solid;
+    border-color: transparent #fff transparent transparent;
+}
+.afsearchimg:focus + .tooltip
+{
+	margin-top:-35px;
+	margin-left:20px;
+	opacity:1;
+	visibility:visible;
+	z-index:10;
+}

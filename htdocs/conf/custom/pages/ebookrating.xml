@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<document>
+	<title>Популярные электронные книги</title>
+	<content>
+		<input class="button" value="Обновить" onmousedown="callEBookRating();" type="button"/>
+		<div class="table mt20x h100 w100">
+			<div class="row">
+				<div class="td content">
+					<div id="bookratings" class="ml5 mr5">
+						&#60;?php 
+						include (THEMODULESPATH.'/ebookrating/_ratings/ebookrating.html');
+						?&#62;
+					</div>
+				</div>
+			</div>
+		</div>
+	</content>
+</document>

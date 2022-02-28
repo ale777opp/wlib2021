@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<labelCollector>
+  <label mandatory="false" mode="FILE" name="AL" profile="BIBL" title="Архивный уровень">
+    <processing>
+      <entry>format</entry>
+      <entry>text</entry>
+    </processing>
+    <interface>
+      <prof use="true"/>
+      <catal use="true"/>
+    </interface>
+    <ruleBuild>
+      <rule name="RUSMARC_BIBL_ARCL"/>
+    </ruleBuild>
+  </label>
+  <label mandatory="false" mode="FILE" name="ARCB" profile="BIBL" title="Описи в фонде">
+    <processing>
+      <entry>format</entry>
+    </processing>
+    <interface/>
+    <ruleBuild>
+      <rule name="RUSMARC_BIBL_OPIS"/>
+    </ruleBuild>
+  </label>
+  <label mandatory="false" mode="FILE" name="ARCE" profile="BIBL" title="Документы в деле или фонде">
+    <processing>
+      <entry>format</entry>
+    </processing>
+    <interface/>
+    <ruleBuild>
+      <rule name="RUSMARC_BIBL_DOC"/>
+    </ruleBuild>
+  </label>
+  <label mandatory="false" mode="FILE" name="ARCM" profile="BIBL" title="Дела в фонде или описи">
+    <processing>
+      <entry>format</entry>
+    </processing>
+    <interface/>
+    <ruleBuild>
+      <rule name="RUSMARC_BIBL_DELO"/>
+    </ruleBuild>
+  </label>
+  <label mandatory="false" mode="FILE" name="COL" profile="BIBL" title="Подколлекции">
+    <processing>
+      <entry>format</entry>
+    </processing>
+    <interface>
+      <prof use="true"/>
+      <ext use="true"/>
+      <catal use="true"/>
+    </interface>
+    <ruleBuild>
+      <rule name="RUSMARC_BIBL_COLDWN"/>
+    </ruleBuild>
+  </label>
+</labelCollector>

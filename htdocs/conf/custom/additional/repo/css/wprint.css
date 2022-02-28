@@ -1,0 +1,28 @@
+/*ютф*/
+@media print
+{
+	*
+	{
+		margin:0;
+		padding:0;
+	}
+	body
+	{
+		font: normal 9pt Times, serif !important;
+		background: #fff !important;
+		color: #000 !important;
+	}
+	table, td, b, .h3, .col_content
+	{
+		font: normal 9pt Times, serif !important;
+		background: #fff !important;
+		color: #000 !important;
+		border: none !important;
+		padding:5px !important;
+		vertical-align:top !important;
+	}
+	#header, #searchdiv, #footer, .col_title, [class^='memo'], .unchecked, input, .tab_to_switch_search, .lk, .td2unvisible, .td1unvisible
+	{
+		display:none !important;
+	}
+}

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<labelCollector>
+  <label mandatory="false" mode="FILE" name="LAUD" profile="BIBL" title="Аудитория">
+    <processing>
+      <entry>format</entry>
+    </processing>
+    <interface>
+      <prof use="true"/>
+      <catal use="true"/>
+    </interface>
+    <ruleBuild>
+      <rule name="LIMIT_AUDITORIY"/>
+    </ruleBuild>
+  </label>
+  <label mandatory="false" mode="FILE" name="LFC" profile="BIBL" title="Форма содержания">
+    <processing>
+      <entry>format</entry>
+    </processing>
+    <interface>
+      <prof use="true"/>
+      <catal use="true"/>
+    </interface>
+    <ruleBuild>
+      <rule name="LIMIT_FORM_CONTENT"/>
+    </ruleBuild>
+  </label>
+  <label mandatory="false" mode="FILE" name="LFR" profile="BIBL" title="Форма ресурса">
+    <processing>
+      <entry>format</entry>
+    </processing>
+    <interface>
+      <prof use="true"/>
+      <catal use="true"/>
+    </interface>
+    <ruleBuild>
+      <rule name="LIMIT_FORM_RESRC"/>
+    </ruleBuild>
+  </label>
+  <label mandatory="false" mode="FILE" name="LLA" profile="BIBL" title="Язык публикации">
+    <processing>
+      <entry>format</entry>
+    </processing>
+    <interface>
+      <prof use="true"/>
+      <catal use="true"/>
+    </interface>
+    <ruleBuild>
+      <rule name="LIMIT_LANGUAGE"/>
+    </ruleBuild>
+  </label>
+  <label mandatory="false" mode="FILE" name="LPUB" profile="BIBL" title="Вид издания">
+    <processing>
+      <entry>format</entry>
+    </processing>
+    <interface>
+      <prof use="true"/>
+      <catal use="true"/>
+    </interface>
+    <ruleBuild>
+      <rule name="LIMIT_TYPE_PUBL"/>
+    </ruleBuild>
+  </label>
+  <label mandatory="false" mode="FILE" name="LRES" profile="BIBL" title="Вид документа">
+    <processing>
+      <entry>format</entry>
+    </processing>
+    <interface>
+      <prof use="true"/>
+      <catal use="true"/>
+    </interface>
+    <ruleBuild>
+      <rule name="LIMIT_TYPE_RESRC"/>
+    </ruleBuild>
+  </label>
+</labelCollector>

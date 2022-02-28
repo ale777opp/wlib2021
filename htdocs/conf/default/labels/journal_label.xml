@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<labelCollector>
+  <label mandatory="false" mode="FILE" name="YTV" profile="BIBL" title="Годы томов/выпусков">
+    <processing>
+      <entry>format</entry>
+    </processing>
+    <interface/>
+    <ruleBuild>
+      <rule name="BIBL_YEAR_JOURNAL"/>
+    </ruleBuild>
+  </label>
+</labelCollector>

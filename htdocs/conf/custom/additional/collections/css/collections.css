@@ -1,0 +1,234 @@
+/*коллекции на отдельной странице*/
+#menu_button_collections
+{
+	display:none;
+}
+.sheet_search__additional_all_collections_php .table .row .td:first-child
+{
+	max-width:340px;
+	width:25%;
+}
+.sheet_search__additional_all_collections_php .COLLWEB, .sheet_search__additional_all_collections_php .TITLEWEB
+{
+	width:100%;
+	border-top: solid 1px #ccc;
+	margin-top: 10px;
+}
+.sheet_search__additional_all_collections_php ul
+{
+	vertical-align:top;
+}
+.sheet_search__additional_all_collections_php li
+{
+	list-style-type:none;
+	vertical-align:top;
+	line-height:120%;
+}
+.sheet_search__additional_all_collections_php ul#col_menu
+{
+	margin-right:20px;
+}
+.sheet_search__additional_all_collections_php ul#col_menu li
+{
+	color:#4c7052;
+	margin-bottom:10px;
+	/*white-space:nowrap;
+	padding-right:10px;*/
+}
+.sheet_search__additional_all_collections_php ul#col_menu li:hover
+{
+	text-decoration:underline;
+	cursor:pointer;
+}
+.titldiv
+{
+    margin-top: 50px;
+    margin-bottom: 15px;
+    font-size: 110%;
+}
+.sheet_search__additional_all_collections_php .COLLWEB li .figcont
+{
+	display:inline-block;
+	width:85px;
+	margin:0 1vw 1vw 0;
+	float:left;
+}
+.sheet_search__additional_all_collections_php li figure
+{
+	background-repeat:no-repeat;
+	background-position: center center;
+	background-size:cover;
+	display:inline-block;
+	box-shadow:0px 0px 5px #ccc inset;
+	transition: all 1.2s ease;
+}
+.sheet_search__additional_all_collections_php .COLLWEB li figure
+{
+	width:85px;
+	height:85px;
+}
+.sheet_search__additional_all_collections_php .TITLEWEB
+{
+	text-align:center;
+	padding: 20px 0;
+}
+.sheet_search__additional_all_collections_php .TITLEWEB li
+{
+	display:inline-block;
+	width:33%;
+}
+.sheet_search__additional_all_collections_php .TITLEWEB li .img, .sheet_search__additional_all_collections_php .TITLEWEB li .cont
+{
+	display:inline-block;
+}
+.sheet_search__additional_all_collections_php .TITLEWEB li figure
+{
+	width:15vw;
+	height:15vw;
+	cursor:pointer;
+}
+.sheet_search__additional_all_collections_php .TITLEWEB li .cont
+{
+	width:15vw;
+	margin:1vw;
+}
+.sheet_search__additional_all_collections_php .COLLWEB figure:hover
+{
+	position:relative;
+	transform: scale(3);
+	cursor: pointer;
+	z-index:9999 !important;
+}
+.sheet_search__additional_all_collections_php .COLLWEB figure:not(:hover)
+{
+	transform: scale(1);
+	z-index:1;
+}
+.sheet_search__additional_all_collections_php .COLLWEB li.folder .title
+{
+	margin: 1vw;
+}
+.sheet_search__additional_all_collections_php .COLLWEB li.folder > div
+{
+	clear:both;
+	padding:1vw 0px;
+}
+.sheet_search__additional_all_collections_php .COLLWEB li.folder:not(:last-child) > div
+{
+	border-bottom: dotted 1px #999;
+}
+.sheet_search__additional_all_collections_php .COLLWEB li.folder div[class^='annot']
+{
+	width:100%;
+	font-size:90%;
+}
+.sheet_search__additional_all_collections_php .COLLWEB li.folder div[class^='annot'] > div
+{
+	line-height:160%;
+	text-align:justify;
+	min-height:7vw;
+}
+.sheet_search__additional_all_collections_php .COLLWEB li.folder div.annotshort
+{
+	display:block;
+}
+.sheet_search__additional_all_collections_php .COLLWEB li.folder div.annotfull
+{
+	display:none;
+}
+.sheet_search__additional_all_collections_php .COLLWEB li.folder div.resourсes
+{
+	font-size:100%;
+	margin-top:1vw;
+	text-decoration:underline;
+	color:#4c7052;
+	text-align:center;
+	cursor:pointer;
+	z-index:1;
+}
+.sheet_search__additional_all_collections_php .COLLWEB li.folder input[type='checkbox']
+{
+	position:absolute;
+	left:-1000px;
+	visibility: hidden;
+}
+.sheet_search__additional_all_collections_php .COLLWEB li.folder div .term
+{
+	font-size:140%;
+	line-height:100%;
+	color:#4c7052;
+	margin-bottom:1vw;
+	display:inline-block;
+	cursor: pointer;
+	left:20px;
+}
+.sheet_search__additional_all_collections_php .COLLWEB li.folder div .term span:hover
+{
+	text-decoration:underline;
+}
+.sheet_search__additional_all_collections_php .COLLWEB li.folder label:before
+{
+	font-family: 'fontello';
+	position: absolute;
+	display:inline-block;
+	z-index:2;
+	top:0;
+	left:-20px;
+	color:#4c7052;
+	cursor: pointer;
+}
+.sheet_search__additional_all_collections_php .COLLWEB li.folder input[type='checkbox']:checked ~ div.annotshort {display:none;}
+.sheet_search__additional_all_collections_php .COLLWEB li.folder input[type='checkbox']:checked ~ div.annotfull {display:block;}
+.sheet_search__additional_all_collections_php .COLLWEB li.folder input[type='checkbox']:not(:checked) ~ label:before
+{
+	content:'\e80b';
+}
+.sheet_search__additional_all_collections_php .COLLWEB li.folder input[type='checkbox']:checked ~ label:before
+{
+	content:'\e80a';
+}
+.sheet_search__additional_all_collections_php .newscontrols
+{
+	display: inline-block;
+}
+.sheet_search__additional_all_collections_php p.pages:nth-of-type(1)
+{
+	display: inline-block;
+	right: 0;
+	position: absolute;
+	padding: 5px 0 7px 0;
+}
+.newscontrols > span
+{
+	display: inline-block;
+	vertical-align: middle;
+	/*border: solid 1px #ddd;*/
+	border-radius: 3px;
+	padding: 5px 10px 7px 25px;
+	color:#4c7052;
+	cursor:pointer;
+}
+.newscontrols > span:hover
+{
+	background: rgba(90,68,68,0.1);
+}
+.newscontrols > span:before
+{
+	position:absolute;
+	top:5px;
+	left:0;
+	color:#4c7052;
+	font-family:'fontello';
+}
+.newscontrols > span[data-outform='COLLWEB']:before
+{
+	content:'\e83f';
+}
+.newscontrols > span[data-outform='TITLEWEB']:before
+{
+	content:'\e83e';
+}
+.sheet_search__additional_all_collections_php .colorized
+{
+	background:#e6d6d6;
+}

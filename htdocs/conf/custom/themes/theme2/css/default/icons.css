@@ -1,0 +1,179 @@
+/*иконки*/
+.vote
+{
+	display:inline-block;
+}
+[class^='stars'], .adddiv[id^='rev'] span
+{
+	cursor:pointer;
+	display: inline-block;
+	margin: 0 10px 0 5px;
+}
+.adddiv[id^='rev'] span
+{
+	cursor:pointer;
+	display: inline-block;
+	margin: 0 40px 0 0;
+}
+[class^='stars']:after, .adddiv[id^='rev'] span:after
+{
+	content:'';
+}
+[class^='stars']:before, .adddiv[id^='rev'] span:before, .social span:after
+{
+	position:absolute;
+	font-family: 'fontello';
+}
+[class^='stars']:before
+{
+	top:-10px;
+	font-size:10pt;
+	font-weight:bold;
+	color:#ffcc66;
+}
+.stars:before
+{
+	content:'\e803';
+}
+.starsh:before
+{
+	content:'\e805';
+}
+.starse:before
+{
+	content:'\e804';
+}
+.adddiv[id^='rev'] .vk:before
+{
+	content:'\e814';
+	color:#336699;
+	font-size:19pt;
+}
+.adddiv[id^='rev'] .tw:before
+{
+	content:'\e80e';
+	font-size:22pt;
+	color:#55acee;
+}
+.adddiv[id^='rev'] .fb:before
+{
+	content:'\e815';
+	font-size:19pt;
+	color:#3c5996;
+}
+.adddiv[id^='rev'] .cm:before
+{
+	content:'\e813';
+	font-size:19pt;
+	color:#ed812b;
+}
+.el, .URL
+{
+	position:relative;
+	display:block;
+	color: #066f06;
+	margin:15px 0 15px 40px;
+	font-size:90%;
+}
+.el:after, .URL:after
+{
+    content:'';
+	position:absolute;
+	display:inline-block;
+	/*z-index:3;*/
+	left:-22px;
+    top:4px;
+    width:4px;
+    height:4px;
+    border:2px solid #fff;
+    border-radius:6px;
+}
+.el:before, .URL:before
+{
+    content:'';
+	position:absolute;
+	/*z-index:2;*/
+	display:inline-block;
+    left:-25px;
+    top:1px;
+    width:14px;
+    height:14px;
+    background:#066f06;
+    border-radius:12px 0 12px 0;
+    transform:rotate(45deg);
+}
+.help:before, .info:before, .feedback:before, .hint:before
+{
+    position: relative;
+	display:inline-block;
+	text-align:center;
+    z-index:2;
+    font-weight:bold;
+    color:#fff;
+}
+.help:before
+{
+	content:'\003F';
+	left:7px;
+	top:3px;
+}
+.info:before
+{
+	content:'\0069';
+	top:3px;
+	left:10px;
+}
+.feedback:before
+{
+	content:'\270E';
+	font-size:140%;
+	left:0;
+	top:3px;
+}
+.hint:before
+{
+	content:'\0021';
+	top:2px;
+	left:10px;
+}
+.hint:after
+{
+ 	position:relative;
+	content: '';
+	z-index:1;
+	border-left: 11px solid rgba(0, 153, 144, 0);
+	border-right: 11px solid rgba(0, 153, 144, 0);
+	border-bottom: 23px solid #066f06;
+	left:-4px;
+	top: -21px;
+}
+a[href$='.pdf']
+{
+	background: url(../img/pdf.gif) no-repeat 0 0;
+	padding: 10px 0 10px 40px;
+	display:block;
+}
+a[href$='.doc'], a[href$='.docx'], a[href$='.rtf']
+{
+	background: url(../img/word.gif) no-repeat 0 0;
+	padding: 10px 0 10px 40px;
+	display:block;
+}
+a[href$='.xls'], a[href$='.csv']
+{
+	background: url(../img/excel.gif) no-repeat 0 0;
+	padding: 10px 0 10px 40px;
+	display:block;
+}
+a[href$='.zip']
+{
+	background: url(../img/zip.gif) no-repeat 0 0;
+	padding: 10px 0 10px 40px;
+	display:block;
+}
+a[href$='.djvu']
+{
+	background: url(../img/djvu.gif) no-repeat 0 0;
+	padding: 10px 0 10px 40px;
+	display:block;
+}

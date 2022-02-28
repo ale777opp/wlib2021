@@ -1,0 +1,84 @@
+/*позиционирование*/
+.table
+{
+	display:table;
+}
+.row, .tr
+{
+	display:table-row;
+}
+.td
+{
+	display:table-cell;
+}
+.dib
+{
+	display:inline-block;
+}
+.dn, .meshcodesdisplay
+{
+	display:none;
+}
+.db
+{
+	display:block;
+}
+.disabled
+{
+	opacity:0.5;
+}
+.fleft
+{
+	float:left;
+}
+.fright
+{
+	float:right;
+}
+.aleft
+{
+	text-align:left;
+}
+.acenter
+{
+	text-align: center;
+}
+.aright
+{
+	text-align:right !important;
+}
+.ajustify
+{
+	text-align:justify;
+}
+.vtop
+{
+	vertical-align: top;
+}
+.vmiddle
+{
+	vertical-align: middle;
+}
+.vbottom
+{
+	vertical-align: bottom;
+}
+.vis
+{
+	visibility:visible;
+    opacity:0.5;
+}
+.invis
+{
+    opacity:0;
+	visibility:hidden;
+}
+.fixed
+{
+	position:fixed !important;
+	background-attachment: inherit !important;
+}
+.clear_both
+{
+	clear:both;
+}

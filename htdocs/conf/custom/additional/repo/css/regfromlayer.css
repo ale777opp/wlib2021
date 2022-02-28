@@ -1,0 +1,280 @@
+/*регистрационная форма в слое*/
+#settingslayerform
+{
+	position:absolute;
+	left:0;
+	width:100%;
+	/*margin-top: 4px;*/
+	z-index:9;
+	background: #f6f6f6;
+	border-bottom: solid 1px #ddd;
+}
+#settingslayerform *
+{
+    line-height: 140%;
+}
+#settingslayerform > .table
+{
+	width:74vw;
+	margin:30px auto;
+}
+#settingslayerform > .table > .td
+{
+	padding:10px;
+}
+#settingslayerform #emailfieldtitle, #settingslayerform #passfieldtitle
+{
+	/*font-size:140%;*/
+	text-transform:uppercase;
+	margin-bottom:20px;
+	color:#0e4a99;
+	font-weight:bold;
+}
+#settingslayerform > .table > .td > div
+{
+	width:100%;
+}
+#settingslayerform > .table > .td > .table
+{
+	margin:0 0 20px 0;
+}
+#settingslayerform > .table > .td > .table .td
+{
+	padding:10px 0;
+}
+#settingslayerform > .table > .td [type='button']
+{
+	padding: 0 12px;
+	border: solid 1px #0e4a99;
+    height: 44px;
+}
+#settingslayerform > .table > .td > .table > .row > .td:first-child
+{
+	width:120px;
+}
+#settingslayerform > .table > .td > .table > .row > .td [type='text'], #settingslayerform > .table > .td > .table > .row > .td [type='password']
+{
+	height: 35px;
+	border: solid 1px #DDD;
+	background: #fff;
+	width:100%;
+}
+#reglayerform
+{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background:rgba(0,0,0,0.3);
+	z-index:10;
+}
+#reglayerform .del
+{
+    display: inline-block;
+    position: absolute;
+    cursor: pointer;
+    /*top: 18%;
+    left: 73%;
+    transform: translate(49%, 49%);*/
+	/*top:0;
+	right:0;*/
+	top: 5px;
+	right: 5px;
+	z-index: 20;
+}
+#reglayerform .del:before
+{
+	content:'\00D7';
+	font-size: 300%;
+	padding: 8px 3px 10px 3px;
+	display:inline-block;
+	border:solid 1px transparent;
+}
+#reglayerform .del:hover:before
+{
+	background:rgba(255,255,255,0.5);
+	border:solid 1px #ccc;
+}
+#reglayercont
+{
+    display: inline-block;
+    position: absolute;
+    top: 49%;
+    left: 49%;
+    transform: translate(-49%, -49%);
+    /*width: 49%;*/
+}
+#reglayercont.reg
+{
+    width: 56.5vw;
+	max-height:98vh;
+	/*overflow:auto;*/
+}
+#reglayercont.auth
+{
+    width: 500px;
+}
+#reglayercontinner
+{
+    background: #efeeed;
+    border:solid 1px rgba(175, 172, 164, 0.4);
+	/*margin:25px 25px 0 0;
+	padding:30px 30px 30px 25px;*/
+}
+#notereglayer, #noteregformbutton
+{
+	font-style:italic;
+	color:#3999cf;
+	font-size:75%;
+	/*text-align:center;
+	padding:5px;*/
+	margin: 1vh 2vw !important;
+}
+.cells
+{
+	display: inline-block;
+	width: 25vw;
+	margin: 1vh 1vw;
+	vertical-align: top;
+}
+.required
+{
+	color:transparent;
+}
+#reglayerform span.required:after, #reglayercontinner > div a[data-required='true']:after, #reglayercontinner > div span[data-required='true']:after
+{
+	content:'\002A';
+	font-weight:bold;
+	color:#3999cf;
+	width:20px;
+	text-align:center;
+	display:inline-block;
+}
+#reglayercontinner > div
+{
+	/*width:100%;
+	display:inline-block;*/
+	margin: 1vh 1vw;
+}
+#reglayercontinner #regformtitle
+{
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 2vh;
+    color: #0e4a99;
+	text-align:center;
+}
+#reglayercontinner > div span
+{
+	display:inline-block;
+	/*padding:5px 0 5px 0;*/
+	font-size:90%;
+}
+#reglayercont.reg #reglayercontinner > div span
+{
+	padding:0;
+}
+/*#reglayercont.reg #reglayercontinner > div input[type='text'], #reglayercont.reg #reglayercontinner > div input[type='password'], #reglayercont.reg #reglayercontinner > div select
+{
+	margin-top:5px;
+	margin-bottom:5px;
+}*/
+#reglayercontinner > div span.a.u
+{
+	color:#0e4a99;
+	margin:1vh 0;
+	cursor:pointer;
+}
+#reglayercontinner a
+{
+	color:#0e4a99;
+	text-decoration:none;
+	/*display:inline-block;*/
+	line-height:120%;
+}
+#reglayercontinner a:hover
+{
+	text-decoration:underline;
+}
+#reglayercontinner a:hover:after
+{
+	text-decoration:none !important;
+}
+#reglayercontinner > div input[type='text'], #reglayercontinner > div input[type='password']
+{
+	height: 35px;
+	border: solid 1px #ddd;
+	background: #fcfcfc;
+}
+#reglayercontinner > div input[type='password']
+{
+	width: calc(100% - 16px);
+}
+#reglayercontinner > div input:not([class='date']), #settingslayerform > div input[type='text'], #settingslayerform > div input[type='password']
+{
+	padding:0 8px 0 8px !important;
+}
+#reglayercontinner > div select
+{
+	width: 100%;
+	height: 37px;
+	border: solid 1px #ddd;
+	background: #fcfcfc;
+}
+#reglayercontinner > div input[type='text']:not([class='date']), #settingslayerform > div input[type='text']:not([class='date']), #settingslayerform > div input[type='password']
+{
+	width: calc(100% - 16px) !important;
+}
+#reglayercontinner > div input[class='date']
+{
+	width: 6vw;
+    margin-right: 0.5vw;
+	text-align:center;
+	padding:0;
+}
+#reglayercontinner > div input[type='checkbox']
+{
+	margin-right:5px;
+}
+#reglayercontinner > div input[type='button']
+{
+	/*margin:10px 0 20px 0;*/
+	border: solid 1px #0e4a99;
+    height: 44px;
+	padding:0 12px;
+}
+.reglabel
+{
+	color: #000;
+}
+.reg #reglayercontinner .reglabel
+{
+	margin-bottom: 1vh;
+}
+#reglayercontinner .regnote
+{
+	font-style:italic;
+	font-size: 90%;
+    color: #666;
+}
+.reg #reglayercontinner div[class^='n_agree']
+{
+	display:none;
+}
+/*.reg #reglayercontinner div[class^='f_agree'] [type='checkbox']
+{
+	box-shadow: -1px 0 1px -1px #333, 0 1px 1px -1px #efeeed;
+}*/
+.reg #divtitlerequired
+{
+	margin:2vh 2vw !important;
+}
+.reg #divregformbutton
+{
+	margin: 1vh 2vw 2vh 2vw !important;
+}
+#forgotpass > div
+{
+	margin: 1vh 0;
+}

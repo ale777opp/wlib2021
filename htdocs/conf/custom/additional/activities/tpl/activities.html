@@ -1,0 +1,226 @@
+<!--
+<!?php 
+include (THEPAGESPATH.'/includes/searchdiv.php');
+?>
+
+<div id="infor">
+	<div>
+шапка страницы. Удалите этоткомментарий для создания отдельной страницы -->
+
+
+<!-- мероприятия. вставьте код ниже в нужное место страницы -->
+
+<?php 
+
+/*------настройки------*/
+
+$year=date('Y');
+$month=date('m');
+$day=date('d');
+$date_now=$year.''.$month.''.$day;/* текущая дата */
+$date_from=($year-1).''.$month.''.$day;/* дата - годом раньше */
+$date_to=($year+1).''.$month.''.$day;/* дата - годом позже */
+$term="ADE GE '$date_from' AND ADB LE '$date_to' NOT ST 'd' AND SY 'ACTIVITY'";/* вывод всех мероприятий */
+$str='ADE GE [apos]'.$date_from.'[apos] AND ADB LE [apos]'.$date_to.'[apos] NOT ST [apos]d[apos]  AND SY [apos]ACTIVITY[apos]';
+$start=0;
+$portion=6;/* количество мероприятий на экране - должно быть кратно 3-м */
+$iddb='187';/* номер базы данных мероприятий */
+//$direct='asc';/* сортировка asc / desc */
+//$sortlabel='s1';/* системная сортировочная метка */
+$actlogin='ADMIN';/* логин пользователя, которому прописана БД мероприятий и пункт Основного меню 056-Регистрация событий, мероприятий */
+
+/*---конец настройки---*/
+
+$query_string='<_service>STORAGE:opacafd:Find[separator]<_version>1.4.0[separator]<session>'.$nsean.'[separator]<length>'.$portion.'[separator]<start>'.$start.'[separator]<iddb>'.$iddb.'[separator]<query/mode>wordSet[separator]<query/body>'.$term.'[separator]<query/outforms[0]>ACTIVITY_WEB1[separator]<facets[0]/type>terms[separator]<facets[0]/name>NC[separator]<facets[0]/field>NC[separator]<facets[0]/limit>500[separator]<userId>'.$actlogin.'[separator]';
+
+if(isset($direct))
+{
+	if(isset($sortlabel))
+		$query_string.='<query/direct>'.$direct.'[separator]<query/label>'.$sortlabel.'[separator]';
+}
+
+$postdata = http_build_query(
+    array(
+        '_action' => 'fulltext',
+		'querylist' => $query_string
+    )
+);
+
+$opts = array('http' =>
+    array(
+        'method'  => 'POST',
+        'header'  => 'Content-type: application/x-www-form-urlencoded',
+        'content' => $postdata
+    )
+);
+
+$context  = stream_context_create($opts);
+ 
+$res = file_get_contents(THEPORTNAME.'://'.THEHOSTNAME.''.THEPATHACTRCP, false, $context);
+
+//var_dump($res);
+
+require_once(THEINCLUDESPATH.'/functions.php');
+
+$json=prepareJson($res);
+
+$foutput='';
+$toutput='';
+$pages='';
+$size=0;
+$error='';
+
+foreach ($json as $arg => $prop)
+{
+	foreach ($prop as $a => $b)
+	{
+		if($a == 'size')
+		{
+			$size=$b;
+			if(intval($b) == 0)
+			{
+				$error='<div class="acenter"><br/><br/><div>Мероприятия не найдены</div></div>';
+			}
+		}
+		if(strpos($a, 'facets_') !== false)
+		{
+			$role=$b->name;
+			$foutput.='<div class="title">Формат мероприятия</div><div class="table w100" id="facets_list">';
+			$backet=array();
+
+			foreach ($b as $c => $d)
+			{
+				if(strpos($c, 'buckets_') !== false)
+				{
+					$backet[]=array($d->value,$d->count);
+				}
+			}
+			$lbacket=count($backet);
+
+			for($j=0;$j<$lbacket;$j++)
+			{
+				$foutput.='<div class="'.$role.'"><span data-label="'.$role.'" class="unchecked" onmousedown="searchEvent(this)">'.$backet[$j][0].'</span><i class="td">'.$backet[$j][1].'</i></div>';
+			}
+			$foutput.='</div>';
+		}
+		
+		if((strpos($a, 'result_') !== false) && (intval($size) > 0))
+		{
+			$imgsrc=THEIMGPATH.'/event.jpg';
+			$format='';
+			$title='';
+			$date='';
+			$time='';
+			$library='';
+			$cost='';
+			$age='';
+			$output='';
+			$theid=htmlspecialchars($b->id);
+			$theid=addslashes($theid);
+			foreach ($b as $k => $val)
+			{
+				if(strpos($k, 'ACTIVITY_WEB1') !== false)
+				{
+					foreach ($val as $ar => $va)
+					{
+						foreach ($va as $arr => $var)
+						{
+							if(strpos($arr, 'entries_') !== false)
+							{
+								foreach ($var as $c => $d)
+								{
+									if($c == 'text')
+									{
+										if(strpos($d, '[SHOW]') !== false)
+										{
+											$imgsrc=substr($d,+6);
+										}
+										elseif(strpos($d, '[FORMAT]') !== false)
+										{
+											$format=substr($d,+8);
+										}
+										elseif(strpos($d, '[TITLE]') !== false)
+										{
+											$title=substr($d,+7);
+										}
+										elseif(strpos($d, '[DATE]') !== false)
+										{
+											$date=substr($d,+6);
+										}
+										elseif(strpos($d, '[TIME]') !== false)
+										{
+											$time=substr($d,+6);
+										}
+										elseif(strpos($d, '[LIBRARY]') !== false)
+										{
+											$library=substr($d,+9);
+										}
+										elseif(strpos($d, '[COST]') !== false)
+										{
+											$cost=substr($d,+6);
+										}
+										elseif(strpos($d, '[AGE]') !== false)
+										{
+											$age=substr($d,+5);
+										}
+										else
+										{
+											;
+										}
+									}
+								}
+							}
+						}
+					}
+					$output.='<div onmousedown="showEvent(this)" class="activity_slid" id="'.$theid.'">';
+					$output.='<div class="banner" style="background-image:url('.$imgsrc.')">';
+					$output.='<span class="format">'.$format.'</span>';
+					$output.='</div>';
+					if($age != "")
+						$output.='<div class="age">'.$age.'</div>';
+					$output.='<div class="title">'.$title.'</div>';
+					$output.='<div class="date">'.$date.'</div>';
+					if($time != "")
+						$output.='<div class="time">'.$time.'</div>';
+					if($cost != "")
+						$output.='<div class="cost">'.$cost.'</div>';
+					if($library != "")
+						$output.='<div class="library">'.$library.'</div>';
+					$output.='</div>';
+				}
+			}
+			$toutput.=$output;
+		}
+	}
+}
+
+$N1=ceil($size/$portion);
+if($N1!= 1)
+{
+	$pages.='<div id="pages_list" class="pages">'.resPaginator($start,$portion,$size,NULL,'14').'</div>';
+}
+
+$globaloutput='<div id="activities_page" class="activities_page"><h1>Мероприятия</h1>';
+$globaloutput.='<input type="hidden" id="s_str" value="'.$str.'"/>';
+$globaloutput.='<div class="table w100"><div class="row"><div class="td"><div class="facets">'.$foutput.'</div></div><div id="events_container" class="td">';
+$globaloutput.='<div id="bookmarks" class="bookmarks"><div class="tab" onmousedown="switchTabs(this)" data-aktive="true"><span class="all">ВСЕ</span></div><div class="tab" onmousedown="switchTabs(this)" data-aktive="false"><span class="today">Сегодня</span></div><div class="tab" onmousedown="switchTabs(this)" data-aktive="false" data-title="Задать период"><span class="calc"></span></div><div class="tab" onmousedown="switchTabs(this)" data-aktive="false" data-title="Место проведения"><span class="dict"></span></div><div class="tab" onmousedown="switchTabs(this)" data-aktive="false" data-title="Найти мероприятие"><span class="search"></span></div></div>';
+$globaloutput.='<div id="events_list">'.$toutput.'</div>';
+$globaloutput.=$pages;
+$globaloutput.='</div></div></div></div>';
+
+echo $globaloutput;
+
+?>
+
+<!-- конец мероприятия. вставьте код ниже в нужное место страницы -->
+
+
+
+
+<!-- подвал страницы. удалите этот комментарий для создания отдельной страницы
+	</div>
+</div>
+<!?php 
+include (THEPAGESPATH.'/includes/footer.php');
+?>
+-->

@@ -1,0 +1,76 @@
+/*подвал*/
+#footer
+{
+	width:100%;
+	height:230px;
+}
+#footer > div > div
+{
+	display:table;
+	width:80%;
+	height:100%;
+	margin:0 auto;
+}
+#footer > div > div > div
+{
+	display:table-cell;
+}
+#bottom_info
+{
+	height:200px;
+	background:#eee;
+	color:#333;
+}
+#bottom_info span
+{
+	display:block;	
+}
+#bottom_info > div > div
+{
+	padding-top:40px;
+}
+#bottom_info > div > div span, #bottom_info > div > div a
+{
+	font-size:90%;
+	line-height:140%;
+	margin:0 0 0 10px;
+	color:#333;
+	text-decoration:none;
+}
+#bottom_info > div > div:not(:last-child) span:first-child
+{
+	font-size:110%;
+	margin:0 0 10px 0;
+	min-width:150px;
+	white-space:nowrap;
+}
+#bottom_copy
+{
+	background:#666;
+	height:30px;
+	text-align:right;
+	font-size:80%;
+	color:#fff;
+}
+#bottom_copy > div > div
+{
+	vertical-align:middle;
+}
+#bottom_copy a
+{
+	color:#fff;
+}
+#go-to-top
+{
+	z-index: 3;
+    position: fixed;
+    top: auto;
+    right: 1%;
+    bottom: 60px;
+    width: 60px;
+    height: 60px;
+	background: rgba(153, 153, 153, 0.5);
+	cursor:pointer;
+	transition: all .5s ease-in-out; 
+	text-align:left;
+}

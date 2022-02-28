@@ -1,0 +1,220 @@
+/*цвета*/
+.highlight
+{
+	background: highlight;
+	color: highlighttext;
+}
+#searchhead .highlight, .searchhead .highlight, .h3 .highlight, .memo .highlight, .searchrez .highlight
+{
+	color: #066f06;
+	background:transparent;
+}
+.red, .filters div.else, .filters span.checked, .busy
+{
+	color: #066f06;
+}
+.warn, #hint
+{
+	background: #f6e3df;
+}
+.c0, .caption
+{
+	color:#000;
+}
+.blue
+{
+	color:#3390c6;
+}
+.a, a, .bread:hover, .new, .gb, .titleslides, .adddiv span[class^="SEE"], .adddiv a[class^="SEE"], .see, .aflink, .aflinkinfo, a.aflinkinfo, span.code, .fel, .aftitle span.b, [class^='afbig'], .afplusimg, .afminusimg, .blue
+{
+	color:#066f06;
+	/*cursor:pointer;*/
+}
+.clb, .new2, .new1
+{
+	color: #ccd3ec;
+}
+.bgg
+{
+	background: #ccd3ec;
+}
+.bgdg
+{
+	background: #066f06;
+}
+.bgblue
+{
+	background:#3390c6;
+	border:solid 1px #3390c6;
+}
+.cc
+{
+	color:#ccc;
+}
+.c8
+{
+	color:#888;
+}
+.c9, .a:hover, a:hover, .bread, input.voc, #saf, #sand, #sor, #snot, .col_title, .now, .filters div.else:hover, .afannotimg:before, .afsearchimg:before, .afsmall
+{
+	color:#999;
+}
+.c6, #termin i, .filters i, .filters span.unchecked:hover, .issue, .aftitle, .button2
+{
+	color:#666;
+}
+.c3, .aftitle span.b b
+{
+	color:#333;
+}
+.cf, .buttoncont .button, .border1 .button, .url, a.url:hover
+{
+	color:#fff;
+}
+.bgf, [class^='searchrez'], .border
+{
+	background:#fff;
+}
+.bgf0
+{
+	background: #f0f0f0;
+}
+.bgfc
+{
+	background: #fcfcfc;
+}
+.bgf6
+{
+	background: #f6f6f6;
+}
+.bge,[class^='wrapped']
+{
+	background:#eee;
+}
+.bgc
+{
+	background:#ccc;
+}
+.bgd
+{
+	background: #ddd;
+}
+.bg9
+{
+	background: #999;
+}
+.bg3
+{
+	background: #333;
+}
+.bgr, .help, .info, .feedback
+{
+	background: #066f06;
+}
+.bglb, .new:hover, .new1:hover, .gb:hover, .new2:hover
+{
+	background: #dbe9f5;
+}
+.b1f
+{
+	border: solid 1px #fff;
+}
+.b1e, [class^='wrapped']
+{
+	border: solid 1px #eee;
+}
+.b1d, input.voc, #saf, #sand, #sor, #snot, .select4, .select4_, .expl, .warn
+{
+	border: solid 1px #ddd;
+}
+.b1c, .lev3:hover
+{
+	border: solid 1px #ccc;
+}
+.b1r
+{
+	border: solid 1px #993030;
+}
+.b1b
+{
+	border: solid 1px #066f06;
+}
+.bsh
+{
+	box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+}
+.brl3x
+{
+	padding-left: 10px;
+}
+.brl3x:before
+{
+	content: '';
+	position:absolute;
+	top:9px;
+	left:12px;
+	height:18px;
+	border-left: solid 5px #903030;
+}
+.brl5x
+{
+	padding-left: 20px;
+}
+.brl5x:before
+{
+	content: '';
+	position:absolute;
+	top:0px;
+	left:0px;
+	height:18px;
+	border-left: solid 5px #903030;
+}
+.br5x
+{
+	border-radius:5px;
+}
+.cf
+{
+	color: #fff;
+}
+.l-glg
+{
+	background: #fff;
+	background: linear-gradient(to bottom, #fff 0%, #ddd 50%, #ddd 51%, #fff 100%);
+}
+.l-gdg
+{
+	background:#5f5f5f;
+	background: linear-gradient(to bottom, #787878 0%, #5e5e5e 50%, #707070 51%, #8f8f8f  100%);
+}
+.l-gg
+{
+	background: #ccc;
+	background: linear-gradient(to bottom, #a8a8a8 0%, #8e8e8e 50%, #a0a0a0 51%, #bfbfbf 100%);
+}
+.l-gr
+{
+	background: #993030;
+	background: linear-gradient(to bottom, #a93333 0%, #900000 50%, #903030 51%, #cc3f3f 100%);
+}
+.l-gb
+{
+	background: #066f06;
+	background: linear-gradient(to bottom, #c0ccd9 0%, #066f06 50%, #066f06 51%, #c0ccd9 100%);
+}
+.brt1c
+{
+	border-top:solid 1px #ccc;
+}
+.brr1c
+{
+	border-right:solid 1px #ccc;
+}
+.brb1c
+{
+	border-bottom:solid 1px #ccc;
+}
+.brl1c
+{
+	border-left:solid 1px #ccc;
+}

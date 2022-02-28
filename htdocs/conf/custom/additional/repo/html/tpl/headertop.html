@@ -1,0 +1,37 @@
+<div id="search_head_layer">
+	<div class="cross" id="menu_button" onclick="showHideM('top_info', 'menu_button')">
+		<span></span><span></span><span></span>
+	</div>
+	<div class="lk">
+		<div class="block" id="top_info">
+	<?php
+		if(isset($_POST['_auth']))
+		{
+			if(isset($fjson->accountsets))
+			{
+				if(isset($fjson->accountsets->fieldcodes))
+				{
+					$fcode=$fjson->accountsets->fieldcodes;
+					$ffcode="AO";
+					if(isset($ujson))
+					{
+						$utype=gettype($ujson);
+						if($utype=='object')
+						{
+							if(isset($ujson->userinfo->$ffcode))
+							{
+								echo '<div id="lkinfo"><span>'.$ujson->userinfo->$ffcode.'</span><span>'.$fjson->accountsets->titleet.'</span>';
+								if(isset($ujson->userinfo->$fcode))
+									echo '<span>'.$ujson->userinfo->$fcode.'</span>';
+								else
+									echo '<span>отсутствует</span>';
+								echo '<span class="addsettings" onmousedown="lkSettings()">Настройки</span></div>';
+							}
+						}
+					}
+				}
+			}
+		}
+	?>
+	<ul id="top_menu" class="top_menu">
+

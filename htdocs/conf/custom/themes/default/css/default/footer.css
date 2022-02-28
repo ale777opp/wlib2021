@@ -1,0 +1,48 @@
+/*подвал*/
+#footer
+{
+	width:100%;
+}
+#bottom_info > div, #bottom_copy > div
+{
+	display:table;
+	width:90%;
+	height:100%;
+	margin:0 auto;
+}
+#bottom_info > div > div, #bottom_copy > div > div
+{
+	display:table-cell;
+	vertical-align:middle;
+}
+#bottom_info
+{
+	background: #eee;
+	height:100px;
+}
+#bottom_info span, #bottom_info a
+{
+	font-size:80%;
+}
+#go-to-top
+{
+	z-index: 3;
+    position: fixed;
+    top: auto;
+    right: 3%;
+    bottom: 60px;
+    width: 60px;
+    height: 60px;
+	background: rgba(153, 153, 153, 0.5);
+	cursor:pointer;
+	transition: all .5s ease-in-out; 
+}
+#bottom_copy
+{
+	background:#ddd;
+	height:40px;
+}
+#bottom_copy span, #bottom_copy a
+{
+	font-size:70%;
+}

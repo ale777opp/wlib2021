@@ -1,0 +1,11 @@
+0ident              0,5
+1passw              5,6
+2ip-adr             11,15
+3num-seans          26,10
+4num-bd             36,8
+5action             44,4
+6record             48,25
+7sort               73,2
+8FDTbuf             75,300
+9searchbuf          375,40
+10valuebuf          415,999

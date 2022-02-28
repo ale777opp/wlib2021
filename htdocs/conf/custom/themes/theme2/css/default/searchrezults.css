@@ -1,0 +1,798 @@
+/*результаты поиска*/
+#searchhead , .searchhead , .searchhead1
+{
+	padding: 10px 0 10px 0;
+	font-size: 70%;
+	/*line-height:120%;*/
+}
+#searchhead > div
+{
+	padding-left:5px;
+}
+#searchhead  > div:not([class='fleft']):nth-child(2)
+{
+	width:80%;
+}
+.searchhead:not([id='searchhead'])  > div:nth-child(2)
+{
+	width:80%;
+}
+.searchhead:not([id='searchhead']):nth-child(even)
+{
+	border-top: solid 1px #ccc;
+	border-bottom: solid 1px #ccc;
+}
+.searchhead span
+{
+	/*margin: 5px 0 5px 0;*/
+	line-height:160%;
+}
+#searchhead 
+{
+	margin:0 10% 20px 10%;
+	width:80%;
+	border-bottom: solid 1px #ccc;
+}
+.searchhead1
+{
+	margin: 0 10% 20px 10%;
+	width: 80%;
+	clear: both;
+	min-height: 30px;
+	padding: 10px 5px 10px 0;
+}
+#editq
+{
+	display:block;
+}
+#editq span
+{
+	color: #066f06;
+	border-bottom:solid 1px #066f06;
+	cursor:pointer;
+}
+#editq i
+{
+	color: #666;
+	font-weight:normal !important;
+	font-style:normal !important;
+}
+.fright.pr15x
+{
+	line-height:140%;
+}
+.clear_filters
+{
+	display:none;
+}
+.h3
+{
+	/*background: #eee;*/
+	font-size:80%;
+	font-weight:bold;
+	/*text-align:center;*/
+	width:80%;
+	margin:0 10%;
+	padding: 20px 0 20px 0;
+	border-bottom:solid 1px #ccc;
+	text-indent:5px;
+}
+.memo
+{
+	margin: 10px 10% 10px 10%;
+	padding: 10px 0 10px 0;
+}
+.memo #portionlist
+{
+	width:90px;
+}
+.memo span
+{
+	font-size:80%;
+	line-height:160%;
+}
+.memo span:not(.fleft)
+{
+	padding: 0 0 0 5px
+}
+.showstr i
+{
+	color:#999;
+}
+.pages
+{
+	font-size:80%;
+	text-align: right;
+	font-weight:bold;
+	padding: 0 10px 10px 0;
+}
+.pages span, .pages a
+{
+	padding: 5px 8px 5px 8px;
+	margin: 0 2px 0 2px;
+}
+.new1, .new2
+{
+	text-decoration:none;
+}
+.gb
+{
+	display:block;
+	font-size: 80%;
+	margin: 5px auto;
+	cursor:pointer;
+}
+.cb
+{
+	color: #066f06;
+	font-size: 90%;
+	margin: 5px 0 5px 5px;
+	display:inline-block;
+	line-height:160%;
+}
+blockquote
+{
+	margin:10px 0 10px 35px;
+}
+blockquote div
+{
+	font-size:80%;
+}
+.searchrez p span.fright, p span.fleft
+{
+	font-size:80%;
+}
+#searchrezult
+{
+	display:inline-block;
+	width:73%;
+}
+/*#srezults, #searchrezult.w100
+{
+	width:100%;
+}*/
+[id^='srezults'] p
+{
+	font-size:80%;
+	line-height:160%;
+}
+#srezults p s
+{
+	color:#666;
+}
+#rubricator
+{
+	width:22%;
+	font-size: 70%;
+	float:right;
+}
+#rubricator div
+{
+	display:table;
+}
+#rubricator span, #rubricator a
+{
+	display:table-cell;
+}
+#rubricator .title
+{
+	font-size:120%;
+	font-weight:bold;
+	line-height:200%;
+}
+#rubricator a
+{
+	display:inline-block;
+	/*height:20px;*/
+	padding:5px;
+}
+#rubricator .colorized
+{
+	background:#e6d6d6;
+}
+#filters
+{
+	display:inline-block;
+	vertical-align:top;
+	width:25%;
+	margin: 0 1% 0 0;
+	text-align:left;
+}
+.filters
+{
+	margin: 0 0 10px 0;
+	border:solid 1px #eee;
+	background:#eee;
+	border-radius:5px;
+	padding-bottom:5px;
+}
+.filters div
+{
+	padding: 5px 0 5px 0;
+}
+.filters > div
+{
+	font-size: 70%;
+	line-height: 200%;
+}
+.filters div.else
+{
+	text-align: right;
+	font-style: italic;
+	text-decoration:underline;
+	padding: 0 30px 0 0;
+	cursor:pointer;
+}
+.filters div.title
+{
+	/*border-bottom:solid 1px #ddd;*/
+	padding: 5px 0 5px 30px;
+	font-weight:bold;
+	text-transform:uppercase;
+	line-height: 150% !important;
+}
+.filters i
+{
+	padding: 0 0 0 5px;
+}
+[class^='searchrez']
+{
+	position:relative;
+	margin: 0 0 20px 0;
+	padding: 0 0 0 5px;
+}
+#issueswinform [class^='searchrez'] > div:not([class^='fleft'])
+{
+	margin:5px 5%;
+	font-size:80%;
+}
+#issueswinform [class^='searchrez'] > div.fleft
+{
+	margin:5px 0 5px 5%;
+	color:#666;
+}
+.filters span.unchecked
+{
+	background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==');
+	padding: 0 0 0 30px;
+	text-decoration:underline;
+	cursor:pointer;
+}
+.filters span.checked
+{
+	text-decoration:none;
+	cursor:pointer;
+}
+.output > div:not([class^='tabs']), #common_output p:not([class^='fstr'])
+{
+	margin:0 0 5px 0;
+	font-size:80%;
+	line-height:160%;
+	text-align:justify;
+	padding: 0 0 0 5px;
+}
+.output > b
+{
+	display: inline-block;
+	margin: 0 5px 10px 5px;
+	font-size: 80%;
+}
+p.b.u.red
+{
+    cursor: pointer;
+}
+[class^='fstr']
+{
+	color: #888;
+}
+[class*='ur'] .fstr
+{
+	cursor:pointer;
+	text-decoration: underline;
+}
+span[class^='fstr']
+{
+	font-size:150%;
+}
+/*bbcode*/
+.indent
+{
+	margin-left: 30px;
+}
+.lev3
+{
+	margin-left:5px;
+	padding: 5px 0 5px 5px;
+	display:inline-block;
+	border:solid 1px #fff;
+}
+.lev3:hover span
+{
+	text-decoration:none;
+}
+/*.AF
+{
+	display:inline-block;
+	width:30px;
+	height:30px;
+}*/
+.size20
+{
+	font-size:120% !important;
+}
+.size18
+{
+	font-weight:bold;
+	font-size:140% !important;
+}
+/*.adddiv span.RP, .adddiv span.AU, .adddiv span.SH, .adddiv span.TM, .adddiv span.PU, .adddiv span.PM, .adddiv span.SE, .adddiv span.KL, .adddiv span.FGOS, .adddiv span.FG, .adddiv span.SC, .adddiv span.TS, .adddiv span.UGS, .adddiv span.MS, .adddiv span.KW, .adddiv span.BC, .adddiv span.CA
+{
+	color:#066f06;
+	text-decoration:underline;
+	cursor:pointer;
+	margin:0 5px 0 0;
+	font-style:italic;
+}*/
+.adddiv p span.lev3 span[onclick]
+{
+	color:#066f06;
+	text-decoration:underline;
+	cursor:pointer;
+	margin:0 5px 0 0;
+	font-style:italic;
+}
+.titleslides
+{
+	display:inline-block;
+	background: url(../img/sprite2.gif) center -70px no-repeat;
+	margin: 15px 0 0 0;
+	height:30px;
+	width:80px;
+	cursor:pointer;
+}
+/*иерархический вывод томов*/
+.see, .issue
+{
+	cursor: pointer;
+	line-height:130%;
+	display: inline-block;
+	padding: 5px 10px 5px 10px;
+}
+/*.issue, #issueswinform
+{
+	font-size:80%;
+}*/
+.see b, .issue b
+{
+	text-decoration:underline;
+}
+/*.see:hover:after, .issue:hover:after
+{
+	font-size: 80%;
+	content: attr(data);
+	min-width:150px;
+	width:auto;
+	height:auto;
+	top:100%;
+	left:40%;
+	line-height: 100%;
+	margin:0;
+}*/
+.level, .level_
+{
+	display:table;
+	width:97%;
+}
+.loc
+{
+	padding-left:25px;
+}
+.address, .loc p
+{
+	margin:0px !important;
+	padding:0px !important;
+}
+.aflink, .aflinkinfo, a.aflinkinfo
+{
+	display:block;
+	font-size: 80%;
+	line-height:110%;
+	text-decoration:underline;
+	cursor:pointer;
+}
+#menu1
+{
+	width: 58px;
+	margin-left:80px;
+}
+#menu1:before
+{
+    content: 'Добавить к поиску:';
+    position: absolute;
+    margin-left: -75px;
+    width: 70px;
+    font-size: 120%;
+    line-height: 100%;
+    font-weight: bold;
+}
+#menu1 code
+{
+	display:none;
+}
+span.code
+{
+	cursor:pointer;
+}
+div.afbig
+{
+	cursor:pointer;
+	font-size:90%;
+}
+p.afbig, span.afbig
+{
+	text-decoration:underline;
+	cursor:pointer;
+}
+#srezults ol li
+{
+	font-size:80%;
+}
+.afplusimg, .afminusimg, .afbulletimg
+{
+	display:inline-block;
+	padding: 0 0 0 25px;
+	font-weight: bold;
+	cursor:pointer;
+}
+.aftitle code
+{
+	color:#333;
+	font-family: Arial;
+}
+.afplusimg code, .afminusimg code
+{
+	text-decoration:underline;
+}
+.afsearchimg, .afannotimg
+{
+	display:inline-block;
+	width:25px;
+	height:25px;
+	cursor:pointer;
+	margin: 0px 10px 0px 10px;
+}
+.meshcodesdisplay
+{
+	display:none;
+	padding-top:10px;
+}
+.meshcodesdisplay_
+{
+	display:block;
+	padding-top:10px;
+}
+.inside
+{
+	display:inline-block;
+	margin:20px 0 20px 0;
+	padding-left:5px;
+}
+.period_container
+{
+	text-align: center;
+	font-size: 80%;
+}
+.period_container .button2
+{
+	font-weight: bold;
+}
+.list_readers.button2
+{
+	font-weight: bold !important;
+	padding:8px;
+	font-size:120% !important;
+}
+#buttons_title
+{
+	float:none !important;
+	display:inline-block;
+	width:50%;
+	text-align:right;
+}
+#user_info_title
+{
+	/*padding:20px 0 20px 0;*/
+	float:none !important;
+	display:inline-block;
+	width:50%;
+	text-align:left;
+}
+#user_info
+{
+	display:block;
+	color:#066f06;
+	padding: 0 0 0 25px;
+	margin:10px 0 20px 0;
+}
+span.url, a.url
+{
+	display:inline-block;
+	height:35px;
+	margin: 10px 0 20px 10px;
+	padding: 0 10px 0 10px;
+	line-height:250%;
+	font-weight:bold;
+	font-size:80%;
+	text-decoration:none;
+	text-align:center;
+	white-space: nowrap;
+}
+.table.orders .url
+{
+	font-size:100%;
+	line-height:250%;
+}
+.recdiv [class^='url']
+{
+	font-size: 100% !important;
+}
+.recdiv .fstr, .recdiv code
+{
+	line-height:160%;
+	font-size:80%;
+}
+.recdiv code div
+{
+	line-height:160%;
+}
+#siglatable .row .td
+{
+	padding:10px;
+	text-align:left;
+}
+#siglatable .row:nth-child(odd) .td
+{
+	border: solid 1px #eee;
+}
+#siglatable .row:nth-child(odd) .td:nth-child(1)
+{
+	border-right:none !important;
+}
+#siglatable .row:nth-child(odd) .td:nth-child(2)
+{
+	border-left:none !important;
+	border-right:none !important;
+}
+#siglatable .row:nth-child(odd) .td:nth-child(3)
+{
+	border-left:none !important;
+}
+.aflinkinfo.addfilter
+{
+	display:none;
+}
+#srezults div.par p.aftitle span[data-level]
+{
+	display:inline;
+}
+.afbig.u.curs
+{
+	margin-left:25px;
+}
+#termin span
+{
+	line-height:140%;
+}
+.andor2
+{
+	width:50px;
+	cursor:pointer;
+	margin:0 5px 0 0;
+	padding:0;
+}
+#fromaftobibl
+{
+	font-size:80%;
+	width:auto;
+	padding:0 10px;
+	top:-10px;
+}
+#search_constructor .wrapped
+{
+	margin: 0 0 10px 20px;
+}
+#search_constructor .button2
+{
+	font-size:80%;
+	padding:0 10px;
+}
+[id^='sconstruct'], #shist
+{
+	min-height:100px;
+	border:solid 1px #ccc;
+	margin:0 0 20px 20px;
+	font-size:70%;
+	padding:5px;
+}
+.sterm
+{
+	color: #066f06;
+	margin-right:10px;
+	line-height:120%;
+}
+.sblock
+{
+	padding:5px 0 5px 5px;
+	margin:0 0 5px 0;
+	border:solid 1px #ccc;
+	display:block;
+}
+.sblock code
+{
+    float: right;
+    width: 25px;
+    height: 23px;
+    top: -5px;
+    font-size: 14pt;
+    color: #900;
+    cursor: pointer;
+    transform: scale(1,0.8);
+    font-weight: bold;
+    text-align: center;
+}
+#bconstruct
+{
+    min-height: 100px;
+    margin: 10px 0 20px 20px;
+    padding: 0 1px;
+    border: none;
+	font-size:90%;
+}
+textarea#searchbox
+{
+	overflow: hidden;
+    min-height: 100px;
+    width: 98%;
+    padding: 1%;
+    margin: 0 0 20px 0;
+    border: solid 1px #ccc;
+	font: normal 10pt/12pt monospace;
+}
+div.elastic
+{
+	margin-top:-100px;
+	z-index: -1;
+	height: 100px;
+	width: 98%;
+    padding: 1%;
+	visibility: hidden;
+	word-wrap: break-word;
+	font: normal 10pt/12pt monospace;
+	overflow: hidden;
+}
+#termtextbox
+{
+	display:none;
+}
+#helpconstructor
+{
+    padding: 20px;
+    cursor: pointer;
+}
+#helpconstructor:before
+{
+    content: "\003F";
+    position: absolute;
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    left: -20px;
+    color: #fff;
+    background: #066f06;
+	border:solid 1px #066f06;
+    border-radius: 50%;
+    font-family: "Verdana";
+    font-size: 16pt;
+    font-weight: bold;
+}
+#helpconstructor:hover:before
+{
+	color: #066f06;
+    background: #fff;
+}
+span.constr
+{
+    cursor: pointer;
+    display: inline-block;
+    width: 20px;
+    height: 14px;
+}
+span.constr:before
+{
+    content: "\002B";
+    position: absolute;
+    display: inline-block;
+    text-align: center;
+    left: -2px;
+    font-size: 12pt;
+    font-weight: bold;
+    line-height: 14pt;
+    width: 15px;
+    height: 15px;
+    border: solid 1px #066f06;
+    color: #fff;
+    background: #066f06;
+    border-radius: 50%;
+    padding: 0 1px 1px 0;
+	top:-1px;
+}
+span.constr:hover:before
+{
+	border:solid 1px #066f06;
+}
+.NewMeshTree, .Tree, .Annotation, .Permutation, .Alfa, .Also, .Otherlang
+{
+	display:block;
+	line-height:120%;
+	padding:5px 10px 5px 30px;
+	cursor:pointer;
+	min-height:20px;
+}
+#shist span:not(:last-child)
+{
+	border-bottom:solid 1px #ccc;
+}
+.lighttitle label
+{
+	border-bottom:solid 1px #066f06;
+	cursor:pointer;
+    color: #066f06;
+    font-size: 90%;
+    margin: 0 0 5px 5px;
+	display:inline-block;
+}
+.lighttitle label:after
+{
+    content: '\e815';
+    position: absolute;
+    display: inline-block;
+    font-family: 'fontello';
+    left: 100%;
+    margin-left: 5px;
+    top: 2px;
+    font-weight: bold;
+}
+
+.backlight
+{
+    padding: 10px;
+    border: solid 1px #ccc;
+    margin: 0 0 10px 0;
+	display:none;
+}
+.backlight em, .output em
+{
+    border-bottom: dashed 1px #066f06;
+    color: #066f06;
+	font-weight:normal;
+}
+em > em
+{
+	border-bottom:none !important;
+}
+.backlight > div
+{
+    margin: 0 0 5px 0;
+    font-size: 80%;
+    line-height: 120%;
+    text-align: justify;
+	text-indent:25px;
+}
+input:checked.hlight ~ .backlight
+{
+    display: block;
+}
+.calendar_container
+{
+    float: right;
+}

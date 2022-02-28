@@ -1,0 +1,304 @@
+/*ютф*/
+#disablediv
+{
+	position: absolute;
+	top: 0;
+	left: 2%;
+	width: 96%;
+	height: 100%;
+	z-index: 2;
+	background: transparent;
+}
+.loader, #loader
+{
+	position:absolute;
+	display:table;
+	text-align:center;
+	top: 0;
+	left: 0;
+	z-index:9999;
+	width:98%;
+	height:98%;
+	opacity: 0.7;
+	background:#fff;
+}
+@keyframes spin
+{
+	to { transform: rotate(1turn); }
+}
+.progress
+{
+	position: relative;
+	display: inline-block;
+	width: 5em;
+	height: 5em;
+	margin: 15em .5em;
+	font-size: 24px;
+	text-indent: 999em;
+	overflow: hidden;
+	animation: spin 1s infinite steps(8);
+}
+.small.progress
+{
+    font-size: 6px !important;
+	margin: 0 0 !important;
+}
+.progress:before,
+.progress:after,
+.progress > div:before,
+.progress > div:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 2.25em; /* (container width - part width)/2  */
+	width: .5em;
+	height: 1.5em;
+	border-radius: .2em;
+	background: #eee;
+	box-shadow: 0 3.5em #eee; /* container height - part height */
+	transform-origin: 50% 2.5em; /* container height / 2 */
+}
+
+.progress:before {
+	background: #555;
+}
+
+.progress:after {
+	transform: rotate(-45deg);
+	background: #777;
+}
+
+.progress > div:before {
+	transform: rotate(-90deg);
+	background: #999;
+}
+
+.progress > div:after {
+	transform: rotate(-135deg);
+	background: #bbb;
+}
+#loaderwinform
+{
+	margin-top:40%;
+}
+.bgdiv
+{
+	position:absolute;
+	top: 0;
+	left: 0;
+	z-index:9999;
+	width:100%;
+	height:100%;
+	background:#fff;
+}
+.dialog, .dialog2
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 270px;
+	height: 240px;
+	background: #fff;
+	cursor: se-resize;
+	border:none;
+	box-shadow: 0 0 5px #0e4a99;
+}
+.dialog
+{
+	overflow:hidden;
+}
+.dialog2, .dialog2 .pheader
+{
+	border-radius: 5px;
+}
+.pheader
+{
+	background: #fcfcfc;
+	height: 29px;
+	padding-left: 70px;
+	font-size: 120%;
+	line-height:200%;
+	color: #fff;
+	cursor: move;
+	border:none;
+	text-align: center;
+	background: #939fc6;
+	background: linear-gradient(to bottom, #c0ccd9 0%, #606f90 50%, #606f90 51%, #c0ccd9 100%);
+}
+.dialog2 .pheader
+{
+	background:#fff !important;
+	color: #0e4a99 !important;
+}
+.pheader span
+{
+	display:inline-block;
+	float:right;
+	cursor:pointer;
+}
+.pheader span.del, .pheader span.wrap, .pheader span.unwrap
+{
+	border: 1px solid #0e4a99;
+	color: #fff;
+	background: #0e4a99;
+	border-radius:4px;
+	width:20px;
+	height:20px;
+	font-weight:bold;
+	margin: 6px 6px 0 0;
+	line-height:80%;
+}
+.pheader span.del
+{
+	font-size:80% !important;
+	padding: 5px 5px 0 5px;
+}
+.pheader span.wrap
+{
+	font-size:100% !important;
+	line-height:0;
+	text-align:right;
+	padding: 0 5px 10px 5px;
+}
+.pheader span.unwrap
+{
+	font-size:100% !important;
+	text-align:left;
+	padding: 0 5px 5px 5px;
+}
+.infores
+{
+	padding:1%;
+}
+.infores p
+{
+	text-indent:25px;
+	font-size:80%;
+	line-height:160%;
+	text-align:justify;
+}
+.infores p.fstr
+{
+	font-size:140% !important;
+	color:#0e4a99 !important;
+}
+.flagdisplay
+{
+	float:right;
+}
+#ordercontainer
+{
+	width:80%;
+	margin: 0px 0px 0px 10%;
+	font-size: 80%;
+}
+#ordercontainer select
+{
+	min-width:220px;
+}
+.free
+{
+	color:green;
+}
+#ordercontainer .expl span
+{
+	display: inline-block;
+	height: 25px;
+	font-weight:bold;
+}
+.leftred
+{
+	width: 215px;
+}
+.scont
+{
+	text-align:center;
+	padding: 10px;
+}
+.scont .button6
+{
+	font-size:80% !important;
+	width:auto !important;
+	height:auto !important;
+	padding:8px;
+}
+#vocwinform table td
+{
+	font-size:70%;
+}
+#dateordcontainer
+{
+	color: #0e4a99;
+	font-weight:bold;
+	text-align:center;
+	padding: 5px;
+	margin: auto;
+}
+#billwinform .button18, #billwinform .button8
+{
+	width:350px;
+	margin:20px;
+}
+#errorwinform p, #orderwinform .mess
+{
+	text-align:center;
+	font-size: 90%;
+	line-height: 140%;
+	margin: 30px 10px 10px 10px;
+}
+#hiwinform div, .answ
+{
+	text-align:center;
+	font-size: 100%;
+	line-height: 150%;
+	margin: 50px 10px 10px 10px;
+}
+#hiwinform div span
+{
+	font-size: 120%;
+	color: #0e4a99;
+}
+#livesearch
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 265px;
+	border: solid 1px #ccc;
+	background: #fcfcfc;
+	white-space: nowrap;
+	z-index: 10000;
+	text-align: left;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+#livesearch p
+{
+	font: normal 9pt Arial, Tahoma, Verdana, Helvetica, sans-serif;
+	cursor: pointer;
+	padding: 4px;
+}
+#livesearch p.w
+{
+	background: #fcfcfc;
+}
+#livesearch p.g
+{
+	background: #f0f0f0;
+}
+#livesearch p.w:hover, #livesearch p.g:hover
+{
+	background: highlight;
+	color: highlighttext;
+}
+#excel
+{
+	display:none;
+}
+span.stage1
+{
+	font-weight:bold;
+	margin: 0 0 0 5px;
+	display:block;
+	color:#096cc0;
+}

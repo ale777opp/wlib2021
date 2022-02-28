@@ -1,0 +1,95 @@
+	<div id="blind_panel" class="blind_hide">
+		<div class="base_sets">
+			<div>
+				<div>
+					<div>Размер шрифта</div>
+					<div id="blind_letter_size">
+						<input onclick="switchToBlindVersion(this)" type="radio" name="letter_size" id="letter_size0" value="0"/>
+						<input onclick="switchToBlindVersion(this)" type="radio" name="letter_size" id="letter_size1" value="1"/>
+						<input onclick="switchToBlindVersion(this)" type="radio" name="letter_size" id="letter_size2" value="2"/>
+						<input onclick="switchToBlindVersion(this)" type="radio" name="letter_size" id="letter_size3" value="3"/>
+						<input onclick="switchToBlindVersion(this)" type="radio" name="letter_size" id="letter_size4" value="4"/>
+						<label class="letter_size_0" for="letter_size0">A</label>
+						<label class="letter_size_1" for="letter_size1">A</label>
+						<label class="letter_size_2" for="letter_size2">A</label>
+						<label class="letter_size_3" for="letter_size3">A</label>
+						<label class="letter_size_4" for="letter_size4">A</label>
+					</div>
+				</div>
+				<div>
+					<div>Цветовая схема</div>
+					<div id="blind_theme">
+						<input onclick="switchToBlindVersion(this)" type="radio" name="color_theme" id="color_theme0" value="0"/>
+						<input onclick="switchToBlindVersion(this)" type="radio" name="color_theme" id="color_theme1" value="1"/>
+						<input onclick="switchToBlindVersion(this)" type="radio" name="color_theme" id="color_theme2" value="2"/>
+						<input onclick="switchToBlindVersion(this)" type="radio" name="color_theme" id="color_theme3" value="3"/>
+						<input onclick="switchToBlindVersion(this)" type="radio" name="color_theme" id="color_theme4" value="4"/>
+						<label class="color_theme_0" for="color_theme0">ц</label>
+						<label class="color_theme_1" for="color_theme1">ц</label>
+						<label class="color_theme_2" for="color_theme2">ц</label>
+						<label class="color_theme_3" for="color_theme3">ц</label>
+						<label class="color_theme_4" for="color_theme4">ц</label>
+					</div>
+				</div>
+				<div>
+					<div>Изображения</div>
+					<div id="blind_picture">
+						<input onclick="switchToBlindVersion(this)" type="radio" name="pict" id="pict0" value="0"/>
+						<input onclick="switchToBlindVersion(this)" type="radio" name="pict" id="pict1" value="1"/>
+						<label class="pict_0" for="pict0">вкл.</label>
+						<label class="pict_1" for="pict1">выкл.</label>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div>
+					<div>Форма</div>
+					<div id="blind_letter_form">
+						<input onclick="switchToBlindVersion(this)" type="radio" name="letter_form" id="letter_form0" value="0"/>
+						<input onclick="switchToBlindVersion(this)" type="radio" name="letter_form" id="letter_form1" value="1"/>
+						<label class="letter_form_0" for="letter_form0">с засечками</label>
+						<label class="letter_form_1" for="letter_form1">без засечек</label>
+					</div>
+				</div>
+				<div>
+					<div>Межсимвольный интервал</div>
+					<div id="blind_letter_space">
+						<input onclick="switchToBlindVersion(this)" type="radio" name="letter_space" id="letter_space0" value="0"/>
+						<input onclick="switchToBlindVersion(this)" type="radio" name="letter_space" id="letter_space1" value="1"/>
+						<input onclick="switchToBlindVersion(this)" type="radio" name="letter_space" id="letter_space2" value="2"/>
+						<label class="letter_space_0" for="letter_space0">стандартный</label>
+						<label class="letter_space_1" for="letter_space1">средний</label>
+						<label class="letter_space_2" for="letter_space2">большой</label>
+					</div>
+				</div>
+				<div>
+					<div>Межстрочный интервал</div>
+					<div id="blind_string_space">
+						<input onclick="switchToBlindVersion(this)" type="radio" name="string_space" id="string_space0" value="0"/>
+						<input onclick="switchToBlindVersion(this)" type="radio" name="string_space" id="string_space1" value="1"/>
+						<input onclick="switchToBlindVersion(this)" type="radio" name="string_space" id="string_space2" value="2"/>
+						<label class="string_space_0" for="string_space0">одинарный</label>
+						<label class="string_space_1" for="string_space1">полуторный</label>
+						<label class="string_space_2" for="string_space2">двойной</label>
+					</div>
+				</div>
+			</div>
+			<div id="blind_controls">
+				<div>
+					<div>
+						<span class="button" id="standart_set" onclick="toStandartSettings(this)" data-value="blind_panel letter_size_0 color_theme_0 pict_0">стандартные настройки</span>
+					</div>
+				</div>
+				<div>
+					<div>
+						<span class="button" onclick="toNormalVersion()" id="normal_vers">обычная версия сайта</span>
+					</div>
+				</div>
+				<div>
+					<div>
+						<span class="button" onclick="openBlindPanel()" id="close_panel">закрыть</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

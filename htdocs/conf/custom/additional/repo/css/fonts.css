@@ -1,0 +1,125 @@
+/*шрифты*/
+@font-face
+{
+	font-family: 'trebuchet';
+	src: url('fonts/trebuchet.eot') format('embedded-opentype'),
+			url('fonts/trebuchet.woff') format('woff'),
+			url('fonts/trebuchet.ttf') format('truetype'),
+			url('fonts/trebuchet.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face
+{
+	font-family: 'fontello';
+	src: url('fonts/fontello.eot') format('embedded-opentype'),
+			url('fonts/fontello.woff') format('woff'),
+			url('fonts/fontello.ttf') format('truetype'),
+			url('fonts/fontello.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+.times
+{
+	font-family: Times, serif;
+}
+.f160
+{
+	font-size: 160%;
+}
+.f150
+{
+	font-size: 150%;
+}
+.f140
+{
+	font-size: 140%;
+}
+.f120
+{
+	font-size: 120%;
+}
+.f100
+{
+	font-size: 100%;
+}
+.f90
+{
+	font-size: 90%;
+}
+.f80
+{
+	font-size: 80%;
+}
+.f75
+{
+	font-size: 75%;
+}
+.f70
+{
+	font-size: 70%;
+}
+.lh200
+{
+	line-height:200%;
+}
+.lh160
+{
+	line-height:160%;
+}
+.lh150
+{
+	line-height:150%;
+}
+.lh140
+{
+	line-height:140%;
+}
+.lh120
+{
+	line-height:120%;
+}
+.lh110
+{
+	line-height:110%;
+}
+.lh100
+{
+	line-height:100%;
+}
+.lh80
+{
+	line-height:80%;
+}
+.b
+{
+	font-weight:bold;
+}
+.i
+{
+	font-style:italic;
+}
+.u
+{
+	text-decoration:underline;
+}
+.nowrap
+{
+	white-space: nowrap;
+}
+.i25x
+{
+	text-indent: 25px;
+}
+.ls1x
+{
+	letter-spacing: 1px;
+}
+.ffg
+{
+	font-family: Georgia;
+}
+.ffv
+{
+	font-family: Verdana;
+}

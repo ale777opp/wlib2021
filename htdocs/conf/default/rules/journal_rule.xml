@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<ruleBuildList>
+  <ruleBuild name="BIBL_YEAR_JOURNAL" title="Годы выпусков журнала">
+    <invertingRules>
+      <rule>000,  461$1001, 100($a) :: if( up( pos(#1, 7, 2) )=="M2") px(#2, "[Y]", if( up( pos( #3, 8, 1) )=="E") width( digit( rpl( rpl( rpl( rpl( pos(#3, 13, 4), "#","9"), " ","9"), "?","9"), "|","9") ), 4,"0") else width( digit( rpl( rpl( rpl( rpl( pos(#3, 9, 4), "#","9"), " ","9"), "?","9"), "|","9") ), 4,"0") fi) fi;</rule>
+      <rule>000,  461$1001, {210, 461$1210, 455$1210}(${dr}) :: if( up( pos(#1, 7, 2) )=="M2") px(#2, "[Y]", width( digit( pos( digit( rpl( rpl( rpl( rpl( #3, "#","9"), " ","9"), "?","9"), "|","9") ), 0,4) ), 4,"0") ) fi;</rule>
+    </invertingRules>
+  </ruleBuild>
+</ruleBuildList>

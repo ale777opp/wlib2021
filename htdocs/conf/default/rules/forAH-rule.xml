@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<ruleBuildList>
+  <ruleBuild name="BIBL_ADRES_PUBL_MAKE" title="Адрес издателя/изготовителя">
+    <invertingRules>
+      <rule>210(${bf}):: ser(%1, "; ");</rule>
+      <rule>{70?, 71?0?}($4, $p[1]):: if (%1=="650") %2 fi;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_ALL_INFO" title="Вся информация">
+    <buildLabels>
+      <label name="BIBL_BIBL_HISTORY"/>
+      <label name="BIBL_BRAND"/>
+      <label name="BIBL_BUILT_IN_RESPON"/>
+      <label name="BIBL_BUILT_IN_TITL"/>
+      <label name="BIBL_CIPHER_STORAGE"/>
+      <label name="BIBL_CONCEPT"/>
+      <label name="BIBL_CORPORATE"/>
+      <label name="BIBL_DATE_PERIOD"/>
+      <label name="BIBL_EVENT"/>
+      <label name="BIBL_FAMILY"/>
+      <label name="BIBL_FGOS"/>
+      <label name="BIBL_FOND"/>
+      <label name="BIBL_FORM_GENRE"/>
+      <label name="BIBL_GAC_CODE"/>
+      <label name="BIBL_GRNTI"/>
+      <label name="BIBL_INVENT_BRCOD"/>
+      <label name="BIBL_LANGUAGE"/>
+      <label name="BIBL_LOCATION"/>
+      <label name="BIBL_MCT"/>
+      <label name="BIBL_MEETING"/>
+      <label name="BIBL_MESH"/>
+      <label name="BIBL_MESH_CODE"/>
+      <label name="BIBL_NAME_COND_TITL"/>
+      <label name="BIBL_NAME_RESPONS"/>
+      <label name="BIBL_NAME_TITL"/>
+      <label name="BIBL_NAME_TITL_EXPR"/>
+      <label name="BIBL_NAME_TITL_PR"/>
+      <label name="BIBL_NAME_TITL_TIP"/>
+      <label name="BIBL_NAME_TITL_TIP_PR"/>
+      <label name="BIBL_NAME_TITL_WORK"/>
+      <label name="BIBL_NOTE"/>
+      <label name="BIBL_NP"/>
+      <label name="BIBL_NUM_INTERNATIONAL"/>
+      <label name="BIBL_NUM_NATIONAL"/>
+      <label name="BIBL_PERSON"/>
+      <label name="BIBL_PLACE"/>
+      <label name="BIBL_PUBL_MAKE"/>
+      <label name="BIBL_SERIA"/>
+      <label name="BIBL_SUBJECT"/>
+      <label name="BIBL_SUBJ_CATEGORY"/>
+      <label name="BIBL_TIJ"/>
+      <label name="BIBL_TITLE"/>
+      <label name="BIBL_TITLE_EXPR"/>
+      <label name="BIBL_TITLE_PR"/>
+      <label name="BIBL_TITLE_SER"/>
+      <label name="BIBL_TITLE_TIP"/>
+      <label name="BIBL_TITLE_WORK"/>
+      <label name="BIBL_TITL_BASE"/>
+      <label name="BIBL_TITL_CONDITION"/>
+      <label name="BIBL_TITL_GEO_NM"/>
+      <label name="BIBL_TITL_LINK_OTHER"/>
+      <label name="BIBL_TITL_PART"/>
+      <label name="BIBL_TITL_SOURCE"/>
+      <label name="BIBL_TITL_THEME_NM"/>
+      <label name="BIBL_TITL_VARIANT"/>
+      <label name="BIBL_TYPE_OBJECT"/>
+      <label name="DKD"/>
+      <label name="ID_ANY"/>
+      <label name="IPO"/>
+      <label name="KBK"/>
+      <label name="LIMIT_AUDITORIY"/>
+      <label name="LIMIT_FORM_CONTENT"/>
+      <label name="LIMIT_FORM_RESRC"/>
+      <label name="LIMIT_LANGUAGE"/>
+      <label name="LIMIT_TYPE_PUBL"/>
+      <label name="LIMIT_TYPE_RESRC"/>
+      <label name="NAME_GEO_PR"/>
+      <label name="NAME_THEME_PR"/>
+      <label name="OTHER_CLASS"/>
+      <label name="PLACE_EVENT_DATE_OBJ"/>
+      <label name="PLACE_EVENT_PR"/>
+      <label name="RUSMARC_BIBL_BC"/>
+    </buildLabels>
+  </ruleBuild>
+  <ruleBuild name="BIBL_BIBL_HISTORY" title="Библиографическая история">
+    <invertingRules>
+      <rule>{620, 621}(${abcdekmno}[0-], ${hg}[0-], ${fi}[0-], ${abcdefghikmno}):: iser(%1, ". ") + ipx(" (", ser(ser(%3, " — ") | ser(%2, "; "), ", "), ")");</rule>
+      <rule>{620, 621}($3[1], $2[0]):: %1;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_BRAND" title="Торговая марка">
+    <invertingRules>
+      <rule>616($a[1], ${fc}[0-], ${xyzj}[0-]):: %1 + if(!empty(%2)) " (" + iser(%2, "; ") + ")" fi + px(" — ", %3);</rule>
+      <rule>716($a[1], ${fc}[0-]):: %1 + if(!empty(%2)) " (" + iser(%2, "; ") + ")" fi;</rule>
+      <rule>{716, 616}($3[1]):: %1;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_BUILT_IN_RESPON" title="Ответственность по связанной библиографии ">
+    <invertingRules>
+      <rule>4??$1716($a[1], ${fc}[0-]):: %1 + if(!empty(%2)) " (" + iser(%2, "; ") + ")" fi;</rule>
+      <rule>{4??$171?0?, 4??$17910?}($a[1], $g[0-], $h[0-], ${bc}[0-], $p[0-]):: iser(%1|%2|%3, ", ") + px(for(i=%4:if(name(i)=="b") ". " + i else if(name(i)=="c") " (" + i + ")" fi fi)) + px(" ", %5);</rule>
+      <rule>{4??$171?1?, 4??$17911?}($a[1], $g[0-], $h[0-], ${bc}[0-], ${dfe}[0-]):: iser(%1|iser(%2|iser(%3, ", "), ". "), if(empty(%2))". " else ", " fi) + if(!empty(%5))" (" + iser(%5, "; ") + ")"fi + px(for(i=%4:if(name(i)=="b") ". " + i else if(name(i)=="c") " (" + i + ")" fi fi));</rule>
+      <rule>4??$1730($a):: %1;</rule>
+      <rule>4??$172?($a[1], $c[0-], $f[0-], ${do}[0-]):: %1 + px(" — ", %2) + px(" (", %3, ")") + px(" ", ser(%4, "; "));</rule>
+      <rule>{4??$170?, 4??$1790}($a[1], $g[0-], $b[0-], $d[0-], ${cf}[0-], $p[0-]):: %1 + px(", ", %2) + px(", ", %3) + px(" ", %4) + if (!empty(%5)) " (" + ser(%5, "; ") + ")" fi + px(" ", %6);</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_BUILT_IN_TITL" title="Заглавия связанной бибилиографии">
+    <invertingRules>
+      <rule>4??$1200($a, $h[0-], $i[0-]):: ser(%1, "; ") + px(". ", %2) + if(!empty(%2)) px(", ", ser(%3, ". ")) else px(". ", %3) fi;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_CIPHER_STORAGE" title="Шифр хранения">
+    <invertingRules>
+      <rule>899($j, $b):: %2 + px(" ", %1);</rule>
+      <rule>899($j):: %1;</rule>
+      <rule>899($b):: %1;</rule>
+      <rule>899(${kc}, $m):: %1**px("/", %2);</rule>
+      <rule>852($j, ${bnt}):: %2 + px(" ", %1);</rule>
+      <rule>852($j, ${bnt}):: %2 + px(" ", %1);</rule>
+      <rule>852($g, ${de}, $l):: ser(%1|%2, " — ")**px("/", %2);</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_CONCEPT" title="Концепция (FRBR)">
+    <metaRules>
+      <rule>rub:606($2[1]):if(up(pos(%1, 0, 3))=="SH_") token(%1, " _") fi;</rule>
+      <rule>qword:: size(#rub);</rule>
+      <rule>isconcept:: if(#qword!="0") if(#qword=="3" &amp;&amp; (up(#rub[2])=="INTANGIBLE" || up(#rub[3])=="INTANGIBLE")) "true" else if(#qword=="4" &amp;&amp; (up(#rub[2])=="INTANGIBLE" || up(#rub[3])=="INTANGIBLE" || up(#rub[4])=="INTANGIBLE")) "true" else if(#qword=="5" &amp;&amp; (up(#rub[2])=="INTANGIBLE" || up(#rub[3])=="INTANGIBLE" || up(#rub[4])=="INTANGIBLE" || up(#rub[5])=="INTANGIBLE")) "true" else if(#qword=="6" &amp;&amp; (up(#rub[2])=="INTANGIBLE" || up(#rub[3])=="INTANGIBLE" || up(#rub[4])=="INTANGIBLE" || up(#rub[5])=="INTANGIBLE" || up(#rub[6])=="INTANGIBLE")) "true" else if(#qword=="7" &amp;&amp; (up(#rub[2])=="INTANGIBLE" || up(#rub[3])=="INTANGIBLE" || up(#rub[4])=="INTANGIBLE" || up(#rub[5])=="INTANGIBLE" || up(#rub[6])=="INTANGIBLE" || up(#rub[7])=="INTANGIBLE")) "true" else if(#qword=="8" &amp;&amp; (up(#rub[2])=="INTANGIBLE" || up(#rub[3])=="INTANGIBLE" || up(#rub[4])=="INTANGIBLE" || up(#rub[5])=="INTANGIBLE" || up(#rub[6])=="INTANGIBLE" || up(#rub[7])=="INTANGIBLE" || up(#rub[8])=="INTANGIBLE")) "true" else if(#qword=="9" &amp;&amp; (up(#rub[2])=="INTANGIBLE" || up(#rub[3])=="INTANGIBLE" || up(#rub[4])=="INTANGIBLE" || up(#rub[5])=="INTANGIBLE" || up(#rub[6])=="INTANGIBLE" || up(#rub[7])=="INTANGIBLE" || up(#rub[8])=="INTANGIBLE" || up(#rub[9])=="INTANGIBLE")) "true" fi fi fi fi fi fi fi else "false" fi;</rule>
+      <rule>:606($a[1], ${xyzj}[0-]): if(#isconcept=="true") %1 + px(" — ", %2) fi;</rule>
+    </metaRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_CORPORATE" title="Организация постоянная">
+    <invertingRules>
+      <rule>{71?0?, 7910?}($a[1], $g[0-], $h[0-], ${bc}[0-], $p[0-]):: iser(%1|%2|%3, ", ") + px(for(i=%4:if(name(i)=="b") ". " + i else if(name(i)=="c") " (" + i + ")" fi fi)) + px(" ", %5);</rule>
+      <rule>6010?($a[1], $g[0-], $h[0-], ${bc}[0-], $p[0-], ${xyzj}[0-]):: iser(%1|%2|%3, ", ") + px(for(i=%4:if(name(i)=="b") ". " + i else if(name(i)=="c") " (" + i + ")" fi fi)) + px(" ", %5) + px(" — ", %6);</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_DATE_PERIOD" title="Период времени">
+    <invertingRules>
+      <rule>1220?($a[1]):: ipx(pos(%1, 1, 8)," г.") + if(up(pos(%1, 0, 1))=="C") " до н.э." else " н.э." fi;</rule>
+      <rule>1221?($a):: iser(pos(%1, 1, 8), " г., ") + if(up(pos(%1, 0, 1))=="C") " до н.э." else " н.э." fi;</rule>
+      <rule>1222?($a):: ipx(iser(pos(%1, 1, 8), " — "), " гг.") + if(up(pos(%1, 0, 1))=="C") " до н.э." else " н.э." fi;</rule>
+      <rule>661($a):: if(up(%1)=="A0") "до 3000 г." else if(up(%1)=="B0") "2999 — 2900 гг." else if(up(%1)=="B1") "2899 — 2800 гг." else if(up(%1)=="B2") "2799 — 2700 гг." else if(up(%1)=="B3") "2699 — 2600 гг." else if(up(%1)=="B4") "2599 — 2500 гг." else if(up(%1)=="B5") "2499 — 2400 гг." else if(up(%1)=="B6") "2399 — 2300 гг." else if(up(%1)=="B7") "2299 — 2200 гг." else if(up(%1)=="B8") "2199 — 2100 гг." else if(up(%1)=="B9") "2099 — 2000 гг." else if(up(%1)=="C0") "1999 — 1900 гг." else if(up(%1)=="C1") "1899 — 1800 гг." else if(up(%1)=="C2") "1799 — 1700 гг." else if(up(%1)=="C3") "1699 — 1600 гг." else if(up(%1)=="C4") "1599 — 1500 гг." else if(up(%1)=="C5")"1499 — 1400 гг." else if(up(%1)=="C6") "1399 — 1300 гг." fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi + if(up(%1)=="C7") "1299 — 1200 гг." else if(up(%1)=="C8") "1199 — 1100 гг." else if(up(%1)=="C9") "1099 — 1000 гг." else if(up(%1)=="D0") "999 — 900 гг." else if(up(%1)=="D1") "989 — 800 гг." else if(up(%1)=="D2") "799 — 700 гг." else if(up(%1)=="D3") "699 — 600 гг." else if(up(%1)=="D4") "599 — 500 гг." else if(up(%1)=="D5") "499 — 400 гг." else if(up(%1)=="D6") "399 — 300 гг." else if(up(%1)=="D7") "299 — 200 гг." else if(up(%1)=="D8") "199 — 100 гг." else if(up(%1)=="D9") "99 — 1" else if(up(%1)=="E") "1-99 гг." else if(up(%1)=="F") "100-199 гг." else if(up(%1)=="G") "200-299 гг." else if(up(%1)=="H") "300-399 гг." else if(up(%1)=="I") "400-499 гг." fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi + if(up(%1)=="J") "500-599 гг." else if(up(%1)=="K") "600-699 гг." else if(up(%1)=="L") "700-799 гг." else if(up(%1)=="M") "800-899 гг." else if(up(%1)=="N") "900-999 гг." else if(up(%1)=="O") "1000-1099 гг." else if(up(%1)=="P") "1100-1199 гг." else if(up(%1)=="Q") "1200-1299 гг." else if(up(%1)=="R") "1300-1399 гг." else if(up(%1)=="S") "1400-1499 гг." else if(up(%1)=="T") "1500-1599 гг." else if(up(%1)=="U") "1600-1699 гг." else if(up(%1)=="V") "1700-1799 гг." else if(up(%1)=="W") "1800-1899 гг." else if(up(%1)=="X") "1900-1999 гг." else if(up(%1)=="Y") "2000- гг." fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi + if(up(pos(%1, 0, 1))=="A" || up(pos(%1, 0, 1))=="B" || up(pos(%1, 0, 1))=="C" || up(pos(%1, 0, 1))=="D") " до н.э." else " н.э." fi + px(" (",%1, ")");</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_DATE_PUBL_MAKE" title="Дата публикации/изготовления">
+    <invertingRules>
+      <rule>100($a[1]):: if (up(pos(%1, 8, 1))=="J") pos(%1, 9, 8) else if (up(pos(%1,8,1))=="E") pos(%1,13,4) else pos(%1, 9, 4) fi fi;</rule>
+      <rule>210(${dh}):: ser(%1, "; ");</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_DIG_ACC" title="Тип доступа к цифровому ресурсу">
+    <invertingRules>
+      <rule>960($c)::up(%1);</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_DIG_DATA" title="Дата этапа оцифровки">
+    <invertingRules>
+      <rule>960($b)::pos(%1,0,8);</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_DIG_STAGE" title="Стадия оцифровки">
+    <invertingRules>
+      <rule>960($a)::up(%1);</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_EVENT" title="Событие (FRBR)">
+    <invertingRules>
+      <rule>617(${abcdekmno}[0-], ${hg}[1-], ${fi}[0-], ${abcdefghikmno}):: iser(%2, "; ") + if(name(%4[0]=="f") || name(%4[0]=="i")) ipx(" (", ser(ser(%3, " — ") | ser(%1, ". "), ", "), ")") else ipx(" (", ser(ser(%1, ". ") | ser(%3, " — "), ", "), ")") fi;</rule>
+    </invertingRules>
+    <buildLabels>
+      <label name="BIBL_MEET_PR"/>
+    </buildLabels>
+  </ruleBuild>
+  <ruleBuild name="BIBL_FAMILY" title="Родовое имя">
+    <invertingRules>
+      <rule>72?($a[1], $c[0-], $f[0-], ${do}[0-]):: %1 + px(" — ", %2) + px(" (", %3, ")") + px(" ", ser(%4, "; "));</rule>
+      <rule>602($a[1], $c[0-], $f[0-], ${do}[0-], ${xyzj}[0-]):: %1 + px(" — ", %2) + px(" (", %3, ")") + px(" ", ser(%4, "; ")) + px(" — ", %5);</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_FAMILY_AU_CR" title="Родовое имя (автор/создатель)">
+    <invertingRules>
+      <rule>72?($a[1], $c[0-], $f[0-], ${do}[0-]):: %1 + px(" — ", %2) + px(" (", %3, ")") + px(" ", ser(%4, "; "));</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_FGOS" title="Специальность/Дисциплина (ФГОС)">
+    <invertingRules>
+      <rule>606($a[1], ${xyzj}[0-], $2[1]):: if(up(%3)=="FGOS") %1 + ipx(" — ", iser(%2, " — ")) fi;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_FOND" title="Фонд/Коллекция">
+    <invertingRules>
+      <rule>{899,852}($b):: %1;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_FORM_GENRE" title="Форма, жанр, физические характеристики документа">
+    <invertingRules>
+      <rule>608($a[1], ${xyzj}[0-]):: %1 + px(" — ", %2);</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_GAC_CODE" title="Географический регион">
+    <invertingRules>
+      <rule>660($a):: if(up(%1)=="E — RU — ALT") "Алтайский край" else if(up(%1)=="E — RU — AMU") "Амурская область" else if(up(%1)=="E — RU — ARK") "Архангельская область" else if(up(%1)=="E — RU — AST") "Астраханская область" else if(up(%1)=="E — RU — BEL") "Белгородская область" else if(up(%1)=="E — RU — BRY") "Брянская область" else if(up(%1)=="E — RU — VLA") "Владимирская область" else if(up(%1)=="E — RU — VGG") "Волгоградская область" else if(up(%1)=="E — RU — VLG") "Вологодская область" else if(up(%1)=="E — RU — VOR") "Воронежская область" else if(up(%1)=="E — RU — YEV") "Еврейская автономная область" else if(up(%1)=="E — RU — ZAB") "Забайкальский край" else if(up(%1)=="E — RU — IVA") "Ивановская область" else if(up(%1)=="E — RU — IRK") "Иркутская область" else if(up(%1)=="E — RU — KB") "Кабардино — Балкарская республика" else if(up(%1)=="E — RU — KGD") "Калининградская область" else if(up(%1)=="E — RU — KLU") "Калужская область" else if(up(%1)=="E — RU — KAM") "Камчатский край" fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi + if(up(%1)=="E — RU — KC") "Карачаево — Черкесская республика" else if(up(%1)=="E — RU — KEM") "Кемеровская область" else if(up(%1)=="E — RU — KIR") "Кировская область" else if(up(%1)=="E — RU — KOS") "Костромская область" else if(up(%1)=="E — RU — KDA") "Краснодарский край" else if(up(%1)=="E — RU — KIA") "Красноярский край" else if(up(%1)=="E — RU — KGN") "Курганская область" else if(up(%1)=="E — RU — KRS") "Курская область" else if(up(%1)=="E — RU — LEN") "Ленинградская область" else if(up(%1)=="E — RU — LIP") "Липецкая область" else if(up(%1)=="E — RU — MAG") "Магаданская область" else if(up(%1)=="E — RU — MOW") "Москва" else if(up(%1)=="E — RU — MOS") "Московская область" else if(up(%1)=="E — RU — MUR") "Мурманская область" else if(up(%1)=="E — RU — NEN") "Ненецкий автономный округ" else if(up(%1)=="E — RU — NIZ") "Нижегородская область" else if(up(%1)=="E — RU — NGR") "Новгородская область" else if(up(%1)=="E — RU — NVS") "Новосибирская область" fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi + if(up(%1)=="E — RU — OMS") "Омская область" else if(up(%1)=="E — RU — ORE") "Оренбургская область" else if(up(%1)=="E — RU — ORL") "Орловская область" else if(up(%1)=="E — RU — PNZ") "Пензенская область" else if(up(%1)=="E — RU — PER") "Пермский край" else if(up(%1)=="E — RU — PRI") "Приморский край" else if(up(%1)=="E — RU — PSK") "Псковская область" else if(up(%1)=="E — RU — AD") "Республика Адыгея" else if(up(%1)=="E — RU — AL") "Республика Алтай" else if(up(%1)=="E — RU — BA") "Республика Башкортостан" else if(up(%1)=="E — RU — BU") "Республика Бурятия" else if(up(%1)=="E — RU — DA") "Республика Дагестан" else if(up(%1)=="E — RU — IN") "Республика Ингушетия" else if(up(%1)=="E — RU — KL") "Республика Калмыкия" else if(up(%1)=="E — RU — KR") "Республика Карелия" else if(up(%1)=="E — RU — KO") "Республика Коми" else if(up(%1)=="E — RU — ME") "Республика Марий Эл" else if(up(%1)=="E — RU — MO") "Республика Мордовия" fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi + if(up(%1)=="E — RU — SA") "Республика Саха (Якутия)" else if(up(%1)=="E — RU — SE") "Республика Северная Осетия Алания" else if(up(%1)=="E — RU — TA") "Республика Татарстан" else if(up(%1)=="E — RU — TY") "Республика Тыва" else if(up(%1)=="E — RU — KK") "Республика Хакасия" else if(up(%1)=="E — RU — ROS") "Ростовская область" else if(up(%1)=="E — RU — RYA") "Рязанская область" else if(up(%1)=="E — RU — SAM") "Самарская область" else if(up(%1)=="E — RU — SPE") "Санкт — Петербург" else if(up(%1)=="E — RU — SAR") "Саратовская область" else if(up(%1)=="E — RU — SAK") "Сахалинская область" else if(up(%1)=="E — RU — SVE") "Свердловская область" else if(up(%1)=="E — RU — SMO") "Смоленская область" else if(up(%1)=="E — RU — STA") "Ставропольский край" else if(up(%1)=="E — RU — TAM") "Тамбовская область" else if(up(%1)=="E — RU — TVE") "Тверская область" else if(up(%1)=="E — RU — TOM") "Томская область" else if(up(%1)=="E — RU — TUL") "Тульская область" fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi + if(up(%1)=="E — RU — TYU") "Тюменская область" else if(up(%1)=="E — RU — UD") "Удмуртская республика" else if(up(%1)=="E — RU — ULY") "Ульяновская область" else if(up(%1)=="E — RU — KHA") "Хабаровский край" else if(up(%1)=="E — RU — KHM") "Ханты — Мансийский автономный округ — Югра" else if(up(%1)=="E — RU — CHE") "Челябинская область" else if(up(%1)=="E — RU — CE") "Чеченская республика" else if(up(%1)=="E — RU — CU") "Чувашская республика" else if(up(%1)=="E — RU — CHU") "Чукотский автономный округ" else if(up(%1)=="E — RU — YAN") "Ямало — Ненецкий автономный округ" else if(up(%1)=="E — RU — YAR") "Ярославская область" fi fi fi fi fi fi fi fi fi fi fi + px(" (", %1, ")");</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_GRNTI" title="ГАСНТИ — код (Государственный рубрикатор научно — технической информации (ГРНТИ, прежнее наименование — Рубрикатор ГАСНТИ)">
+    <invertingRules>
+      <rule>686($2[1], $a[1-/0]):: if(up(%1)=="RUGASNTI"||up(%1)=="RUGRNTI") %2 fi;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_INVENT_BRCOD" title="Инвентарный номер/Баркод">
+    <invertingRules>
+      <rule>899(${px}):: %1;</rule>
+      <rule>852(${mx}):: %1;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_LANGUAGE" title="Язык публикации">
+    <invertingRules>
+      <rule>101($a[1]):: %1;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_LOCATION" title="Местонахождение бумажного ресурса">
+    <invertingRules>
+      <rule>{899, 850, 852}($a):: %1;</rule>
+      <rule>713($c):: #1;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_MCT" title="Check tags MeSH">
+    <invertingRules>
+      <rule>606($2[1], $a[1]):: if(up(pos(%1, 0, 19))=="RUS_MESH_CHECK_TAGS") %2 fi;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_MEETING" title="Организация временная">
+    <invertingRules>
+      <rule>{71?1?, 7911?}($a[1], $g[0-], $h[0-], ${bc}[0-], ${dfe}[0-]):: iser(%1|iser(%2|iser(%3, ", "), ". "), if(empty(%2))". " else ", " fi) + if(!empty(%5))" (" + iser(%5, "; ") + ")"fi + px(for(i=%4:if(name(i)=="b") ". " + i else if(name(i)=="c") " (" + i + ")" fi fi));</rule>
+      <rule>6011?($a[1], $g[0-], $h[0-], ${bc}[0-], ${dfe}[0-], ${xyzj}[0-]):: iser(%1|iser(%2|iser(%3, ", "), ". "), if(empty(%2))". " else ", " fi) + if(!empty(%5))" (" + iser(%5, "; ") + ")"fi + px(for(i=%4:if(name(i)=="b") ". " + i else if(name(i)=="c") " (" + i + ")" fi fi)) + px(" — ", %5);</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_MEET_PR" title="Организация временная (ПР)">
+    <invertingRules>
+      <rule>6011?($a[1], $g[0-], $h[0-], ${bc}[0-], ${dfe}[0-], ${xyzj}[0-]):: iser(%1|iser(%2|iser(%3, ", "), ". "), if(empty(%2))". " else ", " fi) + if(!empty(%5))" (" + iser(%5, "; ") + ")"fi + px(for(i=%4:if(name(i)=="b") ". " + i else if(name(i)=="c") " (" + i + ")" fi fi)) + px(" — ", %5);</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_MESH" title="MeSH">
+    <invertingRules>
+      <rule>606($2[1], $a[1], ${xyzj}[0-]):: if (up(pos(%1, 0, 8))=="RUS_MESH") %2 + px(for (i=%3:if (name(i)=="z") px(", ", i) else px(" — ", i) fi)) fi;</rule>
+      <rule>686($2[1], $a[1]):: if(up(pos(%1, 0, 8))=="RUS_MESH" || up(pos(%1, 0, 4))=="MESH") %2 fi;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_MESH_CODE" title="MeSH — код">
+    <invertingRules>
+      <rule>686($a[1], $2[1]):: if (up(pos(%2, 0, 8))=="RUS_MESH" || up(pos(%2, 0, 4))=="MESH") trim(token(%1, " — ")[0], " ") fi;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_NAME_COND_TITL" title="Условное наименование/заглавие">
+    <invertingRules>
+      <rule>74?($a[1], $i[0-], ${bceflnt}[0-]):: %1 + px(". ", %2) + px(for(i=%3:if(name(i)=="f" || name(i)=="c") " (" + i + ")" else ". " + i fi));</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_NAME_RESPONS" title="Имя/Наименование — ответственность">
+    <invertingRules>
+      <rule>730($a):: %1;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_NAME_TITL" title="Имя и Заглавие">
+    <invertingRules>
+      <rule>{70?, 790}($a[1], $g[0-], $b[0-], $d[0-], ${cf}[0-], $p[0-]), 500($a[1], ${hi}[0-], ${bklmnruw}[0-], $q[0-], $s[0-], ${xyzj}[0-]):: %1 + px(", ", %2) + px(", ", %3) + px(" ", %4) + if (!empty(%5)) " (" + ser(%5, "; ") + ")" fi + px(" ", %6) + ". " + #2%1 + px(". ", #2%2) + px(" (", #2%3, ")") + px(". ", #2%4) + px(" ", #2%5) + px(" — ", #2%6);</rule>
+      <rule>{71?0?, 7910?}($a[1], $g[0-], $h[0-], ${bc}[0-], $p[0-]), 500($a[1], ${hi}[0-], ${bklmnruw}[0-], $q[0-], $s[0-], ${xyzj}[0-]):: iser(%1|%2|%3, ", ") + px(for(i=%4:if(name(i)=="b") ". " + i else if(name(i)=="c") " (" + i + ")" fi fi)) + px(" ", %5) + ". " + #2%1 + px(". ", #2%2) + px(" (", #2%3, ")") + px(". ", #2%4) + px(" ", #2%5) + px(" — ", #2%6);</rule>
+      <rule>{71?1?, 7911?}($a[1], $g[0-], $h[0-], ${bc}[0-], ${dfe}[0-]), 500($a[1], ${hi}[0-], ${bklmnruw}[0-], $q[0-], $s[0-], ${xyzj}[0-]):: iser(%1|iser(%2|iser(%3, ", "), ". "), if(empty(%2))". " else ", " fi) + if(!empty(%5))" (" + iser(%5, "; ") + ")"fi + px(for(i=%4:if(name(i)=="b") ". " + i else if(name(i)=="c") " (" + i + ")" fi fi)) + ". " + #2%1 + px(". ", #2%2) + px(" (", #2%3, ")") + px(". ", #2%4) + px(" ", #2%5) + px(" — ", #2%6);</rule>
+      <rule>72?($a[1], $c[0-], $f[0-], ${do}[0-]), 500($a[1], ${hi}[0-], ${bklmnruw}[0-], $q[0-], $s[0-], ${xyzj}[0-]):: %1 + px(" — ", %2) + px(" (", %3, ")") + px(" ", ser(%4, "; ")) + ". " + #2%1 + px(". ", #2%2) + px(" (", #2%3, ")") + px(". ", #2%4) + px(" ", #2%5) + px(" — ", #2%6);</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_NAME_TITL_EXPR" title="Имя и Заглавие выражения">
+    <invertingRules>
+      <rule>577(70?($a[1], $g[0-], $b[0-], $d[0-], ${cf}[0-], $p[0-]), 507($a[1], ${hi}[0-], ${cdefkru}[0-], $s[0-], ${lmnovw}[0-])):: %1 + px(", ", %2) + px(", ", %3) + px(" ", %4) + if (!empty(%5)) " (" + ser(%5, "; ") + ")" fi + px(" ", %6) + ". " + #2%1 + px(". ", #2%2) + px(" (", #2%3, ")") + px(" ", #2%4) + px(" {", #2%5, "}");</rule>
+      <rule>577(71?0?($a[1], $g[0-], $h[0-], ${bc}[0-], $p[0-]), 507($a[1], ${hi}[0-], ${cdefkru}[0-], $s[0-], ${lmnovw}[0-])):: iser(%1|%2|%3, ", ") + px(for(i=%4:if(name(i)=="b") ". " + i else if(name(i)=="c") " (" + i + ")" fi fi)) + px(" ", %5) + ". " + #2%1 + px(". ", #2%2) + px(" (", #2%3, ")") + px(" ", #2%4) + px(" {", #2%5, "}");</rule>
+      <rule>577(71?1?($a[1], $g[0-], $h[0-], ${bc}[0-], ${dfe}[0-]), 507($a[1], ${hi}[0-], ${cdefkru}[0-], $s[0-], ${lmnovw}[0-])):: iser(%1|iser(%2|iser(%3, ", "), ". "), if(empty(%2))". " else ", " fi) + if(!empty(%5))" (" + iser(%5, "; ") + ")"fi + px(for(i=%4:if(name(i)=="b") ". " + i else if(name(i)=="c") " (" + i + ")" fi fi)) + ". " + #2%1 + px(". ", #2%2) + px(" (", #2%3, ")") + px(" ", #2%4) + px(" {", #2%5, "}");</rule>
+      <rule>577(72?($a[1], $c[0-], $f[0-], ${do}[0-]), 507($a[1], ${hi}[0-], ${cdefkru}[0-], $s[0-], ${lmnovw}[0-])):: %1 + px(" — ", %2) + px(" (", %3, ")") + px(" ", ser(%4, "; ")) + ". " + #2%1 + px(". ", #2%2) + px(" (", #2%3, ")") + px(" ", #2%4) + px(" {", #2%5, "}");</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_NAME_TITL_PR" title="Имя и Заглавие (ПР)">
+    <invertingRules>
+      <rule>604({70?, 790}($a[1], $g[0-], $b[0-], $d[0-], ${cf}[0-], $p[0-]), 500($a[1], ${hi}[0-], ${bklmnruw}[0-], $q[0-], $s[0-], ${xyzj}[0-])):: %1 + px(", ", %2) + px(", ", %3) + px(" ", %4) + if (!empty(%5)) " (" + ser(%5, "; ") + ")" fi + px(" ", %6) + ". " + #2%1 + px(". ", #2%2) + px(" (", #2%3, ")") + px(". ", #2%4) + px(" ", #2%5) + px(" — ", #2%6);</rule>
+      <rule>604({71?0?, 7910?}($a[1], $g[0-], $h[0-], ${bc}[0-], $p[0-]), 500($a[1], ${hi}[0-], ${bklmnruw}[0-], $q[0-], $s[0-], ${xyzj}[0-])):: iser(%1|%2|%3, ", ") + px(for(i=%4:if(name(i)=="b") ". " + i else if(name(i)=="c") " (" + i + ")" fi fi)) + px(" ", %5) + ". " + #2%1 + px(". ", #2%2) + px(" (", #2%3, ")") + px(". ", #2%4) + px(" ", #2%5) + px(" — ", #2%6);</rule>
+      <rule>604({71?1?, 7911?}($a[1], $g[0-], $h[0-], ${bc}[0-], ${dfe}[0-]), 500($a[1], ${hi}[0-], ${bklmnruw}[0-], $q[0-], $s[0-], ${xyzj}[0-])):: iser(%1|iser(%2|iser(%3, ", "), ". "), if(empty(%2))". " else ", " fi) + if(!empty(%5))" (" + iser(%5, "; ") + ")"fi + px(for(i=%4:if(name(i)=="b") ". " + i else if(name(i)=="c") " (" + i + ")" fi fi)) + ". " + #2%1 + px(". ", #2%2) + px(" (", #2%3, ")") + px(". ", #2%4) + px(" ", #2%5) + px(" — ", #2%6);</rule>
+      <rule>604(72?($a[1], $c[0-], $f[0-], ${do}[0-]), 500($a[1], ${hi}[0-], ${bklmnruw}[0-], $q[0-], $s[0-], ${xyzj}[0-])):: %1 + px(" — ", %2) + px(" (", %3, ")") + px(" ", ser(%4, "; ")) + ". " + #2%1 + px(". ", #2%2) + px(" (", #2%3, ")") + px(". ", #2%4) + px(" ", #2%5) + px(" — ", #2%6);</rule>
+      <rule>604($3[1]), 604(7??[1-], 500[1-]):: %1;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_NAME_TITL_TIP" title="Имя и Типовое заглавие">
+    <invertingRules>
+      <rule>{70?, 790}($a[1], $g[0-], $b[0-], $d[0-], ${cf}[0-], $p[0-]), 501($a[1], ${bekmruw}[0-], $s[0-], ${xyzj}[0-]):: %1 + px(", ", %2) + px(", ", %3) + px(" ", %4) + if (!empty(%5)) " (" + ser(%5, "; ") + ")" fi + px(" ", %6) + ". " + #2%1 + px(" (", #2%2, ")") + px(" ", #2%3) + px(" — ", #2%4);</rule>
+      <rule>{71?0?, 7910?}($a[1], $g[0-], $h[0-], ${bc}[0-], $p[0-]), 501($a[1], ${bekmruw}[0-], $s[0-], ${xyzj}[0-]):: iser(%1|%2|%3, ", ") + px(for(i=%4:if(name(i)=="b") ". " + i else if(name(i)=="c") " (" + i + ")" fi fi)) + px(" ", %5) + ". " + #2%1 + px(" (", #2%2, ")") + px(" ", #2%3) + px(" — ", #2%4);</rule>
+      <rule>{71?1?, 7911?}($a[1], $g[0-], $h[0-], ${bc}[0-], ${dfe}[0-]), 501($a[1], ${bekmruw}[0-], $s[0-], ${xyzj}[0-]):: iser(%1|iser(%2|iser(%3, ", "), ". "), if(empty(%2))". " else ", " fi) + if(!empty(%5))" (" + iser(%5, "; ") + ")"fi + px(for(i=%4:if(name(i)=="b") ". " + i else if(name(i)=="c") " (" + i + ")" fi fi)) + ". " + #2%1 + px(" (", #2%2, ")") + px(" ", #2%3) + px(" — ", #2%4);</rule>
+      <rule>72?($a[1], $c[0-], $f[0-], ${do}[0-]), 501($a[1], ${bekmruw}[0-], $s[0-], ${xyzj}[0-]):: %1 + px(" — ", %2) + px(" (", %3, ")") + px(" ", ser(%4, "; ")) + ". " + #2%1 + px(" (", #2%2, ")") + px(" ", #2%3) + px(" — ", #2%4);</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_NAME_TITL_TIP_PR" title="Имя и Типовое заглавие (ПР)">
+    <invertingRules>
+      <rule>604({70?, 790}($a[1], $g[0-], $b[0-], $d[0-], ${cf}[0-], $p[0-]), 501($a[1], ${bekmruw}[0-], $s[0-], ${xyzj}[0-])):: %1 + px(", ", %2) + px(", ", %3) + px(" ", %4) + if (!empty(%5)) " (" + ser(%5, "; ") + ")" fi + px(" ", %6) + ". " + #2%1 + px(" (", #2%2, ")") + px(" ", #2%3) + px(" — ", #2%4);</rule>
+      <rule>604({71?0?, 7910?}($a[1], $g[0-], $h[0-], ${bc}[0-], $p[0-]), 501($a[1], ${bekmruw}[0-], $s[0-], ${xyzj}[0-])):: iser(%1|%2|%3, ", ") + px(for(i=%4:if(name(i)=="b") ". " + i else if(name(i)=="c") " (" + i + ")" fi fi)) + px(" ", %5) + ". " + #2%1 + px(" (", #2%2, ")") + px(" ", #2%3) + px(" — ", #2%4);</rule>
+      <rule>604({71?1?, 7911?}($a[1], $g[0-], $h[0-], ${bc}[0-], ${dfe}[0-]), 501($a[1], ${bekmruw}[0-], $s[0-], ${xyzj}[0-])):: iser(%1|iser(%2|iser(%3, ", "), ". "), if(empty(%2))". " else ", " fi) + if(!empty(%5))" (" + iser(%5, "; ") + ")"fi + px(for(i=%4:if(name(i)=="b") ". " + i else if(name(i)=="c") " (" + i + ")" fi fi)) + ". " + #2%1 + px(" (", #2%2, ")") + px(" ", #2%3) + px(" — ", #2%4);</rule>
+      <rule>604(72?($a[1], $c[0-], $f[0-], ${do}[0-]), 501($a[1], ${bekmruw}[0-], $s[0-], ${xyzj}[0-])):: %1 + px(" — ", %2) + px(" (", %3, ")") + px(" ", ser(%4, "; ")) + ". " + #2%1 + px(" (", #2%2, ")") + px(" ", #2%3) + px(" — ", #2%4);</rule>
+      <rule>604($3[1]), 604(7??[1-], 501[1-]):: %1;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_NAME_TITL_WORK" title="Имя и Заглавие произведения">
+    <invertingRules>
+      <rule>576(70?($a[1], $g[0-], $b[0-], $d[0-], ${cf}[0-], $p[0-]), 506($a[1], ${hi}[0-], ${cdefkru}[0-], $s[0-])):: %1 + px(", ", %2) + px(", ", %3) + px(" ", %4) + if (!empty(%5)) " (" + ser(%5, "; ") + ")" fi + px(" ", %6) + ". " + #2%1 + px(". ", #2%2) + px(" (", #2%3, ")") + px(" ", #2%4);</rule>
+      <rule>576(71?0?($a[1], $g[0-], $h[0-], ${bc}[0-], $p[0-]), 506($a[1], ${hi}[0-], ${cdefkru}[0-], $s[0-])):: iser(%1|%2|%3, ", ") + px(for(i=%4:if(name(i)=="b") ". " + i else if(name(i)=="c") " (" + i + ")" fi fi)) + px(" ", %5) + ". " + #2%1 + px(". ", #2%2) + px(" (", #2%3, ")") + px(" ", #2%4);</rule>
+      <rule>576(71?1?($a[1], $g[0-], $h[0-], ${bc}[0-], ${dfe}[0-]), 506($a[1], ${hi}[0-], ${cdefkru}[0-], $s[0-])):: iser(%1|iser(%2|iser(%3, ", "), ". "), if(empty(%2))". " else ", " fi) + if(!empty(%5))" (" + iser(%5, "; ") + ")"fi + px(for(i=%4:if(name(i)=="b") ". " + i else if(name(i)=="c") " (" + i + ")" fi fi)) + ". " + #2%1 + px(". ", #2%2) + px(" (", #2%3, ")") + px(" ", #2%4);</rule>
+      <rule>576(720($a[1], $c[0-], $f[0-], ${do}[0-]), 506($a[1], ${hi}[0-], ${cdefkru}[0-], $s[0-])):: %1 + px(" — ", %2) + px(" (", %3, ")") + px(" ", ser(%4, "; ")) + ". " + #2%1 + px(". ", #2%2) + px(" (", #2%3, ")") + px(" ", #2%4);</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_NOTE" title="Примечания">
+    <invertingRules>
+      <rule>3??($a[1]):: %1;</rule>
+      <rule>200(${efg}):: %1;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_NP" title="Выпуск серии, номер журнала и т.д.">
+    <invertingRules>
+      <rule>46?$12001?($v):: %1;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_NUM_INTERNATIONAL" title="ISBN/ISSN/ISMN/ISRN/ISRC и др. международная нумерация">
+    <invertingRules>
+      <rule>{01?}($a[1]):: %1;</rule>
+      <rule>{029}($d):: %1;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_NUM_NATIONAL" title="Национальная нумерация ресурсов">
+    <invertingRules>
+      <rule>{02?}($b, $a[0-], $c[0-]):: iser(%3|%1, " ") + ipx(" (", %2 , ")");</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_PERSON" title="Имя лица">
+    <invertingRules>
+      <rule>{70?, 790}($a[1], $g[0-], $b[0-], $d[0-], ${cf}[0-], $p[0-]):: %1 + px(", ", %2) + px(", ", %3) + px(" ", %4) + if (!empty(%5)) " (" + ser(%5, "; ") + ")" fi + px(" ", %6);</rule>
+      <rule>600($a[1], $g[0-], $b[0-], $d[0-], ${cf}[0-], $p[0-], ${xyzj}[0-]):: %1 + px(", ", %2) + px(", ", %3) + px(" ", %4) + if (!empty(%5)) " (" + ser(%5, "; ") + ")" fi + px(" ", %6) + px(" — ", %7);</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_PLACE" title="Место (FRBR)">
+    <invertingRules>
+      <rule>617(${abcdekmno}[1-], ${hg}[0-], ${fi}[0-], ${abcdefghikmno}):: iser(%1, ". ") + if(name(%4[0]=="g") || name(%4[0]=="h")) ipx(" (", ser(ser(%2, "; ") | ser(%3, " — "), ", "), ")") else ipx(" (", ser(ser(%3, " — ") | ser(%2, "; "), ", "), ")") fi;</rule>
+    </invertingRules>
+    <buildLabels>
+      <label name="NAME_GEO_PR"/>
+    </buildLabels>
+  </ruleBuild>
+  <ruleBuild name="BIBL_PLACE_PUBL_MAKE" title="Место издания/изготовления">
+    <invertingRules>
+      <rule>210(${ae}):: ser(%1, "; ");</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_PUBL_MAKE" title="Публикация/Изготовление">
+    <invertingRules>
+      <rule>210(${rs}):: %1;</rule>
+    </invertingRules>
+    <buildLabels>
+      <label name="BIBL_ADRES_PUBL_MAKE"/>
+      <label name="BIBL_DATE_PUBL_MAKE"/>
+      <label name="BIBL_PLACE_PUBL_MAKE"/>
+      <label name="BIBL_PUBL_MAKER"/>
+    </buildLabels>
+  </ruleBuild>
+  <ruleBuild name="BIBL_PUBL_MAKER" title="Издатель/Изготовитель">
+    <invertingRules>
+      <rule>210(${cg}):: ser(%1, "; ");</rule>
+      <rule>70?($4, $a[1], ${bg}[0-]):: if (%1=="650") %2**px(" ", %3) fi;</rule>
+      <rule>71?0?($4, $a[1], $b[0-], $h[0-]):: if (%1=="650") %2 + px(" ", %3) + px(" ", %4) fi;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_SERIA" title="Продолжающийся ресурс">
+    <metaRules>
+      <rule>vid:110($a[1])[1]: if (up(pos(#1, 0, 1))=="A") "периодическое издание" else if (up(pos(#1, 0, 1))=="B") "монографическая серия" else if (up(pos(#1, 0, 1))=="C") "газета" else if (up(pos(#1, 0, 1))=="E") "интегрируемое издание со сменными листами" else if (up(pos(#1, 0, 1))=="F") "база данных" else if (up(pos(#1, 0, 1))=="G") "обновляемый веб — сайт" else if (up(pos(#1, 0, 1))=="Z") "другие" fi fi fi fi fi fi fi;</rule>
+      <rule>period:110($a[1])[1]: if (up(pos(#1, 1, 1))=="A") "ежедневно" else if (up(pos(#1, 1, 1))=="B") "дважды в неделю" else if (up(pos(#1, 1, 1))=="C") "еженедельно" else if (up(pos(#1, 1, 1))=="D") "раз в две недели" else if (up(pos(#1, 1, 1))=="E") "дважды в месяц" else if (up(pos(#1, 1, 1))=="F") "ежемесячно" else if (up(pos(#1, 1, 1))=="G") "раз в два месяца" else if (up(pos(#1, 1, 1))=="H") "ежеквартально" else if (up(pos(#1, 1, 1))=="I") "три раза в год" else if (up(pos(#1, 1, 1))=="J") "дважды в год" else if (up(pos(#1, 1, 1))=="K") "ежегодно" else if (up(pos(#1, 1, 1))=="L") "раз в два года" else if (up(pos(#1, 1, 1))=="M") "раз в три года" else if (up(pos(#1, 1, 1))=="N") "три раза в неделю" else if (up(pos(#1, 1, 1))=="O") "три раза в месяц" else if (up(pos(#1, 1, 1))=="P") "обновляется постоянно" else if (up(pos(#1, 1, 1))=="U") "неизвестно" else if (up(pos(#1, 1, 1))=="Y") "периодичность не определена (т.е. нерегулярнo)" else if (up(pos(#1, 1, 1))=="Z") "другая" fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi;</rule>
+      <rule>regular:110($a[1])[1]: if (up(pos(#1, 2, 1))=="A") "регулярный" else if (up(pos(#1, 2, 1))=="B") "нормализованный нерегулярный" else if (up(pos(#1, 2, 1))=="U") "неизвестна" else if (up(pos(#1, 2, 1))=="Y") "нерегулярный" else if (up(pos(#1, 2, 1))=="Z") "другая" fi fi fi fi fi;</rule>
+    </metaRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_SORT_AC" title="Сортировка по автору">
+    <metaRules>
+      <rule>sort:{700??,4??$1700??}($a[1],$g[0-],$b[0-],$d[0-])[1-/0]:up(%1+if (!empty(%2)) px(", ",%2) else px(", ",%3) fi+px(" ",%4));</rule>
+      <rule>sort(|):{710??,4??$1710??}($a)[1-/0]:if (empty(#sort)) up(%1) fi;</rule>
+      <rule>sort:{70???,790??,4??$170???,4??$1790??}($a[1],$g[0-],$b[0-],$d[0-])[1-/0]:up(%1+if (!empty(%2)) px(", ",%2) else px(", ",%3) fi+px(" ",%4));</rule>
+      <rule>sort(|):{71???,4??$171???,791??,4??$1791??}($a)[1-/0]:if (empty(#sort)) up(%1) fi;</rule>
+      <rule>::#sort;</rule>
+    </metaRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_SUBJECT" title="Предмет (FRBR)">
+    <metaRules>
+      <rule>rub:606($2[1])[1]:if(up(pos(%1, 0, 3))=="SH_") token(%1, " _") fi;</rule>
+      <rule>qword:: size(#rub);</rule>
+      <rule>issubject:: if(#qword!="0") if(#qword=="3" &amp;&amp; (up(#rub[2])=="MATERIAL" || up(#rub[3])=="MATERIAL")) "true" else if(#qword=="4" &amp;&amp; (up(#rub[2])=="MATERIAL" || up(#rub[3])=="MATERIAL" || up(#rub[4])=="MATERIAL")) "true" else if(#qword=="5" &amp;&amp; (up(#rub[2])=="MATERIAL" || up(#rub[3])=="MATERIAL" || up(#rub[4])=="MATERIAL" || up(#rub[5])=="MATERIAL")) "true" else if(#qword=="6" &amp;&amp; (up(#rub[2])=="MATERIAL" || up(#rub[3])=="MATERIAL" || up(#rub[4])=="MATERIAL" || up(#rub[5])=="MATERIAL" || up(#rub[6])=="MATERIAL")) "true" else if(#qword=="7" &amp;&amp; (up(#rub[2])=="MATERIAL" || up(#rub[3])=="MATERIAL" || up(#rub[4])=="MATERIAL" || up(#rub[5])=="MATERIAL" || up(#rub[6])=="MATERIAL" || up(#rub[7])=="MATERIAL")) "true" else if(#qword=="8" &amp;&amp; (up(#rub[2])=="MATERIAL" || up(#rub[3])=="MATERIAL" || up(#rub[4])=="MATERIAL" || up(#rub[5])=="MATERIAL" || up(#rub[6])=="MATERIAL" || up(#rub[7])=="MATERIAL" || up(#rub[8])=="MATERIAL")) "true" else if(#qword=="9" &amp;&amp; (up(#rub[2])=="MATERIAL" || up(#rub[3])=="MATERIAL" || up(#rub[4])=="MATERIAL" || up(#rub[5])=="MATERIAL" || up(#rub[6])=="MATERIAL" || up(#rub[7])=="MATERIAL" || up(#rub[8])=="MATERIAL" || up(#rub[9])=="MATERIAL")) "true" fi fi fi fi fi fi fi else "false" fi;</rule>
+      <rule>:606($a[1], ${xyzj}[0-]): if(#issubject=="true") %1 + px(" — ", %2) fi;</rule>
+    </metaRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_SUBJ_CATEGORY" title="Предметная категория">
+    <invertingRules>
+      <rule>615($a[1], ${xyzj}[0-], $2[1]):: if(up(pos(%3, 0, 3))!="SH_") %1 + px(" — ", %2) fi;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_TIJ" title="Заглавие журнала">
+    <invertingRules>
+      <rule>2001?($a, $h[0-], $i[0-]), 000:: if (up(pos(#2,7,1))=="S") ser(%1,". ") + px(". ", %2) + px(". ", %3) fi;</rule>
+      <rule>2001?(${id}), 000:: if (up(pos(#2,7,1))=="S") %1 fi;</rule>
+      <rule>5??($a), 000:: if (up(pos(#2,7,1))=="S") %1 fi;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_TITLE" title="Заглавие">
+    <invertingRules>
+      <rule>500($a[1], ${hi}[0-], ${bklmnruw}[0-], $q[0-], $s[0-], ${xyzj}[0-]):: %1 + px(". ", %2) + px(" (", %3, ")") + px(". ", %4) + px(" ", %5) + px(" — ", %6);</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_TITLE_EXPR" title="Заглавие выражения">
+    <invertingRules>
+      <rule>507($a[1], ${hi}[0-], ${cdefkru}[0-], $s[0-], ${lmnovw}[0-]):: %1 + px(". ", %2) + px(" (", %3, ")") + px(" ", %4) + px(" {", %5, "}");</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_TITLE_PR" title="Заглавие (ПР)">
+    <invertingRules>
+      <rule>605($a[1], ${hi}[0-], ${bklmnruw}[0-], $q[0-], $s[0-], ${xyzj}[0-]):: %1 + px(". ", %2) + px(" (", %3, ")") + px(". ", %4) + px(" ", %5) + px(" — ", %6);</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_TITLE_SER" title="Заглавие серии">
+    <invertingRules>
+      <rule>000, {2001?, 5001?, 5031?, 5061?, 5071?, 5101?, 5201?, 5401?, 5411?, 501, 509, 5171?, 5181?, 5301?, 531, 5321?, 5451?}($a, $h[0-], $i[0-]):: if(up(pos(#1, 7, 1))=="S") ser(#2%1, "; ") + px(". ", #2%2) + if(!empty(#2%2)) px(", ", ser(#2%3, ". ")) else px(". ", #2%3) fi fi;</rule>
+      <rule>225($a, ${hi}[0-]):: ser(%1, ". ") + px(". ", %2);</rule>
+      <rule>225($d):: %1;</rule>
+      <rule>000, 2001?($d):: if(up(pos(#1, 7, 1))=="S") #2%1 fi;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_TITLE_TIP" title="Типовое заглавие">
+    <invertingRules>
+      <rule>501($a[1], ${bekmruw}[0-], $s[0-], ${xyzj}[0-]):: %1 + px(" (", %2, ")") + px(" ", %3) + px(" — ", %4);</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_TITLE_WORK" title="Заглавие произведения">
+    <invertingRules>
+      <rule>506($a[1], $h[0-], $i[0-], ${cdefkru}[0-], $s[0-]):: ser(%1, "; ") + px(". ", %2) + if(!empty(%2)) px(", ", ser(%3, ". ")) else px(". ", %3) fi + px(" (", %4, ")") + px(" ", %4);</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_TITL_BASE" title="Заглавие основное">
+    <invertingRules>
+      <rule>2001?($a, $h[0-], $i[0-], $e[0-]):: iser(%1, "; ") + ipx(". ", %2) + if(!empty(%2)) px(", ", iser(%3, ". ")) else ipx(". ", %3) fi + ipx(" : ", %4);</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_TITL_CONDITION" title="Заглавие условное">
+    <invertingRules>
+      <rule>5031?($a[1], $i[0-], ${bkl}[0-], $m[0-], $j[0-], $d[0-], $e[0-], $f[0-], $n[0-]):: %1 + px(". ", %2) + px(" ", %3) + px(" (", %4, ")") + px(". ", ser(px(%5, %6), " — ")) + px("; ", px(%7, ", ", %8)) + px(%9);</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_TITL_GEO_NM" title="Заглавие как географическое  наименование картографических материалов">
+    <invertingRules>
+      <rule>5090?($a[0-1], $h[1-], $e[0-], ${bcl}[0-]):: %1 + if(!empty(%2)) px(", ", %2) fi + if(!empty(%3))" (" + iser(%3, " — ") + ")" fi + px(for(i=%4:if(name(i)=="b" || name(i)=="l") ". " + i else if(name(i)=="c") " (" + i + ")" fi fi));</rule>
+      <rule>5090?($a[0-1], $h[0], $e[0-], $c[0-], ${bfgnl}[0-]):: %1 + if(!empty(%3))" (" + iser(%3, " — ") + ")" fi + if(!empty(%4))" (" + iser(%4, " — ") + ")" fi + px(for(i=%5:if(name(i)=="b" || name(i)=="l" || name(i)=="n") ". " + i else if(name(i)=="f") " (" + i + ")" else if (name(i)=="g") " " + i fi fi fi));</rule>
+      <rule>5090?($a[2-], ${ahce}[0-]):: pos(px(for(i=%2: if(name(i)=="a") " — " + i else if(name(i)=="h") ", " + i else if(name(i)=="c" || name(i)=="e") " (" + i + ")" fi fi fi )), 3, 10000);</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_TITL_LINK_OTHER" title="Заглавие другое взаимосвязанное">
+    <invertingRules>
+      <rule>{5201?, 5301?, 531, 5321?, 54?1?, 5601?}($a, $h[0-], $i[0-]):: ser(%1, "; ") + px(". ", %2) + if(!empty(%2)) px(", ", ser(%3, ". ")) else px(". ", %3) fi;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_TITL_PART" title="Заглавие тома/выпуска">
+    <invertingRules>
+      <rule>46?$12001?($a, $h[0-], $i[0-]), 000:: if(up(pos(#2, 7, 2))=="M2") ser(%1, "; ") + px(". ", %2) + if(!empty(%2)) px(", ", ser(%3, ". ")) else px(". ", %3) fi fi;</rule>
+      <rule>46?$12001?(${id}), 000:: if(up(pos(#2, 7, 2))=="M2") %1 fi;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_TITL_SOURCE" title="Заглавие источника">
+    <invertingRules>
+      <rule>000, {46?$12001?}($a, $h[0-], $i[0-]):: if(up(pos(#1, 7, 1))=="A") ser(#2%1, "; ") + px(". ", #2%2) + if(!empty(#2%2)) px(", ", ser(#2%3, ". ")) else px(". ", #2%3) fi fi;</rule>
+      <rule>000, {46?$12001?}(${id}):: if(up(pos(#1, 7, 1))=="A") #2%1 fi;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_TITL_THEME_NM" title="Заглавие как тематическое наименование картографических материалов">
+    <invertingRules>
+      <rule>5091?($a[0-1], $h[1-], $e[0-], ${bcl}[0-]):: %1 + if(!empty(%2)) px(", ", %2) fi + if(!empty(%3))" (" + iser(%3, " — ") + ")" fi + px(for(i=%4:if(name(i)=="b" || name(i)=="l") ". " + i else if(name(i)=="c") " (" + i + ")" fi fi));</rule>
+      <rule>5091?($a[0-1], $h[0], $e[0-], $c[0-], ${bfgnl}[0-]):: %1 + if(!empty(%3))" (" + iser(%3, " — ") + ")" fi + if(!empty(%4))" (" + iser(%4, " — ") + ")" fi + px(for(i=%5:if(name(i)=="b" || name(i)=="l" || name(i)=="n") ". " + i else if(name(i)=="f") " (" + i + ")" else if (name(i)=="g") " " + i fi fi fi));</rule>
+      <rule>5091?($a[2-], ${ahce}[0-]):: pos(px(for(i=%2: if(name(i)=="a") " — " + i else if(name(i)=="h") ", " + i else if(name(i)=="c" || name(i)=="e") " (" + i + ")" fi fi fi )), 3, 10000);</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_TITL_VARIANT" title="Заглавие вариантное">
+    <invertingRules>
+      <rule>51?1?($a, $h[0-], $i[0-]):: ser(%1, "; ") + px(". ", %2) + if(!empty(%2)) px(", ", ser(%3, ". ")) else px(". ", %3) fi;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_TYPE_OBJECT" title="Тип объекта описания">
+    <invertingRules>
+      <rule>000:: if (up(pos(#1, 6, 1))=="A") "Текстовый материал, печатный" fi + if (up(pos(#1, 6, 1))=="B") "Текстовый материал, рукописный" fi + if (up(pos(#1, 6, 1))=="C") "Музыкальная партитура, печатная" fi + if (up(pos(#1, 6, 1))=="D") "Музыкальная партитура, рукописная" fi + if (up(pos(#1, 6, 1))=="E") "Картографический материал, печатный" fi + if (up(pos(#1, 6, 1))=="F") "Картографический материал, рукописный" fi + if (up(pos(#1, 6, 1))=="G") "Проекционный или видеоматериал" fi + if (up(pos(#1, 6, 1))=="I") "Звукозапись, немузыкальная" fi + if (up(pos(#1, 6, 1))=="J") "Звукозапись, музыкальная" fi + if (up(pos(#1, 6, 1))=="K") "Двухмерная графика" fi + if (up(pos(#1, 6, 1))=="L") "Электронный ресурс" fi + if (up(pos(#1, 6, 1))=="M") "Разнородный материал" fi + if (up(pos(#1, 6, 1))=="R") "Трехмерный искусственный или естественный объект" fi;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="BIBL_YEAR_JOURNAL" title="Годы выпусков журнала">
+    <invertingRules>
+      <rule>000,  461$1001, 100($a) :: if( up( pos(#1, 7, 2) )=="M2") px(#2, "[Y]", if( up( pos( #3, 8, 1) )=="E") width( digit( rpl( rpl( rpl( rpl( pos(#3, 13, 4), "#","9"), " ","9"), "?","9"), "|","9") ), 4,"0") else width( digit( rpl( rpl( rpl( rpl( pos(#3, 9, 4), "#","9"), " ","9"), "?","9"), "|","9") ), 4,"0") fi) fi;</rule>
+      <rule>000,  461$1001, {210, 461$1210, 455$1210}(${dr}) :: if( up( pos(#1, 7, 2) )=="M2") px(#2, "[Y]", width( digit( pos( digit( rpl( rpl( rpl( rpl( #3, "#","9"), " ","9"), "?","9"), "|","9") ), 0,4) ), 4,"0") ) fi;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="DKD" title="ДКД">
+    <invertingRules>
+      <rule>676($a[1], $b[0-1], $c[0-], ${vz}[0-1]):: %1 + ipx(" : ", %2) + px(" — ", iser(%3, ". ")) + px(" (", ser(%4, ", "), ")");</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="ID_ANY" title="Идентификаторы присутствующие в записи">
+    <invertingRules>
+      <rule>001:: px("origID: ", iser(digit(#1)," "));</rule>
+      <rule>002:: px("oldID: ", iser(digit(#1)," "));</rule>
+      <rule>035(${az}):: px("IDotherSYS: ", iser(digit(#1)," "));</rule>
+      <rule>46?$1001::px("IDlinkBIBL: ", iser(digit(#1)," "));</rule>
+      <rule>{5??,6??,7??}($3)::px("IDlinkAF: ", iser(digit(#1)," "));</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="IPO" title="Индексы объектов промышленной собственности">
+    <invertingRules>
+      <rule>679($a[1], $b[0-1], $c[0-], ${vz}[0-1]):: %1 + ipx(" : ", %2) + px(" — ", iser(%3, ". ")) + px(" (", ser(%4, ", "), ")");</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="KBK" title="КБК">
+    <invertingRules>
+      <rule>680($a[1], $b[0-1], $c[0-]):: %1 + ipx(" : ", %2) + px(" — ", iser(%3, ". "));</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="NAME_GEO_PR" title="Географическое название">
+    <invertingRules>
+      <rule>607($a[1], ${xyzj}[0-]):: %1 + px(for (i=%2:if (name(i)=="y") px(", ", i) else px(" — ", i) fi));</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="NAME_THEME_PR" title="Наименование темы">
+    <invertingRules>
+      <rule>606($a[1], ${xyzj}[0-]):: %1 + px(for (i=%2:if (name(i)=="x") px(", ", i) else px(" — ", i) fi));</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="OTHER_CLASS" title="Другая классификация">
+    <invertingRules>
+      <rule>686($a[1], $b[0-1], $c[0-], $v[0-], $2[0-]):: if (!empty(%5)) px(%5, " — ", %1) else %1 fi + ipx(" : ", %2) + px(" — ", iser(%3, ". ")) + px(" (", %4, ")");</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="PLACE_EVENT_DATE_OBJ" title="Место/событие и даты, связанные с объектом">
+    <invertingRules>
+      <rule>640(${abcde}[0-], ${gh}[0-], ${fi}[0-], ${abcdefghi}):: if(name(%4[0]=="g") || name(%4[0]=="h")) %4[0] + ipx(" (", ser(%4[1-], ". "), ")") else if(name(%4[0]=="f") || name(%4[0]=="i")) ser(%3, " — ") + ipx(" (", ser(ser(%1, ". ") | ser(%2, ". "), ", "), ")") else iser(ser(%1, ". ") | ser(%2, ", "), "; ") + ipx(" (", ser(%3, " — "), ")") fi fi;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="PLACE_EVENT_PR" title="Место и дата действия/события">
+    <invertingRules>
+      <rule>617(${abcdekmno}[0-], ${hg}[0-], ${fi}[0-], ${abcdefghikmno}):: if(name(%4[0]=="g") || name(%4[0]=="h")) ser(%2, "; ") + ipx(" (", ser(ser(%1, ". ") | ser(%3, " — "), ", "), ")") else if(name(%4[0]=="f") || name(%4[0]=="i")) ser(%3, " — ") + ipx(" (", ser(ser(%1, ". ") | ser(%2, "; "), ", "), ")") else ser(%1, ". ") + ipx(" (", ser(ser(%2, "; ") | ser(%3, " — "), ", "), ")") fi fi;</rule>
+    </invertingRules>
+  </ruleBuild>
+  <ruleBuild name="RUS" title="100-А ДАТА">
+    <invertingRules>
+      <rule>100($a)::pos(%1,0,8);</rule>
+    </invertingRules>
+  </ruleBuild>
+</ruleBuildList>

@@ -1,0 +1,81 @@
+/*библиопоиск*/
+.tab_to_switch_search
+{
+	background: #fff;
+	/*padding: 5px 0 0 0;*/
+	/*margin: -10px 0 10px 0;
+	box-shadow: 0 10px 10px -10px #eee;*/
+	/*border-bottom: solid 1px #ddd;*/
+	overflow:hidden;
+}
+.tab_to_switch_search span
+{
+    display: inline-block;
+    padding: 0 2% 0 2%;
+    min-width: 300px;
+	font-weight:bold;
+    font-size: 10pt;
+	line-height:24pt;
+	height:34px;
+	cursor:pointer;
+}
+.tab_to_switch_search span:after
+{
+  content:'';
+  position:absolute;
+  bottom:0px;
+  right:-43px;
+  height:0;
+  width:0;
+  border-style: solid;
+  border-width: 18px 23px 17px 23px;
+  cursor:pointer;
+}
+.tab_to_switch_search span:nth-child(1)
+{
+    margin: 0 0 0 5%;
+}
+.tab_to_switch_search span.opac, .body_opac .tab_to_switch_search span.opac, .body_discovery .tab_to_switch_search span.discovery
+{
+    background: #eee;
+	z-index:2;
+	box-shadow: 0 -1px 1px 1px #4379c5;
+	bottom:-1px;
+	color:#333;
+}
+.tab_to_switch_search span.opac:after, .body_opac .tab_to_switch_search span.opac:after, .body_discovery .tab_to_switch_search span.discovery:after
+{
+	border-color: transparent transparent #eee #eee;
+}
+.tab_to_switch_search span.discovery, .body_discovery .tab_to_switch_search span.opac
+{
+    background: #4379c5;
+	color:#f0f0f0;
+	z-index:1;
+	box-shadow:none;
+}
+.tab_to_switch_search span.discovery:after, .body_discovery .tab_to_switch_search span.opac:after
+{
+	border-color: transparent transparent #4379c5 #4379c5;
+}
+.tab_to_switch_search span.discovery
+{
+	text-indent:2%;
+}
+.body_discovery #searchdiv, .body_discovery [id^='infor']
+{
+	display:none;
+}
+.body_discovery  #main
+{
+	height:auto;
+	min-height:inherit;
+}
+body:not([class*='body_discovery']) #bs
+{
+	display:none;
+}
+.body_discovery #bs
+{
+	display:block;
+}

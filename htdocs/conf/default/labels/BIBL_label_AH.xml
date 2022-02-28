@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<labelCollector>
+  <label mandatory="false" mode="FILE" name="AH" profile="BIBL" title="Везде (ключевые слова)">
+    <processing>
+      <entry>format</entry>
+      <entry>text</entry>
+    </processing>
+    <interface>
+      <prof use="true"/>
+      <ext use="true"/>
+      <catal use="true"/>
+    </interface>
+    <ruleBuild>
+      <rule name="BIBL_ALL_INFO"/>
+    </ruleBuild>
+  </label>
+</labelCollector>

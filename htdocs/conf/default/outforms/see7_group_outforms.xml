@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<opacOutFormList>
+  <opacOutForm description="Местонахождение (фонды)" format="RUSMARC" name="SEE7FUNDS" type="BIBL">
+    <buildingParams condition="::&quot;true&quot;;" type="PARSER">
+      <rule value="899($a,$b[0-],$j[0-],$i[0-],$z[0-],$x[0-],$p[0-],$t[0-],$w[0-],$h[0-], $c[0-])::if((!empty(%2))&amp;&amp;(empty(%9))) ipx(&quot;[b]Фонд: [/b]&quot;,%2,&quot;[br]&quot;) fi +ipx(&quot;[b]Полка/местонахождение: [/b]&quot;,%11,&quot;[br]&quot;)+ if (!empty(%3))  ipx(&quot;[b]Шифр: [/b]&quot;,%3,&quot;[br]&quot;) else ipx(&quot;[b]Шифр: [/b]&quot;,%10,&quot;[br]&quot;)  fi+ipx(&quot;[b]Авторский знак: [/b]&quot;,%4,&quot;[br]&quot;)+ipx(&quot;[b]Формат: [/b]&quot;,%5,&quot;[br]&quot;)+ipx(&quot;[b]Номер экземпляра: [/b]&quot;,%8,&quot;[br]&quot;);"/>
+    </buildingParams>
+  </opacOutForm>
+  <opacOutForm description="Местонахождение (только сиглы)" format="RUSMARC" name="SEE7SIGLA" type="BIBL">
+    <buildingParams condition="::&quot;true&quot;;" type="METAPARSER">
+      <rule value="sigla:899($a):%1+&quot;\n&quot;;"/>
+      <rule value="::if(size(#sigla)==1) #sigla else uniq(#sigla) fi;"/>
+    </buildingParams>
+  </opacOutForm>
+</opacOutFormList>

@@ -1,0 +1,252 @@
+/*цвета*/
+.highlight, [class^='options'] div:hover, .options4, #tree_lang_choice span:hover, #livesearch p.w:hover, #livesearch p.g:hover
+{
+	background: highlight;
+	color: highlighttext;
+}
+.warn, #hint
+{
+	background: #f6e3df;
+	border:solid 1px #ddd;
+}
+#searchhead .highlight, .searchhead .highlight, .h3 .highlight, .memo .highlight, .searchrez .highlight
+{
+	color: #990000;
+	background:transparent;
+}
+.cc
+{
+	color:#ccc;
+}
+.c8, [class^='fstr']
+{
+	color:#888;
+}
+.c9, .a:hover, a:hover, .bread, .col_title, .now, .filters div.else:hover, #afalfabet span, .alfavit span, .afannotimg:before, .afsearchimg:before, .afsmall, .clb, .new2, .new1, .blue, .showstr i, #rubricator span:before, [title]:hover, .newshead, .top_menu > li:hover span, .middle b:before
+{
+	color:#999;
+}
+.c6, #issueswinform [class^='searchrez'] > div.fleft, #srezults p s, [class^='tooltip'] .del
+{
+	color:#666;
+}
+.bases_div input[type=radio]:checked  + label, .filters div.else, .filters span.checked, .sel_, .busy, .button2:hover, .cb > span, .adddiv p span[onclick^='showLable'], .sterm, .sblock code, #helpconstructor:hover:before, .lighttitle label, .backlight em, .output em, .sblock code, .filters div.else, .filters span.checked, .facets div span.else, .facets div span.even, .facets span.checked, .f_container .ffacets div:not([class^='title']), .calc:before, ul[class^=ini] li:before, .f_container .ffacets div span.checked:after, .bases_div input[type=radio]:checked  + label:before, .bases_div input[type=checkbox]:checked + label:before, .newsdate, ol[class^='badge'] li:before, .badge li:after, .else1, .header1, .infores p.fstr, #hiwinform div span, span.stage1, .facets i, .adddiv span[class^='SEE'], .adddiv a[class^='SEE']
+{
+	color: #990000;
+}
+.calc:before
+{
+	color:#23569c;
+}
+.pheader span.del, .pheader span.wrap, .pheader span.unwrap
+{
+	background: #333;
+}
+.dialog2 .pheader 
+{
+	color: #333;
+}
+.pheader span.del, .pheader span.wrap, .pheader span.unwrap
+{
+	border:solid 1px #333;
+}
+.bases_div label, #termin i, .filters i, .filters span.unchecked:hover, .issue, .sel, .iLAB , [class^='select'], [class^='options'], .baselimits span.title, .aftitle, .period_container .button2, .bread:hover, .n, .z, .top_menu span, .button2, input.voc, #saf, #sand, #sor, #snot, .a, a, .caption, .new, .gb, .titleslides, .see, .aflink, .aflinkinfo, a.aflinkinfo, .fel, .aftitle span.b, [class^='afbig'], .afplusimg, .afminusimg, .period input.date, #butcontainer input.date, .wrapped.ml20x, .searchdiv, .select4, .select4_, #authority_search #voclist, #meshtree > div:nth-child(1), [class*='angle']:after, #tree_lang_choice span, .baselimits span.input input, .period span.input input
+{
+	color:#333;
+}
+.cbt9
+{
+	color:rgba(67,121,197,0.9);
+}
+.cblt9, #go-to-top:before
+{
+	color:rgba(35,86,156,0.9);
+}
+.c3, .aftitle span.b b, [id^='SEE4'], .aftitle code, [class^='tooltip'] span.titl, #dateordcontainer.expl.period, .searchhead .fright .url, .middle b:not([class$='disabled']):after, #afalfabet span:after, .titleslides:after, .see:after, .issue:after, [class^='tooltip'] .del:hover
+{
+	color:#333;
+}
+.cf0, .afsearchimg:before, .NewMeshTree:before, .Tree:before, .Also:before, .Otherlang:before, .Alfa:before, .Permutation:before, .afannotimg:before, .AF:before, .Annotation:before, .Also:before, .Otherlang:before
+{
+	color: #f0f0f0;
+}
+.c0, .content ul[class^=ini] li:before
+{
+	color:#000;
+}
+.cf, input[class$='button'], .sheet_search_history_php .url, .button3, span.constr:before, #helpconstructor:before, #footer span, #footer a, .newrecs [class^='sign'], .regime, .pheader span.del, .pheader span.wrap, .pheader span.unwrap
+{
+	color: #fff;
+}
+.red, .corange
+{
+	color:#4379c5;
+}
+/*бэкграунды*/
+.bgf, [class^='searchrez'], .border, #helpconstructor:hover:before, .f_container .ffacets, #authority_search #voclist, #tree_lang_choice, [class^='tooltip'], .bases_div label:before, .bigmap, #disablediv, .loader, .loader1, #loader, .pheader, .bgdiv, .dialog, .dialog2, .button2, #andor1, [class^='wrapped'], .period input.date, #butcontainer input.date, .iLAB, [class^='options'], .baselimits [class^='select'], .bgf6, .filters, .facets, .facets div.title, .labcontainer, .logcontainer, .basescontainer, .select4, .select4_, [class^='options'], .baselimits span.input, .baselimits [class^='select'], .baselimits span.input input, .period span.input input, div[class^='border'] textarea, .border1 input[type="text"], .border1 input[type="password"], .border2 input[type="text"], .border1 select, #ordercontainer select, .memo #portionlist, .fright #sortlab, ol[class^='badge'] li:before, .badge li:after
+{
+	background:#fff;
+}
+.bgf0 
+{
+	background: #f0f0f0;
+}
+.bgc
+{
+	background:#ccc;
+}
+.bgd, #meshtree > div:nth-child(1)
+{
+	background: #ddd;
+}
+.bg9
+{
+	background: #999;
+}
+.bg3
+{
+	background: #333;
+}
+#go-to-top
+{
+	background: rgba(67,121,197,0.5);
+}
+.bglb, .new:hover, .new1:hover, .gb:hover, .new2:hover, .level .row:nth-child(2n)
+{
+	background: rgba(35,86,156,0.1);
+}
+.bgbrd1
+{
+	background: rgba(67,121,197,0.9);
+}
+.bgr, .help, .info, .feedback, #callbut, .buttoncont .button, input[class$='button'], span.constr:before, #helpconstructor:before, [class^='tooltip'] .button3
+{
+	background: #990000;
+}
+.bge, .annotmeshtree:nth-child(even), #tree_lang_choice span, #limits_search, .searchhead .fright .url, .middle b:not([class$='disabled']):after, #afalfabet span:after, .titleslides:after, .see:after, .issue:after, .see:hover:after, .issue:hover:after, [class^='tooltip'] .del:hover, #searchrezult .url
+{
+	background:#eee;
+}
+.bgbrd
+{
+	background:#4379c5;
+}
+.bge2
+{
+	background:#e2e2e2;
+}
+.bgfc
+{
+	background: #fcfcfc;
+}
+.bgorange, input[class$='button'], #bconstruct .button3, #search_constructor .button3
+{
+	background: #4379c5;
+}
+.middle input[class$='button']
+{
+	background-color:#4379c5;
+	background-image: url(../img/sprite3.png);
+	background-position: 12px center;
+	background-repeat:no-repeat;
+}
+/*тени*/
+.bsh
+{
+	box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+}
+.bshf, input[type='button']:not([disabled]):hover, [class^='select4']:hover, span.url:hover
+{
+	box-shadow: inset 0 0 5px #fff;
+}
+.bshb
+{
+	box-shadow: 0 0 3px #23569c;
+}
+.tsh
+{
+	text-shadow: -1px -1px 3px rgba(0,0,0,.3), -1px 1px 3px rgba(0,0,0,.3), 1px 1px 3px rgba(0,0,0,.3), 1px -1px 3px rgba(0,0,0,.3);
+}
+/*градиенты*/
+.l-glg
+{
+	background: #fff;
+	background: linear-gradient(to bottom, #fff 0%, #ddd 50%, #ddd 51%, #fff 100%);
+}
+.l-gdg
+{
+	background:#5f5f5f;
+	background: linear-gradient(to bottom, #787878 0%, #5e5e5e 50%, #707070 51%, #8f8f8f  100%);
+}
+.l-gg
+{
+	background: #ccc;
+	background: linear-gradient(to bottom, #a8a8a8 0%, #8e8e8e 50%, #a0a0a0 51%, #bfbfbf 100%);
+}
+.l-gr
+{
+	background: #993030;
+	background: linear-gradient(to bottom, #a93333 0%, #900000 50%, #903030 51%, #cc3f3f 100%);
+}
+.l-gb
+{
+	background: #939fc6;
+	background: linear-gradient(to bottom, #c0ccd9 0%, #606f90 50%, #606f90 51%, #c0ccd9 100%);
+}
+/*рамки*/
+.b1f, .lev3, #meshtree > div:nth-child(1), #authority_search #voclist 
+{
+	border: solid 1px #fff;
+}
+.be2, .filters, .facets
+{
+	border:solid 1px #e2e2e2;
+}
+.b1d, [class^='wrapped'], [class^='expl'], [class^='searchrez'], #siglatable .row:nth-child(odd) .td, .f_container .ffacets, .bigmap, [class^='simples']
+{
+	border: solid 1px #ddd;
+}
+.b19, input[type='button']:not([disabled]):hover, [class^='select4']:hover, span.url:hover
+{
+	border: solid 1px #999;
+}
+.b1br, .button2:hover, #helpconstructor:before, #callbut, span.constr:before,span.constr:hover:before, [class^='tooltip'] .button3, #callbut
+{
+	border: solid 1px #990000;
+}
+.b1c, .lev3:hover, [id^='sconstruct'], #shist, .sblock, textarea#searchbox, .backlight, [class^='tooltip'], .border1, .searchhead .fright .url, .middle b:not([class$='disabled']):after, #afalfabet span:after, .titleslides:after, .see:after, .issue:after, #searchrezult .url
+{
+	border: solid 1px #ccc;
+}
+.b1e
+{
+	border: solid 1px #eee;
+}
+.borange, .middle input[class$='button'], .border1 input[class$='button'], #bconstruct .button3, #search_constructor .button3
+{
+	border:solid 1px #4379c5;
+}
+.b1r, .b1brd, .period input.date, #butcontainer input.date, input[class^='stage'], .period input[id^='icdr'], .period input[id^='ipassword'], .period input[id^='iextra'],.labcontainer, .logcontainer, .basescontainer, .select4, .select4_, [class^='options'], #limits_search, .baselimits span.input, .baselimits [class^='select'], .period span.input, .bases_div label:before, div[class^='border'] textarea, .border1 input[type="text"], .border1 input[type="password"], .border2 input[type="text"], .border1 select, #ordercontainer select, .memo #portionlist, .fright #sortlab, ol[class^='badge'] li, .button2, #andor1
+{
+	border: solid 1px #ccc;
+}
+.bbrd9
+{
+	border: 1px solid rgba(67,121,197,0.9);
+}
+.brt1c
+{
+	border-top:solid 1px #ccc;
+}
+.brr1c
+{
+	border-right:solid 1px #ccc;
+}
+.brb1c
+{
+	border-bottom:solid 1px #ccc;
+}
+.brl1c
+{
+	border-left:solid 1px #ccc;
+}

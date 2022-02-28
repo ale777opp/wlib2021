@@ -1,0 +1,450 @@
+/*символы*/
+[class^='select']:before, [class^='limits']:before, .add1:before, .add2:before, .filters span.checked:after, .border:before, [class^='wrapped']:after, .afannotimg:after, .afsearchimg:after, .afplusimg:after, .afminusimg:after, .afbulletimg:after, #user_info:after, .calc:after, #rubricator span:after
+{
+	content: '';
+	position:absolute;
+}
+[class^='select']:after, [class^='limits']:after, .add1:after, .add2:after, [class^='wrapped']:before, .afplusimg:before, .afminusimg:before, .afbulletimg:before, #user_info:before, .AF:before
+{
+	position:absolute;
+	display:inline-block;
+	top: 5px;
+	font-family: 'fontello';
+	font-weight:bold;
+	font-size:13pt;
+	width:15px;
+	height:27px;
+}
+.left_menu  span.rc:after
+{
+	content: '\e815';
+	position:absolute;
+	display:inline-block;
+	top: 1px;
+	margin-left:10px;
+	font-family: 'fontello';
+	font-size:10pt;
+}
+#rubricator span:before
+{
+	position:absolute;
+	display:inline-block;
+	font-family: 'fontello';
+	font-size:11pt;
+	top:1px;
+	color:#999;
+}
+#rubricator [class^='list'] span:before
+{
+	content: '\e805';
+}
+#rubricator .folder span:before
+{
+	content: '\e806';
+}
+#rubricator .folder_ span:before
+{
+	content: '\e807';
+}
+.calc
+{
+	cursor:pointer;
+	display:inline-block;
+	width:25px;
+	height:25px;
+}
+.calc:before
+{
+	display:inline-block;
+	font-family: 'fontello';
+	font-size:16pt;
+	color:#c0c9d9;
+}
+.afannotimg:before, .afsearchimg:before
+{
+	display:inline-block;
+	font-family: 'fontello';
+	font-size:16pt;
+}
+.calc:before
+{
+	content: '\e809';
+}
+.afsearchimg:before
+{
+	content: '\e816';
+}
+.afannotimg:before, .AF:before
+{
+	content: '\e805';
+}
+.AF:before
+{
+	top:18px;
+	left:3px;
+	color:#999;
+}
+#user_info:before
+{
+	content: '\e817';
+	top:0;
+	left:5px;
+	font-size:10pt;
+}
+[class^='select4']:after
+{
+	top:10px;
+}
+/*.andor [class^='select4']:after
+{
+	top:5px;
+}*/
+.mt10x .andor [class^='select4']:after
+{
+	top:10px;
+}
+#privat:after
+{
+	content: '';
+	position:absolute;
+}
+#privat:before
+{
+	position:absolute;
+	display:inline-block;
+	top: 5px;
+	font-family: 'fontello';
+	font-weight:bold;
+	font-size:13pt;
+	width:15px;
+	height:27px;
+}
+#privat:before
+{
+	content: '\e817';
+	top:0;
+	left: -15px;
+	font-size:68%;
+}
+[class^='pcontent'] > div > span > span:after
+{
+	content: '';
+	position:absolute;
+}
+[class^='pcontent'] > div > span > span:before
+{
+	content: '\e815';
+	position:absolute;
+	left:15px;
+	font-family: 'fontello';
+	font-weight:bold;
+	color:#fff;
+}
+ul[class^=ini] li:before
+{
+	content: '\e814';
+	position: absolute;
+	font-family: 'fontello';
+	font-weight:bold;
+	left:0px;
+	top:-2px;
+	color:#066f06;
+}
+.middle b:before
+{
+	content: '\e800';
+	position:absolute;
+	display: inline-block;
+	top:10px;
+	left:10px;
+	width:30px;
+	height:30px;
+	font-family: 'fontello';
+	font-size:20px;
+	font-weight:normal !important;
+	color:#066f06;
+	z-index: 9999;
+}
+.middle b:not([class*='disabled']):after, #afalfabet span:after, .titleslides:after, .see:after, .issue:after
+{
+	position: absolute; 
+	top:100%;
+	left:0;
+	display: inline-block;
+	visibility: hidden;
+	width:100px;
+	height:34px;
+	margin: 7px 0 0 -1600px;
+	border: 1px solid rgba(6, 111, 6,0.7);
+	text-align:center;
+	font-weight:normal;
+	line-height:200%;
+	color:#fff;
+	/*text-shadow: -1px -1px 5px rgba(0,0,0,.9), -1px 1px 5px rgba(0,0,0,.9), 1px 1px 5px rgba(0,0,0,.9), 1px -1px 5px rgba(0,0,0,.9); */
+	background: #066f06;
+	background: rgba(6, 111, 6,0.7);
+	text-align:center;
+	z-index: 9999;
+}
+.middle b:not([class*='disabled']):after
+{
+	top:-7px;
+	left:50px;
+}
+.middle b:not([class*='disabled']):hover:after, #afalfabet span:hover:after, .titleslides:hover:after, .see:hover:after, .issue:hover:after
+{
+	visibility: visible;
+	margin: 7px 0 0 -45px;
+	transition: 0s .4s;
+	z-index:9999;
+}
+#simple_search b:hover:after, #fundholders_search b:hover:after
+{
+	content: " Искать ";
+	top:34px;
+}
+#expand_search b:not([class*='disabled']):hover:after, #professional_search b:not([class*='disabled']):hover:after
+{
+	content: " Словарь ";
+}
+#afalfabet span:hover:after
+{
+	content: " Список ";
+}
+#afalfabet span:hover:before, .titleslides:hover:before, .see:hover:before, .issue:hover:before
+{
+	content: "";
+	position: absolute;
+	border-top: 0;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;        
+	border-bottom: 8px solid #000; 
+	opacity: 0.8; 
+}
+.middle b:not([class*='disabled']):hover:before
+{
+	content: "";
+}
+.see:hover:after, .issue:hover:after
+{
+	font-size: 80%;
+	content: attr(data);
+	min-width:150px;
+	width:auto;
+	height:auto;
+	top:100%;
+	left:40%;
+	line-height: 100%;
+	margin:0;
+	background:#000;
+	background:rgba(0,0,0,0.8);
+	border-radius:5px;
+	padding:10px;
+}
+.titleslides:hover:after
+{
+	font-size: 80%;
+	content: " Содержание ";
+	min-width:100px;
+	width:auto;
+	height:auto;
+	top:100%;
+	left:0;
+	margin:-8px 0 0 -10px;
+}
+.titleslides:hover:before, .see:hover:before, .issue:hover:before
+{
+	top:100%;
+	left: 60% !important;
+	margin: -8px 0 0 0;
+}
+#afalfabet span:hover:before, .titleslides:hover:before
+{
+	top:15px;
+	left: 0;
+}
+#go-to-top:before
+{
+	content:'\e80a';
+	position:absolute;
+	display:inline-block;
+	width:30px;
+	height:30px;
+	top:20px;
+	left:20px;
+	font-family: 'fontello';
+	font-weight:bold;
+	font-size:30px;
+	color:#666;
+}
+.social span, .social a
+ {
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    width: 18px;
+    height: 18px;
+	/*margin:5px 2px 10px 2px;*/
+	text-decoration:none;
+}
+.social span:after, .social a:after
+{
+	position:absolute;
+	font-family: 'fontello';
+}
+.social span:before, .social a:before
+ {
+    content: '';
+    position: absolute;
+    top: 0px;
+    width: 17px;
+    height: 17px;
+}
+.social span:after, .social a:after 
+{
+    top: 0px;
+    left: 0px;
+    font-size: 10pt;
+	line-height:12pt;
+	border:solid 2px #fff;
+	border-radius:50%;
+    color: #999;
+    width: 17px;
+    height: 17px;
+	transition: all 0.5s ease-in-out; 
+}
+.social span:hover:after, .social a:hover:after
+{
+	color:#066f06;
+}
+#footer .social span:after,#footer  .social a:after 
+{
+    top: 0px;
+    left: 0px;
+    font-size: 10pt;
+    color: #333;
+	background: transparent;
+	border:solid 2px transparent;
+	box-shadow: 0 0 5px 0 transparent;
+	border-radius:50%;
+    width: 17px;
+    height: 17px;
+	transition: all 0.5s ease-in-out; 
+}
+#footer .social span:hover:after, #footer .social a:hover:after
+{
+	color:#fff;
+	background: rgba(6, 111, 6, 0.3);
+	border:solid 2px rgba(6, 111, 6, 0.3);
+	box-shadow: 0 0 5px 0 rgba(6, 111, 6, 0.3);
+	border-radius:50%;
+}
+.social .vkontakte:after
+{
+	content:'\e80d';
+}
+.social .facebook:after
+{
+	content:'\f09a';
+}
+.social .odnoklassniki:after
+{
+	content:'\f263';
+}
+.social .twitter:after
+{
+	content:'\f099';
+}
+[class^='wrapped']:before
+{
+	top:10px;
+	left:5px;
+}
+[class^='limits']:after
+{
+	top:0px;
+	left:8px;
+}
+[class^='select']:after
+{
+	top:7px;
+	right:0;
+}
+.add1:after, .add2:after
+{
+	position:relative;
+	top: 1px;
+	left:10px;
+}
+[class^='select'][class$='_']:after, [class^='limits'][class$='_']:after, .add2:after, [class^='wrapped'][class$='_']:before, .afminusimg:before
+{
+	content: '\e80a';
+}
+.afbulletimg:before
+{
+	content: '\e814';
+}
+[class^='select']:not([class$='_']):after, [class^='limits']:not([class$='_']):not([class$='left']):after, .add1:after, [class^='wrapped']:not([class$='_']):before, .afplusimg:before
+{
+	content: '\e80b';
+}
+.afplusimg:before, .afminusimg:before, .afbulletimg:before
+{
+	top:0;
+	left:5px;
+}
+.new1:before, .new2:before
+{
+	top:1px;
+    margin-top:8px;
+    font-size:160%;
+    font-weight:bold;
+}
+.facets div span.else:after
+{
+	font-size:120%;
+	margin-left:5px;
+	font-weight:bold;
+}
+.facets div span.even:before
+{
+	font-size:120%;
+	margin-right:5px;
+	font-weight:bold;
+}
+.new1:before, .facets div span.even:before
+{
+    content:'\2039';
+}
+.new2:before, .facets div span.else:after
+{
+    content:'\203A';
+}
+.filters span.checked:before, .facets span.checked:before
+{
+	content: '\2714';
+	display:inline-block;
+	margin-right:5px;
+}
+.filters span.checked:before
+{
+	padding: 0 0 0 30px;
+}
+.facets span.checked:before
+{
+	padding: 0 0 0 10px;
+}
+.see:not(:last-of-type) .comma:after, .issue:not(:last-of-type) .comma:after
+{
+    content: ';';
+}
+.f_container .ffacets div span.checked:after
+{
+	content: '\00D7';
+	position: absolute;
+	font-size: 14pt;
+	display: inline-block;
+	padding: 0 0 0 5px;
+	color: #900;
+}

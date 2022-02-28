@@ -1,0 +1,58 @@
+	<div id="header">
+	<div>
+	<div class="cross" id="menu_button" onclick="showHideM('top_info', 'menu_button')"><span></span><span></span><span></span></div><div id="index__" class="s" onclick="goToLocation(this.id)">ЭБА</div>
+	<div class="top_logo"><div id="index" class="index" onclick="goToLocation(this.id)"><div class="inner"><div class="n">Электронный абонемент</div><div class="z">Поиск и заказ доступа к ресурсам библиотеки</div></div></div></div>
+	<div class="block" id="top_info">
+	<?php
+		$utype='';
+		if(isset($ujson))
+			$utype=gettype($ujson);
+
+		if((($utype=='object') && isset($ujson->userinfo->FU) && ($ujson->userinfo->FU != "") && ($ujson->userinfo->FU != "N/A")) && (!$flag45))
+		{
+			if(isset($fjson->accountsets))
+			{
+				$ffio='';
+				$fcode='';
+				$fmail='';
+				if(isset($fjson->accountsets->AO))
+				{
+					$ffio="AO";
+				}
+				if(isset($fjson->accountsets->fieldcodes))
+				{
+					$fcode=$fjson->accountsets->fieldcodes;
+				}
+				if(isset($fjson->accountsets->AI))
+				{
+					$fmail="AI";
+				}
+				if(($utype=='object') && isset($ujson->userinfo->FU) && ($ujson->userinfo->FU != "") && ($ujson->userinfo->FU != "N/A"))
+				{
+					$lkstr='<div id="lkinfo">';
+					if($ffio != "")
+						$lkstr.='<span class="lk'.$ffio.'">'.$ujson->userinfo->$ffio.'</span>';
+					if($fcode != "")
+					{
+						$lkstr.='<span class="lktitleet">'.$fjson->accountsets->titleet.'</span>';
+						if(isset($ujson->userinfo->$fcode))
+							$lkstr.='<span class="lk'.$fcode.'">'.$ujson->userinfo->$fcode.'</span>';
+						else
+							$lkstr.='<span class="lk'.$fcode.'">отсутствует</span>';
+					}
+					if($fmail != "")
+					{
+						$lkstr.='<span class="lktitleai">'.$fjson->accountsets->titlemail.'</span>';
+						if((isset($ujson->userinfo->$fmail))&&($ujson->userinfo->$fmail != "N/A"))
+							$lkstr.='<span class="lk'.$fmail.'">'.$ujson->userinfo->$fmail.'</span>';
+						else
+							$lkstr.='<span class="lk'.$fmail.'">отсутствует</span>';
+					}
+					$lkstr.='<span class="addsettings" onmousedown="lkSettings()">Настройки</span></div>';
+					echo $lkstr;
+				}
+			}
+		}
+	?>
+	<ul id="top_menu" class="top_menu">
+
