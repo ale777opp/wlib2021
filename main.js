@@ -1,3 +1,14 @@
+Vue.component('sub-menu', {
+props: {
+	items: Array,
+	required: true
+},
+template:
+`<ul>
+  <li v-for="item in items">{{ item }}</li>
+</ul>`
+})
+
 var menu = new Vue({
 	el: '#mainMenu',
 	data: {
@@ -34,8 +45,8 @@ var menu = new Vue({
     	this.menuItems[index].flag = true;
     //	this.selectedItem = index;
     //this.menuItems[index].flag? this.menuItems[index].flag = false : this.menuItems[index].flag = true;
-    //	console.log(index); //event.target.innerHTML
-    //  console.log(this.menuItems[index].flag);
+    //console.log(index); //event.target.innerHTML
+    //console.log(this.menuItems[index].flag);
     },
     unselectSubMenu: function (index) {
     //	this.selectedItem = index;

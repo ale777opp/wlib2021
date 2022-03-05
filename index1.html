@@ -10,23 +10,19 @@
 
 <div id="mainMenu">    
     <nav>
-
     <ul>
         <li v-for = "(item, index) in menuItems"
             @mouseover = "selectSubMenu(index)"
             @mouseout = "unselectSubMenu(index)"
         >{{item.item}}
-
-            <ul v-if = "item.flag">
-                <li  v-for="itemSubMenu in item.subMenu">{{ itemSubMenu }}</li>
-            </ul>
-
+        <sub-menu
+            v-if = "item.flag"
+            v-bind:items="item.subMenu"
+        ></sub-menu>
         </li>
-
     </ul>
-
     </nav>
-</div> <!-- @mouseout="unselectSubMenu(index)"  -->
+</div>
 
 <script src = "vue.js"></script>
 <script src = "main.js"></script> 
