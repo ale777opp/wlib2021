@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menu configurator</title>
+</head>
+<body>
+
+<div id="mainMenu">    
+    <nav>
+
+    <ul>
+        <li  v-for = "(item, index) in menuItems"
+            v-on:mouseover="selectSubMenu(index)" 
+        >{{item.item}}
+        <ul>
+            <li v-for="subMenuItem in submenu">{{ subMenuItem }}</li>
+        </ul>
+        </li><!-- v-on:mouseout="selectSubMenu(index)" -->
+    </ul>
+
+
+
+
+<!--    
+    <ul>
+        <li v-if = "flag1" v-for = "item in subMenu1">{{item.text}}</li>
+    </ul> 
+    <ul>
+        <li v-if = "flag2" v-for = "item in subMenu2">{{item.text}}</li>
+    </ul> 
+    <ul>
+        <li v-if = "flag3" v-for = "item in subMenu3">{{item.text}}</li>
+    </ul> 
+    <ul>
+        <li v-if = "flag4" v-for = "item in subMenu4">{{item.text}}</li>
+    </ul>
+-->
+    </nav>
+</div>
+
+<script src = "vue.js"></script>
+<script src = "main.js"></script> 
+
+</body>
+</html>
