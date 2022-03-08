@@ -5,12 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>menu configurator</title>
+<style>
+*{
+    list-style-type: none;
+}
+ul > li{
+    text-align: center;
+}
+
+/*#mainMenu{
+    width: 100wv;
+}
+*/
+.grid_container {
+    display: grid;
+    grid-gap: 2vw;
+    grid-template-rows:  30px 30px 30px; /* 3 строки */
+    grid-template-columns: 25% 25% 25% 25%; /* 4 столбца */
+    /*grid-template-columns: 200px minmax(100px, 1fr); */
+}
+</style>
 </head>
 <body>
 
 <div id="mainMenu">    
     <nav>
-    <ul>
+    <ul class = "grid_container">
         <li v-for = "(item, index) in menuItems"
             @mouseover = "selectSubMenu(index)"
             @mouseout = "unselectSubMenu(index)"
