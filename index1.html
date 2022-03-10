@@ -7,42 +7,98 @@
     <title>menu configurator</title>
 <style>
 *{
-    list-style-type: none;
-}
-ul > li{
-    text-align: center;
+    color: #595959;
 }
 
-/*#mainMenu{
-    width: 100wv;
+.activ {
+    background-color: #FBE4D4;
+    font-weight: bold;
 }
-*/
-.grid_container {
+
+.grid_container{
+    text-align: center;
     display: grid;
-    grid-gap: 2vw;
-    grid-template-rows:  30px 30px 30px; /* 3 строки */
-    grid-template-columns: 25% 25% 25% 25%; /* 4 столбца */
-    /*grid-template-columns: 200px minmax(100px, 1fr); */
+    grid-gap: 10px;
+    grid-template-rows:  repeat(3, 50px); /* 3 строки */
+    grid-template-columns: repeat(4, 400px); /* 4 столбца */
+    grid-template-areas: "post-1 post-2 post-3 post-4"  
+                        "post-5 post-6 post-7 post-8"  
+                        "post-9 post-10 post-11 post-12"; 
 }
+.post1 {
+    grid-area: post-1;   
+}
+.post2 {
+    grid-area: post-2;
+}
+.post3 {
+    grid-area: post-3;
+}
+.post4 {
+    grid-area: post-4;
+}
+.post10 {
+    grid-area: post-5;
+}
+.post11 {
+    grid-area: post-6;   
+}
+.post12 {
+    grid-area: post-7;
+}
+.post13 {
+    grid-area: post-8;
+}
+.post14 {
+    grid-area: post-9;
+}
+.post15 {
+    grid-area: post-10;
+}
+.post16 {
+    grid-area: post-11;   
+}
+.post17 {
+    grid-area: post-12;
+}
+
+div[class^= "post"] {
+    border: 4px solid gray;
+    font-weight: bold;
+}
+
+
+
+
 </style>
 </head>
 <body>
 
-<div id="mainMenu">    
-    <nav>
-    <ul class = "grid_container">
-        <li v-for = "(item, index) in menuItems"
-            @mouseover = "selectSubMenu(index)"
+<nav >
+
+<div id="mainMenu" class = "grid_container">    
+
+   <div v-for = "(item, index) in menuItems"
+        @mouseover = "selectSubMenu(index)"
+
+        :class = "mainMenuClass(index)"
+
+    >{{item.title}}
+    </div>
+    <!-- :class = "{activ: item.flag}"
             @mouseout = "unselectSubMenu(index)"
-        >{{item.item}}
-        <sub-menu
-            v-if = "item.flag"
-            v-bind:items="item.subMenu"
-        ></sub-menu>
-        </li>
-    </ul>
-    </nav>
+    -->
+    <template v-for = "(item, index) in menuItems"
+              v-if = "item.flag">
+        <div v-for = "(it, ind) in item.subMenu"
+             :class = "subMenuClass(ind)"
+        >{{it}}
+        </div>
+    </template>
+
 </div>
+
+</nav>
 
 <script src = "vue.js"></script>
 <script src = "main.js"></script> 
