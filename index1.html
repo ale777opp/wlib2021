@@ -8,66 +8,73 @@
 <style>
 *{
     color: #595959;
-}
-
-.activ {
-    background-color: #FBE4D4;
-    font-weight: bold;
+    font-size: 16pt;
 }
 
 .grid_container{
     text-align: center;
     display: grid;
-    grid-gap: 10px;
+    grid-gap: 2px;
     grid-template-rows:  repeat(3, 50px); /* 3 строки */
     grid-template-columns: repeat(4, 400px); /* 4 столбца */
-    grid-template-areas: "post-1 post-2 post-3 post-4"  
-                        "post-5 post-6 post-7 post-8"  
-                        "post-9 post-10 post-11 post-12"; 
+    grid-template-areas: "main-1 main-2 main-3 main-4"  
+                        "subMenu-5 subMenu-6 subMenu-7 subMenu-8"  
+                        "subMenu-9 subMenu-10 subMenu-11 subMenu-12"; 
 }
-.post1 {
-    grid-area: post-1;   
+.main1 {
+    grid-area: main-1; 
+    background-color: white;  
 }
-.post2 {
-    grid-area: post-2;
+.main2 {
+    grid-area: main-2;
+    background-color: white;
 }
-.post3 {
-    grid-area: post-3;
+.main3 {
+    grid-area: main-3;
+    background-color: white;
 }
-.post4 {
-    grid-area: post-4;
+.main4 {
+    grid-area: main-4;
+    background-color: white;
 }
-.post10 {
-    grid-area: post-5;
+.subMenu10 {
+    grid-area: subMenu-5;
 }
-.post11 {
-    grid-area: post-6;   
+.subMenu11 {
+    grid-area: subMenu-6;   
 }
-.post12 {
-    grid-area: post-7;
+.subMenu12 {
+    grid-area: subMenu-7;
 }
-.post13 {
-    grid-area: post-8;
+.subMenu13 {
+    grid-area: subMenu-8;
 }
-.post14 {
-    grid-area: post-9;
+.subMenu14 {
+    grid-area: subMenu-9;
 }
-.post15 {
-    grid-area: post-10;
+.subMenu15 {
+    grid-area: subMenu-10;
 }
-.post16 {
-    grid-area: post-11;   
+.subMenu16 {
+    grid-area: subMenu-11;   
 }
-.post17 {
-    grid-area: post-12;
+.subMenu17 {
+    grid-area: subMenu-12; /* 568235 */
 }
 
-div[class^= "post"] {
-    border: 4px solid gray;
+div[class^= "main"] {
+    /*border: 2px solid gray; */
+    background-color: white;
+}
+
+div[class^= "subMenu"] {
+   background-color: #F2F2F2;
+}
+
+.active {
+    background-color: #FBE4D4;
     font-weight: bold;
 }
-
-
 
 
 </style>
@@ -80,14 +87,10 @@ div[class^= "post"] {
 
    <div v-for = "(item, index) in menuItems"
         @mouseover = "selectSubMenu(index)"
-
-        :class = "mainMenuClass(index)"
-
+        :class = "[{active: item.flag}, mainMenuClass(index)]"
     >{{item.title}}
     </div>
-    <!-- :class = "{activ: item.flag}"
-            @mouseout = "unselectSubMenu(index)"
-    -->
+
     <template v-for = "(item, index) in menuItems"
               v-if = "item.flag">
         <div v-for = "(it, ind) in item.subMenu"

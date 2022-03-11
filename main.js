@@ -39,45 +39,30 @@ var menu = new Vue({
 		id: 4,	
 		title : 'Спроси библиографа',
 		flag: false,
-		subMenu: ['Отзывы и предложения','Тематические запросы','Вне категорий','Наличие изданий','Вопросы о работе РГБИ','Задать вопрос']
+		subMenu: [' ','Тематические запросы','Наличие изданий','Задать вопрос','Отзывы и предложения','Вне категорий','Вопросы о работе РГБИ','  ']
     },
 
     ]
-    },	
+  },	
 
-    methods: {
+  methods: {
     selectSubMenu: function (index) {
-    this.activeItem = this.activeItem + 0;
-    if (this.activeItem =! index) {
-    	console.log(typeof(this.activeItem));
-    	console.log(typeof(index));
-    	console.log(this.menuItems[this.activeItem]);
-    	console.log(this.menuItems[index]);
-    }
-    //	this.menuItems[index].flag = true;
-    //	this.activeItem = index;
-    //console.log(this.menuItems.flag.includes(false)); //event.target.innerHTML
-    //	console.log(this.activeItem =! index);
-    //.find(item => item.flag == true)
-    },
-    unselectSubMenu: function (index) {
-      	this.menuItems[index].flag = false;
-      	this.activeItem = index;
-    	console.log(this.menuItems[index].title);
-    	console.log(this.activeItem);
-    	//console.log(this.menuItems.findIndex(item => item.flag == true))
-    	//if (this.menuItems.findIndex(item => item.flag == true) == -1) this.menuItems[index].flag = true;
-    },
+    if (this.activeItem === index) {
 
-  	mainMenuClass(index) {
+    } else { 
+    	this.menuItems[this.activeItem].flag = false;
+    	this.menuItems[index].flag = true;
+    	this.activeItem = index;
+    }
+    },
+   	mainMenuClass(index) {
   		//console.log(index);
-     	return "post" + this.menuItems[index].id;
+     	return "main" + this.menuItems[index].id;
     },
     subMenuClass(index) {
     	//console.log(index);
-    	return "post" + 1 + index;
+    	return "subMenu" + 1 + index;
     }
+  }
 
-
-    }	
 });
