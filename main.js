@@ -1,14 +1,3 @@
-Vue.component('sub-menu', {
-props: {
-	items: Array,
-	required: true
-},
-template:
-`
-<span {{ item }}</span>
-`
-})
-
 var menu = new Vue({
 	el: '#mainMenu',
 	data: {
