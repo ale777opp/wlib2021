@@ -315,12 +315,11 @@ if($bodyclass!="") echo 'class="'.$bodyclass.'"';
 <!-- далее не редактировать -->
 <div class="tab_to_switch_search"><span class="opac" onmousedown="switchTypeSearch(this)">Поиск в электронных каталогах</span><span class="discovery" onmousedown="switchTypeSearch(this)">Поиск во внешних источниках</span></div>
 <!-- из файла ../tpl/basestop.html -->
-	<div class="searchdiv" id="searchdiv">
-		<div class="bases_div" id="bases_div">
-			<div class="cross" id="menu_button_base" onmousedown="showHideM('bases_div_inner', 'menu_button_base')"><span></span><span></span><span></span></div><div class="s_base" onmousedown="showHideM('bases_div_inner')">Выбрать БД</div>
-			<div id="bases_div_inner" class="block">
-
-
+<div class="searchdiv" id="searchdiv">
+    <div class="bases_div" id="bases_div">
+        <div class="cross" id="menu_button_base" onmousedown="showHideM('bases_div_inner', 'menu_button_base')"><span></span><span></span><span></span></div>
+        <div class="s_base" onmousedown="showHideM('bases_div_inner')">Выбрать БД</div>
+        <div id="bases_div_inner" class="block">
 <!-- конец из файла ../tpl/basestop.html -->
 		<?php 
 		if(isset($qjson))
@@ -450,7 +449,7 @@ if($bodyclass!="") echo 'class="'.$bodyclass.'"';
 			</div>
 <!-- конец далее не редактировать -->
 <!-- из файла ../tpl/headerbottom.html -->
-			<div class="bottom"></div>
+			<div class="bottom spacer h15x"></div>
 <!-- меню 
 <!-- О библиотеке Читателям Коллегам Спроси библиографа №№ История Адрес и время работы 3D панорамы Галерея Противодействие коррупции Структура библиотеки, контакты  Реквизиты библиоттеки Официальные документы Попечительский совет
 №№ Запись читателей  Услуги, правила пользования Фонды, ресурсы, каталоги Доступная среда Мероприятия и экскурсии Клубы и объединения Учёба в РГБИ Творческое развитие
@@ -561,6 +560,12 @@ if($bodyclass!="") echo 'class="'.$bodyclass.'"';
         grid-template-areas: "main-1 main-2 main-3 main-4" "subMenu-5 subMenu-6 subMenu-7 subMenu-8" "subMenu-9 subMenu-10 subMenu-11 subMenu-12";
     }
     
+    .grid_container {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
     .main1 {
         grid-area: main-1;
         background-color: white;
@@ -647,7 +652,6 @@ if($bodyclass!="") echo 'class="'.$bodyclass.'"';
 
 </nav>
 
-<script src="vue.js"></script>
 <script>
     var menu = new Vue({
         el: '#mainMenu',

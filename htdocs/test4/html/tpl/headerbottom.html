@@ -1,4 +1,4 @@
-<div class="bottom"></div>
+<div class="bottom spacer h15x"></div>
 <!-- меню 
 <!-- О библиотеке Читателям Коллегам Спроси библиографа №№ История Адрес и время работы 3D панорамы Галерея Противодействие коррупции Структура библиотеки, контакты  Реквизиты библиоттеки Официальные документы Попечительский совет
 №№ Запись читателей  Услуги, правила пользования Фонды, ресурсы, каталоги Доступная среда Мероприятия и экскурсии Клубы и объединения Учёба в РГБИ Творческое развитие
@@ -109,6 +109,12 @@
         grid-template-areas: "main-1 main-2 main-3 main-4" "subMenu-5 subMenu-6 subMenu-7 subMenu-8" "subMenu-9 subMenu-10 subMenu-11 subMenu-12";
     }
     
+    .grid_container {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
     .main1 {
         grid-area: main-1;
         background-color: white;
@@ -195,7 +201,6 @@
 
 </nav>
 
-<script src="vue.js"></script>
 <script>
     var menu = new Vue({
         el: '#mainMenu',

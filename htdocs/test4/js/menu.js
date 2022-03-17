@@ -1,4 +1,3 @@
-const log = console.log;
 const createEl = (id, text, tag, _class) => {
     const el = document.createElement(tag)
     if (id != false) { el.id = id; }
@@ -12,7 +11,6 @@ function idMenu(event) {
     return cl;
 }
 
-/*
 let element = {};
 element.get_link = function(text) {
     var htmlObject = document.createElement('div');
@@ -25,7 +23,7 @@ element.get_link = function(text) {
         return '#';
     }
 }
-*/
+
 let address = () => {
     if ($("#infoWindow").length) { $("#infoWindow").remove(); }
     $('<div/>', { "class": "address", "id": "infoWindow", "html": info[1].content }).appendTo('#infoContent');
