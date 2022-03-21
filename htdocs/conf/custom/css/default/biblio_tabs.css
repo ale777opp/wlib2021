@@ -1,12 +1,18 @@
 /*библиопоиск*/
 .tab_to_switch_search
 {
+	/*21.03.2022
 	background: #fff;
-	/*padding: 5px 0 0 0;*/
+	padding: 5px 0 0 0;
 	margin: -10px 0 10px 0;
 	box-shadow: 0 10px 10px -10px #eee;
-	/*border-bottom: solid 1px #ddd;*/
-	overflow:hidden;
+	/*border-bottom: solid 1px #ddd;
+	overflow:hidden; */
+	position: absolute; 
+	z-index: 1000; 
+	top: 214px; 
+	left: 66px; 
+	width: 635px; 
 }
 .tab_to_switch_search span
 {
@@ -14,11 +20,12 @@
     padding: 0 2% 0 2%;
     min-width: 300px;
 	font-weight:bold;
-    font-size: 10pt;
+    font-size: 11pt;
 	line-height:24pt;
 	height:34px;
 	cursor:pointer;
 }
+/* 21.03.2022
 .tab_to_switch_search span:after
 {
   content:'';
@@ -30,12 +37,12 @@
   border-style: solid;
   border-width: 18px 23px 17px 23px;
   cursor:pointer;
-}
+}*/
 .tab_to_switch_search span:nth-child(1)
 {
     margin: 0 0 0 5%;
 }
-.tab_to_switch_search span.opac, .body_opac .tab_to_switch_search span.opac, .body_discovery .tab_to_switch_search span.discovery
+.body_opac .tab_to_switch_search span.opac, .body_discovery .tab_to_switch_search span.discovery
 {
     background: #eee;
 	z-index:2;
@@ -43,11 +50,16 @@
 	bottom:-1px;
 	color:#333;
 }
-.tab_to_switch_search span.opac:after, .body_opac .tab_to_switch_search span.opac:after, .body_discovery .tab_to_switch_search span.discovery:after
+.tab_to_switch_search span.opac {  /* 21.03.2022   */
+	z-index:2;
+	bottom:-1px;
+	color:#333;
+}
+.body_opac .tab_to_switch_search span.opac:after, .body_discovery .tab_to_switch_search span.discovery:after /*.tab_to_switch_search span.opac:after, 21.03.2022 */
 {
 	border-color: transparent transparent #eee #eee;
 }
-.tab_to_switch_search span.discovery, .body_discovery .tab_to_switch_search span.opac
+.body_discovery .tab_to_switch_search span.opac /*.tab_to_switch_search span.discovery,  21.03.2022 */
 {
     background: #900;
 	color:#f0f0f0;

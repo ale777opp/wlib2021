@@ -309,7 +309,10 @@ if($bodyclass!="") echo 'class="'.$bodyclass.'"';
 				</li>
 <!-- конец из файла ../tpl/blind_button.html -->
 <!-- из файла ../tpl/headermiddle1.html -->
-</ul></div></div></div>
+</ul>
+</div>
+</div>
+</div>
 <!-- конец из файла ../tpl/headermiddle1.html -->
 <!-- конец шапка -->
 <!-- далее не редактировать -->
@@ -451,9 +454,10 @@ if($bodyclass!="") echo 'class="'.$bodyclass.'"';
 <!-- из файла ../tpl/headerbottom.html -->
 			<div class="bottom spacer h15x"></div>
 <!-- меню 
-<!-- О библиотеке Читателям Коллегам Спроси библиографа №№ История Адрес и время работы 3D панорамы Галерея Противодействие коррупции Структура библиотеки, контакты  Реквизиты библиоттеки Официальные документы Попечительский совет
+О библиотеке Читателям Коллегам Спроси библиографа 
+№№ История Адрес и время работы 3D панорамы Галерея Противодействие коррупции Структура библиотеки, контакты  Реквизиты библиоттеки Официальные документы Попечительский совет
 №№ Запись читателей  Услуги, правила пользования Фонды, ресурсы, каталоги Доступная среда Мероприятия и экскурсии Клубы и объединения Учёба в РГБИ Творческое развитие
-№№  Конференции, семинары Методические документы Проекты библиотеки  Издания РГБИ Библиотека благодарит Творческие конкурсы Вакансии  Секция библиотек по искуству и музейных библиотек РБА
+№№ Конференции, семинары Методические документы Проекты библиотеки  Издания РГБИ Библиотека благодарит Творческие конкурсы Вакансии  Секция библиотек по искуству и музейных библиотек РБА
 №№ Отзывы и предложения Тематические запросы Вне категорий Наличие изданий Вопросы о работе РГБИ Задать вопрос
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -468,21 +472,7 @@ if($bodyclass!="") echo 'class="'.$bodyclass.'"';
                     <li><span id="news" class="nav-link dropdown-toggle" onmousedown="goToLocation('news')">НОВОСТИ</span></li>
                     
                     <a class="nav-link dropdown-toggle" href="#" onmousedown="goToLocation('news')" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">НОВОСТИ</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a href="/ru/pages/Archive_news/">Архив новостей</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2014/">2014</a></li>
-                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2013/">2013</a></li>
-                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2012/">2012</a></li>
-                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2011/">2011</a></li>
-                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2010/">2010</a></li>
-                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2009/">2009</a></li>
-                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2008/">2008</a></li>
-                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2007/">2007</a></li>
-                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2006/">2006</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                    
                 </li>
 
                 <li class="nav-item dropdown">
@@ -545,12 +535,23 @@ if($bodyclass!="") echo 'class="'.$bodyclass.'"';
 -->
 <style>
     * {
-        color: #595959;
-        font-size: 16pt;
+        font-size: 14pt;
     }
     
     .grid_container {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .grid_container>div {
+        color: #595959;
+        font-size: 16pt;
+        line-height: 40pt;
         text-align: center;
+    }
+    
+    .grid_container {
         display: grid;
         grid-gap: 2px;
         grid-template-rows: repeat(3, 50px);
@@ -560,30 +561,20 @@ if($bodyclass!="") echo 'class="'.$bodyclass.'"';
         grid-template-areas: "main-1 main-2 main-3 main-4" "subMenu-5 subMenu-6 subMenu-7 subMenu-8" "subMenu-9 subMenu-10 subMenu-11 subMenu-12";
     }
     
-    .grid_container {
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
     .main1 {
         grid-area: main-1;
-        background-color: white;
     }
     
     .main2 {
         grid-area: main-2;
-        background-color: white;
     }
     
     .main3 {
         grid-area: main-3;
-        background-color: white;
     }
     
     .main4 {
         grid-area: main-4;
-        background-color: white;
     }
     
     .subMenu10 {
@@ -644,7 +635,7 @@ if($bodyclass!="") echo 'class="'.$bodyclass.'"';
         <template v-for="(item, index) in menuItems" v-if="item.flag">
         <div v-for = "(it, ind) in item.subMenu"
              :class = "subMenuClass(ind)"
-        >{{it}}
+        ><a class="dropdown-item" href="/ru/pages/fonds/main/">{{it}}</a>
         </div>
     </template>
 
