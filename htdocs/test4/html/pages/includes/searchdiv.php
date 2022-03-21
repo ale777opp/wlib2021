@@ -453,178 +453,6 @@ if($bodyclass!="") echo 'class="'.$bodyclass.'"';
 <!-- конец далее не редактировать -->
 <!-- из файла ../tpl/headerbottom.html -->
 			<div class="bottom spacer h15x"></div>
-<!-- меню 
-О библиотеке Читателям Коллегам Спроси библиографа 
-№№ История Адрес и время работы 3D панорамы Галерея Противодействие коррупции Структура библиотеки, контакты  Реквизиты библиоттеки Официальные документы Попечительский совет
-№№ Запись читателей  Услуги, правила пользования Фонды, ресурсы, каталоги Доступная среда Мероприятия и экскурсии Клубы и объединения Учёба в РГБИ Творческое развитие
-№№ Конференции, семинары Методические документы Проекты библиотеки  Издания РГБИ Библиотека благодарит Творческие конкурсы Вакансии  Секция библиотек по искуству и музейных библиотек РБА
-№№ Отзывы и предложения Тематические запросы Вне категорий Наличие изданий Вопросы о работе РГБИ Задать вопрос
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item dropdown">
-                    <!--
-                    <li><span id="news" class="nav-link dropdown-toggle" onmousedown="goToLocation('news')">НОВОСТИ</span></li>
-                    
-                    <a class="nav-link dropdown-toggle" href="#" onmousedown="goToLocation('news')" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">НОВОСТИ</a>
-                    
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" onmousedown="goToLocation('about')" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">О БИБЛИОТЕКЕ</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" onclick="address()">Адрес и время работы РГБИ</a></li>
-                        <li><a class="dropdown-item" onclick="readers()">Запись читателей</a></li>
-                        <li><a class="dropdown-item" onclick="about()">Общая информация</a></li>
-                        <li><a class="dropdown-item" onclick="history()">Из истории РГБИ</a></li>
-                        <li><a class="dropdown-item" onclick="structure()">Структура библиотеки</a></li>
-                        <li><a class="dropdown-item" onclick="requisites()">Реквизиты библиотеки</a></li>
-                        <li><a class="dropdown-item" href="http://liart.ru/ru/pages/index/normdocs/">Нормативные документы</a></li>
-                        <li><a class="dropdown-item" href="http://liart.ru/ru/pages/index/korrupt/">Противодействие коррупции</a></li>
-                        <li><a class="dropdown-item" href="/ru/pages/3d/">3D панорамы библиотеки</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/ru/pages/service/">УСЛУГИ</a>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="/ru/pages/fonds/" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">ФОНДЫ</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/ru/pages/fonds/main/">Основной фонд</a></li>
-                        <li><a class="dropdown-item" href="/ru/pages/fonds/cio">Справочно-информационный фонд</a></li>
-                        <li><a class="dropdown-item" href="/ru/pages/fonds/izofond">Фонд изобразительных материалов</a></li>
-                        <li><a class="dropdown-item" href="/ru/pages/fonds/abfond">Фонд отдела Абонемента</a></li>
-                        <li><a class="dropdown-item" href="/ru/pages/fonds/gvtp">Фонд газетных вырезок и театральных программ</a></li>
-                        <li><a class="dropdown-item" href="/ru/pages/fonds/video">Видеофонд</a></li>
-                        <li><a class="dropdown-item" href="/ru/pages/fonds/mffond">Фонд изданий на микрофишах</a></li>
-                        <li><a class="dropdown-item" href="http://liart.ru/ru/pages/fonds/arhiv/">Архивный фонд </a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="/ru/pages/catalogs/" id="navbarDropdown4" role="button" data-bs-toggle="dropdown" aria-expanded="false">КАТАЛОГИ</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="http://opac.liart.ru/opacg/nog.htm" target="_blank">Электронный каталог</a></li>
-                        <li><a class="dropdown-item" href="http://liart.ru/predm/i2.htm" target="_blank">Предметный каталог</a></li>
-                        <li><a class="dropdown-item" href="/ru/pages/catalogs/Kartochnye_katalogi/">Карточные каталоги</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="/ru/pages/eresorses/" id="navbarDropdown5" role="button" data-bs-toggle="dropdown" aria-expanded="false">ЭЛЕКТРОННЫЕ РЕСУРСЫ</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/ru/pages/eresorses/bd">Базы данных</a></li>
-                        <li><a class="dropdown-item" href="http://opac.liart.ru/opacg/nog.htm" target="_blank">Электронный каталог</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/ru/pages/contacts/">КОНТАКТЫ</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
--->
-<style>
-    * {
-        font-size: 14pt;
-    }
-    
-    .grid_container {
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .grid_container>div {
-        color: #595959;
-        font-size: 16pt;
-        line-height: 40pt;
-        text-align: center;
-    }
-    
-    .grid_container {
-        display: grid;
-        grid-gap: 2px;
-        grid-template-rows: repeat(3, 50px);
-        /* 3 строки */
-        grid-template-columns: repeat(4, 1fr);
-        /* 4 столбца */
-        grid-template-areas: "main-1 main-2 main-3 main-4" "subMenu-5 subMenu-6 subMenu-7 subMenu-8" "subMenu-9 subMenu-10 subMenu-11 subMenu-12";
-    }
-    
-    .main1 {
-        grid-area: main-1;
-    }
-    
-    .main2 {
-        grid-area: main-2;
-    }
-    
-    .main3 {
-        grid-area: main-3;
-    }
-    
-    .main4 {
-        grid-area: main-4;
-    }
-    
-    .subMenu10 {
-        grid-area: subMenu-5;
-    }
-    
-    .subMenu11 {
-        grid-area: subMenu-6;
-    }
-    
-    .subMenu12 {
-        grid-area: subMenu-7;
-    }
-    
-    .subMenu13 {
-        grid-area: subMenu-8;
-    }
-    
-    .subMenu14 {
-        grid-area: subMenu-9;
-    }
-    
-    .subMenu15 {
-        grid-area: subMenu-10;
-    }
-    
-    .subMenu16 {
-        grid-area: subMenu-11;
-    }
-    
-    .subMenu17 {
-        grid-area: subMenu-12;
-        /* 568235 */
-    }
-    
-    div[class^="main"] {
-        /*border: 2px solid gray; */
-        background-color: white;
-    }
-    
-    div[class^="subMenu"] {
-        background-color: #F2F2F2;
-    }
-    
-    .active {
-        background-color: #FBE4D4;
-        font-weight: bold;
-    }
-</style>
-
 <nav>
 
     <div id="mainMenu" class="grid_container">
@@ -635,9 +463,9 @@ if($bodyclass!="") echo 'class="'.$bodyclass.'"';
         <template v-for="(item, index) in menuItems" v-if="item.flag">
         <div v-for = "(it, ind) in item.subMenu"
              :class = "subMenuClass(ind)"
-        ><a class="dropdown-item" href="/ru/pages/fonds/main/">{{it}}</a>
+        ><a class="item" :href="`${item.hrefItem[ind]}`">{{it}}</a>
         </div>
-    </template>
+        </template>
 
     </div>
 
@@ -652,30 +480,31 @@ if($bodyclass!="") echo 'class="'.$bodyclass.'"';
                     id: 1,
                     title: 'О библиотеке',
                     flag: true,
-                    subMenu: ['История', 'Адрес и время работы', '3D панорамы Галерея', 'Противодействие коррупции', 'Структура библиотеки, контакты', 'Реквизиты библиотеки', 'Официальные документы', 'Попечительский совет']
-                },
-
-                {
+                    subMenu: ['История', 'Адрес и время работы', '3D панорамы Галерея', 'Противодействие коррупции', 'Структура библиотеки, контакты', 'Реквизиты библиотеки', 'Официальные документы', 'Попечительский совет'],
+                    hrefItem: ['history()', 'address()', '/ru/pages/3d/', 'http://liart.ru/ru/pages/index/korrupt/', 'structure()', 'requisites()', 'http://liart.ru/ru/pages/index/normdocs/', 'about()']
+                }, {
                     id: 2,
                     title: 'Читателям',
                     flag: false,
-                    subMenu: ['Запись читателей', 'Услуги, правила пользования', 'Фонды, ресурсы, каталоги', 'Доступная среда', 'Мероприятия и экскурсии', 'Клубы и объединения', 'Учёба в РГБИ', 'Творческое развитие']
+                    subMenu: ['Запись читателей', 'Услуги, правила пользования', 'Фонды, ресурсы, каталоги', 'Доступная среда', 'Мероприятия и экскурсии', 'Клубы и объединения', 'Учёба в РГБИ', 'Творческое развитие'],
+                    hrefItem: ['readers()', '/ru/pages/service/', '/ru/pages/fonds/main/', '', '', '', '', '/ru/pages/contacts/']
                 },
 
                 {
                     id: 3,
                     title: 'Коллегам',
                     flag: false,
-                    subMenu: ['Конференции, семинары', 'Методические документы', 'Проекты библиотеки', 'Издания РГБИ', 'Библиотека благодарит', 'Творческие конкурсы', 'Вакансии', 'Секция библиотек по искуству и музейных библиотек РБА']
+                    subMenu: ['Конференции, семинары', 'Методические документы', 'Проекты библиотеки', 'Издания РГБИ', 'Библиотека благодарит', 'Творческие конкурсы', 'Вакансии', 'Секция библиотек по искуству и музейных библиотек РБА'],
+                    hrefItem: ['', '', '', '', '', '', '', '']
                 },
 
                 {
                     id: 4,
                     title: 'Спроси библиографа',
                     flag: false,
-                    subMenu: [' ', 'Тематические запросы', 'Наличие изданий', 'Задать вопрос', 'Отзывы и предложения', 'Вне категорий', 'Вопросы о работе РГБИ', '  ']
-                },
-
+                    subMenu: [' ', 'Тематические запросы', 'Наличие изданий', 'Задать вопрос', 'Отзывы и предложения', 'Вне категорий', 'Вопросы о работе РГБИ', '  '],
+                    hrefItem: ['', '', '', '', '', '', '', '']
+                }
             ]
         },
 
