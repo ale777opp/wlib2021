@@ -4,103 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="main.css">
     <title>menu configurator</title>
-<style>
-*{
-    color: #595959;
-    font-size: 16pt;
-}
-
-.grid_container{
-    text-align: center;
-    display: grid;
-    grid-gap: 2px;
-    grid-template-rows:  repeat(3, 50px); /* 3 строки */
-    grid-template-columns: repeat(4, 1fr); /* 4 столбца */
-    grid-template-areas: "main-1 main-2 main-3 main-4"  
-                        "subMenu-5 subMenu-6 subMenu-7 subMenu-8"  
-                        "subMenu-9 subMenu-10 subMenu-11 subMenu-12"; 
-}
-.main1 {
-    grid-area: main-1; 
-    background-color: white;  
-}
-.main2 {
-    grid-area: main-2;
-    background-color: white;
-}
-.main3 {
-    grid-area: main-3;
-    background-color: white;
-}
-.main4 {
-    grid-area: main-4;
-    background-color: white;
-}
-.subMenu10 {
-    grid-area: subMenu-5;
-}
-.subMenu11 {
-    grid-area: subMenu-6;   
-}
-.subMenu12 {
-    grid-area: subMenu-7;
-}
-.subMenu13 {
-    grid-area: subMenu-8;
-}
-.subMenu14 {
-    grid-area: subMenu-9;
-}
-.subMenu15 {
-    grid-area: subMenu-10;
-}
-.subMenu16 {
-    grid-area: subMenu-11;   
-}
-.subMenu17 {
-    grid-area: subMenu-12; /* 568235 */
-}
-
-div[class^= "main"] {
-    /*border: 2px solid gray; */
-    background-color: white;
-}
-
-div[class^= "subMenu"] {
-   background-color: #F2F2F2;
-}
-
-.active {
-    background-color: #FBE4D4;
-    font-weight: bold;
-}
-
-
-</style>
 </head>
 <body>
 
 <nav >
+    <div id="mainMenu" class="grid_container">
 
-<div id="mainMenu" class = "grid_container">    
+        <div v-for="(item, index) in menuItems" @mouseover="selectSubMenu(index)" :class="[{active: item.flag}, mainMenuClass(index)]">{{item.title}}
+        </div>
 
-   <div v-for = "(item, index) in menuItems"
-        @mouseover = "selectSubMenu(index)"
-        :class = "[{active: item.flag}, mainMenuClass(index)]"
-    >{{item.title}}
-    </div>
-
-    <template v-for = "(item, index) in menuItems"
-              v-if = "item.flag">
+        <template v-for="(item, index) in menuItems" v-if="item.flag">
         <div v-for = "(it, ind) in item.subMenu"
              :class = "subMenuClass(ind)"
-        >{{it}}
+        ><a class="item" :href="`${item.hrefItem[ind]}`">{{it}}</a>
         </div>
-    </template>
+        </template>
 
-</div>
-
+    </div>
 </nav>
 
 <script src = "vue.js"></script>
