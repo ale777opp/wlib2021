@@ -1,3 +1,17 @@
+/*
+Vue.component('sub-menu',{
+props:{
+    option: Array
+},
+template: `<menu-items
+           :item = item
+           :index = index 
+           ></menu-items>`
+})
+
+})
+*/
+
 var menu = new Vue({
     el: '#mainMenu',
     data: {
@@ -17,50 +31,63 @@ var menu = new Vue({
                 {name: 'Попечительский совет', ref:  'about()'}
                 ]
                 },
-                {
-                    id: 2,
-                    title: 'Читателям',
-                    flag: false,
-                    subMenu: ['Запись читателей', 'Услуги, правила пользования', 'Фонды, ресурсы, каталоги', 'Доступная среда', 'Мероприятия и экскурсии', 'Клубы и объединения', 'Учёба в РГБИ', 'Творческое развитие'],
-                    hrefItem: ['readers()', '/ru/pages/service/', '/ru/pages/fonds/main/', '', '', '', '', '/ru/pages/contacts/']
-                },
-
-                {
-                    id: 3,
-                    title: 'Коллегам',
-                    flag: false,
-                    subMenu: ['Конференции, семинары', 'Методические документы', 'Проекты библиотеки', 'Издания РГБИ', 'Библиотека благодарит', 'Творческие конкурсы', 'Вакансии', 'Секция библиотек по искуству и музейных библиотек РБА'],
-                    hrefItem: ['', '', '', '', '', '', '', '']
-                },
-
-                {
-                    id: 4,
-                    title: 'Спроси библиографа',
-                    flag: false,
-                    subMenu: [' ', 'Тематические запросы', 'Наличие изданий', 'Задать вопрос', 'Отзывы и предложения', 'Вне категорий', 'Вопросы о работе РГБИ', '  '],
-                    hrefItem: ['', '', '', '', '', '', '', '']
-                }
+            {
+            id: 2,
+            title: 'Читателям',
+            flag: false,
+            subMenu: [
+                {name: 'Запись читателей', ref: 'readers()'},
+                {name: 'Услуги, правила пользования', ref: '/ru/pages/service/'}, 
+                {name: 'Фонды, ресурсы, каталоги', ref: '/ru/pages/fonds/main/'},
+                {name: 'Доступная среда', ref: ''},
+                {name: 'Мероприятия и экскурсии', ref: ''},
+                {name: 'Клубы и объединения', ref: ''},
+                {name: 'Учёба в РГБИ', ref: ''},
+                {name: 'Творческое развитие', ref: '/ru/pages/contacts/'}
+                ]
+            },
+            {
+            id: 3,
+            title: 'Коллегам',
+            flag: false,
+            subMenu: [
+                {name: 'Конференции, семинары', ref: ''},
+                {name: 'Методические документы', ref: ''},
+                {name: 'Проекты библиотеки', ref: ''},
+                {name: 'Издания РГБИ', ref: ''},
+                {name: 'Библиотека благодарит', ref: ''},
+                {name: 'Творческие конкурсы', ref: ''},
+                {name: 'Вакансии', ref: ''},
+                {name: 'Секция библиотек по искуству и музейных библиотек РБА', ref: ''}
+                ]
+            },
+            {
+            id: 4,
+            title: 'Спроси библиографа',
+            flag: false,
+            subMenu: [
+                {name: ' ', ref: ''},
+                {name: 'Тематические запросы', ref: ''},
+                {name: 'Наличие изданий', ref: ''},
+                {name: 'Задать вопрос', ref: ''},
+                {name: 'Отзывы и предложения', ref: ''},
+                {name: 'Вне категорий', ref: ''},
+                {name: 'Вопросы о работе РГБИ', ref: ''},
+                {name: '  ', ref: ''}
+                ]
+            }
             ]
         },
 
-        methods: {
-            selectSubMenu: function(index) {
-                if (this.activeItem === index) {
-
-                } else {
-                    this.menuItems[this.activeItem].flag = false;
-                    this.menuItems[index].flag = true;
-                    this.activeItem = index;
-                }
-            },
-            mainMenuClass(index) {
-                //console.log(index);
-                return "main" + this.menuItems[index].id;
-            },
-            subMenuClass(index) {
-                //console.log(index);
-                return "subMenu" + 1 + index;
+    methods: {
+        selectSubMenu: function(index) {
+            if (this.activeItem !== index) {
+                this.menuItems[this.activeItem].flag = false;
+                this.menuItems[index].flag = true;
+                this.activeItem = index;
             }
-        }
+        },
+ 
+    }
 
-    });
+});

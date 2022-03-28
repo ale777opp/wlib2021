@@ -10,25 +10,25 @@
 <body>
 
 <nav >
-    <div id="mainMenu" class="grid_container">
+    <div id = "mainMenu" class = "grid_container">
+
         <!-- mouseover click -->
-        <div v-for="(item, index) in menuItems"
-        @mouseover = "selectSubMenu(index)"
-        :class="[{active: item.flag}, mainMenuClass(index)]">{{item.title}}
-        </div>
-
         <template v-for="(item, index) in menuItems">
-
-        <menu-items :option = "item.subMenu"
-        ></menu-items>
-
-        </template>
+        <div @mouseover = "selectSubMenu(index)"
+        :class="[{active: item.flag}, `menu${index}`]">{{item.title}} 
+        </div>
+        <div v-for = "(it, ind) in item.subMenu"
+             :class = "'subMenu' + 1 + ind"
+             v-if="item.flag"
+        ><a class="item" :href="`${it.ref? it.ref : '#'}`">{{it.name}}</a>
+        </div>
+        </template>  
 
     </div>
 </nav>
-<!--  v-if="item.flag" -->
+<!--   mainMenuClass(index)  <template v-for = "(item, index) in menuItems"></template> -->
 <script src = "vue.js"></script>
-<script src = "main_new.js"></script>
+<script src = "main.js"></script>
 
 </body>
 </html>

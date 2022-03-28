@@ -40,19 +40,19 @@ div[class^="subMenu"] {
     grid-template-areas: "main-1 main-2 main-3 main-4" "subMenu-5 subMenu-6 subMenu-7 subMenu-8" "subMenu-9 subMenu-10 subMenu-11 subMenu-12";
 }
 
-.main1 {
+.main0 {
     grid-area: main-1;
 }
 
-.main2 {
+.main1 {
     grid-area: main-2;
 }
 
-.main3 {
+.main2 {
     grid-area: main-3;
 }
 
-.main4 {
+.main3 {
     grid-area: main-4;
 }
 
