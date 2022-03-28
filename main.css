@@ -8,11 +8,26 @@
     margin-right: auto;
 }
 
-.grid_container>div {
+.grid_container>div, .grid_container a {
     color: #595959;
     font-size: 16pt;
     line-height: 40pt;
     text-align: center;
+    text-decoration: none;
+}
+
+div[class^="main"] {
+    /*border: 2px solid gray; */
+    background-color: white;
+}
+
+div[class^="subMenu"] {
+    background-color: #F2F2F2;
+}
+
+.active {
+    background-color: #FBE4D4;
+    font-weight: bold;
 }
 
 .grid_container {
@@ -74,16 +89,4 @@
     /* 568235 */
 }
 
-div[class^="main"] {
-    /*border: 2px solid gray; */
-    background-color: white;
-}
 
-div[class^="subMenu"] {
-    background-color: #F2F2F2;
-}
-
-.active {
-    background-color: #FBE4D4;
-    font-weight: bold;
-}

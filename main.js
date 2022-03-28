@@ -1,14 +1,23 @@
 var menu = new Vue({
-        el: '#mainMenu',
-        data: {
-            activeItem: 0,
-            menuItems: [{
-                    id: 1,
-                    title: 'О библиотеке',
-                    flag: true,
-                    subMenu: ['История', 'Адрес и время работы', '3D панорамы Галерея', 'Противодействие коррупции', 'Структура библиотеки, контакты', 'Реквизиты библиотеки', 'Официальные документы', 'Попечительский совет'],
-                    hrefItem: ['history()', 'address()', '/ru/pages/3d/', 'http://liart.ru/ru/pages/index/korrupt/', 'structure()', 'requisites()', 'http://liart.ru/ru/pages/index/normdocs/', 'about()']
-                }, {
+    el: '#mainMenu',
+    data: {
+        activeItem: 0,
+        menuItems: [{
+            id: 1,
+            title: 'О библиотеке',
+            flag: true,
+            subMenu: [
+                {name:'История', ref: 'history()'},
+                {name:'Адрес и время работы', ref: 'address()'},
+                {name:'3D панорамы Галерея', ref: '/ru/pages/3d/'},
+                {name:'Противодействие коррупции', ref: 'http://liart.ru/ru/pages/index/korrupt/'},
+                {name:'Структура библиотеки, контакты', ref: 'structure()'},
+                {name:'Реквизиты библиотеки', ref: 'requisites()'},
+                {name:'Официальные документы', ref: 'http://liart.ru/ru/pages/index/normdocs/'},
+                {name: 'Попечительский совет', ref:  'about()'}
+                ]
+                },
+                {
                     id: 2,
                     title: 'Читателям',
                     flag: false,
