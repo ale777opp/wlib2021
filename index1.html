@@ -20,14 +20,24 @@
         <div v-for = "(it, ind) in item.subMenu"
              :class = "'subMenu' + 1 + ind"
              v-if="item.flag"
-        ><a class="item" :href="`${it.ref? it.ref : '#'}`">{{it.name}}</a>
+        ><span class="item"
+                @click = "patch(it.name)"    
+        >{{it.name}}</span>
+         
+<!--  <a class="item" :href="`${it.ref? it.ref : '#'}`">{{it.name}}</a> -->
         </div>
         </template>  
 
     </div>
 </nav>
-<!--   mainMenuClass(index)  <template v-for = "(item, index) in menuItems"></template> -->
+<div id="infoContent">
+<div id="infoWindow">
+    
+</div>
+</div>
+
 <script src = "vue.js"></script>
+<script src = "jquery.min.js"></script>
 <script src = "main.js"></script>
 
 </body>
