@@ -87,7 +87,116 @@ var menu = new Vue({
                 this.activeItem = index;
             }
         },
+        patch: function(name) {
+            console.log(name);
+            if ($("#infoWindow").length) { $("#infoWindow").remove(); }
+            $('<div/>', { "class": "patch", "id": "infoWindow", "html": '<span>Cтраница "' + name + '" в разработке</span>'}).appendTo('#infoContent');
+        },
  
     }
 
 });
+const log = console.log; 
+ const createEl = (id, text, tag, _class) => {
+    const el = document.createElement(tag)
+    if (id != false) { el.id = id; }
+    el.className = _class
+    el.innerHTML = text
+    return el
+}
+
+function idMenu(event) {
+    let cl = event.target.id;
+    return cl;
+}
+
+let element = {};
+element.get_link = function(text) {
+    var htmlObject = document.createElement('div');
+    htmlObject.innerHTML = text;
+    //проверка есть ли ссылка в публикации о новинке
+    if (htmlObject.innerHTML.indexOf("</a>") != -1) {
+        var link = htmlObject.getElementsByTagName('a');
+        return link[0].href;
+    } else {
+        return '#';
+    }
+}
+
+
+let readers = () => {
+    if ($("#infoWindow").length) { $("#infoWindow").remove(); }
+    $('<div/>', { "class": "readers", "id": "infoWindow", "html": info[2].content }).appendTo('#infoContent');
+};
+let about = () => {
+    if ($("#infoWindow").length) { $("#infoWindow").remove(); }
+    $('<div/>', { "class": "about", "id": "infoWindow", "html": info[3].content }).appendTo('#infoContent');
+};
+let history = () => {
+    if ($("#infoWindow").length) { $("#infoWindow").remove(); }
+    $('<div/>', { "class": "history", "id": "infoWindow", "html": info[4].content }).appendTo('#infoContent');
+};
+let structure = () => {
+    if ($("#infoWindow").length) { $("#infoWindow").remove(); }
+    $('<div/>', { "class": "structure", "id": "infoWindow", "html": info[5].content }).appendTo('#infoContent');
+};
+let requisites = () => {
+    if ($("#infoWindow").length) { $("#infoWindow").remove(); }
+    $('<div/>', { "class": "requisites", "id": "infoWindow", "html": info[6].content }).appendTo('#infoContent');
+};
+
+/*
+<html>
+
+<head>
+
+<title>Тест ява-скриптов</title>
+
+<META http-equiv=Content-Type content="text/html; charset=UTF-8"> // special for linux :)
+
+<script language="JavaScript">
+
+<!-- //
+
+var win1 // Объявляем переменную для нового окна.
+
+function W()
+
+{
+
+alert("Сейчас откроется новое окно."); // Предупреждаем пугливого пользователя.
+
+win1 = window.open("", "Scriptic", "resizable=1, width=300, height=150");
+
+// Присваиваем переменной win1 новое пустое окно размерами 300х150
+
+win1.document.open (); // Открываем его.
+
+win1.document.write("<html><head><title>Оппа</title><META http-equiv=Content-Type content='text/html; charset=UTF-8'>");
+
+win1.document.write(" </head> <body><div height=40, width=120 style='text-align: center;'>как-бы тест <br>");
+
+win1.document.write(" <label>Логин:<input type='text' name='login' id='login' tabindex='1'/></label>");
+
+win1.document.write(" <label>Пароль:<input type='text' name='password' id='password' tabindex='2' /></label>");
+
+win1.document.writeln(" <input value='Чисто для вида' type='button'></div></body></html>");
+
+// Заполняем только что созданный документ.
+
+window.focus(); // Переводим фокус.
+
+}
+
+// -->
+
+</script>
+
+</head>
+
+<body onload="W();"> // Укажем, что наш скрипт запускается при загрузке страницы.
+
+</body>
+
+</html>
+*/
