@@ -5,35 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="main.css">
-    <title>menu configurator</title>
+    <title>Main page whith menu</title>
 </head>
 <body>
 
-<nav >
-    <div id = "mainMenu" class = "grid_container">
-
+<div id = "pageContent">
+    <nav>
+        <div class = "grid_menu">
         <!-- mouseover click -->
+        <div v-for="(item, index) in menuItems"
+             @mouseover = "selectSubMenu(index)"
+            :class="[{active: item.flag}, 'menu'+index]">{{item.title}}
+        </div>
+<!--         <main-menu>{{menuItems}}</main-menu>  -->
         <template v-for="(item, index) in menuItems">
-        <div @mouseover = "selectSubMenu(index)"
-        :class="[{active: item.flag}, `menu${index}`]">{{item.title}} 
+            <div v-for = "(it, ind) in item.subMenu"
+                 v-if="item.flag"
+                 :class = "'subMenu' + 1 + ind">
+                <span class="item"
+                      @click = "currentPageName(it.ref)">{{it.name}}
+                </span>
+            </div>
+        </template>
         </div>
-        <div v-for = "(it, ind) in item.subMenu"
-             :class = "'subMenu' + 1 + ind"
-             v-if="item.flag"
-        ><span class="item"
-                @click = "patch(it.name)"    
-        >{{it.name}}</span>
-         
-<!--  <a class="item" :href="`${it.ref? it.ref : '#'}`">{{it.name}}</a> -->
-        </div>
-        </template>  
-
-    </div>
-</nav>
-<div id="infoContent">
-<div id="infoWindow">
-    
-</div>
+    </nav>
+    <component v-bind:is = "currentPageComponent" class="page"></component>
 </div>
 
 <script src = "vue.js"></script>

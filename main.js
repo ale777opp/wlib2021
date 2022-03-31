@@ -1,34 +1,98 @@
 /*
-Vue.component('sub-menu',{
-props:{
-    option: Array
-},
-template: `<menu-items
-           :item = item
-           :index = index 
-           ></menu-items>`
+Vue.component('page-info',{
+template: `
+<html>
+<head>
+<title>Тест новая страницв на JavaScript</title>
+<meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+<script language="JavaScript">
+var win1;
+function W() {
+//alert("Сейчас откроется новое окно.");
+win1 = window.open("", "Scriptic", "resizable=1, width=300, height=150");
+win1.document.open ();
+win1.document.write("<html><head><title>Оппа</title><meta http-equiv=Content-Type content='text/html; charset=UTF-8'>");
+win1.document.write(" </head> <body><div height=40, width=120 style='text-align: center;'>как-бы тест <br>");
+win1.document.write(" <label>Логин:<input type='text' name='login' id='login' tabindex='1'/></label>");
+win1.document.write(" <label>Пароль:<input type='text' name='password' id='password' tabindex='2' /></label>");
+win1.document.writeln(" <input value='Чисто для вида' type='button'></div></body></html>");
+window.focus();
+}
+</script>
+</head>
+<body onload="W();">
+</body>
+</html>
+`
 })
-
-})
+,
 */
 
+Vue.component("page-readers", {
+    template: "<div>Readers component</div>"
+});
+Vue.component("page-about", {
+    template: "<div>About component</div>"
+});
+Vue.component("page-history", {
+    template: "<div>History component</div>"
+});
+Vue.component("page-structure", {
+    template: "<div>Structure component</div>"
+});
+Vue.component("page-requisites", {
+    template: "<div>Requisites component</div>"
+});
+Vue.component("page-address", {
+    template: `<div id="infor">
+        <span>Cтраница "Address component" в разработке</span>
+        </div>`
+});
+Vue.component("page-patch", {
+    template: `<div id="infor">
+            <span>Cтраница "Patch component" в разработке</span>
+            </div>`
+});
+
+Vue.component('main-menu',{
+props: {
+    element: Object,
+    required: true
+},
+
+template: `
+        <div v-for="(item, index) in element"
+             v-if="item.flag"
+             v-for = "(it, ind) in item.subMenu"
+             :class = "'subMenu' + 1 + ind"
+        ><span class="item"
+                @click = "patch(it.name)"
+        >{{it.name}}</span>
+        </div>
+        `
+//  <a class="item" :href="`${it.ref? it.ref : '#'}`">{{it.name}}</a> -->
+//  "${'menu']"  pageContentClass(index)]
+});
+
+
 var menu = new Vue({
-    el: '#mainMenu',
+    el: '#pageContent',
     data: {
         activeItem: 0,
+        currentPage: 'patch',
         menuItems: [{
             id: 1,
             title: 'О библиотеке',
             flag: true,
             subMenu: [
-                {name:'История', ref: 'history()'},
-                {name:'Адрес и время работы', ref: 'address()'},
+                {name:'История', ref: 'history'},
+                {name:'Адрес и время работы', ref: 'address'},
                 {name:'3D панорамы Галерея', ref: '/ru/pages/3d/'},
                 {name:'Противодействие коррупции', ref: 'http://liart.ru/ru/pages/index/korrupt/'},
-                {name:'Структура библиотеки, контакты', ref: 'structure()'},
-                {name:'Реквизиты библиотеки', ref: 'requisites()'},
+                {name:'Структура библиотеки, контакты', ref: 'structure'},
+                {name:'Реквизиты библиотеки', ref: 'requisites'},
                 {name:'Официальные документы', ref: 'http://liart.ru/ru/pages/index/normdocs/'},
-                {name: 'Попечительский совет', ref:  'about()'}
+                {name: 'Попечительский совет', ref:  'about'}
                 ]
                 },
             {
@@ -36,8 +100,8 @@ var menu = new Vue({
             title: 'Читателям',
             flag: false,
             subMenu: [
-                {name: 'Запись читателей', ref: 'readers()'},
-                {name: 'Услуги, правила пользования', ref: '/ru/pages/service/'}, 
+                {name: 'Запись читателей', ref: 'readers'},
+                {name: 'Услуги, правила пользования', ref: '/ru/pages/service/'},
                 {name: 'Фонды, ресурсы, каталоги', ref: '/ru/pages/fonds/main/'},
                 {name: 'Доступная среда', ref: ''},
                 {name: 'Мероприятия и экскурсии', ref: ''},
@@ -77,26 +141,43 @@ var menu = new Vue({
                 ]
             }
             ]
-        },
+},
 
-    methods: {
-        selectSubMenu: function(index) {
-            if (this.activeItem !== index) {
-                this.menuItems[this.activeItem].flag = false;
-                this.menuItems[index].flag = true;
-                this.activeItem = index;
-            }
-        },
-        patch: function(name) {
-            console.log(name);
-            if ($("#infoWindow").length) { $("#infoWindow").remove(); }
-            $('<div/>', { "class": "patch", "id": "infoWindow", "html": '<span>Cтраница "' + name + '" в разработке</span>'}).appendTo('#infoContent');
-        },
- 
-    }
+methods: {
+    selectSubMenu: function(index) {
+        if (this.activeItem !== index) {
+        this.menuItems[this.activeItem].flag = false;
+        this.menuItems[index].flag = true;
+        this.activeItem = index;
+        }
+    },
+    pageContentClass(index) {
+        //console.log(index);
+        return "main" + this.menuItems[index].id;
+    },
+    currentPageName: function(p) {
+        this.currentPage = p? p : 'patch';
+        console.log(this.currentPage);
+    },
+},
+computed: {
+    currentPageComponent: function() {
+        return "page-" + this.currentPage.toLowerCase();
+          },
+
+},
 
 });
-const log = console.log; 
+
+
+/*
+let modal = document.querySelector("[class^='subMenu']");
+window.onclick = function (event) {
+    //if (event.target == modal[0]) modal.css('display', 'none');
+    log("click");
+};
+*/
+/*
  const createEl = (id, text, tag, _class) => {
     const el = document.createElement(tag)
     if (id != false) { el.id = id; }
@@ -123,7 +204,6 @@ element.get_link = function(text) {
     }
 }
 
-
 let readers = () => {
     if ($("#infoWindow").length) { $("#infoWindow").remove(); }
     $('<div/>', { "class": "readers", "id": "infoWindow", "html": info[2].content }).appendTo('#infoContent');
@@ -144,59 +224,4 @@ let requisites = () => {
     if ($("#infoWindow").length) { $("#infoWindow").remove(); }
     $('<div/>', { "class": "requisites", "id": "infoWindow", "html": info[6].content }).appendTo('#infoContent');
 };
-
-/*
-<html>
-
-<head>
-
-<title>Тест ява-скриптов</title>
-
-<META http-equiv=Content-Type content="text/html; charset=UTF-8"> // special for linux :)
-
-<script language="JavaScript">
-
-<!-- //
-
-var win1 // Объявляем переменную для нового окна.
-
-function W()
-
-{
-
-alert("Сейчас откроется новое окно."); // Предупреждаем пугливого пользователя.
-
-win1 = window.open("", "Scriptic", "resizable=1, width=300, height=150");
-
-// Присваиваем переменной win1 новое пустое окно размерами 300х150
-
-win1.document.open (); // Открываем его.
-
-win1.document.write("<html><head><title>Оппа</title><META http-equiv=Content-Type content='text/html; charset=UTF-8'>");
-
-win1.document.write(" </head> <body><div height=40, width=120 style='text-align: center;'>как-бы тест <br>");
-
-win1.document.write(" <label>Логин:<input type='text' name='login' id='login' tabindex='1'/></label>");
-
-win1.document.write(" <label>Пароль:<input type='text' name='password' id='password' tabindex='2' /></label>");
-
-win1.document.writeln(" <input value='Чисто для вида' type='button'></div></body></html>");
-
-// Заполняем только что созданный документ.
-
-window.focus(); // Переводим фокус.
-
-}
-
-// -->
-
-</script>
-
-</head>
-
-<body onload="W();"> // Укажем, что наш скрипт запускается при загрузке страницы.
-
-</body>
-
-</html>
 */
