@@ -45,15 +45,15 @@ Vue.component("page-requisites", {
 });
 Vue.component("page-address", {
     template: `<div id="infor">
-        <span>Cтраница "Address component" в разработке</span>
+        <span>Address component</span>
         </div>`
 });
 Vue.component("page-patch", {
     template: `<div id="infor">
-            <span>Cтраница "Patch component" в разработке</span>
+            <span>Cтраница находится в разработке</span>
             </div>`
 });
-
+/*
 Vue.component('main-menu',{
 props: {
     element: Object,
@@ -73,8 +73,7 @@ template: `
 //  <a class="item" :href="`${it.ref? it.ref : '#'}`">{{it.name}}</a> -->
 //  "${'menu']"  pageContentClass(index)]
 });
-
-
+*/
 var menu = new Vue({
     el: '#pageContent',
     data: {
@@ -83,15 +82,15 @@ var menu = new Vue({
         menuItems: [{
             id: 1,
             title: 'О библиотеке',
-            flag: true,
+            flag: false,
             subMenu: [
                 {name:'История', ref: 'history'},
                 {name:'Адрес и время работы', ref: 'address'},
-                {name:'3D панорамы Галерея', ref: '/ru/pages/3d/'},
-                {name:'Противодействие коррупции', ref: 'http://liart.ru/ru/pages/index/korrupt/'},
+                {name:'3D панорамы Галерея', ref: ''}, ///ru/pages/3d/
+                {name:'Противодействие коррупции', ref: ''}, //
                 {name:'Структура библиотеки, контакты', ref: 'structure'},
                 {name:'Реквизиты библиотеки', ref: 'requisites'},
-                {name:'Официальные документы', ref: 'http://liart.ru/ru/pages/index/normdocs/'},
+                {name:'Официальные документы', ref: ''}, //http://liart.ru/ru/pages/index/normdocs/
                 {name: 'Попечительский совет', ref:  'about'}
                 ]
                 },
@@ -101,13 +100,13 @@ var menu = new Vue({
             flag: false,
             subMenu: [
                 {name: 'Запись читателей', ref: 'readers'},
-                {name: 'Услуги, правила пользования', ref: '/ru/pages/service/'},
-                {name: 'Фонды, ресурсы, каталоги', ref: '/ru/pages/fonds/main/'},
+                {name: 'Услуги, правила пользования', ref: ''}, ///ru/pages/service/
+                {name: 'Фонды, ресурсы, каталоги', ref: ''}, ///ru/pages/fonds/main/
                 {name: 'Доступная среда', ref: ''},
                 {name: 'Мероприятия и экскурсии', ref: ''},
                 {name: 'Клубы и объединения', ref: ''},
                 {name: 'Учёба в РГБИ', ref: ''},
-                {name: 'Творческое развитие', ref: '/ru/pages/contacts/'}
+                {name: 'Творческое развитие', ref: ''} ///ru/pages/contacts/
                 ]
             },
             {
@@ -149,34 +148,39 @@ methods: {
         this.menuItems[this.activeItem].flag = false;
         this.menuItems[index].flag = true;
         this.activeItem = index;
+        } else {
+            this.menuItems[index].flag = true;
         }
     },
+/*
     pageContentClass(index) {
         //console.log(index);
         return "main" + this.menuItems[index].id;
     },
+*/    
     currentPageName: function(p) {
         this.currentPage = p? p : 'patch';
-        console.log(this.currentPage);
+        //console.log(this.currentPage);
     },
 },
 computed: {
     currentPageComponent: function() {
         return "page-" + this.currentPage.toLowerCase();
-          },
+    },
 
 },
 
 });
 
-
-/*
-let modal = document.querySelector("[class^='subMenu']");
+let modal = document.getElementsByClassName('subMenu10');
 window.onclick = function (event) {
+    console.log(event.target);
+    $.each(modal, function(index,value) {
+     console.log("output", index, value );   
+    })
     //if (event.target == modal[0]) modal.css('display', 'none');
-    log("click");
 };
-*/
+
 /*
  const createEl = (id, text, tag, _class) => {
     const el = document.createElement(tag)

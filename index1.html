@@ -14,16 +14,23 @@
         <div class = "grid_menu">
         <!-- mouseover click -->
         <div v-for="(item, index) in menuItems"
-             @mouseover = "selectSubMenu(index)"
+             @click.stop = "selectSubMenu(index)"
             :class="[{active: item.flag}, 'menu'+index]">{{item.title}}
         </div>
-<!--         <main-menu>{{menuItems}}</main-menu>  -->
+<!--  <main-menu
+            v-for="(item, index) in menuItems"
+            @mouseover = "selectSubMenu(index)"
+            :class="[{active: item.flag}, 'menu'+index]">{{item.title}}
+>{{menuItems}}</main-menu> 
+ -->
         <template v-for="(item, index) in menuItems">
             <div v-for = "(it, ind) in item.subMenu"
                  v-if="item.flag"
-                 :class = "'subMenu' + 1 + ind">
+                 :class = "'subMenu' + 1 + ind"
+                 @click = "currentPageName(it.ref)">
                 <span class="item"
-                      @click = "currentPageName(it.ref)">{{it.name}}
+                      :class = "{errors: !it.ref}"
+                >{{it.name}}
                 </span>
             </div>
         </template>
