@@ -10,26 +10,20 @@
 <body>
 
 <div id = "pageContent">
-    <nav>
-        <div class = "grid_menu">
+
+    <div class = "grid_main_menu">
         <!-- mouseover click -->
         <div v-for="(item, index) in menuItems"
-             @mouseover = "selectSubMenu(index)"
-            :class="[{active: item.flag}, 'menu'+index]">{{item.title}}
-        </div>
-<!--         <main-menu>{{menuItems}}</main-menu>  -->
-        <template v-for="(item, index) in menuItems">
-            <div v-for = "(it, ind) in item.subMenu"
-                 v-if="item.flag"
-                 :class = "'subMenu' + 1 + ind">
-                <span class="item"
-                      @click = "currentPageName(it.ref)">{{it.name}}
-                </span>
-            </div>
-        </template>
-        </div>
-    </nav>
-    <component v-bind:is = "currentPageComponent" class="page"></component>
+             @click.stop = "selectSubMenu(item)"
+            :class = "[{active: currentMenu === item.id}, 'menu'+index]"
+        >{{item.title}}</div>
+    </div>
+<!-- <main-menu>{{menuItems}}</main-menu> selectSubMenu(index) v-show:="activeSubMenu"-->
+
+    <component v-show="activeSubMenu" :is="currentMenuComponent"></component>
+
+    <component v-show="activePage" :is="currentPageComponent" class="page"></component>
+
 </div>
 
 <script src = "vue.js"></script>
