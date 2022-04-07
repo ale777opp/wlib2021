@@ -9,22 +9,17 @@
 </head>
 <body>
 
-<div id = "pageContent">
-
+<div id="pageContent" style="margin: 10px auto 10px auto">
     <div class = "grid_main_menu">
-        <!-- mouseover click -->
         <div v-for="(item, index) in menuItems"
              @click.stop = "selectSubMenu(item)"
             :class = "[{active: currentMenu === item.id}, 'menu'+index]"
         >{{item.title}}</div>
     </div>
-<!-- <main-menu>{{menuItems}}</main-menu> selectSubMenu(index) v-show:="activeSubMenu"-->
-
-    <component v-show="activeSubMenu" :is="currentMenuComponent"></component>
-
-    <component v-show="activePage" :is="currentPageComponent" class="page"></component>
-
+<component v-show="activeSubMenu" :is="currentMenuComponent"></component>
+<component v-show="activePage" :is="currentPageComponent" class="page"></component>
 </div>
+
 
 <script src = "vue.js"></script>
 <script src = "jquery.min.js"></script>

@@ -1,42 +1,93 @@
 Vue.component("page-readers", {
-    template: "<div>Readers component</div>"
+    template: `<div @click = "closePage()"
+                >${infoPages[2].content}</div>`,
+    methods: {
+        closePage: function() {
+            menu.$data.activePage = false;
+            infor.style.display = 'block';
+        }
+    }
 });
 Vue.component("page-about", {
-    template: "<div>About component</div>"
+    template: `<div @click = "closePage()"
+                >${infoPages[0].content}${infoPages[3].content}</div>`,
+    methods: {
+        closePage: function() {
+            menu.$data.activePage = false;
+            infor.style.display = 'block';
+        }
+    }
 });
 Vue.component("page-history", {
-    template: `<div
-                @click = "this.menu.activePage = false"
-                >History component</div>`,
-methods: {
-    log: function(p) {
-        console.log(p);
-    },
-},
+    template: `<div @click = "closePage()"
+                >${infoPages[4].content}</div>`,
+    methods: {
+        closePage: function() {
+            menu.$data.activePage = false;
+            infor.style.display = 'block';
+        }
+    }
 });
 Vue.component("page-structure", {
-    template: "<div>Structure component</div>"
+    template: `<div @click = "closePage()"
+                >${infoPages[5].content}</div>`,
+    methods: {
+        closePage: function() {
+            menu.$data.activePage = false;
+            infor.style.display = 'block';
+        }
+    }
 });
 Vue.component("page-requisites", {
-    template: "<div>Requisites component</div>"
+    template: `<div @click = "closePage()"
+                >${infoPages[6].content}</div>`,
+    methods: {
+        closePage: function() {
+            menu.$data.activePage = false;
+            infor.style.display = 'block';
+        }
+    }
 });
 Vue.component("page-address", {
-    template: `<div>
-        <span>Cтраница "Address component" в разработке</span>
-        </div>`
+    template: `<div @click = "closePage()"
+                >${infoPages[1].content}</div>`,
+    methods: {
+        closePage: function() {
+            menu.$data.activePage = false;
+            infor.style.display = 'block';
+        }
+    }
 });
+Vue.component("page-norm", {
+    template: `<div @click = "closePage()"
+                >${infoPages[7].content}</div>`,
+    methods: {
+        closePage: function() {
+            menu.$data.activePage = false;
+            infor.style.display = 'block';
+        }
+    }
+});
+
 Vue.component("page-patch", {
-    template: `<div >
-            <span>Cтраница "Patch component" в разработке</span>
-            </div>`
+    template: `<div @click = "closePage()"
+                ><span style = "padding:10px 50px;">Данная страница находится в разработке</span>
+                </div>`,
+    methods: {
+        closePage: function() {
+            menu.$data.activePage = false;
+            infor.style.display = 'block';
+        }
+     }
 });
 Vue.component("tab-about", {
         template: `<div class = "grid_sub_menu">
           <div v-for = "(it, ind) in subMenu"
-               :class = "'subMenu' + 1 + ind"
+               :class.stop = "'subMenu' + 1 + ind"
                @click = "currentPageName(it.ref)"
           ><span class="item"
-          >{{it.name}}</span>
+                :class = "{errors: !it.ref}"
+            >{{it.name}}</span>
           </div>
         </div>
         `,
@@ -49,7 +100,7 @@ Vue.component("tab-about", {
                 {name:'Противодействие коррупции', ref: ''},
                 {name:'Структура библиотеки, контакты', ref: 'structure'},
                 {name:'Реквизиты библиотеки', ref: 'requisites'},
-                {name:'Официальные документы', ref: ''},
+                {name:'Официальные документы', ref: 'norm'},
                 {name: 'Попечительский совет', ref:  'about'}
                 ]
           }
@@ -58,15 +109,17 @@ methods: {
     currentPageName: function(p) {
         menu.$data.currentPage = p? p : 'patch';
         menu.$data.activePage = true;
+        infor.style.display = 'none';
     },
 },
 });
-      Vue.component("tab-readers", {
+    Vue.component("tab-readers", {
         template: `<div class = "grid_sub_menu">
           <div v-for = "(it, ind) in subMenu"
-               :class = "'subMenu' + 1 + ind"
+               :class.stop = "'subMenu' + 1 + ind"
+               @click = "currentPageName(it.ref)"
           ><span class="item"
-                @click = "currentPageName(it.name)"
+          :class = "{errors: !it.ref}"
           >{{it.name}}</span>
           </div>
         </div>
@@ -75,23 +128,30 @@ methods: {
           return{
             subMenu: [
               {name: 'Запись читателей', ref: 'readers'},
-                {name: 'Услуги, правила пользования', ref: '/ru/pages/service/'},
-                {name: 'Фонды, ресурсы, каталоги', ref: '/ru/pages/fonds/main/'},
+                {name: 'Услуги, правила пользования', ref: ''},
+                {name: 'Фонды, ресурсы, каталоги', ref: ''},
                 {name: 'Доступная среда', ref: ''},
                 {name: 'Мероприятия и экскурсии', ref: ''},
                 {name: 'Клубы и объединения', ref: ''},
                 {name: 'Учёба в РГБИ', ref: ''},
-                {name: 'Творческое развитие', ref: '/ru/pages/contacts/'}
+                {name: 'Творческое развитие', ref: ''}
             ]
           }
-        }
+        },
+methods: {
+    currentPageName: function(p) {
+        menu.$data.currentPage = p? p : 'patch';
+        menu.$data.activePage = true;
+    },
+},
       });
       Vue.component("tab-colleagues", {
         template: `<div class = "grid_sub_menu">
           <div v-for = "(it, ind) in subMenu"
-               :class = "'subMenu' + 1 + ind"
+               :class.stop = "'subMenu' + 1 + ind"
+               @click = "currentPageName(it.ref)"
           ><span class="item"
-                @click = "currentPageName(it.name)"
+          :class = "{errors: !it.ref}"
           >{{it.name}}</span>
           </div>
         </div>
@@ -109,14 +169,21 @@ methods: {
                 {name: 'Секция библиотек по искуству и музейных библиотек РБА', ref: ''}
             ]
           }
-        }
+        },
+methods: {
+    currentPageName: function(p) {
+        menu.$data.currentPage = p? p : 'patch';
+        menu.$data.activePage = true;
+    },
+}
       });
       Vue.component("tab-ask", {
         template: `<div class = "grid_sub_menu">
           <div v-for = "(it, ind) in subMenu"
                :class = "'subMenu' + 1 + ind"
+               @click.stop = "currentPageName(it.ref)"
           ><span class="item"
-                @click = "currentPageName(it.name)"
+          :class = "{errors: !it.ref}"
           >{{it.name}}</span>
           </div>
         </div>
@@ -134,9 +201,14 @@ methods: {
                 {name: '  ', ref: ''}
             ]
           }
-        }
-      });
-
+        },
+methods: {
+    currentPageName: function(p) {
+        menu.$data.currentPage = p? p : 'patch';
+        menu.$data.activePage = true;
+    },
+}
+});
 
 var menu = new Vue({
     el: '#pageContent',
@@ -157,12 +229,10 @@ methods: {
 
 selectSubMenu: function(i) {
     if (!this.activeSubMenu) this.activeSubMenu = true
-    else this.activeSubMenu = false;
+ //   else this.activeSubMenu = false;
     this.currentMenu = i.id;
 },
-    log: function(p) {
-        console.log(p);
-    },
+
 /*
    mainMenuClass(index) {
         //console.log(index);
@@ -192,18 +262,3 @@ computed: {
 },
 
 });
-
-
-
-
-/*
-infor.onclick = () => {
-    menu.activePage = false;
-    console.log('закрыть страницу');
-};
-
-window.onclick = function (event) {
-    menu.activeSubMenu = !menu.activeSubMenu;
-    console.log('закрыть');
-};
-*/
