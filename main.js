@@ -241,7 +241,7 @@ selectSubMenu: function(i) {
 
     currentPageName: function(p) {
         this.currentPage = p? p : 'patch';
-        console.log(this.currentPage);
+        //console.log(this.currentPage);
     },
 
     currentPageComponent: function() {
