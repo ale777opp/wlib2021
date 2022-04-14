@@ -1,0 +1,12 @@
+C:\opac-global\web\test4\htdocs\test4\html\pages\index\db_auth.php
+htdocs/test4/html/pages/includes/searchdiv.php
+*.zip
+
+htdocs/conf/custom/css/default_*.css
+htdocs/conf/custom/js/default_*.js
+
+htdocs/test4/css/default_*.css
+htdocs/test4/js/default_*.js
+
+htdocs/test4/css/**/*.*
+htdocs/test4/js/**/*.*
