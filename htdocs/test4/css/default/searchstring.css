@@ -70,7 +70,7 @@
 }
 
 .searchdiv .middle [id$='_search']:not([id^='lib']) {
-    padding: 0 5% 0 5%;
+    padding: 0 5% 0 24%;
 }
 
 
@@ -201,7 +201,7 @@
 .labcontainer,
 .logcontainer,
 .basescontainer {
-    height: 29px;
+    height: 35px;
     background: #fcfcfc;
     border: solid 5px #eee;
     border-radius: 5px;
@@ -211,7 +211,7 @@
 .basescontainer {
     display: inline-block;
     position: absolute;
-    top: -10px;
+    top: 40px;
 }
 
 .logcontainer {

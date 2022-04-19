@@ -28,10 +28,10 @@ $news=$con->data;
     width: 28%;
 	}
 </style>
-<div class="spacer"></div>
+<div class="spacer h15x"></div>
 <!-- слайдер -->
 <div class="parallax-1">
-	<div class="rlib_outer" style="top:0px;">
+	<div class="rlib_outer">
 		<div class="rlib_inner" id = "books_container">
 		<!--	
 			<input name="rslid" id="rslid1" class="radio" type="radio">

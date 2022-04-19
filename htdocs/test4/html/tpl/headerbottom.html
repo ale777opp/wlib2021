@@ -29,6 +29,9 @@
                     </ul>
                 </li>
 
+        <div v-for="(item, index) in menuItems" @mouseover="selectSubMenu(index)" :class="[{active: item.flag}, mainMenuClass(index)]">{{item.title}}
+        </div>
+
                 <li class="nav-item">
                     <a class="nav-link" href="/ru/pages/service/">УСЛУГИ</a>
                 </li>
