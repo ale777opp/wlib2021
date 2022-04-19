@@ -1,30 +1,23 @@
-<div class="bottom"></div>
-<!-- меню -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item dropdown">
-                    <!--
+<div class="bottom">
+    <!-- меню -->
+    <div id="pageContent" style="margin: 10px auto 10px auto">
+        <main-menu :items="menuItems" :active="currentMenu"></main-menu>
+        <!-- 
+    <div class="grid_main_menu">
+        <div v-for="(item, index) in menuItems" @click.stop="selectSubMenu(item)" :class="[{active: currentMenu === item.id}, 'menu'+index]">{{item.title}}</div>
+    </div>
+<component v-show="activeSubMenu" :is="currentMenuComponent"></component>
+<component v-show="activePage" :is="currentPageComponent" class="page"></component>
+-->
+    </div>
+
+    <!--
+
                     <li><span id="news" class="nav-link dropdown-toggle" onmousedown="goToLocation('news')">НОВОСТИ</span></li>
-                    -->
                     <a class="nav-link dropdown-toggle" href="#" onmousedown="goToLocation('news')" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">НОВОСТИ</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a href="/ru/pages/Archive_news/">Архив новостей</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2014/">2014</a></li>
-                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2013/">2013</a></li>
-                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2012/">2012</a></li>
-                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2011/">2011</a></li>
-                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2010/">2010</a></li>
-                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2009/">2009</a></li>
-                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2008/">2008</a></li>
-                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2007/">2007</a></li>
-                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2006/">2006</a></li>
-                            </ul>
+       
                         </li>
                     </ul>
                 </li>
@@ -32,15 +25,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" onmousedown="goToLocation('about')" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">О БИБЛИОТЕКЕ</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" onclick="address()">Адрес и время работы РГБИ</a></li>
-                        <li><a class="dropdown-item" onclick="readers()">Запись читателей</a></li>
-                        <li><a class="dropdown-item" onclick="about()">Общая информация</a></li>
-                        <li><a class="dropdown-item" onclick="history()">Из истории РГБИ</a></li>
-                        <li><a class="dropdown-item" onclick="structure()">Структура библиотеки</a></li>
-                        <li><a class="dropdown-item" onclick="requisites()">Реквизиты библиотеки</a></li>
-                        <li><a class="dropdown-item" href="http://liart.ru/ru/pages/index/normdocs/">Нормативные документы</a></li>
-                        <li><a class="dropdown-item" href="http://liart.ru/ru/pages/index/korrupt/">Противодействие коррупции</a></li>
-                        <li><a class="dropdown-item" href="/ru/pages/3d/">3D панорамы библиотеки</a></li>
+     
                     </ul>
                 </li>
 
@@ -50,39 +35,290 @@
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="/ru/pages/fonds/" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">ФОНДЫ</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/ru/pages/fonds/main/">Основной фонд</a></li>
-                        <li><a class="dropdown-item" href="/ru/pages/fonds/cio">Справочно-информационный фонд</a></li>
-                        <li><a class="dropdown-item" href="/ru/pages/fonds/izofond">Фонд изобразительных материалов</a></li>
-                        <li><a class="dropdown-item" href="/ru/pages/fonds/abfond">Фонд отдела Абонемента</a></li>
-                        <li><a class="dropdown-item" href="/ru/pages/fonds/gvtp">Фонд газетных вырезок и театральных программ</a></li>
-                        <li><a class="dropdown-item" href="/ru/pages/fonds/video">Видеофонд</a></li>
-                        <li><a class="dropdown-item" href="/ru/pages/fonds/mffond">Фонд изданий на микрофишах</a></li>
-                        <li><a class="dropdown-item" href="http://liart.ru/ru/pages/fonds/arhiv/">Архивный фонд </a></li>
-                    </ul>
+                    
                 </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="/ru/pages/catalogs/" id="navbarDropdown4" role="button" data-bs-toggle="dropdown" aria-expanded="false">КАТАЛОГИ</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="http://opac.liart.ru/opacg/nog.htm" target="_blank">Электронный каталог</a></li>
-                        <li><a class="dropdown-item" href="http://liart.ru/predm/i2.htm" target="_blank">Предметный каталог</a></li>
-                        <li><a class="dropdown-item" href="/ru/pages/catalogs/Kartochnye_katalogi/">Карточные каталоги</a></li>
-                    </ul>
+                    
                 </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="/ru/pages/eresorses/" id="navbarDropdown5" role="button" data-bs-toggle="dropdown" aria-expanded="false">ЭЛЕКТРОННЫЕ РЕСУРСЫ</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/ru/pages/eresorses/bd">Базы данных</a></li>
-                        <li><a class="dropdown-item" href="http://opac.liart.ru/opacg/nog.htm" target="_blank">Электронный каталог</a></li>
-                    </ul>
+                    
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link" href="/ru/pages/contacts/">КОНТАКТЫ</a>
                 </li>
             </ul>
+-->
+</div>
+
+<script>
+    Vue.component("tab-about", {
+        template: `<div class = "grid_sub_menu">
+          <div v-for = "(it, ind) in subMenu"
+               :class.stop = "'subMenu' + 1 + ind"
+               @click = "currentPageName(it.ref)"
+          ><span class="item"
+                :class = "{errors: !it.ref}"
+            >{{it.name}}</span>
+          </div>
         </div>
-    </div>
-</nav>
+        `,
+        data() {
+            return {
+                subMenu: [{
+                    name: 'История',
+                    ref: 'history'
+                }, {
+                    name: 'Адрес и время работы',
+                    ref: 'address'
+                }, {
+                    name: '3D панорамы Галерея',
+                    ref: ''
+                }, {
+                    name: 'Противодействие коррупции',
+                    ref: ''
+                }, {
+                    name: 'Структура библиотеки, контакты',
+                    ref: 'structure'
+                }, {
+                    name: 'Реквизиты библиотеки',
+                    ref: 'requisites'
+                }, {
+                    name: 'Официальные документы',
+                    ref: 'norm'
+                }, {
+                    name: 'Попечительский совет',
+                    ref: 'about'
+                }]
+            }
+        },
+        methods: {
+            currentPageName: function(p) {
+                menu.$data.currentPage = p ? p : 'patch';
+                menu.$data.activePage = true;
+                infor.style.display = 'none';
+                console.log(menu.$data.currentPage);
+            },
+        },
+    });
+    Vue.component("tab-readers", {
+        template: `<div class = "grid_sub_menu">
+          <div v-for = "(it, ind) in subMenu"
+               :class.stop = "'subMenu' + 1 + ind"
+               @click = "currentPageName(it.ref)"
+          ><span class="item"
+          :class = "{errors: !it.ref}"
+          >{{it.name}}</span>
+          </div>
+        </div>
+        `,
+        data() {
+            return {
+                subMenu: [{
+                    name: 'Запись читателей',
+                    ref: 'readers'
+                }, {
+                    name: 'Услуги, правила пользования',
+                    ref: ''
+                }, {
+                    name: 'Фонды, ресурсы, каталоги',
+                    ref: ''
+                }, {
+                    name: 'Доступная среда',
+                    ref: ''
+                }, {
+                    name: 'Мероприятия и экскурсии',
+                    ref: ''
+                }, {
+                    name: 'Клубы и объединения',
+                    ref: ''
+                }, {
+                    name: 'Учёба в РГБИ',
+                    ref: ''
+                }, {
+                    name: 'Творческое развитие',
+                    ref: ''
+                }]
+            }
+        },
+        methods: {
+            currentPageName: function(p) {
+                menu.$data.currentPage = p ? p : 'patch';
+                menu.$data.activePage = true;
+                infor.style.display = 'none';
+                console.log(menu.$data.currentPage);
+            },
+        },
+    });
+    Vue.component("tab-colleagues", {
+        template: `<div class = "grid_sub_menu">
+          <div v-for = "(it, ind) in subMenu"
+               :class.stop = "'subMenu' + 1 + ind"
+               @click = "currentPageName(it.ref)"
+          ><span class="item"
+          :class = "{errors: !it.ref}"
+          >{{it.name}}</span>
+          </div>
+        </div>
+        `,
+        data() {
+            return {
+                subMenu: [{
+                    name: 'Конференции, семинары',
+                    ref: ''
+                }, {
+                    name: 'Методические документы',
+                    ref: ''
+                }, {
+                    name: 'Проекты библиотеки',
+                    ref: ''
+                }, {
+                    name: 'Издания РГБИ',
+                    ref: ''
+                }, {
+                    name: 'Библиотека благодарит',
+                    ref: ''
+                }, {
+                    name: 'Творческие конкурсы',
+                    ref: ''
+                }, {
+                    name: 'Вакансии',
+                    ref: ''
+                }, {
+                    name: 'Секция библиотек по искуству и музейных библиотек РБА',
+                    ref: ''
+                }]
+            }
+        },
+        methods: {
+            currentPageName: function(p) {
+                menu.$data.currentPage = p ? p : 'patch';
+                menu.$data.activePage = true;
+                infor.style.display = 'none';
+                console.log(menu.$data.currentPage);
+            },
+        }
+    });
+    Vue.component("tab-ask", {
+        template: `<div class = "grid_sub_menu">
+          <div v-for = "(it, ind) in subMenu"
+               :class = "'subMenu' + 1 + ind"
+               @click.stop = "currentPageName(it.ref)"
+          ><span class="item"
+          :class = "{errors: !it.ref}"
+          >{{it.name}}</span>
+          </div>
+        </div>
+        `,
+        data() {
+            return {
+                subMenu: [{
+                    name: ' ',
+                    ref: ''
+                }, {
+                    name: 'Тематические запросы',
+                    ref: ''
+                }, {
+                    name: 'Наличие изданий',
+                    ref: ''
+                }, {
+                    name: 'Задать вопрос',
+                    ref: ''
+                }, {
+                    name: 'Отзывы и предложения',
+                    ref: ''
+                }, {
+                    name: 'Вне категорий',
+                    ref: ''
+                }, {
+                    name: 'Вопросы о работе РГБИ',
+                    ref: ''
+                }, {
+                    name: '  ',
+                    ref: ''
+                }]
+            }
+        },
+        methods: {
+            currentPageName: function(p) {
+                menu.$data.currentPage = p ? p : 'patch';
+                menu.$data.activePage = true;
+                infor.style.display = 'none';
+                console.log(menu.$data.currentPage);
+            },
+        }
+    });
+
+    Vue.component('main-menu', {
+        props: ['items', 'active'],
+        template: `<div class="grid_main_menu">
+            <div v-for="(item, index) in items" @click.stop="selectSubMenu(item.link)" :class="[{active: active === item.link}, 'menu'+index]">{{item.title}}</div>
+            </div>`,
+        methods: {
+            selectSubMenu: function(i) {
+                console.log(i, this.$root.currentMenu);
+                /*   if (!this.$root.activeSubMenu) this.$root.activeSubMenu = true
+                   else this.$root.activeSubMenu = false;
+                */
+                this.$root.currentMenu = i;
+            },
+        },
+    });
+
+    var menu = new Vue({
+        el: '#pageContent',
+        data: {
+            activeSubMenu: false,
+            activePage: false,
+            currentPage: 'patch',
+            currentMenu: 'about',
+            menuItems: [{
+                title: 'О библиотеке',
+                link: 'about'
+            }, {
+                title: 'Читателям',
+                link: 'readers'
+            }, {
+                title: 'Коллегам',
+                link: 'colleagues'
+            }, {
+                title: 'Спроси библиографа',
+                link: 'ask'
+            }]
+        },
+
+        methods: {
+            /*
+               mainMenuClass(index) {
+                    //console.log(index);
+                return "main" + this.menuItems[index].id;
+                },
+
+                currentPageName: function(p) {
+                    this.currentPage = p? p : 'patch';
+                    console.log(this.currentPage);
+                },
+
+                currentPageComponent: function() {
+                      console.log(this.currentPage);
+                         console.log("page-" + this.currentPage.toLowerCase());
+                return "page-" + this.currentPage.toLowerCase();
+                },
+            */
+        },
+        computed: {
+            currentPageComponent: function() {
+                return "page-" + this.currentPage.toLowerCase();
+            },
+
+            currentMenuComponent: function() {
+                return "tab-" + this.currentMenu.toLowerCase();
+            },
+        },
+
+    });
+</script>

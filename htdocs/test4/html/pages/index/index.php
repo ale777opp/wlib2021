@@ -127,7 +127,7 @@ booksContainer.append(inputBooks);
 let rlibBooks = document.createElement('div');
 rlibBooks.className = "rlib";
 booksContainer.append(rlibBooks);
-
+/*
 for(let i=1;i<=numBooks;i++){
 //alert(i);	
 let rslids = document.createElement('div');
@@ -154,7 +154,7 @@ bookCont.innerHTML = `<p>${books[i-1]['title']}</p>
 			<p><a href=${bookHref} target="_blank">Ссылка на книгу</a></p>`;
 bookContent.append(bookCont);
 }
-
+*/
 /* -- arrow --
 let arrowLeft = document.createElement('div');
 arrowLeft.className = "rarrow_container";
