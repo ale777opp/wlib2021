@@ -29,22 +29,26 @@ ul.subpages li {
 .header {
 	height: auto;
 }
-#infoWindow {
+#about_container {
 	width: 80%;
 	margin: 0 auto;
 }
 </style>	
-</head>  
+</head>
+
 <div id="infor">
     <div class="col_title">
         <span class="bread" id="index_" onmousedown="goToLocation(this.id)">Главная</span> / <span class="caption">О библиотеке</span>
     </div>
-    <div id="infoContainer" >
+        <h1 align = "center">О библиотеке</h1>
+    <div id="about_container" >
+		<div class="header"><center>Новости</center></div>
 		<div class = "spacer h15x"></div>
 	</div>
 </div>
 
 <script>
+/*	
 let info = <?php echo json_encode($info); ?>;
 
 const ID_ABOUT = ["main", "address", "readers", "about", "history", "structure", "requisites"];
@@ -64,7 +68,7 @@ $('<div/>', {"class": "spacer h30x"}).appendTo('#infoContent');
 $('<div/>', {"class": "about", "id": "infoWindow", "html": info[3].content }).appendTo('#infoContent');
 
 // $('<ul/>', {"class": "subpages"}).appendTo('#infoContent');
-/*
+
 for (let i=1;i<info.length;i++){
 let id = MENU_PREFIX + MENU_SEPARATOR + ID_ABOUT[i];
 //let id = ID_ABOUT[i];

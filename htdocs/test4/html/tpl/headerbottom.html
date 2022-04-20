@@ -2,59 +2,28 @@
     <!-- меню -->
     <div id="pageContent" style="margin: 10px auto 10px auto">
         <main-menu :items="menuItems" :active="currentMenu"></main-menu>
-        <!-- 
-    <div class="grid_main_menu">
-        <div v-for="(item, index) in menuItems" @click.stop="selectSubMenu(item)" :class="[{active: currentMenu === item.id}, 'menu'+index]">{{item.title}}</div>
-    </div>
+        <!--
 <component v-show="activeSubMenu" :is="currentMenuComponent"></component>
 <component v-show="activePage" :is="currentPageComponent" class="page"></component>
 -->
     </div>
 
+
+
+    <a href="#" onmousedown="goToLocation('ask')" role="button" data-bs-toggle="dropdown" aria-expanded="false">Спроси</a>
+    <a href="#" onmousedown="goToLocation('about')" role="button" data-bs-toggle="dropdown" aria-expanded="false">О БИБЛИОТЕКЕ</a>
+    <a href="#" onmousedown="goToLocation('readers')" role="button" data-bs-toggle="dropdown" aria-expanded="false">Читателям</a>
+    <a href="#" onmousedown="goToLocation('colleagues')" role="button" data-bs-toggle="dropdown" aria-expanded="false">Коллегам</a>
     <!--
+<a class="nav-link" href="/ru/pages/service/">УСЛУГИ</a>
 
-                    <li><span id="news" class="nav-link dropdown-toggle" onmousedown="goToLocation('news')">НОВОСТИ</span></li>
-                    <a class="nav-link dropdown-toggle" href="#" onmousedown="goToLocation('news')" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">НОВОСТИ</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a href="/ru/pages/Archive_news/">Архив новостей</a>
-       
-                        </li>
-                    </ul>
-                </li>
+<a class="nav-link dropdown-toggle" href="/ru/pages/fonds/" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">ФОНДЫ</a>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" onmousedown="goToLocation('about')" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">О БИБЛИОТЕКЕ</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-     
-                    </ul>
-                </li>
+<a class="nav-link dropdown-toggle" href="/ru/pages/catalogs/" id="navbarDropdown4" role="button" data-bs-toggle="dropdown" aria-expanded="false">КАТАЛОГИ</a>
 
-        <div v-for="(item, index) in menuItems" @mouseover="selectSubMenu(index)" :class="[{active: item.flag}, mainMenuClass(index)]">{{item.title}}
-        </div>
+<a class="nav-link dropdown-toggle" href="/ru/pages/eresorses/" id="navbarDropdown5" role="button" data-bs-toggle="dropdown" aria-expanded="false">ЭЛЕКТРОННЫЕ РЕСУРСЫ</a>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="/ru/pages/service/">УСЛУГИ</a>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="/ru/pages/fonds/" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">ФОНДЫ</a>
-                    
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="/ru/pages/catalogs/" id="navbarDropdown4" role="button" data-bs-toggle="dropdown" aria-expanded="false">КАТАЛОГИ</a>
-                    
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="/ru/pages/eresorses/" id="navbarDropdown5" role="button" data-bs-toggle="dropdown" aria-expanded="false">ЭЛЕКТРОННЫЕ РЕСУРСЫ</a>
-                    
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/ru/pages/contacts/">КОНТАКТЫ</a>
-                </li>
-            </ul>
+<a class="nav-link" href="/ru/pages/contacts/">КОНТАКТЫ</a>
 -->
 </div>
 
@@ -259,11 +228,15 @@
     Vue.component('main-menu', {
         props: ['items', 'active'],
         template: `<div class="grid_main_menu">
-            <div v-for="(item, index) in items" @click.stop="selectSubMenu(item.link)" :class="[{active: active === item.link}, 'menu'+index]">{{item.title}}</div>
+            <div v-for="(item, index) in items" 
+            @click.stop="selectSubMenu(item.link)" 
+            :class="[{active: active === item.link}, 'menu'+index]"
+            onmousedown="goToLocation('readers')"
+            >{{item.title}}</div>
             </div>`,
         methods: {
             selectSubMenu: function(i) {
-                console.log(i, this.$root.currentMenu);
+                //console.log(i, this.$root.currentMenu);
                 /*   if (!this.$root.activeSubMenu) this.$root.activeSubMenu = true
                    else this.$root.activeSubMenu = false;
                 */

@@ -452,81 +452,303 @@ if($bodyclass!="") echo 'class="'.$bodyclass.'"';
 			</div>
 <!-- конец далее не редактировать -->
 <!-- из файла ../tpl/headerbottom.html -->
-			<div class="bottom spacer h15x"></div>
-<nav>
-
-    <div id="mainMenu" class="grid_container">
-
-        <div v-for="(item, index) in menuItems" @mouseover="selectSubMenu(index)" :class="[{active: item.flag}, mainMenuClass(index)]">{{item.title}}
-        </div>
-
-        <template v-for="(item, index) in menuItems" v-if="item.flag">
-        <div v-for = "(it, ind) in item.subMenu"
-             :class = "subMenuClass(ind)"
-        ><a class="item" :href="`${item.hrefItem[ind]}`">{{it}}</a>
-        </div>
-        </template>
-
+			<div class="bottom">
+    <!-- меню -->
+    <div id="pageContent" style="margin: 10px auto 10px auto">
+        <main-menu :items="menuItems" :active="currentMenu"></main-menu>
+        <!--
+<component v-show="activeSubMenu" :is="currentMenuComponent"></component>
+<component v-show="activePage" :is="currentPageComponent" class="page"></component>
+-->
     </div>
 
-</nav>
+
+
+    <a href="#" onmousedown="goToLocation('ask')" role="button" data-bs-toggle="dropdown" aria-expanded="false">Спроси</a>
+    <a href="#" onmousedown="goToLocation('about')" role="button" data-bs-toggle="dropdown" aria-expanded="false">О БИБЛИОТЕКЕ</a>
+    <a href="#" onmousedown="goToLocation('readers')" role="button" data-bs-toggle="dropdown" aria-expanded="false">Читателям</a>
+    <a href="#" onmousedown="goToLocation('colleagues')" role="button" data-bs-toggle="dropdown" aria-expanded="false">Коллегам</a>
+    <!--
+<a class="nav-link" href="/ru/pages/service/">УСЛУГИ</a>
+
+<a class="nav-link dropdown-toggle" href="/ru/pages/fonds/" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">ФОНДЫ</a>
+
+<a class="nav-link dropdown-toggle" href="/ru/pages/catalogs/" id="navbarDropdown4" role="button" data-bs-toggle="dropdown" aria-expanded="false">КАТАЛОГИ</a>
+
+<a class="nav-link dropdown-toggle" href="/ru/pages/eresorses/" id="navbarDropdown5" role="button" data-bs-toggle="dropdown" aria-expanded="false">ЭЛЕКТРОННЫЕ РЕСУРСЫ</a>
+
+<a class="nav-link" href="/ru/pages/contacts/">КОНТАКТЫ</a>
+-->
+</div>
 
 <script>
-    var menu = new Vue({
-        el: '#mainMenu',
-        data: {
-            activeItem: 0,
-            menuItems: [{
-                    id: 1,
-                    title: 'О библиотеке',
-                    flag: true,
-                    subMenu: ['История', 'Адрес и время работы', '3D панорамы Галерея', 'Противодействие коррупции', 'Структура библиотеки, контакты', 'Реквизиты библиотеки', 'Официальные документы', 'Попечительский совет'],
-                    hrefItem: ['history()', 'address()', '/ru/pages/3d/', 'http://liart.ru/ru/pages/index/korrupt/', 'structure()', 'requisites()', 'http://liart.ru/ru/pages/index/normdocs/', 'about()']
+    Vue.component("tab-about", {
+        template: `<div class = "grid_sub_menu">
+          <div v-for = "(it, ind) in subMenu"
+               :class.stop = "'subMenu' + 1 + ind"
+               @click = "currentPageName(it.ref)"
+          ><span class="item"
+                :class = "{errors: !it.ref}"
+            >{{it.name}}</span>
+          </div>
+        </div>
+        `,
+        data() {
+            return {
+                subMenu: [{
+                    name: 'История',
+                    ref: 'history'
                 }, {
-                    id: 2,
-                    title: 'Читателям',
-                    flag: false,
-                    subMenu: ['Запись читателей', 'Услуги, правила пользования', 'Фонды, ресурсы, каталоги', 'Доступная среда', 'Мероприятия и экскурсии', 'Клубы и объединения', 'Учёба в РГБИ', 'Творческое развитие'],
-                    hrefItem: ['readers()', '/ru/pages/service/', '/ru/pages/fonds/main/', '', '', '', '', '/ru/pages/contacts/']
-                },
+                    name: 'Адрес и время работы',
+                    ref: 'address'
+                }, {
+                    name: '3D панорамы Галерея',
+                    ref: ''
+                }, {
+                    name: 'Противодействие коррупции',
+                    ref: ''
+                }, {
+                    name: 'Структура библиотеки, контакты',
+                    ref: 'structure'
+                }, {
+                    name: 'Реквизиты библиотеки',
+                    ref: 'requisites'
+                }, {
+                    name: 'Официальные документы',
+                    ref: 'norm'
+                }, {
+                    name: 'Попечительский совет',
+                    ref: 'about'
+                }]
+            }
+        },
+        methods: {
+            currentPageName: function(p) {
+                menu.$data.currentPage = p ? p : 'patch';
+                menu.$data.activePage = true;
+                infor.style.display = 'none';
+                console.log(menu.$data.currentPage);
+            },
+        },
+    });
+    Vue.component("tab-readers", {
+        template: `<div class = "grid_sub_menu">
+          <div v-for = "(it, ind) in subMenu"
+               :class.stop = "'subMenu' + 1 + ind"
+               @click = "currentPageName(it.ref)"
+          ><span class="item"
+          :class = "{errors: !it.ref}"
+          >{{it.name}}</span>
+          </div>
+        </div>
+        `,
+        data() {
+            return {
+                subMenu: [{
+                    name: 'Запись читателей',
+                    ref: 'readers'
+                }, {
+                    name: 'Услуги, правила пользования',
+                    ref: ''
+                }, {
+                    name: 'Фонды, ресурсы, каталоги',
+                    ref: ''
+                }, {
+                    name: 'Доступная среда',
+                    ref: ''
+                }, {
+                    name: 'Мероприятия и экскурсии',
+                    ref: ''
+                }, {
+                    name: 'Клубы и объединения',
+                    ref: ''
+                }, {
+                    name: 'Учёба в РГБИ',
+                    ref: ''
+                }, {
+                    name: 'Творческое развитие',
+                    ref: ''
+                }]
+            }
+        },
+        methods: {
+            currentPageName: function(p) {
+                menu.$data.currentPage = p ? p : 'patch';
+                menu.$data.activePage = true;
+                infor.style.display = 'none';
+                console.log(menu.$data.currentPage);
+            },
+        },
+    });
+    Vue.component("tab-colleagues", {
+        template: `<div class = "grid_sub_menu">
+          <div v-for = "(it, ind) in subMenu"
+               :class.stop = "'subMenu' + 1 + ind"
+               @click = "currentPageName(it.ref)"
+          ><span class="item"
+          :class = "{errors: !it.ref}"
+          >{{it.name}}</span>
+          </div>
+        </div>
+        `,
+        data() {
+            return {
+                subMenu: [{
+                    name: 'Конференции, семинары',
+                    ref: ''
+                }, {
+                    name: 'Методические документы',
+                    ref: ''
+                }, {
+                    name: 'Проекты библиотеки',
+                    ref: ''
+                }, {
+                    name: 'Издания РГБИ',
+                    ref: ''
+                }, {
+                    name: 'Библиотека благодарит',
+                    ref: ''
+                }, {
+                    name: 'Творческие конкурсы',
+                    ref: ''
+                }, {
+                    name: 'Вакансии',
+                    ref: ''
+                }, {
+                    name: 'Секция библиотек по искуству и музейных библиотек РБА',
+                    ref: ''
+                }]
+            }
+        },
+        methods: {
+            currentPageName: function(p) {
+                menu.$data.currentPage = p ? p : 'patch';
+                menu.$data.activePage = true;
+                infor.style.display = 'none';
+                console.log(menu.$data.currentPage);
+            },
+        }
+    });
+    Vue.component("tab-ask", {
+        template: `<div class = "grid_sub_menu">
+          <div v-for = "(it, ind) in subMenu"
+               :class = "'subMenu' + 1 + ind"
+               @click.stop = "currentPageName(it.ref)"
+          ><span class="item"
+          :class = "{errors: !it.ref}"
+          >{{it.name}}</span>
+          </div>
+        </div>
+        `,
+        data() {
+            return {
+                subMenu: [{
+                    name: ' ',
+                    ref: ''
+                }, {
+                    name: 'Тематические запросы',
+                    ref: ''
+                }, {
+                    name: 'Наличие изданий',
+                    ref: ''
+                }, {
+                    name: 'Задать вопрос',
+                    ref: ''
+                }, {
+                    name: 'Отзывы и предложения',
+                    ref: ''
+                }, {
+                    name: 'Вне категорий',
+                    ref: ''
+                }, {
+                    name: 'Вопросы о работе РГБИ',
+                    ref: ''
+                }, {
+                    name: '  ',
+                    ref: ''
+                }]
+            }
+        },
+        methods: {
+            currentPageName: function(p) {
+                menu.$data.currentPage = p ? p : 'patch';
+                menu.$data.activePage = true;
+                infor.style.display = 'none';
+                console.log(menu.$data.currentPage);
+            },
+        }
+    });
 
-                {
-                    id: 3,
-                    title: 'Коллегам',
-                    flag: false,
-                    subMenu: ['Конференции, семинары', 'Методические документы', 'Проекты библиотеки', 'Издания РГБИ', 'Библиотека благодарит', 'Творческие конкурсы', 'Вакансии', 'Секция библиотек по искуству и музейных библиотек РБА'],
-                    hrefItem: ['', '', '', '', '', '', '', '']
-                },
+    Vue.component('main-menu', {
+        props: ['items', 'active'],
+        template: `<div class="grid_main_menu">
+            <div v-for="(item, index) in items" 
+            @click.stop="selectSubMenu(item.link)" 
+            :class="[{active: active === item.link}, 'menu'+index]"
+            onmousedown="goToLocation('readers')"
+            >{{item.title}}</div>
+            </div>`,
+        methods: {
+            selectSubMenu: function(i) {
+                //console.log(i, this.$root.currentMenu);
+                /*   if (!this.$root.activeSubMenu) this.$root.activeSubMenu = true
+                   else this.$root.activeSubMenu = false;
+                */
+                this.$root.currentMenu = i;
+            },
+        },
+    });
 
-                {
-                    id: 4,
-                    title: 'Спроси библиографа',
-                    flag: false,
-                    subMenu: [' ', 'Тематические запросы', 'Наличие изданий', 'Задать вопрос', 'Отзывы и предложения', 'Вне категорий', 'Вопросы о работе РГБИ', '  '],
-                    hrefItem: ['', '', '', '', '', '', '', '']
-                }
-            ]
+    var menu = new Vue({
+        el: '#pageContent',
+        data: {
+            activeSubMenu: false,
+            activePage: false,
+            currentPage: 'patch',
+            currentMenu: 'about',
+            menuItems: [{
+                title: 'О библиотеке',
+                link: 'about'
+            }, {
+                title: 'Читателям',
+                link: 'readers'
+            }, {
+                title: 'Коллегам',
+                link: 'colleagues'
+            }, {
+                title: 'Спроси библиографа',
+                link: 'ask'
+            }]
         },
 
         methods: {
-            selectSubMenu: function(index) {
-                if (this.activeItem === index) {
-
-                } else {
-                    this.menuItems[this.activeItem].flag = false;
-                    this.menuItems[index].flag = true;
-                    this.activeItem = index;
-                }
-            },
-            mainMenuClass(index) {
-                //console.log(index);
+            /*
+               mainMenuClass(index) {
+                    //console.log(index);
                 return "main" + this.menuItems[index].id;
+                },
+
+                currentPageName: function(p) {
+                    this.currentPage = p? p : 'patch';
+                    console.log(this.currentPage);
+                },
+
+                currentPageComponent: function() {
+                      console.log(this.currentPage);
+                         console.log("page-" + this.currentPage.toLowerCase());
+                return "page-" + this.currentPage.toLowerCase();
+                },
+            */
+        },
+        computed: {
+            currentPageComponent: function() {
+                return "page-" + this.currentPage.toLowerCase();
             },
-            subMenuClass(index) {
-                //console.log(index);
-                return "subMenu" + 1 + index;
-            }
-        }
+
+            currentMenuComponent: function() {
+                return "tab-" + this.currentMenu.toLowerCase();
+            },
+        },
 
     });
 </script>
