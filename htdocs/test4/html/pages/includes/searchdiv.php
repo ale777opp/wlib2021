@@ -201,8 +201,18 @@ if($bodyclass!="") echo 'class="'.$bodyclass.'"';
 <!-- из файла ../tpl/headertop.html -->
 	<div id="header">
 	<div>
-	<div class="cross" id="menu_button" onclick="showHideM('top_info', 'menu_button')"><span></span><span></span><span></span></div><div id="index__" class="s" onclick="goToLocation(this.id)">ЭБА</div>
-	<div class="top_logo"><div id="index" class="index" onclick="goToLocation(this.id)"><div class="inner"><div class="n">Электронный абонемент</div><div class="z">Поиск и заказ доступа к ресурсам библиотеки</div></div></div></div>
+	<div class="cross" id="menu_button" onclick="showHideM('top_info', 'menu_button')">
+	<span></span><span></span><span></span>
+	</div>
+	<div id="index__" class="s" onclick="goToLocation(this.id)">ЭБА</div>
+	<div class="top_logo">
+		<div id="index" class="index" onclick="goToLocation(this.id)">
+			<div class="inner">
+				<div class="n">Электронный абонемент</div>
+				<div class="z">Поиск и заказ доступа к ресурсам библиотеки</div>
+			</div>
+		</div>
+	</div>
 	<div class="block" id="top_info">
 	<?php
 		$utype='';
@@ -465,7 +475,7 @@ if($bodyclass!="") echo 'class="'.$bodyclass.'"';
 
 
     <a href="#" onmousedown="goToLocation('ask')" role="button" data-bs-toggle="dropdown" aria-expanded="false">Спроси</a>
-    <a href="#" onmousedown="goToLocation('about')" role="button" data-bs-toggle="dropdown" aria-expanded="false">О БИБЛИОТЕКЕ</a>
+    <a href="#" onmousedown="goToLocation('about')" role="button" data-bs-toggle="dropdown" aria-expanded="false">О библиотеке</a>
     <a href="#" onmousedown="goToLocation('readers')" role="button" data-bs-toggle="dropdown" aria-expanded="false">Читателям</a>
     <a href="#" onmousedown="goToLocation('colleagues')" role="button" data-bs-toggle="dropdown" aria-expanded="false">Коллегам</a>
     <!--
