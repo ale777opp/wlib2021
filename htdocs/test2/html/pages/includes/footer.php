@@ -3,39 +3,42 @@
 <script src="//api.bibliosearch.ru/bs.min.js"></script>
 <!-- подвал -->
 <div id="footer">
-	<div id="bottom_info">
-		<div>
-			<div>
-				<span>Адрес:</span>
-				<span>109240, Москва, Москворецкая наб., д.2-а, офис 220</span>
-			</div>
-			<div>
-				<span>Контакты:</span>
-				<span>Телефон:</span>
-				<span>8(495)698-5929</span><br/>
-				<span>E-mail:</span>
-				<span>opac@ditm.ru</span>
-			</div>
-			<div>
-				<span>Техническая поддержка:</span>
-				<span><span>Разработано</span> <a href="http://ditm.ru/" target="_blank" title="ДИТ-М">ООО «ДИТ-М»</a> <span>на базе решений</span> <a href="http://softwareag.com/" target="_blank" title="Software AG">Software AG</a></span>
-				<span class="invis" title="НАВЕРХ" id="go-to-top" onclick="goToTop()"></span>
-			</div>
-		</div>
-	</div>
-	<div id="bottom_copy">
-		<div>
-			<div>
-				<span>&copy; <?php echo date('Y') ?>, ООО «ДИТ-М»</span>
-				<span>
-					<span class="bcounter"></span>
-				</span>
-			</div>
-		</div>
-	</div>
+    <div id="bottom_info">
+        <div>
+            <div>
+                <div class="w25">
+                    <div class="n mt25x">Российская государственная библиотека искусств</div>
+                </div>
+                <div class="acenter">
+                    <span class="mt25x f80">&copy; <?php echo date('Y F') ?>, Федеральное государственное бюджетное учреждение культуры Российская государственная библиотека искусств</span>
+                    <br/>
+                    <div class="social">
+                        <a class="facebook" target="_blank" href="https://www.facebook.com/liart.ru"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" height="30" width="30"></a>
+                        <a class="vkontakte" target="_blank" href="https://vk.com/artlibrary"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" height="30" width="30"></a>
+                        <a class="twitter" target="_blank" href="https://twitter.com/rulibart"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" height="30" width="30"></a>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <span class="invis" title="НАВЕРХ" id="go-to-top" onclick="goToTop()"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="bottom_copy">
+        <div>
+            <div>
+                <div class="vmiddle">
+                    <span class="bcounter"></span>
+                </div>
+                <div class="vmiddle aright">
+                    <span>Разработано</span> <a class="c3" href="http://ditm.ru/" target="_blank" title="ДИТ-М">ООО «ДИТ-М»</a> <span>на базе решений</span> <a class="c3" href="http://softwareag.com/" target="_blank" title="Software AG">Software AG</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-
 <!-- конец подвал -->
 <!-- далее не редактировать -->
 <div id="voc_div" class="options3" style="display: none"><div onclick="PutLabValue(this)" class="iEXACT">Точная фраза</div><div onclick="PutLabValue(this)" class="iANY">Любое слово</div><div onclick="PutLabValue(this)" class="iEVERY">Все слова</div></div><div id="andor_div" class="options4" style="display: none"><div onclick="PutLabValue(this)" class="AND">И</div><div onclick="PutLabValue(this)" class="OR">ИЛИ</div></div>

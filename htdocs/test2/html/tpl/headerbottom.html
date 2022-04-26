@@ -1,3 +1,77 @@
-	<div class="bottom"></div>
-	
+<div class="bottom">
+    <!-- меню -->
+    <div id="pageContent" style="margin: 10px auto 10px auto">
+        <main-menu :items="menuItems" :active="currentMenu"></main-menu>
+        <!--
+		<component v-show="activeSubMenu" :is="currentMenuComponent"></component>
+		<component v-show="activePage" :is="currentPageComponent" class="page"></component>
+		-->
+    </div>
+</div>
 
+<script>
+    Vue.component('main-menu', {
+        props: ['items', 'active'],
+        template: `<div class="grid_main_menu">
+				  <div v-for="(item, index) in items" 
+				  @click.stop="selectSubMenu(item.link)" 
+				  :class="[{active: active === item.link}, 'menu'+index]"
+				  >{{item.title}}</div>
+				  </div>`,
+        methods: {
+            selectSubMenu: function(i) {
+                //console.log(i, this.$root);
+                /* 
+                	if (!this.$root.activeSubMenu) this.$root.activeSubMenu = true
+                	else this.$root.activeSubMenu = false;
+                */
+                this.$root.currentMenu = i;
+                //alert(i, typeof(i));
+                //alert('вызов страницы начало', this.$root.currentMenu);
+                goToLocation(i);
+                //alert('вызов страницы окончание', this.$root.currentMenu);
+            },
+        },
+        computed: {
+            currentPageComponent: function() {
+                return "page-" + this.$root.currentMenu.toLowerCase();
+            },
+        },
+    });
+
+    var menu = new Vue({
+        el: '#pageContent',
+        data: {
+            activeSubMenu: false,
+            activePage: false,
+            //currentPage: 'patch',
+            currentMenu: 'about',
+            menuItems: [{
+                title: 'О библиотеке',
+                link: 'about'
+            }, {
+                title: 'Читателям',
+                link: 'readers'
+            }, {
+                title: 'Коллегам',
+                link: 'colleagues'
+            }, {
+                title: 'Спроси библиографа',
+                link: 'ask'
+            }]
+        },
+        methods: {
+            /*
+            	 currentPageName: function(p) {
+            		this.currentPage = p? p : 'patch';
+            		console.log(this.currentPage);
+            	},
+            */
+        },
+        computed: {
+            currentMenuComponent: function() {
+                return "tab-" + this.currentMenu.toLowerCase();
+            },
+        },
+    });
+</script>
