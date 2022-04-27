@@ -1,115 +1,178 @@
 /*шрифты*/
-@font-face
-{
-	font-family: 'fontello';
-	src:	url('fonts/fontello.eot') format('embedded-opentype'),
-			url('fonts/fontello.woff') format('woff'),
-			url('fonts/fontello.ttf') format('truetype'),
-			url('fonts/fontello.svg') format('svg');
-	font-weight: normal;
-	font-style: normal;
+
+@font-face {
+    font-family: 'fontello';
+    src: url('fonts/fontello.eot') format('embedded-opentype'), url('fonts/fontello.woff') format('woff'), url('fonts/fontello.ttf') format('truetype'), url('fonts/fontello.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
-.times
-{
-	font-family: Times, serif;
+
+@font-face {
+    font-family: Pragmatica HW;
+    src: url("fonts/Pragmatica HW.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
 }
-.f160
-{
-	font-size: 160%;
+
+@font-face {
+    font-family: PrincetownD;
+    /* Гарнитура шрифта */
+    src: url(fonts/PrincetownD.ttf) format("truetype");
+    /* Путь к файлу со шрифтом */
+    font-weight: normal;
+    font-style: normal;
 }
-.f150
-{
-	font-size: 150%;
+
+@font-face {
+    font-family: 'ptserif';
+    src: url('fonts/ptserif.ttf') format('truetype'), url('fonts/ptserif.woff') format('woff'), url('fonts/ptserif.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
-.f140, .searchhead .table
-{
-	font-size: 140%;
+
+@font-face {
+    font-family: 'ptserifbold';
+    src: url('fonts/ptserifbold.ttf') format('truetype'), url('fonts/ptserifbold.woff') format('woff'), url('fonts/ptserifbold.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
-.f120, .fright  .pages, .inside p, .url, .row.checked .td .afurl
-{
-	font-size: 120%;
+
+@font-face {
+    font-family: 'ptserifbolditalic';
+    src: url('fonts/ptserifbolditalic.ttf') format('truetype'), url('fonts/ptserifbolditalic.woff') format('woff'), url('fonts/ptserifbolditalic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
-.f100, input[class$='button'], .buttoncont .button, .button2, input.voc, #saf, #sand, #sor, #snot, .afplusimg, .afminusimg, p.afsmall span.afbig, .memo .fright, .memo .fleft, #iconfirm .url, .orders .td span.url, .orders .td a.url
-{
-	font-size: 100%;
+
+@font-face {
+    font-family: 'ptserifitalic';
+    src: url('fonts/ptserifitalic.ttf') format('truetype'), url('fonts/ptserifitalic.woff') format('woff'), url('fonts/ptserifitalic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
-.f90, .aftitle
-{
-	font-size: 90%;
+
+@font-face {
+    font-family: 'Helvetica Neue Condensed Black';
+    src: url('fonts/Helvetica Neue Condensed Black.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
-.f80, .col_content  > .pages, .inside p, .memo, span.fright, span.fleft, span.url, #callbut, #closebut, .orders .td, .row.checked .td .afdescription
-{
-	font-size: 80%;
+
+@font-face {
+    font-family: 'Helvetica Neue Condensed Bold';
+    src: url('fonts/Helvetica Neue Condensed Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
-.f75
-{
-	font-size: 75%;
+
+.times {
+    font-family: Times, serif;
 }
-.f70, [class^='afbig'], .afsmall
-{
-	font-size: 70%;
+
+.f160 {
+    font-size: 160%;
 }
-.lh200, .inside p, .aftitle, [class^='afbig'], .afsmall, .afdescription
-{
-	line-height:200%;
+
+.f150 {
+    font-size: 150%;
 }
-.lh160
-{
-	line-height:160%;
+
+.f140 {
+    font-size: 140%;
 }
-.lh150, input[class$='button'], .buttoncont .button, .button2, input.voc, #saf, #sand, #sor, #snot
-{
-	line-height:150%;
+
+.f120 {
+    font-size: 120%;
 }
-.lh140
-{
-	line-height:140%;
+
+.f100 {
+    font-size: 100%;
 }
-.lh120
-{
-	line-height:120%;
+
+.f90 {
+    font-size: 90%;
 }
-.lh110
-{
-	line-height:110%;
+
+.f80 {
+    font-size: 80%;
 }
-.lh100
-{
-	line-height:100%;
+
+.f75 {
+    font-size: 75%;
 }
-.lh80
-{
-	line-height:80%;
+
+.f70 {
+    font-size: 70%;
 }
-.b, .url, #callbut, #closebut
-{
-	font-weight:bold;
+
+.lh200 {
+    line-height: 200%;
 }
-.i
-{
-	font-style:italic;
+
+.lh160 {
+    line-height: 160%;
 }
-.u, [class^='afbig']
-{
-	text-decoration:underline;
+
+.lh150 {
+    line-height: 150%;
 }
-.nowrap
-{
-	white-space: nowrap;
+
+.lh140 {
+    line-height: 140%;
 }
-.i25x, .afsmall, .inside p
-{
-	text-indent: 25px;
+
+.lh120 {
+    line-height: 120%;
 }
-.ls1x
-{
-	letter-spacing: 1px;
+
+.lh110 {
+    line-height: 110%;
 }
-.ffg
-{
-	font-family: Georgia;
+
+.lh100 {
+    line-height: 100%;
 }
-.ffv
-{
-	font-family: Verdana;
+
+.lh80 {
+    line-height: 80%;
+}
+
+.b {
+    font-weight: bold;
+}
+
+.i {
+    font-style: italic;
+}
+
+.u {
+    text-decoration: underline;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.i25x {
+    text-indent: 25px;
+}
+
+.ls1x {
+    letter-spacing: 1px;
+}
+
+.ffg {
+    font-family: Georgia;
+}
+
+.ffv {
+    font-family: Verdana;
+}
+
+.fft {
+    font-family: Tahoma;
+}
+
+.fftimes {
+    font-family: Times, serif;
 }
