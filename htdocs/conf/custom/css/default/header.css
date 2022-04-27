@@ -122,12 +122,12 @@
 
 #top_menu>li:first-child {
     background: #993030;
-    background: linear-gradient(to bottom, #a93333 0%, #900000 50%, #903030 51%, #cc3f3f 100%);
+    background: linear-gradient(to bottom, #787878 0%, #5e5e5e 50%, #707070 51%, #8f8f8f 100%);/* 27.04.2022 */
 }
 
 #top_menu li.reg {
     background: #ccc;
-    background: linear-gradient(to bottom, #a8a8a8 0%, #8e8e8e 50%, #a0a0a0 51%, #bfbfbf 100%);
+    background: linear-gradient(to bottom, #787878 0%, #5e5e5e 50%, #707070 51%, #8f8f8f 100%);/* 27.04.2022 */
     min-width: 94px;
 }
 

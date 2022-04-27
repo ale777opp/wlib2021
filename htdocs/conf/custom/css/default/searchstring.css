@@ -39,7 +39,7 @@
 .searchdiv .top span, .searchdiv .bottom span
 {
 	margin: 0px 0px 0px 25px;
-	font-size: 70%;
+	font-size: 86%;
 	font-weight:bold;
 	cursor:pointer;
 }
@@ -64,7 +64,7 @@
 }
 .searchdiv .middle [id$='_search']:not([id^='lib'])
 {
-	padding: 0 5% 0 5%;
+	padding: 0 5% 0 22%; /*27.04.2022*/
 }
 /*словарь*/
 .middle b
@@ -181,7 +181,7 @@
 {
 	display:inline-block;
 	position:absolute;
-	top:-10px;
+	top:33px;
 }
 .logcontainer
 {
@@ -196,7 +196,7 @@
 }
 .opt
 {
-	width: 155px;
+	width: 270px; /*27.04.2022 */
 	float: left;
 }
 .opt1
@@ -232,7 +232,7 @@
 }
 .select, .select_
 {
-	width: 155px;
+	width: 270px; /* 27.04.2022 */
 }
 .select1, .select1_
 {
@@ -259,7 +259,7 @@
 }
 .select span, .select_ span
 {
-	width: 125px;
+	/* width: 125px; 27.04.2022*/
 	margin: 0 0 0 2px;
 }
 .select1 span, .select1_ span

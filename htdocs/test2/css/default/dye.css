@@ -11,7 +11,7 @@
 }
 .red, .bases_div input[type=radio]:checked  + label, .filters div.else, .filters span.checked, .sel_, .busy
 {
-	color: #9f3333;
+	/* color: #9f3333; 27.04.2022 */
 }
 .warn, #hint
 {
@@ -112,7 +112,7 @@
 }
 .b1r, input[class$='button'], .buttoncont .button, .border1 .button
 {
-	border: solid 1px #993030;
+	border: solid 1px #5e5e5e;
 }
 .b1b, .url, #callbut, .button3
 {
@@ -174,7 +174,7 @@
 .l-gr, .buttoncont .button, input[class$='button']
 {
 	background: #993030;
-	background: linear-gradient(to bottom, #a93333 0%, #900000 50%, #903030 51%, #cc3f3f 100%);
+	background: linear-gradient(to bottom, #787878 0%, #5e5e5e 50%, #707070 51%, #8f8f8f  100%);
 }
 .l-gb, .url, #callbut, .button3
 {

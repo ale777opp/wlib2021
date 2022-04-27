@@ -1,6 +1,6 @@
 <div class="bottom">
     <!-- меню -->
-    <div id="pageContent" style="margin: 10px auto 10px auto">
+    <div id="pageContent" style="margin: 0px  auto">
         <main-menu :items="menuItems" :active="currentMenu"></main-menu>
         <!--
 		<component v-show="activeSubMenu" :is="currentMenuComponent"></component>
@@ -8,7 +8,8 @@
 		-->
     </div>
 </div>
-
+</div>
+<!-- div для поисковика -->
 <script>
     Vue.component('main-menu', {
         props: ['items', 'active'],
