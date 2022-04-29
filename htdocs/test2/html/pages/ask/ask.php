@@ -12,12 +12,13 @@ include (THEPAGESPATH.'/includes/searchdiv.php');
     </div>
         <h1 align = "center">Спроси библиографа</h1>
     <div id="ask_container" >
-		<div class="header"><center>Новости</center></div>
+		<div class="header"><center>Содержание</center></div>
 		<div class = "spacer h15x"></div>
 	</div>
 </div>
 
 <script>
+    menu.$root.currentMenu = "ask";
     Vue.component("tab-ask", {
         props: ['items'],
         template: `<div class = "grid_sub_menu">
@@ -41,6 +42,7 @@ include (THEPAGESPATH.'/includes/searchdiv.php');
             */
         }
     });    
+
     var subMenu = new Vue({
         el: '#infor',
         data: {

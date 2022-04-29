@@ -8,7 +8,7 @@
 	border-bottom: solid 1px #ddd;  27.04.2022*/
 	overflow:hidden;
 	/* 27.04.2022*/
-	top: 30px;
+	top: 38px;
 	z-index: 10;
 	width: 50%;
 	left: 50px;
@@ -70,7 +70,16 @@
 .body_discovery #searchdiv, .body_discovery [id^='infor']
 {
 	display:none;
+	
 }
+
+#infor{
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+}
+
 .body_discovery  #main
 {
 	height:auto;

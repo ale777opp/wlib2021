@@ -1,102 +1,146 @@
-#bs
-{
-	z-index:3;
-	min-height:700px;
+#bs {
+    z-index: 3;
+    min-height: 700px;
 }
-.biblio-search #bs_container
-{
-	background:#fff;
-}
-#bs_container > div:nth-child(2)
-{
-	width:84%;
-	margin:0 auto;
-}
-.biblio-search .search-panel
-{
-	padding:18px 12px;
-	background-color: #eee;
-	box-shadow: 0 15px 15px -15px #666;
-	transition:all .3s;
-	z-index:3;
-}
-.btn-group button:nth-child(1)
-{
-	display:none;
-}
-.biblio-search .btn-link, .biblio-search .btn-link:hover,.biblio-search .btn-link:focus
-{
 
+.biblio-search #bs_container {
+    background: #fff;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#bs_container>div:nth-child(2) {
+    width: 84%;
+    margin: 0 auto;
+}
+
+.biblio-search .search-panel {
+    padding: 18px 12px;
+    margin-top: 35px;
+    background-color: #eee;
+    box-shadow: 0 15px 15px -15px #666;
+    transition: all .3s;
+    z-index: 3;
+}
+
+.btn-group button:nth-child(1) {
+    display: none;
+}
+
+.biblio-search .btn-link,
+.biblio-search .btn-link:hover,
+.biblio-search .btn-link:focus {
     color: #6f0000;
 }
-.biblio-search .btn-primary, .biblio-search .btn-toggle, .biblio-search .list-group-item.active,.biblio-search .list-group-item.active:hover,.biblio-search .list-group-item.active:focus, .biblio-search .panel-primary>.panel-heading, .biblio-search .alert-info
-{
+
+.biblio-search .btn-primary,
+.biblio-search .btn-toggle,
+.biblio-search .list-group-item.active,
+.biblio-search .list-group-item.active:hover,
+.biblio-search .list-group-item.active:focus,
+.biblio-search .panel-primary>.panel-heading,
+.biblio-search .alert-info {
     background-color: #6f0000;
     border-color: #6f0000;
 }
+
+
 /*.panel-body > div:nth-child(1)
 {
 	display:none;
 }*/
-.biblio-search a, .biblio-search a:hover,.biblio-search a:focus
-{
-	color:#6f0000;
+
+.biblio-search a,
+.biblio-search a:hover,
+.biblio-search a:focus {
+    color: #6f0000;
 }
-.biblio-search .text-primary, .list-group-item.active>.biblio-search .badge,.nav-pills>.active>a>.biblio-search .badge, .biblio-search .panel-primary>.panel-heading .badge, .biblio-search .btn-tune:hover, .biblio-search .result-item .doc-type [class*='type-']
-{
-	color:#6f0000;
+
+.biblio-search .text-primary,
+.list-group-item.active>.biblio-search .badge,
+.nav-pills>.active>a>.biblio-search .badge,
+.biblio-search .panel-primary>.panel-heading .badge,
+.biblio-search .btn-tune:hover,
+.biblio-search .result-item .doc-type [class*='type-'] {
+    color: #6f0000;
 }
-.biblio-search a.bg-info:hover, .biblio-search a.bg-info:focus, .biblio-search .btn-info:active, .biblio-search .label-info[href]:hover,.biblio-search .label-info[href]:focus, .biblio-search .navbar-default .badge
-{
-	background-color:#606f90;
+
+.biblio-search a.bg-info:hover,
+.biblio-search a.bg-info:focus,
+.biblio-search .btn-info:active,
+.biblio-search .label-info[href]:hover,
+.biblio-search .label-info[href]:focus,
+.biblio-search .navbar-default .badge {
+    background-color: #606f90;
 }
-.biblio-search .form-control:focus, .biblio-search a.thumbnail:hover,.biblio-search a.thumbnail:focus,.biblio-search a.thumbnail.active, .biblio-search .panel-primary, .biblio-search .form-checkbox input:checked+.form-icon,.biblio-search .form-radio input:checked+.form-icon, .biblio-search .form-checkbox input:checked+.form-icon:after
-{
-	border-color:#6f0000;
+
+.biblio-search .form-control:focus,
+.biblio-search a.thumbnail:hover,
+.biblio-search a.thumbnail:focus,
+.biblio-search a.thumbnail.active,
+.biblio-search .panel-primary,
+.biblio-search .form-checkbox input:checked+.form-icon,
+.biblio-search .form-radio input:checked+.form-icon,
+.biblio-search .form-checkbox input:checked+.form-icon:after {
+    border-color: #6f0000;
 }
-.biblio-search .dropdown-menu>li>a:hover,.biblio-search .dropdown-menu>li>a:focus, .biblio-search .label-primary
-{
-	background-color:#6f0000;
+
+.biblio-search .dropdown-menu>li>a:hover,
+.biblio-search .dropdown-menu>li>a:focus,
+.biblio-search .label-primary {
+    background-color: #6f0000;
 }
-.biblio-search .pagination>li>a,.biblio-search .pagination>li>span, .biblio-search .pagination>li>a:hover,.biblio-search .pagination>li>a:focus,.biblio-search .pagination>li>span:hover,.biblio-search .pagination>li>span:focus, .biblio-search .result-item-header
-{
-	color:#606f90;
+
+.biblio-search .pagination>li>a,
+.biblio-search .pagination>li>span,
+.biblio-search .pagination>li>a:hover,
+.biblio-search .pagination>li>a:focus,
+.biblio-search .pagination>li>span:hover,
+.biblio-search .pagination>li>span:focus,
+.biblio-search .result-item-header {
+    color: #606f90;
 }
-.biblio-search .pagination>.active>a,.biblio-search .pagination>.active>a:hover,.biblio-search .pagination>.active>a:focus,.biblio-search .pagination>.active>span,.biblio-search .pagination>.active>span:hover,.biblio-search .pagination>.active>span:focus
-{
-	background-color:#606f90;
+
+.biblio-search .pagination>.active>a,
+.biblio-search .pagination>.active>a:hover,
+.biblio-search .pagination>.active>a:focus,
+.biblio-search .pagination>.active>span,
+.biblio-search .pagination>.active>span:hover,
+.biblio-search .pagination>.active>span:focus {
+    background-color: #606f90;
 }
-.biblio-search .panel-primary>.panel-heading+.panel-collapse>.panel-body
-{
-	border-top-color:#6f0000;
+
+.biblio-search .panel-primary>.panel-heading+.panel-collapse>.panel-body {
+    border-top-color: #6f0000;
 }
-.biblio-search .panel-primary>.panel-footer+.panel-collapse>.panel-body
-{
-	border-bottom-color:#6f0000;
+
+.biblio-search .panel-primary>.panel-footer+.panel-collapse>.panel-body {
+    border-bottom-color: #6f0000;
 }
-.media-body *
-{
+
+.media-body * {
     line-height: 130%;
 }
-.biblio-search .result-item-authors
-{
-	color:#000;
+
+.biblio-search .result-item-authors {
+    color: #000;
 }
-.icon-menu
-{
-	color: #8c8c8c;
+
+.icon-menu {
+    color: #8c8c8c;
 }
-.biblio-search .form-control
-{
-	border-color:rgba(231,227,218,1.0);
+
+.biblio-search .form-control {
+    border-color: rgba(231, 227, 218, 1.0);
 }
-.biblio-search .input-group-addon
-{
-	background-color:rgba(231,227,218,1.0);
-	border-color:rgba(231,227,218,1.0);
+
+.biblio-search .input-group-addon {
+    background-color: rgba(231, 227, 218, 1.0);
+    border-color: rgba(231, 227, 218, 1.0);
 }
-#filtersPanel
-{
-	margin-top:15px;
-	margin-bottom:15px;
+
+#filtersPanel {
+    margin-top: 15px;
+    margin-bottom: 15px;
 }

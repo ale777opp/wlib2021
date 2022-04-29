@@ -4,7 +4,7 @@
 <!-- подвал -->
 <div id="footer">
     <div id="bottom_info">
-        <div>
+        <div style="top:20px">
             <div>
                 <div class="w25">
                     <div class="n mt25x">Российская государственная библиотека искусств</div>

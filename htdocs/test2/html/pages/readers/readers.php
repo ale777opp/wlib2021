@@ -9,12 +9,13 @@ include (THEPAGESPATH.'/includes/searchdiv.php');
     </div>
         <h1 align = "center">Читателям</h1>
     <div id="readers_container" >
-		<div class="header"><center>Новости</center></div>
+		<div class="header"><center>Содержание</center></div>
 		<div class = "spacer h15x"></div>
 	</div>
 </div>
 
 <script>
+    menu.$root.currentMenu = "readers";
     Vue.component("tab-readers", {
         props: ['items'],
         template: `<div class = "grid_sub_menu">

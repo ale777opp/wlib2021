@@ -11,6 +11,17 @@
 </div>
 <!-- div для поисковика -->
 <script>
+    Vue.component("patch", {
+        template: `<div class="col_title">
+        <span class="bread" id="index_" onmousedown="goToLocation(this.id)">Главная</span>
+        <span class="caption">О библиотеке</span>
+    </div>
+    <h1 align = "center">О библиотеке</h1>
+    <div id="ask_container" >
+		<div class="header"><center>Новости</center></div>
+		<div class = "spacer h15x"></div>
+	</div>`
+    });
     Vue.component('main-menu', {
         props: ['items', 'active'],
         template: `<div class="grid_main_menu">
@@ -21,23 +32,16 @@
 				  </div>`,
         methods: {
             selectSubMenu: function(i) {
-                //console.log(i, this.$root);
-                /* 
-                	if (!this.$root.activeSubMenu) this.$root.activeSubMenu = true
-                	else this.$root.activeSubMenu = false;
-                */
-                this.$root.currentMenu = i;
-                //alert(i, typeof(i));
-                //alert('вызов страницы начало', this.$root.currentMenu);
                 goToLocation(i);
-                //alert('вызов страницы окончание', this.$root.currentMenu);
             },
         },
+        /*
         computed: {
             currentPageComponent: function() {
                 return "page-" + this.$root.currentMenu.toLowerCase();
             },
         },
+        */
     });
 
     var menu = new Vue({

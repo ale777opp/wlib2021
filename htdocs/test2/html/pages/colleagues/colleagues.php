@@ -9,12 +9,13 @@ include (THEPAGESPATH.'/includes/searchdiv.php');
     </div>
         <h1 align = "center">Коллегам</h1>
     <div id="colleagues_container" >
-		<div class="header"><center>Новости</center></div>
+		<div class="header"><center>Содержание</center></div>
 		<div class = "spacer h15x"></div>
 	</div>
 </div>
 
 <script>
+     menu.$root.currentMenu = "colleagues";
 	    Vue.component("tab-colleagues", {
             props: ['items'],
         template: `<div class = "grid_sub_menu">

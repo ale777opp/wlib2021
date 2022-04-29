@@ -5,10 +5,21 @@ include (THEPAGESPATH.'/includes/searchdiv.php');
 
 <div id="infor">
     <tab-about :items="subMenu"></tab-about>
-
-
-    <div class="col_title"><span class="bread" id="index_" onmousedown="goToLocation(this.id)">Главная</span> / <span class="caption">О библиотеке</span>
-</div>
+    <!--
+	<component v-show="activeSubMenu" :is="currentMenuComponent"></component>
+	<component v-show="activePage" :is="currentPageComponent" class="page"></component>
+	-->
+    <div class="col_title">
+        <span class="bread" id="index_" onmousedown="goToLocation(this.id)">Главная</span>
+        <span class="caption">О библиотеке</span>
+    </div>
+    <h1 align = "center">О библиотеке</h1>
+    <div id="ask_container" >
+		<div class="header"><center>Содержание</center></div>
+		<div class = "spacer h15x"></div>
+	</div>
+</div>   
+<!--
 <div class="col_content">
     <div class="table mt20x h100">
         <div class="row">
@@ -48,9 +59,8 @@ include (THEPAGESPATH.'/includes/searchdiv.php');
         </div>
     </div>
 </div>
-
+-->
 <div class="spacer"></div>
-
 <script>
     Vue.component("tab-about", {
         props: ['items'],
