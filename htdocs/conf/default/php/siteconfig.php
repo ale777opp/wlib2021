@@ -249,7 +249,7 @@
 				}
 				else
 				{
-					$interfacesdiv.='<input type="button" class="'.$sinterf[$i]->id.'button" onmousedown="simpleSearch()" value="Искать"/><div class="labcontainer"><div class="opt"><div class="select"><img onmousedown="showOptions(this,\'labs_div\')" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" border="0" hspace="0" vspace="0" alt="" title="" class="labs"/><span onmousedown="showOptions(this.previousSibling,\'labs_div\')"></span></div></div><div class="inp"><input';
+					$interfacesdiv.='<input type="button" class="'.$sinterf[$i]->id.'button" onmousedown="simpleSearch()" value="Искать в РГБИ"/><div class="labcontainer"><div class="opt"><div class="select"><img onmousedown="showOptions(this,\'labs_div\')" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" border="0" hspace="0" vspace="0" alt="" title="" class="labs"/><span onmousedown="showOptions(this.previousSibling,\'labs_div\')"></span></div></div><div class="inp"><input';
 					if($sinterf[$i]->id=="simple")
 					{
 						$interfacesdiv.=' id="itemsimple"';
