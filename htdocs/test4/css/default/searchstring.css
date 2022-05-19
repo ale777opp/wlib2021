@@ -3,17 +3,17 @@
 .searchdiv {
     width: 100%;
     color: #666;
-    z-index: 3;
+    z-index: 1;
     background: #fff;
     box-shadow: 0 20px 20px -20px #eee;
+	top: -34px;
 }
-
-
 /*выбор бд*/
 
 .bases_div {
     display: inline-block;
     left: 5%;
+	top: 65px;
 }
 
 #bases_div_inner {
@@ -21,7 +21,6 @@
     text-align: left;
     padding: 5px 35px 0 0;
 }
-
 
 /*элементы поиска*/
 
@@ -70,10 +69,10 @@
 }
 
 .searchdiv .middle [id$='_search']:not([id^='lib']) {
-    padding: 0 5% 0 5%;
+    /* margin: 0 5% 0 22%; */
+	left: 406px;
+	width: 60%;
 }
-
-
 /*словарь*/
 
 .middle b {
@@ -201,17 +200,14 @@
 .labcontainer,
 .logcontainer,
 .basescontainer {
-    height: 29px;
+    /*height: 29px;*/
     background: #fcfcfc;
     border: solid 5px #eee;
     border-radius: 5px;
     overflow: hidden;
 }
-
-.basescontainer {
-    display: inline-block;
-    position: absolute;
-    top: -10px;
+.labcontainer {
+	top: -3px;
 }
 
 .logcontainer {

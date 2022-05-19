@@ -1,9 +1,23 @@
-	<div id="header">
-	<div>
-	<div class="cross" id="menu_button" onclick="showHideM('top_info', 'menu_button')"><span></span><span></span><span></span></div><div id="index__" class="s" onclick="goToLocation(this.id)">ЭБА</div>
-	<div class="top_logo"><div id="index" class="index" onclick="goToLocation(this.id)"><div class="inner"><div class="n">Электронный абонемент</div><div class="z">Поиск и заказ доступа к ресурсам библиотеки</div></div></div></div>
-	<div class="block" id="top_info">
-	<?php
+<div id="header">
+    <!--
+<div>
+	<div class="cross" id="menu_button" onclick="showHideM('top_info', 'menu_button')">
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+	<div id="index__" class="s" onclick="goToLocation(this.id)">ЭБА</div>
+	<div class="top_logo">
+		<div id="index" class="index" onclick="goToLocation(this.id)">
+			<div class="inner">
+				<div class="n">Электронный абонемент</div>
+				<div class="z">Поиск и заказ доступа к ресурсам библиотеки</div>	
+			</div>
+		</div>
+	</div>
+-->
+    <div class="block" id="top_info">
+        <?php
 		$utype='';
 		if(isset($ujson))
 			$utype=gettype($ujson);
@@ -54,5 +68,7 @@
 			}
 		}
 	?>
-	<ul id="top_menu" class="top_menu">
-
+            <ul id="top_menu" class="top_menu">
+                <li>
+                    <span title="Версия для слабовидящих" class="blind" onmousedown="openBlindPanel()"></span>
+                </li>

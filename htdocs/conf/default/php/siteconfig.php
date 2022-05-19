@@ -1724,6 +1724,7 @@ $basestop
 <!-- конец из файла ../tpl/basesbottom.html -->
 	<div class="searchdiv_outer">
 		<div class="searchdiv_inner">
+		<!-- попробовать перенести bases_div -->
 			<div class="top">$swint</div>
 			<div class="middle" id="middle">
 			$ints

@@ -199,12 +199,26 @@ if($bodyclass!="") echo 'class="'.$bodyclass.'"';
 	</div>
 <!-- конец из файла ../tpl/blind_panel.html -->
 <!-- из файла ../tpl/headertop.html -->
-	<div id="header">
-	<div>
-	<div class="cross" id="menu_button" onclick="showHideM('top_info', 'menu_button')"><span></span><span></span><span></span></div><div id="index__" class="s" onclick="goToLocation(this.id)">ЭБА</div>
-	<div class="top_logo"><div id="index" class="index" onclick="goToLocation(this.id)"><div class="inner"><div class="n">Электронный абонемент</div><div class="z">Поиск и заказ доступа к ресурсам библиотеки</div></div></div></div>
-	<div class="block" id="top_info">
-	<?php
+<div id="header">
+    <!--
+<div>
+	<div class="cross" id="menu_button" onclick="showHideM('top_info', 'menu_button')">
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+	<div id="index__" class="s" onclick="goToLocation(this.id)">ЭБА</div>
+	<div class="top_logo">
+		<div id="index" class="index" onclick="goToLocation(this.id)">
+			<div class="inner">
+				<div class="n">Электронный абонемент</div>
+				<div class="z">Поиск и заказ доступа к ресурсам библиотеки</div>	
+			</div>
+		</div>
+	</div>
+-->
+    <div class="block" id="top_info">
+        <?php
 		$utype='';
 		if(isset($ujson))
 			$utype=gettype($ujson);
@@ -255,9 +269,10 @@ if($bodyclass!="") echo 'class="'.$bodyclass.'"';
 			}
 		}
 	?>
-	<ul id="top_menu" class="top_menu">
-
-
+            <ul id="top_menu" class="top_menu">
+                <li>
+                    <span title="Версия для слабовидящих" class="blind" onmousedown="openBlindPanel()"></span>
+                </li>
 <!-- конец из файла ../tpl/headertop.html -->
 	<?php
 		$nspos=strpos($nsean, '*ютф*');
@@ -298,29 +313,155 @@ if($bodyclass!="") echo 'class="'.$bodyclass.'"';
 		echo $pagescont.''.$logout;
 	?>
 <!-- из файла ../tpl/headermiddle.html -->
-<li><span id="bookrating" onclick="goToLocation(this.id)">Популярное</span></li>
+<!--  
+<li><span id="bookrating" onclick="goToLocation(this.id)">Популярное</span></li> 
 <li><span id="ebookrating" onclick="goToLocation(this.id)">Популярные электронные книги</span></li>
+-->
 <li><span id="help" onclick="goToLocation(this.id)">Помощь</span></li>
 <!-- конец из файла ../tpl/headermiddle.html -->
 
 <!-- из файла ../tpl/blind_button.html -->
-				<li>
-					<span title="Версия для слабовидящих" class="blind" onmousedown="openBlindPanel()"></span>
-				</li>
+<div class="spacer"></div>
+<!--
+<li>
+	<span title="Версия для слабовидящих" class="blind" onmousedown="openBlindPanel()"></span>
+</li>
+-->
 <!-- конец из файла ../tpl/blind_button.html -->
 <!-- из файла ../tpl/headermiddle1.html -->
-</ul></div></div></div>
+</ul>
+</div>
+<div style="display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;">
+    <div class="top_logo"></div>
+    <div id="index">
+        <!-- <div class="inner" onmousedown="goToLocation('index')"> -->
+        <p></p>
+        <p></p>
+        <p></p>
+        <div class="p">
+            <p>Федеральное государственное бюджетное<br>учреждение культуры</p>
+        </div>
+        <div class="n">
+            <p>Российская государственная<br>библиотека искусств</p>
+        </div>
+        <!-- 
+			<div class="z">
+			<p>Поиск и доступ к фондам и электронным ресурсам</p>
+			</div> 
+		</div>
+		-->
+    </div>
+</div>
+</div>
+
+<!-- меню -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <!--
+                    <li><span id="news" class="nav-link dropdown-toggle" onmousedown="goToLocation('news')">НОВОСТИ</span></li>
+                    -->
+                    <a class="nav-link dropdown-toggle" href="#" onmousedown="goToLocation('news')" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">События</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a href="#">События</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <!--
+                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2014/">2014</a></li>
+                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2013/">2013</a></li>
+                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2012/">2012</a></li>
+                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2011/">2011</a></li>
+                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2010/">2010</a></li>
+                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2009/">2009</a></li>
+                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2008/">2008</a></li>
+                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2007/">2007</a></li>
+                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2006/">2006</a></li>
+                            -->
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="">Новые поступления</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" onmousedown="goToLocation('about')" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">О библиотеке</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" onclick="address()">Адрес и время работы РГБИ</a></li>
+                        <li><a class="dropdown-item" onclick="readers()">Запись читателей</a></li>
+                        <li><a class="dropdown-item" onclick="about()">Общая информация</a></li>
+                        <li><a class="dropdown-item" onclick="history()">Из истории РГБИ</a></li>
+                        <li><a class="dropdown-item" onclick="structure()">Структура библиотеки</a></li>
+                        <li><a class="dropdown-item" onclick="requisites()">Реквизиты библиотеки</a></li>
+                        <li><a class="dropdown-item" href="http://liart.ru/ru/pages/index/normdocs/">Нормативные документы</a></li>
+                        <li><a class="dropdown-item" href="http://liart.ru/ru/pages/index/korrupt/">Противодействие коррупции</a></li>
+                        <li><a class="dropdown-item" href="/ru/pages/3d/">3D панорамы библиотеки</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/ru/pages/service/">Читателям</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="/ru/pages/fonds/" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">Коллегам</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/ru/pages/fonds/main/">Основной фонд</a></li>
+                        <li><a class="dropdown-item" href="/ru/pages/fonds/cio">Справочно-информационный фонд</a></li>
+                        <li><a class="dropdown-item" href="/ru/pages/fonds/izofond">Фонд изобразительных материалов</a></li>
+                        <li><a class="dropdown-item" href="/ru/pages/fonds/abfond">Фонд отдела Абонемента</a></li>
+                        <li><a class="dropdown-item" href="/ru/pages/fonds/gvtp">Фонд газетных вырезок и театральных программ</a></li>
+                        <li><a class="dropdown-item" href="/ru/pages/fonds/video">Видеофонд</a></li>
+                        <li><a class="dropdown-item" href="/ru/pages/fonds/mffond">Фонд изданий на микрофишах</a></li>
+                        <li><a class="dropdown-item" href="http://liart.ru/ru/pages/fonds/arhiv/">Архивный фонд </a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="/ru/pages/catalogs/" id="navbarDropdown4" role="button" data-bs-toggle="dropdown" aria-expanded="false">Спроси библиографа</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="http://opac.liart.ru/opacg/nog.htm" target="_blank">Электронный каталог</a></li>
+                        <li><a class="dropdown-item" href="http://liart.ru/predm/i2.htm" target="_blank">Предметный каталог</a></li>
+                        <li><a class="dropdown-item" href="/ru/pages/catalogs/Kartochnye_katalogi/">Карточные каталоги</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="/ru/pages/eresorses/" id="navbarDropdown5" role="button" data-bs-toggle="dropdown" aria-expanded="false">Платные услуги</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/ru/pages/eresorses/bd">Базы данных</a></li>
+                        <li><a class="dropdown-item" href="http://opac.liart.ru/opacg/nog.htm" target="_blank">Электронный каталог</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+</div>
+<!-- div#header-->
 <!-- конец из файла ../tpl/headermiddle1.html -->
 <!-- конец шапка -->
 <!-- далее не редактировать -->
 <div class="tab_to_switch_search"><span class="opac" onmousedown="switchTypeSearch(this)">Поиск в электронных каталогах</span><span class="discovery" onmousedown="switchTypeSearch(this)">Поиск во внешних источниках</span></div>
 <!-- из файла ../tpl/basestop.html -->
-	<div class="searchdiv" id="searchdiv">
-		<div class="bases_div" id="bases_div">
-			<div class="cross" id="menu_button_base" onmousedown="showHideM('bases_div_inner', 'menu_button_base')"><span></span><span></span><span></span></div><div class="s_base" onmousedown="showHideM('bases_div_inner')">Выбрать БД</div>
-			<div id="bases_div_inner" class="block">
-
-
+<div class="searchdiv" id="searchdiv">
+    <div class="bases_div" id="bases_div">
+        <div class="cross" id="menu_button_base" onmousedown="showHideM('bases_div_inner', 'menu_button_base')"><span></span><span></span><span></span></div>
+        <div class="s_base" onmousedown="showHideM('bases_div_inner')">Выбрать БД</div>
+        <div id="bases_div_inner" class="block">
 <!-- конец из файла ../tpl/basestop.html -->
 		<?php 
 		if(isset($qjson))
@@ -436,113 +577,20 @@ if($bodyclass!="") echo 'class="'.$bodyclass.'"';
 		}
 		?>
 <!-- из файла ../tpl/basesbottom.html -->
-					</div>
-	</div>
-
-
+		</div>
+</div>
 <!-- конец из файла ../tpl/basesbottom.html -->
 	<div class="searchdiv_outer">
 		<div class="searchdiv_inner">
+		<!-- попробовать перенести bases_div -->
 			<div class="top"><span id="simple" onmousedown="switchSearch(this)" class="sel_">Простой поиск</span><span id="expand" onmousedown="switchSearch(this)" class="sel">Расширенный поиск</span><span class="history_link" onclick="showHistory()">История поисков</span></div>
 			<div class="middle" id="middle">
-			<div id="simple_search"><input type="button" class="simplebutton" onmousedown="simpleSearch()" value="Искать"/><div class="labcontainer"><div class="opt"><div class="select"><img onmousedown="showOptions(this,'labs_div')" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" border="0" hspace="0" vspace="0" alt="" title="" class="labs"/><span onmousedown="showOptions(this.previousSibling,'labs_div')"></span></div></div><div class="inp"><input id="itemsimple" type="text" class="iLAB" value="" maxlength="1000" /></div></div></div><div class="spacer"></div><div id="expand_search" style="display: none"><b class="voc" onmousedown="showVoc(this)"></b><div class="logcontainer"><div class="select1"><img onclick="showOptions(this,'logic_div')" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" border="0" hspace="0" vspace="0" alt="" title="" class="log"/><span onmousedown="showOptions(this.previousSibling,'logic_div')" class="iAND">И</span></div></div><div class="labcontainer"><div class="opt"><div class="select"><img onmousedown="showOptions(this,'labs_div')" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" border="0" hspace="0" vspace="0" alt="" title="" class="labs"/><span onmousedown="showOptions(this.previousSibling,'labs_div')"></span></div></div><div class="inp"><input id="item0" type="text" class="iLAB" value="" maxlength="1000" /></div></div><div class="spacer" style="height: 7px"></div><b class="voc" onmousedown="showVoc(this)"></b><div class="logcontainer"><div class="select1"><img onclick="showOptions(this,'logic_div')" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" border="0" hspace="0" vspace="0" alt="" title="" class="log"/><span onmousedown="showOptions(this.previousSibling,'logic_div')" class="iAND">И</span></div></div><div class="labcontainer"><div class="opt"><div class="select"><img onmousedown="showOptions(this,'labs_div')" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" border="0" hspace="0" vspace="0" alt="" title="" class="labs"/><span onmousedown="showOptions(this.previousSibling,'labs_div')"></span></div></div><div class="inp"><input id="item1" type="text" class="iLAB" value="" maxlength="1000" /></div></div><div class="spacer" style="height: 7px"></div><b class="voc" onmousedown="showVoc(this)"></b><div class="logcontainer"><div class="select1"><img onclick="showOptions(this,'logic_div')" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" border="0" hspace="0" vspace="0" alt="" title="" class="log"/><span onmousedown="showOptions(this.previousSibling,'logic_div')" class="iAND">И</span></div></div><div class="labcontainer"><div class="opt"><div class="select"><img onmousedown="showOptions(this,'labs_div')" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" border="0" hspace="0" vspace="0" alt="" title="" class="labs"/><span onmousedown="showOptions(this.previousSibling,'labs_div')"></span></div></div><div class="inp"><input id="item2" type="text" class="iLAB" value="" maxlength="1000" /></div></div><div class="spacer" style="height: 7px"></div><b class="voc" onmousedown="showVoc(this)"></b><div class="logcontainer"><div class="select1"><img onclick="showOptions(this,'logic_div')" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" border="0" hspace="0" vspace="0" alt="" title="" class="log"/><span onmousedown="showOptions(this.previousSibling,'logic_div')" class="iAND">И</span></div></div><div class="labcontainer"><div class="opt"><div class="select"><img onmousedown="showOptions(this,'labs_div')" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" border="0" hspace="0" vspace="0" alt="" title="" class="labs"/><span onmousedown="showOptions(this.previousSibling,'labs_div')"></span></div></div><div class="inp"><input id="item3" type="text" class="iLAB" value="" maxlength="1000" /></div></div><div class="spacer" style="height: 7px"></div><b class="voc" onmousedown="showVoc(this)"></b><div class="labcontainer"><div class="opt"><div class="select"><img onmousedown="showOptions(this,'labs_div')" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" border="0" hspace="0" vspace="0" alt="" title="" class="labs"/><span onmousedown="showOptions(this.previousSibling,'labs_div')"></span></div></div><div class="inp"><input id="item4" type="text" class="iLAB" value="" maxlength="1000" /></div></div><div class="spacer" style="height: 7px"></div><div class="spacer"></div></div><div class="spacer"></div><div id="authority_search" style="display: none"><input type="button" class="authoritybutton" onmousedown="findInAf()" value="Искать"/><input id="voclist" type="button" class="voc" onmousedown="findInAf(this)" value="Список"/><input id="vocaf" type="button" class="voc" onmousedown="showVoc(this)" value="Словарь"/><div class="voc angle" id="meshtree"><div onmousedown="seeTreeView(this)">Дерево</div></div><div class="labcontainer"><div class="opt"><div class="select"><img onmousedown="showOptions(this,'labs_div')" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" border="0" hspace="0" vspace="0" alt="" title="" class="labs"/><span onmousedown="showOptions(this.previousSibling,'labs_div')"></span></div></div><div class="inp"><input id="itemaf" type="text" class="iLAB" value="" maxlength="1000" /></div></div><div id="afalfabet"><span onmousedown="searchAlfabetAuth(this)">А</span> <span onmousedown="searchAlfabetAuth(this)">Б</span> <span onmousedown="searchAlfabetAuth(this)">В</span> <span onmousedown="searchAlfabetAuth(this)">Г</span> <span onmousedown="searchAlfabetAuth(this)">Д</span> <span onmousedown="searchAlfabetAuth(this)">Е</span> <span onmousedown="searchAlfabetAuth(this)">Ж</span> <span onmousedown="searchAlfabetAuth(this)">З</span> <span onmousedown="searchAlfabetAuth(this)">И</span> <span onmousedown="searchAlfabetAuth(this)">Й</span> <span onmousedown="searchAlfabetAuth(this)">К</span> <span onmousedown="searchAlfabetAuth(this)">Л</span> <span onmousedown="searchAlfabetAuth(this)">М</span> <span onmousedown="searchAlfabetAuth(this)">Н</span> <span onmousedown="searchAlfabetAuth(this)">О</span> <span onmousedown="searchAlfabetAuth(this)">П</span> <span onmousedown="searchAlfabetAuth(this)">Р</span> <span onmousedown="searchAlfabetAuth(this)">С</span> <span onmousedown="searchAlfabetAuth(this)">Т</span> <span onmousedown="searchAlfabetAuth(this)">У</span> <span onmousedown="searchAlfabetAuth(this)">Ф</span> <span onmousedown="searchAlfabetAuth(this)">Х</span> <span onmousedown="searchAlfabetAuth(this)">Ц</span> <span onmousedown="searchAlfabetAuth(this)">Ч</span> <span onmousedown="searchAlfabetAuth(this)">Ш</span> <span onmousedown="searchAlfabetAuth(this)">Щ</span> <span onmousedown="searchAlfabetAuth(this)">Э</span> <span onmousedown="searchAlfabetAuth(this)">Ю</span> <span onmousedown="searchAlfabetAuth(this)">Я</span><br/><span onmousedown="searchAlfabetAuth(this)">A</span> <span onmousedown="searchAlfabetAuth(this)">B</span> <span onmousedown="searchAlfabetAuth(this)">C</span> <span onmousedown="searchAlfabetAuth(this)">D</span> <span onmousedown="searchAlfabetAuth(this)">E</span> <span onmousedown="searchAlfabetAuth(this)">F</span> <span onmousedown="searchAlfabetAuth(this)">G</span> <span onmousedown="searchAlfabetAuth(this)">H</span> <span onmousedown="searchAlfabetAuth(this)">I</span> <span onmousedown="searchAlfabetAuth(this)">J</span> <span onmousedown="searchAlfabetAuth(this)">K</span> <span onmousedown="searchAlfabetAuth(this)">L</span> <span onmousedown="searchAlfabetAuth(this)">M</span> <span onmousedown="searchAlfabetAuth(this)">N</span> <span onmousedown="searchAlfabetAuth(this)">O</span> <span onmousedown="searchAlfabetAuth(this)">P</span> <span onmousedown="searchAlfabetAuth(this)">Q</span> <span onmousedown="searchAlfabetAuth(this)">R</span> <span onmousedown="searchAlfabetAuth(this)">S</span> <span onmousedown="searchAlfabetAuth(this)">T</span> <span onmousedown="searchAlfabetAuth(this)">U</span> <span onmousedown="searchAlfabetAuth(this)">V</span> <span onmousedown="searchAlfabetAuth(this)">W</span> <span onmousedown="searchAlfabetAuth(this)">X</span> <span onmousedown="searchAlfabetAuth(this)">Y</span> <span onmousedown="searchAlfabetAuth(this)">Z</span></div></div><div class="spacer"></div><div id="sbuttons" style="display:none"><input type="button" class="expandbutton" onmousedown="simpleSearch()" value="Искать"/><input type="button" class="button2" onmousedown="clearSearch(this)" value="Очистить"/></div>
+			<div id="simple_search"><input type="button" class="simplebutton" onmousedown="simpleSearch()" value="Искать в РГБИ"/><div class="labcontainer"><div class="opt"><div class="select"><img onmousedown="showOptions(this,'labs_div')" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" border="0" hspace="0" vspace="0" alt="" title="" class="labs"/><span onmousedown="showOptions(this.previousSibling,'labs_div')"></span></div></div><div class="inp"><input id="itemsimple" type="text" class="iLAB" value="" maxlength="1000" /></div></div></div><div class="spacer"></div><div id="expand_search" style="display: none"><b class="voc" onmousedown="showVoc(this)"></b><div class="logcontainer"><div class="select1"><img onclick="showOptions(this,'logic_div')" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" border="0" hspace="0" vspace="0" alt="" title="" class="log"/><span onmousedown="showOptions(this.previousSibling,'logic_div')" class="iAND">И</span></div></div><div class="labcontainer"><div class="opt"><div class="select"><img onmousedown="showOptions(this,'labs_div')" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" border="0" hspace="0" vspace="0" alt="" title="" class="labs"/><span onmousedown="showOptions(this.previousSibling,'labs_div')"></span></div></div><div class="inp"><input id="item0" type="text" class="iLAB" value="" maxlength="1000" /></div></div><div class="spacer" style="height: 7px"></div><b class="voc" onmousedown="showVoc(this)"></b><div class="logcontainer"><div class="select1"><img onclick="showOptions(this,'logic_div')" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" border="0" hspace="0" vspace="0" alt="" title="" class="log"/><span onmousedown="showOptions(this.previousSibling,'logic_div')" class="iAND">И</span></div></div><div class="labcontainer"><div class="opt"><div class="select"><img onmousedown="showOptions(this,'labs_div')" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" border="0" hspace="0" vspace="0" alt="" title="" class="labs"/><span onmousedown="showOptions(this.previousSibling,'labs_div')"></span></div></div><div class="inp"><input id="item1" type="text" class="iLAB" value="" maxlength="1000" /></div></div><div class="spacer" style="height: 7px"></div><b class="voc" onmousedown="showVoc(this)"></b><div class="logcontainer"><div class="select1"><img onclick="showOptions(this,'logic_div')" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" border="0" hspace="0" vspace="0" alt="" title="" class="log"/><span onmousedown="showOptions(this.previousSibling,'logic_div')" class="iAND">И</span></div></div><div class="labcontainer"><div class="opt"><div class="select"><img onmousedown="showOptions(this,'labs_div')" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" border="0" hspace="0" vspace="0" alt="" title="" class="labs"/><span onmousedown="showOptions(this.previousSibling,'labs_div')"></span></div></div><div class="inp"><input id="item2" type="text" class="iLAB" value="" maxlength="1000" /></div></div><div class="spacer" style="height: 7px"></div><b class="voc" onmousedown="showVoc(this)"></b><div class="logcontainer"><div class="select1"><img onclick="showOptions(this,'logic_div')" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" border="0" hspace="0" vspace="0" alt="" title="" class="log"/><span onmousedown="showOptions(this.previousSibling,'logic_div')" class="iAND">И</span></div></div><div class="labcontainer"><div class="opt"><div class="select"><img onmousedown="showOptions(this,'labs_div')" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" border="0" hspace="0" vspace="0" alt="" title="" class="labs"/><span onmousedown="showOptions(this.previousSibling,'labs_div')"></span></div></div><div class="inp"><input id="item3" type="text" class="iLAB" value="" maxlength="1000" /></div></div><div class="spacer" style="height: 7px"></div><b class="voc" onmousedown="showVoc(this)"></b><div class="labcontainer"><div class="opt"><div class="select"><img onmousedown="showOptions(this,'labs_div')" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" border="0" hspace="0" vspace="0" alt="" title="" class="labs"/><span onmousedown="showOptions(this.previousSibling,'labs_div')"></span></div></div><div class="inp"><input id="item4" type="text" class="iLAB" value="" maxlength="1000" /></div></div><div class="spacer" style="height: 7px"></div><div class="spacer"></div></div><div class="spacer"></div><div id="authority_search" style="display: none"><input type="button" class="authoritybutton" onmousedown="findInAf()" value="Искать"/><input id="voclist" type="button" class="voc" onmousedown="findInAf(this)" value="Список"/><input id="vocaf" type="button" class="voc" onmousedown="showVoc(this)" value="Словарь"/><div class="voc angle" id="meshtree"><div onmousedown="seeTreeView(this)">Дерево</div></div><div class="labcontainer"><div class="opt"><div class="select"><img onmousedown="showOptions(this,'labs_div')" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" border="0" hspace="0" vspace="0" alt="" title="" class="labs"/><span onmousedown="showOptions(this.previousSibling,'labs_div')"></span></div></div><div class="inp"><input id="itemaf" type="text" class="iLAB" value="" maxlength="1000" /></div></div><div id="afalfabet"><span onmousedown="searchAlfabetAuth(this)">А</span> <span onmousedown="searchAlfabetAuth(this)">Б</span> <span onmousedown="searchAlfabetAuth(this)">В</span> <span onmousedown="searchAlfabetAuth(this)">Г</span> <span onmousedown="searchAlfabetAuth(this)">Д</span> <span onmousedown="searchAlfabetAuth(this)">Е</span> <span onmousedown="searchAlfabetAuth(this)">Ж</span> <span onmousedown="searchAlfabetAuth(this)">З</span> <span onmousedown="searchAlfabetAuth(this)">И</span> <span onmousedown="searchAlfabetAuth(this)">Й</span> <span onmousedown="searchAlfabetAuth(this)">К</span> <span onmousedown="searchAlfabetAuth(this)">Л</span> <span onmousedown="searchAlfabetAuth(this)">М</span> <span onmousedown="searchAlfabetAuth(this)">Н</span> <span onmousedown="searchAlfabetAuth(this)">О</span> <span onmousedown="searchAlfabetAuth(this)">П</span> <span onmousedown="searchAlfabetAuth(this)">Р</span> <span onmousedown="searchAlfabetAuth(this)">С</span> <span onmousedown="searchAlfabetAuth(this)">Т</span> <span onmousedown="searchAlfabetAuth(this)">У</span> <span onmousedown="searchAlfabetAuth(this)">Ф</span> <span onmousedown="searchAlfabetAuth(this)">Х</span> <span onmousedown="searchAlfabetAuth(this)">Ц</span> <span onmousedown="searchAlfabetAuth(this)">Ч</span> <span onmousedown="searchAlfabetAuth(this)">Ш</span> <span onmousedown="searchAlfabetAuth(this)">Щ</span> <span onmousedown="searchAlfabetAuth(this)">Э</span> <span onmousedown="searchAlfabetAuth(this)">Ю</span> <span onmousedown="searchAlfabetAuth(this)">Я</span><br/><span onmousedown="searchAlfabetAuth(this)">A</span> <span onmousedown="searchAlfabetAuth(this)">B</span> <span onmousedown="searchAlfabetAuth(this)">C</span> <span onmousedown="searchAlfabetAuth(this)">D</span> <span onmousedown="searchAlfabetAuth(this)">E</span> <span onmousedown="searchAlfabetAuth(this)">F</span> <span onmousedown="searchAlfabetAuth(this)">G</span> <span onmousedown="searchAlfabetAuth(this)">H</span> <span onmousedown="searchAlfabetAuth(this)">I</span> <span onmousedown="searchAlfabetAuth(this)">J</span> <span onmousedown="searchAlfabetAuth(this)">K</span> <span onmousedown="searchAlfabetAuth(this)">L</span> <span onmousedown="searchAlfabetAuth(this)">M</span> <span onmousedown="searchAlfabetAuth(this)">N</span> <span onmousedown="searchAlfabetAuth(this)">O</span> <span onmousedown="searchAlfabetAuth(this)">P</span> <span onmousedown="searchAlfabetAuth(this)">Q</span> <span onmousedown="searchAlfabetAuth(this)">R</span> <span onmousedown="searchAlfabetAuth(this)">S</span> <span onmousedown="searchAlfabetAuth(this)">T</span> <span onmousedown="searchAlfabetAuth(this)">U</span> <span onmousedown="searchAlfabetAuth(this)">V</span> <span onmousedown="searchAlfabetAuth(this)">W</span> <span onmousedown="searchAlfabetAuth(this)">X</span> <span onmousedown="searchAlfabetAuth(this)">Y</span> <span onmousedown="searchAlfabetAuth(this)">Z</span></div></div><div class="spacer"></div><div id="sbuttons" style="display:none"><input type="button" class="expandbutton" onmousedown="simpleSearch()" value="Искать"/><input type="button" class="button2" onmousedown="clearSearch(this)" value="Очистить"/></div>
 			<div id="limits_search" class="limits" onclick="showLimits(this)" style="display:none">Ограничения</div><div class="baselimits" id="limits_307" style="display: none"><div class="limits_left"><span class="title">Вид документа</span><div id="l_307_0" class="select"><img onclick="showOptions(this)" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" border="0" hspace="0" vspace="0" alt="" title="" class="labs"/><span class="all" onmousedown="showOptions(this.previousSibling)">все</span></div></div></div><div class="spacer"></div><div class="baselimits" id="limits_425" style="display: none"><div class="limits_left"><span class="title">Год</span><span class="from">&#160;c&#160;</span><span class="input"><input id="period_425_0_1" name="period_425_0_1" size="4" maxlength="4" type="text" value="" class="PY"/></span><span class="to">&#160;по&#160;</span><span class="input"><input id="period_425_0_2" name="period_425_0_2" size="4" maxlength="4" type="text" value="" class="PY"/></span></div><div class="limits_left"><span class="title">Аудитория</span><div id="l_425_1" class="select"><img onclick="showOptions(this)" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" border="0" hspace="0" vspace="0" alt="" title="" class="labs"/><span class="all" onmousedown="showOptions(this.previousSibling)">все</span></div></div></div><div class="spacer"></div><div class="baselimits" id="limits_500" style="display: none"><div class="limits_left"><span class="title">Год</span><span class="from">&#160;c&#160;</span><span class="input"><input id="period_500_0_1" name="period_500_0_1" size="4" maxlength="4" type="text" value="" class="PY"/></span><span class="to">&#160;по&#160;</span><span class="input"><input id="period_500_0_2" name="period_500_0_2" size="4" maxlength="4" type="text" value="" class="PY"/></span></div><div class="limits_left"><span class="title">Аудитория</span><div id="l_500_1" class="select"><img onclick="showOptions(this)" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" border="0" hspace="0" vspace="0" alt="" title="" class="labs"/><span class="all" onmousedown="showOptions(this.previousSibling)">все</span></div></div></div><div class="spacer"></div>
 			</div>
 <!-- конец далее не редактировать -->
 <!-- из файла ../tpl/headerbottom.html -->
 			<div class="bottom"></div>
-<!-- меню -->
-<!-- О библиотеке Читателям Коллегам Спроси библиографа №№ История Адрес и время работы 3D панорамы Галерея Противодействие коррупции Структура библиотеки, контакты  Реквизиты библиоттеки Официальные документы Попечительский совет
-№№ Запись читателей  Услуги, правила пользования Фонды, ресурсы, каталоги Доступная среда Мероприятия и экскурсии Клубы и объединения Учёба в РГБИ Творческое развитие
-№№  Конференции, семинары Методические документы Проекты библиотеки  Издания РГБИ Библиотека благодарит Творческие конкурсы Вакансии  Секция библиотек по искуству и музейных библиотек РБА
-№№ Отзывы и предложения Тематические запросы Вне категорий Наличие изданий Вопросы о работе РГБИ Задать вопрос -->
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item dropdown">
-                    <!--
-                    <li><span id="news" class="nav-link dropdown-toggle" onmousedown="goToLocation('news')">НОВОСТИ</span></li>
-                    -->
-                    <a class="nav-link dropdown-toggle" href="#" onmousedown="goToLocation('news')" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">НОВОСТИ</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a href="/ru/pages/Archive_news/">Архив новостей</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2014/">2014</a></li>
-                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2013/">2013</a></li>
-                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2012/">2012</a></li>
-                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2011/">2011</a></li>
-                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2010/">2010</a></li>
-                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2009/">2009</a></li>
-                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2008/">2008</a></li>
-                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2007/">2007</a></li>
-                                <li><a class="dropdown-item" href="/ru/pages/Archive_news/2006/">2006</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" onmousedown="goToLocation('about')" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">О БИБЛИОТЕКЕ</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" onclick="address()">Адрес и время работы РГБИ</a></li>
-                        <li><a class="dropdown-item" onclick="readers()">Запись читателей</a></li>
-                        <li><a class="dropdown-item" onclick="about()">Общая информация</a></li>
-                        <li><a class="dropdown-item" onclick="history()">Из истории РГБИ</a></li>
-                        <li><a class="dropdown-item" onclick="structure()">Структура библиотеки</a></li>
-                        <li><a class="dropdown-item" onclick="requisites()">Реквизиты библиотеки</a></li>
-                        <li><a class="dropdown-item" href="http://liart.ru/ru/pages/index/normdocs/">Нормативные документы</a></li>
-                        <li><a class="dropdown-item" href="http://liart.ru/ru/pages/index/korrupt/">Противодействие коррупции</a></li>
-                        <li><a class="dropdown-item" href="/ru/pages/3d/">3D панорамы библиотеки</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/ru/pages/service/">УСЛУГИ</a>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="/ru/pages/fonds/" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">ФОНДЫ</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/ru/pages/fonds/main/">Основной фонд</a></li>
-                        <li><a class="dropdown-item" href="/ru/pages/fonds/cio">Справочно-информационный фонд</a></li>
-                        <li><a class="dropdown-item" href="/ru/pages/fonds/izofond">Фонд изобразительных материалов</a></li>
-                        <li><a class="dropdown-item" href="/ru/pages/fonds/abfond">Фонд отдела Абонемента</a></li>
-                        <li><a class="dropdown-item" href="/ru/pages/fonds/gvtp">Фонд газетных вырезок и театральных программ</a></li>
-                        <li><a class="dropdown-item" href="/ru/pages/fonds/video">Видеофонд</a></li>
-                        <li><a class="dropdown-item" href="/ru/pages/fonds/mffond">Фонд изданий на микрофишах</a></li>
-                        <li><a class="dropdown-item" href="http://liart.ru/ru/pages/fonds/arhiv/">Архивный фонд </a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="/ru/pages/catalogs/" id="navbarDropdown4" role="button" data-bs-toggle="dropdown" aria-expanded="false">КАТАЛОГИ</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="http://opac.liart.ru/opacg/nog.htm" target="_blank">Электронный каталог</a></li>
-                        <li><a class="dropdown-item" href="http://liart.ru/predm/i2.htm" target="_blank">Предметный каталог</a></li>
-                        <li><a class="dropdown-item" href="/ru/pages/catalogs/Kartochnye_katalogi/">Карточные каталоги</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="/ru/pages/eresorses/" id="navbarDropdown5" role="button" data-bs-toggle="dropdown" aria-expanded="false">ЭЛЕКТРОННЫЕ РЕСУРСЫ</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/ru/pages/eresorses/bd">Базы данных</a></li>
-                        <li><a class="dropdown-item" href="http://opac.liart.ru/opacg/nog.htm" target="_blank">Электронный каталог</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/ru/pages/contacts/">КОНТАКТЫ</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
 <!-- конец из файла ../tpl/headerbottom.html -->
 		</div>
 	</div>

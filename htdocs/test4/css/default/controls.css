@@ -76,6 +76,10 @@ input[type='button']:not([id='sand']):not([id='sor']):not([id='snot']):not([id='
 	margin:0 0 0 10px;
 	float:right;
 }
+.middle input[class$='button'] {
+		padding: 0 10px;
+}
+
 .middle .button2
 {
 	width:90px;

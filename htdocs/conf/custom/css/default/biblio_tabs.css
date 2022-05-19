@@ -3,18 +3,24 @@
 {
 	background: #fff;
 	/*padding: 5px 0 0 0;*/
-	margin: 50px 0 10px 0;
+	margin: 5px 0;
 	box-shadow: 0 10px 10px -10px #eee;
 	/*border-bottom: solid 1px #ddd;*/
 	overflow:hidden;
+	/* коррекция */
+	display: inline;
+	text-align: right;
+	top: 74px;
+	z-index: 10;
+	left: 1556px;
 }
 .tab_to_switch_search span
 {
     display: inline-block;
-    padding: 0 2% 0 2%;
+    /* padding: 0 2% 0 2%; */
     min-width: 300px;
-	font-weight:bold;
-    font-size: 10pt;
+	/* font-weight:bold; */
+    font-size: 12pt;
 	line-height:24pt;
 	height:34px;
 	cursor:pointer;
@@ -42,6 +48,9 @@
 	box-shadow: 0 -1px 1px 1px #900;
 	bottom:-1px;
 	color:#333;
+}
+span.opac {
+	display:none;
 }
 .tab_to_switch_search span.opac:after, .body_opac .tab_to_switch_search span.opac:after, .body_discovery .tab_to_switch_search span.discovery:after
 {

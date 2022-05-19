@@ -1,62 +1,68 @@
 /*шапка*/
-#header
-{
-	display:table;
-	width:100%;
-	height:10em;
-	height:10vw;
+.top_logo {
+    background: #FAFAFA url(../img/logo_gray.jpg) no-repeat center;
+    height: 190px;
+    width: 250px;
 }
-#header > div
-{
-	display:table;
-	width:100%;
-	height:100%;
+
+#header {
+    display: flex;
+    flex-flow: row-reverse nowrap;
+	justify-content: flex-end;
+    width: 84%;
+    background-color: #FAFAFA;
+    margin-left: auto;
+    margin-right: auto;
 }
-.top_logo
-{
-	display:table-cell;
-	vertical-align:middle;
-	padding: 0 0 0 5em;
-	padding: 0 0 0 5vw
+
+#index {
+    width:86%;
+	background-color: #FAFAFA;
 }
-#header .inner
-{
-	background: url(../img/logo.gif) 0 center no-repeat;
-	cursor:pointer;
+
+.inner {
+    font-weight: bold;
+    color: gray;
+    /* cursor: pointer; */
 }
-.n, .z, .p
-{
-	margin-left:50px;	
+
+.p p {
+    font-family: ptserifbolditalic;
+    font-weight: 400;
+    font-size: 1.5em;
+    line-height: 120%;
+    text-align: center;
 }
-.n, .z
-{
-	color: #9f0000;
+
+.n p {
+    font-family: ptserifbold;
+    font-weight: 700;
+    color: #7F7F7F;
+    font-size: 3em;
+    text-align: center;
+    /*text-transform:uppercase; */
 }
-.z, .p
-{
-	font-size: 70%;
+
+
+/*
+.z p {
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 120%;
 }
-.n
-{
-	font-size: 150%;
-	line-height:120%;
-}
-.z
-{
-	font-style: italic;
-}
-.p
-{
-	line-height:110%;
-}
+*/
+
 #top_info
 {
 	display:table-cell;
 	vertical-align:middle;
 	text-align:right;
+	width: 15%;
+	/*
 	padding: 0 5em 0 0;
 	padding: 0 5vw 0 0;
-	/*width:650px;*/
+	width:650px;
+	*/
 }
 #lkinfo
 {
