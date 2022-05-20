@@ -206,7 +206,7 @@
 <script src="//'.$jsonpath->biblioserver.'/bs.min.js"></script>';
 			$bibliocss='echo \'<link href="//'.$jsonpath->biblioserver.'/bs.min.css" type="text/css" rel="stylesheet"/>
 			<link href="/wlib/wlib/css/_additional/biblio.css" type="text/css" rel="stylesheet"/>\';';
-			$bibliotabs='<div class="tab_to_switch_search"><span class="opac" onmousedown="switchTypeSearch(this)">Поиск в электронных каталогах</span><span class="discovery" onmousedown="switchTypeSearch(this)">Поиск во внешних источниках</span></div>';
+			$bibliotabs='<div class="tab_to_switch_search"><span class="opac" onmousedown="switchTypeSearch(this)">Поиск в электронных каталогах</span><span class="discovery" onmousedown="switchTypeSearch(this)">Искать во внешних источниках</span></div>';
 		}
 		elseif($sinterf[$i]->id=="solr")
 		{

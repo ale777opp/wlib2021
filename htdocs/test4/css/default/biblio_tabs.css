@@ -9,21 +9,22 @@
 	overflow:hidden;
 	/* коррекция */
 	display: inline;
-	text-align: right;
+	/* text-align: right; */
 	top: 74px;
 	z-index: 10;
-	left: 1556px;
+	left: 93%;
 }
 .tab_to_switch_search span
 {
     display: inline-block;
     /* padding: 0 2% 0 2%; */
-    min-width: 300px;
+    min-width: 260px;
 	/* font-weight:bold; */
     font-size: 12pt;
 	line-height:24pt;
 	height:34px;
 	cursor:pointer;
+	padding: 0 10px;
 }
 .tab_to_switch_search span:after
 {
@@ -33,7 +34,7 @@
   right:-43px;
   height:0;
   width:0;
-  border-style: solid;
+  /*border-style: solid;*/
   border-width: 18px 23px 17px 23px;
   cursor:pointer;
 }

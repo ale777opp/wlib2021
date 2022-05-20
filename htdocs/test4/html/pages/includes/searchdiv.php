@@ -200,25 +200,26 @@ if($bodyclass!="") echo 'class="'.$bodyclass.'"';
 <!-- конец из файла ../tpl/blind_panel.html -->
 <!-- из файла ../tpl/headertop.html -->
 <div id="header">
-    <!--
-<div>
-	<div class="cross" id="menu_button" onclick="showHideM('top_info', 'menu_button')">
-		<span></span>
-		<span></span>
-		<span></span>
-	</div>
-	<div id="index__" class="s" onclick="goToLocation(this.id)">ЭБА</div>
-	<div class="top_logo">
-		<div id="index" class="index" onclick="goToLocation(this.id)">
-			<div class="inner">
-				<div class="n">Электронный абонемент</div>
-				<div class="z">Поиск и заказ доступа к ресурсам библиотеки</div>	
-			</div>
-		</div>
-	</div>
--->
-    <div class="block" id="top_info">
-        <?php
+
+    <div>
+        <!--
+        <div class="cross" id="menu_button" onclick="showHideM('top_info', 'menu_button')">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div id="index__" class="s" onclick="goToLocation(this.id)">ЭБА</div>
+        <div class="top_logo">
+            <div id="index" class="index" onclick="goToLocation(this.id)">
+                <div class="inner">
+                    <div class="n">Электронный абонемент</div>
+                    <div class="z">Поиск и заказ доступа к ресурсам библиотеки</div>
+                </div>
+            </div>
+        </div>
+	-->
+        <div class="block" id="top_info">
+            <?php
 		$utype='';
 		if(isset($ujson))
 			$utype=gettype($ujson);
@@ -269,10 +270,18 @@ if($bodyclass!="") echo 'class="'.$bodyclass.'"';
 			}
 		}
 	?>
-            <ul id="top_menu" class="top_menu">
-                <li>
-                    <span title="Версия для слабовидящих" class="blind" onmousedown="openBlindPanel()"></span>
-                </li>
+
+                <div style="font-style: italic;font-size: 10pt; line-height: 1.5; width: 160px; height: 100px;">
+                    <span>Уважаемый читатель, для полноценной работы и доступа к документам Вам нужно 
+				<span style="color:rgb(249, 229, 9)" id="privat" onmousedown="goToLocation(this.id)">ВОЙТИ</span> или
+                    <span style="color:rgb(249, 229, 9)" id="regform" onmousedown="goToLocation(this.id)">ЗАРЕГИСТРИРОВАТЬСЯ</span>
+                    </span>
+                </div>
+
+                <ul id="top_menu" class="top_menu">
+                    <li>
+                        <span title="Версия для слабовидящих" class="blind" onmousedown="openBlindPanel()"></span>
+                    </li>
 <!-- конец из файла ../tpl/headertop.html -->
 	<?php
 		$nspos=strpos($nsean, '*ютф*');
@@ -332,6 +341,7 @@ if($bodyclass!="") echo 'class="'.$bodyclass.'"';
 </ul>
 </div>
 <div style="display: flex;
+    top: -54px;
     flex-flow: row nowrap;
     justify-content: center;
     width: 90%;
@@ -455,7 +465,7 @@ if($bodyclass!="") echo 'class="'.$bodyclass.'"';
 <!-- конец из файла ../tpl/headermiddle1.html -->
 <!-- конец шапка -->
 <!-- далее не редактировать -->
-<div class="tab_to_switch_search"><span class="opac" onmousedown="switchTypeSearch(this)">Поиск в электронных каталогах</span><span class="discovery" onmousedown="switchTypeSearch(this)">Поиск во внешних источниках</span></div>
+<div class="tab_to_switch_search"><span class="opac" onmousedown="switchTypeSearch(this)">Поиск в электронных каталогах</span><span class="discovery" onmousedown="switchTypeSearch(this)">Искать во внешних источниках</span></div>
 <!-- из файла ../tpl/basestop.html -->
 <div class="searchdiv" id="searchdiv">
     <div class="bases_div" id="bases_div">

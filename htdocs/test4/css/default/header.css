@@ -7,7 +7,7 @@
 
 #header {
     display: flex;
-    flex-flow: row-reverse nowrap;
+    flex-flow: column nowrap;
 	justify-content: flex-end;
     width: 84%;
     background-color: #FAFAFA;
@@ -57,7 +57,7 @@
 	display:table-cell;
 	vertical-align:middle;
 	text-align:right;
-	width: 15%;
+	width: 40%;
 	/*
 	padding: 0 5em 0 0;
 	padding: 0 5vw 0 0;
@@ -96,6 +96,9 @@
 	display:inline-block;
 	height:35px;
 	vertical-align:middle;
+	/**/
+	left: 300px;
+	top: -100px;
 }
 #top_menu:before,
 #top_menu:after
