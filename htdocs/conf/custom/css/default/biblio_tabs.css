@@ -10,9 +10,9 @@
 	/* коррекция */
 	display: inline;
 	/* text-align: right; */
-	top: 74px;
+	top: 60px;
 	z-index: 10;
-	left: 93%;
+	left: 82%;
 }
 .tab_to_switch_search span
 {

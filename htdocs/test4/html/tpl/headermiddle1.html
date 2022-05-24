@@ -1,10 +1,10 @@
 </ul>
 </div>
 <div style="display: flex;
-    top: -54px;
+    top: -155px;
     flex-flow: row nowrap;
     justify-content: center;
-    width: 90%;
+    width: 74%;
     margin-left: auto;
     margin-right: auto;">
     <div class="top_logo"></div>
@@ -37,6 +37,12 @@
 		</button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown" style="top:7px">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+                    <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+                  </svg>
+                </li>
                 <li class="nav-item dropdown">
                     <!--
                     <li><span id="news" class="nav-link dropdown-toggle" onmousedown="goToLocation('news')">НОВОСТИ</span></li>
@@ -61,57 +67,72 @@
                     </ul>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="">Новые поступления</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" onmousedown="goToLocation('about')" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">Новые поступления</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    </ul>
                 </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" onmousedown="goToLocation('about')" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">О библиотеке</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" onclick="history()">История</a></li>
                         <li><a class="dropdown-item" onclick="address()">Адрес и время работы РГБИ</a></li>
-                        <li><a class="dropdown-item" onclick="readers()">Запись читателей</a></li>
-                        <li><a class="dropdown-item" onclick="about()">Общая информация</a></li>
-                        <li><a class="dropdown-item" onclick="history()">Из истории РГБИ</a></li>
-                        <li><a class="dropdown-item" onclick="structure()">Структура библиотеки</a></li>
-                        <li><a class="dropdown-item" onclick="requisites()">Реквизиты библиотеки</a></li>
-                        <li><a class="dropdown-item" href="http://liart.ru/ru/pages/index/normdocs/">Нормативные документы</a></li>
+                        <li><a class="dropdown-item" href="/ru/pages/3d/">3D панорамы Галерея</a></li>
                         <li><a class="dropdown-item" href="http://liart.ru/ru/pages/index/korrupt/">Противодействие коррупции</a></li>
-                        <li><a class="dropdown-item" href="/ru/pages/3d/">3D панорамы библиотеки</a></li>
+                        <li><a class="dropdown-item" onclick="structure()">Структура библиотеки, контакты</a></li>
+                        <li><a class="dropdown-item" onclick="requisites()">Реквизиты библиотеки</a></li>
+                        <li><a class="dropdown-item">Официальные документы</a></li>
+                        <li><a class="dropdown-item">Попечительский совет</a></li>
                     </ul>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="/ru/pages/service/">Читателям</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" onmousedown="goToLocation('about')" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">Читателям</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item">Запись читателей</a></li>
+                        <li><a class="dropdown-item">Услуги, правила пользования</a></li>
+                        <li><a class="dropdown-item">Фонды, ресурсы, каталоги</a></li>
+                        <li><a class="dropdown-item">Доступная среда</a></li>
+                        <li><a class="dropdown-item">Мероприятия и экскурсии</a></li>
+                        <li><a class="dropdown-item">Клубы и объединения</a></li>
+                        <li><a class="dropdown-item">Учёба в РГБИ</a></li>
+                        <li><a class="dropdown-item">Творческое развитие</a></li>
+                    </ul>
                 </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="/ru/pages/fonds/" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">Коллегам</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/ru/pages/fonds/main/">Основной фонд</a></li>
-                        <li><a class="dropdown-item" href="/ru/pages/fonds/cio">Справочно-информационный фонд</a></li>
-                        <li><a class="dropdown-item" href="/ru/pages/fonds/izofond">Фонд изобразительных материалов</a></li>
-                        <li><a class="dropdown-item" href="/ru/pages/fonds/abfond">Фонд отдела Абонемента</a></li>
-                        <li><a class="dropdown-item" href="/ru/pages/fonds/gvtp">Фонд газетных вырезок и театральных программ</a></li>
-                        <li><a class="dropdown-item" href="/ru/pages/fonds/video">Видеофонд</a></li>
-                        <li><a class="dropdown-item" href="/ru/pages/fonds/mffond">Фонд изданий на микрофишах</a></li>
-                        <li><a class="dropdown-item" href="http://liart.ru/ru/pages/fonds/arhiv/">Архивный фонд </a></li>
+                        <li><a class="dropdown-item">Конференции, семинары</a></li>
+                        <li><a class="dropdown-item">Методические документы</a></li>
+                        <li><a class="dropdown-item">Проекты библиотеки</a></li>
+                        <li><a class="dropdown-item">Издания РГБИ</a></li>
+                        <li><a class="dropdown-item">Библиотека благодарит</a></li>
+                        <li><a class="dropdown-item">Творческие конкурсы</a></li>
+                        <li><a class="dropdown-item">Вакансии</a></li>
+                        <li><a class="dropdown-item">Секция библиотек по искуству и музейных библиотек РБА</a></li>
                     </ul>
                 </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="/ru/pages/catalogs/" id="navbarDropdown4" role="button" data-bs-toggle="dropdown" aria-expanded="false">Спроси библиографа</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="http://opac.liart.ru/opacg/nog.htm" target="_blank">Электронный каталог</a></li>
-                        <li><a class="dropdown-item" href="http://liart.ru/predm/i2.htm" target="_blank">Предметный каталог</a></li>
-                        <li><a class="dropdown-item" href="/ru/pages/catalogs/Kartochnye_katalogi/">Карточные каталоги</a></li>
+                        <li><a class="dropdown-item">Тематические запросы</a></li>
+                        <li><a class="dropdown-item">Наличие изданий</a></li>
+                        <li><a class="dropdown-item">Задать вопрос</a></li>
+                        <li><a class="dropdown-item">Отзывы и предложения</a></li>
+                        <li><a class="dropdown-item">Вне категорий</a></li>
+                        <li><a class="dropdown-item">Вопросы о работе РГБИ</a></li>
                     </ul>
                 </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="/ru/pages/eresorses/" id="navbarDropdown5" role="button" data-bs-toggle="dropdown" aria-expanded="false">Платные услуги</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/ru/pages/eresorses/bd">Базы данных</a></li>
-                        <li><a class="dropdown-item" href="http://opac.liart.ru/opacg/nog.htm" target="_blank">Электронный каталог</a></li>
+                        <li><a class="dropdown-item">Копирование</a></li>
+                        <li><a class="dropdown-item">Тематические списки</a></li>
+                        <li><a class="dropdown-item">Оплата услуг</a></li>
                     </ul>
                 </li>
 
@@ -122,3 +143,4 @@
 
 </div>
 <!-- div#header-->
+<div class="searchdiv" id="searchdiv">

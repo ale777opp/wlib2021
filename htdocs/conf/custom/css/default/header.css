@@ -57,7 +57,7 @@
 	display:table-cell;
 	vertical-align:middle;
 	text-align:right;
-	width: 40%;
+	width: 25%;
 	/*
 	padding: 0 5em 0 0;
 	padding: 0 5vw 0 0;
@@ -96,7 +96,7 @@
 	display:inline-block;
 	height:35px;
 	vertical-align:middle;
-	/**/
+	z-index:2;
 	left: 300px;
 	top: -100px;
 }

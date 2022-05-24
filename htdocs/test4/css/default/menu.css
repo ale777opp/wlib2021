@@ -39,3 +39,16 @@ li a:hover {
 li:hover>ul {
     display: block;
 }
+
+.basescontainer {
+    left: -264px;
+    top: -10px;
+}
+
+.tab_to_switch_search {
+    top: 40px;
+}
+
+.searchdiv_inner {
+    top: -20px;
+}
