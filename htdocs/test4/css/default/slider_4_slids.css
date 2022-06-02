@@ -2,7 +2,7 @@
     padding: 0 5% 0 5%;
     top: 130px;
     bottom: 35px;
-    width: 90%;
+    width: 92%;
     background: #40669c;
     background: rgba(0, 93, 154, 0.5);
 }
@@ -82,7 +82,7 @@ input[name='rslid'] {
 }
 
 #racont1 {
-    right: 60px;
+    right: 80px;
 }
 
 #racont1:before {
@@ -94,7 +94,7 @@ input[name='rslid'] {
 }
 
 #racont2 {
-    right: 10px;
+    right: 30px;
 }
 
 #racont2:before {

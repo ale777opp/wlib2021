@@ -1,25 +1,21 @@
 /*поисковая строка*/
 
 .searchdiv {
-    width: 100%;
+    /* width: 100%; */
     color: #666;
     z-index: 1;
     /* background: #fff; */
     box-shadow: 0 20px 20px -20px #eee;
-	top: -34px;
 }
 /*выбор бд*/
 
 .bases_div {
     display: inline-block;
-    left: 5%;
-	top: 65px;
+   	top: 75px;
 }
 
 #bases_div_inner {
     display: inline-block;
-    text-align: left;
-    padding: 5px 35px 0 0;
 }
 
 /*элементы поиска*/
@@ -38,12 +34,13 @@
 .searchdiv .top,
 .searchdiv .bottom {
     text-align: right;
-    padding: 5px 5% 5px 5%;
+    padding: 10px 0;
+	right: -18rem;
 }
 
 .searchdiv .top span,
 .searchdiv .bottom span {
-    margin: 0px 0px 0px 25px;
+    margin: 0px 0px 0px 15px;
     font-size: 70%;
     font-weight: bold;
     cursor: pointer;
@@ -64,14 +61,14 @@
 }
 
 .searchdiv .middle {
-    width: 100%;
-    text-align: left;
+     text-align: left;
+	 margin: 0 10px;
+	 width: 102%;
 }
 
 .searchdiv .middle [id$='_search']:not([id^='lib']) {
     /* margin: 0 5% 0 22%; */
-	left: 406px;
-	width: 60%;
+	
 }
 /*словарь*/
 
@@ -341,7 +338,7 @@
 [class^='options'] {
     position: absolute;
     white-space: nowrap;
-    z-index: 99991;
+    z-index: 100;
     text-align: left;
     overflow: hidden;
 }

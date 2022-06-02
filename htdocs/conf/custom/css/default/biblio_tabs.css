@@ -9,22 +9,21 @@
 	overflow:hidden;
 	/* коррекция */
 	display: inline;
-	/* text-align: right; */
+	/*text-align: center; 
 	top: 60px;
-	z-index: 10;
-	left: 82%;
+	z-index: 10; 
+	left: 81.5%; */
 }
 .tab_to_switch_search span
 {
     display: inline-block;
     /* padding: 0 2% 0 2%; */
-    min-width: 260px;
+    min-width: 250px;
 	/* font-weight:bold; */
     font-size: 12pt;
 	line-height:24pt;
 	height:34px;
 	cursor:pointer;
-	padding: 0 10px;
 }
 .tab_to_switch_search span:after
 {

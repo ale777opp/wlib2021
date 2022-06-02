@@ -40,15 +40,84 @@ li:hover>ul {
     display: block;
 }
 
-.basescontainer {
-    left: -264px;
-    top: -10px;
-}
-
 .tab_to_switch_search {
-    top: 40px;
+    order: 4;
+    flex: 0 0 20rem;
+    right: -30px;
+    height: 100%;
+    top: 10px;
 }
 
 .searchdiv_inner {
+    top: -20px;
+}
+
+.search-panel {
+    width: 84%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rslids img {
+    height: 100%;
+}
+
+.rslids div {
+    display: inline-block;
+    vertical-align: middle;
+    width: 15%;
+    height: 100%;
+}
+
+.rslids div.rcont {
+    width: 28%;
+}
+
+.racont2 {
+    right: 80px;
+}
+
+.racont1 {
+    right: 30px;
+}
+
+.rlib_outer {
+    top: 0px;
+    width: 92% !important;
+}
+
+#top_menu {
+    top: -6rem;
+}
+
+#top_info {
+    width: 82vw;
+}
+
+.basescontainer {
+    text-align: left;
+    top: -62px;
+}
+
+.searchdiv {
+    display: flex;
+    flex-flow: row nowrap;
+    top: 20px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.bases_div {
+    order: 0;
+    flex: 0 0 20rem;
+    left: 20px;
+}
+
+.searchdiv_outer {
+    order: 1;
+    flex: 1 1 auto;
+}
+
+.options2 {
     top: -20px;
 }

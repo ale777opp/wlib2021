@@ -7,15 +7,16 @@ include (THEPAGESPATH.'/includes/searchdiv.php');
 </head>  
 <div id="infor">
     <div class="col_title">
-        <span class="bread" id="index_" onmousedown="goToLocation(this.id)">Главная</span> / <span class="caption">Новости</span>
+        <span class="bread" id="index_" onmousedown="goToLocation(this.id)">Главная</span> / <span class="caption">Новые поступления</span>
     </div>
-        <h1 align = "center">Новая страница</h1>
+        <h1 align = "center">Новые поступления</h1>
     <div id="news_container" >
-		<div class="header"><center>Новости</center></div>
+		<div class="header"><center>Содержание</center></div>
 		<div class = "spacer h15x"></div>
 	</div>
 </div>
 <script>
+	
         const log = console.log;
 const createEl = (id, text, tag, _class) => {
   const el = document.createElement(tag)
