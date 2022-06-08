@@ -7,12 +7,6 @@ const createEl = (id, text, tag, _class) => {
     return el
 }
 
-function idMenu(event) {
-    let cl = event.target.id;
-    return cl;
-}
-
-/*
 let element = {};
 element.get_link = function(text) {
     var htmlObject = document.createElement('div');
@@ -25,7 +19,19 @@ element.get_link = function(text) {
         return '#';
     }
 }
-*/
+
+function userSwitchTypeSearch(o) {
+    if (document.body.classList == 'sheet_search_search_php') {
+        switchTypeSearch(o);
+        document.getElementById('search-btn').click();
+    }
+}
+/*
+function idMenu(event) {
+    let cl = event.target.id;
+    return cl;
+}
+
 let address = () => {
     if ($("#infoWindow").length) { $("#infoWindow").remove(); }
     $('<div/>', { "class": "address", "id": "infoWindow", "html": info[1].content }).appendTo('#infoContent');
@@ -50,3 +56,4 @@ let requisites = () => {
     if ($("#infoWindow").length) { $("#infoWindow").remove(); }
     $('<div/>', { "class": "requisites", "id": "infoWindow", "html": info[6].content }).appendTo('#infoContent');
 };
+*/

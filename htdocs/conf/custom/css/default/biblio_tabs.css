@@ -56,13 +56,24 @@ span.opac {
 {
 	border-color: transparent transparent #eee #eee;
 }
-.tab_to_switch_search span.discovery, .body_discovery .tab_to_switch_search span.opac
+/* 07/06/2022 */
+.body_discovery .tab_to_switch_search span.opac
 {
-    background: #900;
+    /* background: #900; */
 	color:#f0f0f0;
 	z-index:1;
 	box-shadow:none;
 }
+
+.tab_to_switch_search span.discovery
+{
+    padding-left: 6px;
+	color:#f0f0f0;
+	z-index:1;
+	box-shadow:none;
+}
+/* 07/06/2022 */
+
 .tab_to_switch_search span.discovery:after, .body_discovery .tab_to_switch_search span.opac:after
 {
 	border-color: transparent transparent #900 #900;

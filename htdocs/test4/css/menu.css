@@ -121,3 +121,24 @@ li:hover>ul {
 .options2 {
     top: -20px;
 }
+
+.tab_to_switch_search span.discovery {
+    padding-left: 6px;
+}
+
+body span.discovery {
+    background-color: gray;
+}
+
+body.sheet_search_search_php span.discovery {
+    background-color: #900;
+}
+
+.searchdiv {
+    box-shadow: none;
+}
+
+.tab_to_switch_search {
+    box-shadow: none;
+    background: none;
+}

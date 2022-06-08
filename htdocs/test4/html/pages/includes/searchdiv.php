@@ -359,12 +359,6 @@ if($bodyclass!="") echo 'class="'.$bodyclass.'"';
         <div class="n">
             <p>Российская государственная<br>библиотека искусств</p>
         </div>
-        <!-- 
-			<div class="z">
-			<p>Поиск и доступ к фондам и электронным ресурсам</p>
-			</div> 
-		</div>
-		-->
     </div>
 </div>
 </div>
@@ -379,7 +373,7 @@ if($bodyclass!="") echo 'class="'.$bodyclass.'"';
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#" onmousedown="goToLocation('index')" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link" href="#" onmousedown="goToLocation('index')" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
                         <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
@@ -388,15 +382,15 @@ if($bodyclass!="") echo 'class="'.$bodyclass.'"';
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#" onmousedown="goToLocation('events')" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">События</a>
+                    <a class="nav-link" href="#" onmousedown="goToLocation('events')" role="button" data-bs-toggle="dropdown" aria-expanded="false">События</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#" onmousedown="goToLocation('news')" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">Новые поступления</a>
+                    <a class="nav-link" href="#" onmousedown="goToLocation('news')" role="button" data-bs-toggle="dropdown" aria-expanded="false">Новые поступления</a>
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" onmousedown="goToLocation('about')" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">О библиотеке</a>
+                    <a class="nav-link dropdown-toggle" href="#" onmousedown="goToLocation('about')" role="button" data-bs-toggle="dropdown" aria-expanded="false">О библиотеке</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" onclick="history()">История</a></li>
                         <li><a class="dropdown-item" onclick="address()">Адрес и время работы РГБИ</a></li>
@@ -410,7 +404,7 @@ if($bodyclass!="") echo 'class="'.$bodyclass.'"';
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" onmousedown="goToLocation('readers')" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">Читателям</a>
+                    <a class="nav-link dropdown-toggle" href="#" onmousedown="goToLocation('readers')" role="button" data-bs-toggle="dropdown" aria-expanded="false">Читателям</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item">Запись читателей</a></li>
                         <li><a class="dropdown-item">Услуги, правила пользования</a></li>
@@ -424,7 +418,7 @@ if($bodyclass!="") echo 'class="'.$bodyclass.'"';
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" onmousedown="goToLocation('colleagues')" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">Коллегам</a>
+                    <a class="nav-link dropdown-toggle" href="#" onmousedown="goToLocation('colleagues')" role="button" data-bs-toggle="dropdown" aria-expanded="false">Коллегам</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item">Конференции, семинары</a></li>
                         <li><a class="dropdown-item">Методические документы</a></li>
@@ -438,7 +432,7 @@ if($bodyclass!="") echo 'class="'.$bodyclass.'"';
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" onmousedown="goToLocation('ask')" id="navbarDropdown4" role="button" data-bs-toggle="dropdown" aria-expanded="false">Спроси библиографа</a>
+                    <a class="nav-link dropdown-toggle" href="#" onmousedown="goToLocation('ask')" role="button" data-bs-toggle="dropdown" aria-expanded="false">Спроси библиографа</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item">Тематические запросы</a></li>
                         <li><a class="dropdown-item">Наличие изданий</a></li>
@@ -450,7 +444,7 @@ if($bodyclass!="") echo 'class="'.$bodyclass.'"';
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" onmousedown="goToLocation('paidServices')" id="navbarDropdown5" role="button" data-bs-toggle="dropdown" aria-expanded="false">Платные услуги</a>
+                    <a class="nav-link dropdown-toggle" href="#" onmousedown="goToLocation('paidServices')" role="button" data-bs-toggle="dropdown" aria-expanded="false">Платные услуги</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item">Копирование</a></li>
                         <li><a class="dropdown-item">Тематические списки</a></li>
@@ -469,7 +463,7 @@ if($bodyclass!="") echo 'class="'.$bodyclass.'"';
 <!-- конец из файла ../tpl/headermiddle1.html -->
 <!-- конец шапка -->
 <!-- далее не редактировать -->
-<div class="tab_to_switch_search"><span class="discovery" onmousedown="switchTypeSearch(this)" onclick = "searchOff()">Искать во внешних источниках</span></div>
+<div class="tab_to_switch_search"><span class="discovery" onmousedown="userSwitchTypeSearch(this)">Искать во внешних источниках</span></div>
 <!-- из файла ../tpl/basestop.html -->
 <!--
 <div class="searchdiv" id="searchdiv">

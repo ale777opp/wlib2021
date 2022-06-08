@@ -75,23 +75,6 @@ $news=$con->data;
 <div class="spacer"></div>
 
 <script type="text/javascript"> //скрипт новостей событий и книг
-let element = {}; 
-element.get_link = function(text) {
-	var htmlObject = document.createElement('div');
-		htmlObject.innerHTML = text;
-		//проверка есть ли ссылка в публикации о новинке
-	if (htmlObject.innerHTML.indexOf("</a>") != -1) {
-		var link = htmlObject.getElementsByTagName('a');
-		return link[0].href;
-	}else{
-		return '#';
-	}
-}
-function searchOff() {
-	//let slider = document.getElementByClassName('parallax-1'); 
-	//slider[0].style.dislpay = 'none';
-	alert('searchOff');
-}
 //let htmlSpan = `<span class = "curs" onclick="alert('CLICK!');">Еще...</span>`;
 // books \/
 let books = <?php echo json_encode($books); ?>;
