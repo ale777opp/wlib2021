@@ -61,3 +61,4 @@ wlib/htdocs/conf/custom/additional/slider_15_3_images_on_slid/
 Изменены:
 README_configurator.pdf и все файлы, содержащиеся в дистрибутиве.
 
+Новое в версии лето_2021
