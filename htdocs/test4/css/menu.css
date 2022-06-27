@@ -1,5 +1,10 @@
+<<<<<<< Updated upstream
 nav {
     background-color: #f8f8f8;
+=======
+* {
+    font-size: 14pt;
+>>>>>>> Stashed changes
 }
 
 .navbar-expand-lg .navbar-nav {
@@ -58,6 +63,7 @@ li:hover>ul {
     margin-right: auto;
 }
 
+<<<<<<< Updated upstream
 .rslids img {
     height: 100%;
 }
@@ -84,6 +90,39 @@ li:hover>ul {
 .rlib_outer {
     top: 0px;
     width: 92% !important;
+=======
+.grid_container>div {
+    color: #595959;
+    font-size: 16pt;
+    line-height: 40pt;
+    text-align: center;
+}
+
+.grid_container {
+    display: grid;
+    grid-gap: 2px;
+    grid-template-rows: repeat(3, 50px);
+    /* 3 строки */
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 столбца */
+    grid-template-areas: "main-1 main-2 main-3 main-4" "subMenu-5 subMenu-6 subMenu-7 subMenu-8" "subMenu-9 subMenu-10 subMenu-11 subMenu-12";
+}
+
+.main1 {
+    grid-area: main-1;
+}
+
+.main2 {
+    grid-area: main-2;
+}
+
+.main3 {
+    grid-area: main-3;
+}
+
+.main4 {
+    grid-area: main-4;
+>>>>>>> Stashed changes
 }
 
 #top_menu {
