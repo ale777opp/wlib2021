@@ -34,10 +34,16 @@ li a {
 li a:hover {
     color: #ffe;
     background-color: #5488af;
+    transition: 1s;
 }
 
 li:hover>ul {
     display: block;
+}
+
+.dropdown-menu {
+    top: 30px;
+    left: 0;
 }
 
 .tab_to_switch_search {

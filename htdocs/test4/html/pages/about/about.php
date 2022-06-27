@@ -64,7 +64,7 @@ $('<div/>', {"class": "spacer h30x"}).appendTo('#infoContent');
 $('<div/>', {"class": "about", "id": "infoWindow", "html": info[3].content }).appendTo('#infoContent');
 
 // $('<ul/>', {"class": "subpages"}).appendTo('#infoContent');
-/*
+
 for (let i=1;i<info.length;i++){
 let id = MENU_PREFIX + MENU_SEPARATOR + ID_ABOUT[i];
 //let id = ID_ABOUT[i];
@@ -130,7 +130,7 @@ switch(clickId) {
 	break;		
 }
 });			
-*/
+
 </script>
 
 <?php 
