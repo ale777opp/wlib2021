@@ -26,7 +26,7 @@ function userSwitchTypeSearch(o) {
         document.getElementById('search-btn').click();
     }
 }
-/*
+
 function idMenu(event) {
     let cl = event.target.id;
     return cl;
@@ -56,4 +56,3 @@ let requisites = () => {
     if ($("#infoWindow").length) { $("#infoWindow").remove(); }
     $('<div/>', { "class": "requisites", "id": "infoWindow", "html": info[6].content }).appendTo('#infoContent');
 };
-*/
