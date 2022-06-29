@@ -1,7 +1,10 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 nav {
     background-color: #f8f8f8;
 =======
+=======
+>>>>>>> Stashed changes
 * {
     font-size: 14pt;
 >>>>>>> Stashed changes
@@ -45,6 +48,7 @@ li:hover>ul {
     display: block;
 }
 
+<<<<<<< Updated upstream
 .tab_to_switch_search {
     order: 4;
     flex: 0 0 20rem;
@@ -91,6 +95,8 @@ li:hover>ul {
     top: 0px;
     width: 92% !important;
 =======
+=======
+>>>>>>> Stashed changes
 .grid_container>div {
     color: #595959;
     font-size: 16pt;
