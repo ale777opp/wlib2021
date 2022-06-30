@@ -1,6 +1,7 @@
 C:\opac-global\web\test4\htdocs\test4\html\pages\index\db_auth.php
 C:\opac-global\web\test4\htdocs\test4\html\pages\includes\searchdiv.php
-
+.gitignore
+*.log
 *.zip
 
 htdocs/conf/custom/css/default_*.css
